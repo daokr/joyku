@@ -1,0 +1,255 @@
+[ 2013-05-27T14:26:04+08:00 ] 127.0.0.1 /joyku/index.php/Admin/Index/index
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001386s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001578s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.010633s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010800s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000485s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000367s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000267s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000664s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002042s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000352s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000437s ]
+
+[ 2013-05-27T14:26:05+08:00 ] 127.0.0.1 /joyku/index.php/Admin/Public/top
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001826s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002115s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.021173s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021327s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000534s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000375s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000455s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000769s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002414s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000366s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000451s ]
+
+[ 2013-05-27T14:26:05+08:00 ] 127.0.0.1 /joyku/index.php/Admin/Public/menu
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001731s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001868s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.016930s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017087s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000996s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000829s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000762s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000841s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003712s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000841s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000931s ]
+
+[ 2013-05-27T14:26:05+08:00 ] 127.0.0.1 /joyku/index.php/Admin/Public/drag
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001467s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001580s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.027488s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027642s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000957s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000836s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000774s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000881s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003766s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000912s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001004s ]
+
+[ 2013-05-27T14:26:05+08:00 ] 127.0.0.1 /joyku/index.php/Admin/Public/footer
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001511s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001632s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.025087s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025245s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000956s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000836s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000754s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000827s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003650s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000846s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000935s ]
+
+[ 2013-05-27T15:53:29+08:00 ] 127.0.0.1 /think3/index.php/Admin/Index/index
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002309s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002424s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.011954s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012101s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001409s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001309s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001247s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001294s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005542s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001330s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001423s ]
+
+[ 2013-05-27T15:53:30+08:00 ] 127.0.0.1 /think3/index.php/Admin/Public/top
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.017404s ]
+INFO: [ view_template ] --END-- [ RunTime:0.017531s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.014866s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014995s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001427s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001295s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001218s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001318s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005543s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001297s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001389s ]
+
+[ 2013-05-27T15:53:30+08:00 ] 127.0.0.1 /think3/index.php/Admin/Public/menu
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002225s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002345s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.024859s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025013s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001721s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001306s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001225s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001300s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005852s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001387s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001484s ]
+
+[ 2013-05-27T15:53:30+08:00 ] 127.0.0.1 /think3/index.php/Admin/Public/drag
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002204s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002326s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.019550s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019705s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001406s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001533s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001274s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001293s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005827s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001288s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001379s ]
+
+[ 2013-05-27T15:53:30+08:00 ] 127.0.0.1 /think3/index.php/Admin/Public/footer
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002330s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002451s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.019273s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019429s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001444s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001284s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001220s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001315s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005540s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001310s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001403s ]
+
+[ 2013-05-27T16:09:37+08:00 ] 127.0.0.1 /think3/index.php/Admin/Index/index
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002259s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002376s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.013176s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013314s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001416s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001321s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001261s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001305s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005589s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001343s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001436s ]
+
+[ 2013-05-27T16:09:38+08:00 ] 127.0.0.1 /think3/index.php/Admin/Public/top
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.003215s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003355s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.015527s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015663s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001512s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001311s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001240s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001321s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005678s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001333s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001426s ]
+
+[ 2013-05-27T16:09:38+08:00 ] 127.0.0.1 /think3/index.php/Admin/Public/menu
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002666s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002815s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.015105s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015252s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001608s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001496s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001352s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001336s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006097s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001290s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001382s ]
+
+[ 2013-05-27T16:09:39+08:00 ] 127.0.0.1 /think3/index.php/Admin/Public/drag
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002204s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002337s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.013666s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013819s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001409s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001293s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001234s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001291s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005508s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001400s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001506s ]
+
+[ 2013-05-27T16:09:39+08:00 ] 127.0.0.1 /think3/index.php/Admin/Public/footer
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002441s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002570s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012020s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012161s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001391s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001296s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001204s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001273s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005435s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001320s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001410s ]
+
