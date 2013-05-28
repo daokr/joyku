@@ -79,7 +79,7 @@ __EXTENDS_JS__
 </header>
 
 
-<?php if($app_name == 'public' && !empty($visitor) ): ?><div id="header">
+<?php if($app_name == 'public' && $module_name != 'index' ): ?><div id="header">
     
 	<div class="site_nav">
         <div class="<?php echo ($logo[style]); ?>">
@@ -101,21 +101,40 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
-
+<!--main-->
 <div class="midder">
 <div class="mc">
-<h1><?php echo ($seo["title"]); ?></h1>
-<div class="cleft">
-<div class="infocontent"><?php echo ($strInfo[infocontent]); ?></div>
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
 </div>
 
-<div class="cright"><div class="infomenu">
-<ul>
-<?php if(is_array($arrMenu)): $i = 0; $__LIST__ = $arrMenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i; if($key == $infokey): ?><li class="select"><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li>
-    <?php else: ?>
-    <li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
-</ul>
-</div></div>
+    <div class="utable">
+    <form method="POST" action="<?php echo U('public/user/setdoname');?>" onsubmit="return checkDoname(this);">
+    <table cellpadding="5" cellspacing="5">
+    <tr>
+    <th>个性域名：</th>
+    <td>
+    <?php echo C('ik_site_url');?>/space/ <input class="txt" name="doname" value="<?php echo ($strUser[doname]); ?>" type="text" />
+    </td>
+    </tr>
+    <tr>
+    <th>&nbsp;</th>
+    <td>
+	<div class="tips">域名最长15个字符，可输入英文字母 数字 和 符号( - _ )，首字符必须是英文字母</div>
+    </td>
+    </tr>    
+    
+    <tr><th></th><td><input class="submit" type="submit" value="好了，保存"  /></td></tr>
+    
+    </table>
+    </form>
+    </div>
+
 </div>
 </div>
 

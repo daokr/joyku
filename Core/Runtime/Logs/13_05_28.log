@@ -991,3 +991,639 @@ NOTIC: 建议使用I方法替代_get
 [ 2013-05-28T18:06:10+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=joyku
 NOTIC: 建议使用I方法替代_get
 
+[ 2013-05-28T18:11:06+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:11+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=login
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:11:11+08:00 ] 127.0.0.1 /joyku/index.php?&app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:20+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=create
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:11:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:46+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:54+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:11:54+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:59+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:01+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:02+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:03+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:12:07+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:12:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:12:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:12+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:16+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:29+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=create
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:14:29+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:32+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:37+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:14:37+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isshow&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:40+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isshow&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:41+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:41+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isdigest&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isdigest&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:43+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:43+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_istop&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:44+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:44+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isdigest&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:44+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:46+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:20:40+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:21:33+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:22:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:24:45+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:25:19+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:26:03+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:26:04+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:27:45+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:30:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:30:40+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:30:48+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:30:54+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:31:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:32:02+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:32:18+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:32:19+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:32:41+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:33:34+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:34:04+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:35:07+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:35:33+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:36:13+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:36:31+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:37:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:37:31+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:41:46+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:44:23+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:45:05+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:28+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:50+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=images&a=add
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:46:51+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=updatetopic
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:46:52+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:56+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=deltopic&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:56+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:57+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:59+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:00+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore_topic
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:02+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:06+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_recommend
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000374s ]
+INFO: Run load_lang Behavior [ RunTime:0.001627s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002173s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003617s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001019s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369737126 [ RunTime:0.000426s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003841s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001111s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000493s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) LIMIT 1   [ RunTime:0.000518s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.003845s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.003982s ]
+SQL: SHOW COLUMNS FROM `ik_group_users` [ RunTime:0.004150s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.004094s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_collects` [ RunTime:0.003684s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_comments` [ RunTime:0.004262s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: SHOW COLUMNS FROM `ik_group_topics_recommend` [ RunTime:0.016700s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics_recommend` WHERE ( `topicid` = 2 ) LIMIT 1   [ RunTime:0.001109s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics_recommend` WHERE ( `userid` = 1 ) AND ( `topicid` = 2 ) LIMIT 1   [ RunTime:0.000417s ]
+SQL: INSERT INTO `ik_group_topics_recommend` (`userid`,`topicid`,`content`,`addtime`) VALUES (1,2,'1414',1369738026) [ RunTime:0.000499s ]
+SQL: UPDATE `ik_group_topics` SET `count_recommend`=count_recommend+1 WHERE ( `topicid` = 2 ) [ RunTime:0.000468s ]
+
+[ 2013-05-28T18:47:08+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_collect
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000357s ]
+INFO: Run load_lang Behavior [ RunTime:0.001609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002134s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003798s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001163s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369737128 [ RunTime:0.000357s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003814s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001118s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000498s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) LIMIT 1   [ RunTime:0.000522s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.003929s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004007s ]
+SQL: SHOW COLUMNS FROM `ik_group_users` [ RunTime:0.004103s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.004120s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_collects` [ RunTime:0.003722s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_comments` [ RunTime:0.004281s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics_collects` WHERE ( `userid` = 1 ) AND ( `topicid` = 2 ) LIMIT 1   [ RunTime:0.000804s ]
+SQL: INSERT INTO `ik_group_topics_collects` (`userid`,`topicid`,`addtime`) VALUES (1,2,1369738028) [ RunTime:0.000454s ]
+SQL: UPDATE `ik_group_topics` SET `count_collect`=count_collect+1 WHERE ( `topicid` = 2 ) [ RunTime:0.000462s ]
+SQL: SELECT `count_collect` FROM `ik_group_topics` WHERE ( `topicid` = 2 ) LIMIT 1   [ RunTime:0.000449s ]
+
+[ 2013-05-28T18:47:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:12+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=base&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:13+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=icon&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:13+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=base&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:14+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=icon&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:17+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=update&d=icon
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:47:18+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=icon&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:20+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:21+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:22+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore_topic
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:22+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=nearby
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:48:12+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=images&a=add
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:48:13+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:48:13+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:51:04+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:25+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:32+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:35+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:41+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=category&cateid=3
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:42+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=category&cateid=4
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:42+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=category&cateid=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:43+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=category&cateid=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:07+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:12+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:12+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:14+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:15+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:16+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:16+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:19+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:19+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:22+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:22+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:24+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:25+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:26+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:26+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:28+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:28+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:32+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:33+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:35+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&sc=desc&isauthor=0
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:37+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&sc=desc&isauthor=0&p=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+

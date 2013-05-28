@@ -1,6 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
+<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
@@ -24,9 +25,11 @@
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
+
 </head>
 
 <body>
+<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -79,7 +82,7 @@ __EXTENDS_JS__
 </header>
 
 
-<?php if($app_name == 'public' && !empty($visitor) ): ?><div id="header">
+<?php if($app_name == 'public' && $module_name != 'index' ): ?><div id="header">
     
 	<div class="site_nav">
         <div class="<?php echo ($logo[style]); ?>">
@@ -101,24 +104,93 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
+<!--header-->
+<div id="header">
+    
+	<div class="site_nav">
+        <div class="<?php echo ($logo[style]); ?>">
+            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
+        </div>
+		<div class="appnav">
+			    <ul id="nav_bar">
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+			    </ul>
+		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <input type="hidden" value="all" name="type">
+                <div id="search_bar">
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
+                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
+                </div>
+		    </form>
+		</div>
+        <div class="cl"></div>
+	</div>
+        
+</div>
 
 <div class="midder">
 <div class="mc">
-<h1><?php echo ($seo["title"]); ?></h1>
-<div class="cleft">
-<div class="infocontent"><?php echo ($strInfo[infocontent]); ?></div>
+    <div class="cleft">
+        <div class="art-body">
+            <h1 class="title"><?php echo ($strArticle[title]); ?></h1>
+            <div class="art-info">
+            作者：<a href="<?php echo U('space/index/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[newsauthor]); ?></a>&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$strArticle[addtime]) ?>&nbsp;&nbsp;<a href="#comments"><?php echo ($strArticle[count_comment]); ?>条回复</a>&nbsp;&nbsp;浏览<?php echo ($strArticle[count_view]); ?>次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
+            </div>
+        
+            <div class="art-text">
+                <?php echo ($strArticle[content]); ?>
+            </div>
+            <div class="control-btns">
+            <?php if($visitor[userid] == $strArticle[userid]): ?><a href="<?php echo U('article/index/edit',array('id'=>$strArticle['aid']));?>">编辑</a>&nbsp; &gt;&nbsp; <a href="<?php echo U('article/index/delete',array('id'=>$strArticle['aid']));?>" onclick="return confirm('确定删除?')">删除</a><?php endif; ?>
+            <br/>
+            本文由<a href="<?php echo U('space/index/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[user][username]); ?></a>授权（爱客网）发表，文章著作权为原作者所有
+            </div>
+            
+      	  <div class="clear"></div>
+          <div class="art-titles"> 
+             <span class="fl"><?php if(!empty($upArticle)): ?>上一篇：<a href="<?php echo U('article/index/show',array('id'=>$upArticle['aid']));?>"><?php echo ($upArticle['title']); ?></a><?php endif; ?></span>
+             <span class="fr"><?php if(!empty($downArticle)): ?>下一篇：<a href="<?php echo U('article/index/show',array('id'=>$downArticle['aid']));?>"><?php echo ($downArticle['title']); ?></a><?php endif; ?></span>
+          </div>
+      </div>
+    
+    
+    
+    </div>
+
+
+    <div class="cright">
+    
+        <div class="mod" id="g-user-profile">
+
+    <div class="usercard">
+      <div class="pic">
+            <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
+      </div>
+      <div class="info">
+           <div class="name">
+               <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
+           </div>
+                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
+                <br>
+       </div>
+    </div>
+               
+  
+             
+</div> 
+         
+<div class="mod">
+    <?php if($visitor): ?><div class="create-group">
+    <a href="<?php echo U('article/index/add');?>"><i>+</i>去投稿</a>
+    </div><?php endif; ?>
+</div>
+        
+    </div>
+
+</div>
 </div>
 
-<div class="cright"><div class="infomenu">
-<ul>
-<?php if(is_array($arrMenu)): $i = 0; $__LIST__ = $arrMenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i; if($key == $infokey): ?><li class="select"><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li>
-    <?php else: ?>
-    <li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
-</ul>
-</div></div>
-</div>
-</div>
-
+<!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
 <div id="footer">
@@ -144,5 +216,6 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+
 </body>
 </html>

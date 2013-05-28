@@ -101,24 +101,46 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
-
 <div class="midder">
-<div class="mc">
-<h1><?php echo ($seo["title"]); ?></h1>
-<div class="cleft">
-<div class="infocontent"><?php echo ($strInfo[infocontent]); ?></div>
-</div>
+	<div class="mc">
+    	
+	<div class="boxShadow">
+  	<div class="banner"><a class="btn-release" href="#"></a><a class="btn-manage" href="#"></a></div>
+		<div class="model clearfix">
+			<ul>
+				<li class=""><a href="#"><strong>开发者风采</strong><br><p>认证开发者的展示平台</p></a></li>			
+				<li class=""><a href="#"><strong>开发文档</strong><br><p>开发相关的文档</p></a></li>
+				<li class=""><a href="#"><strong>交流论坛</strong><br><p>站长与开发者的对话</p></a></li>
+				<li class=""><a href="#"><strong>需求市场</strong><br><p>开发者与需求方的沟通桥梁</p></a></li>
+			</ul>
+		</div>
+		<!-- 
+		<div class="clearfix pb20">
+			<div class="mod-list">
+				<div class="tit"><a href="" class="fr">更多动态>></a><h3>最新动态</h3></div>
+				<ul>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+				</ul>
+			</div>
+			<div class="mod-list">
+				<div class="tit"><a href="" class="fr">更多动态>></a><h3>帮助中心</h3></div>
+				<ul>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+				</ul>
+			</div>
+		</div> -->
+	</div>
 
-<div class="cright"><div class="infomenu">
-<ul>
-<?php if(is_array($arrMenu)): $i = 0; $__LIST__ = $arrMenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i; if($key == $infokey): ?><li class="select"><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li>
-    <?php else: ?>
-    <li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
-</ul>
-</div></div>
+    </div>
 </div>
-</div>
-
 <!--footer-->
 <footer>
 <div id="footer">

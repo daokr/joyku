@@ -1,6 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
+<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
@@ -24,9 +25,11 @@
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
+
 </head>
 
 <body>
+<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -79,7 +82,7 @@ __EXTENDS_JS__
 </header>
 
 
-<?php if($app_name == 'public' && !empty($visitor) ): ?><div id="header">
+<?php if($app_name == 'public' && $module_name != 'index' ): ?><div id="header">
     
 	<div class="site_nav">
         <div class="<?php echo ($logo[style]); ?>">
@@ -101,24 +104,148 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
+<!--header-->
+<div id="header">
+    
+	<div class="site_nav">
+        <div class="<?php echo ($logo[style]); ?>">
+            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
+        </div>
+		<div class="appnav">
+			    <ul id="nav_bar">
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+			    </ul>
+		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <input type="hidden" value="all" name="type">
+                <div id="search_bar">
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
+                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
+                </div>
+		    </form>
+		</div>
+        <div class="cl"></div>
+	</div>
+        
+</div>
 
 <div class="midder">
 <div class="mc">
-<h1><?php echo ($seo["title"]); ?></h1>
-<div class="cleft">
-<div class="infocontent"><?php echo ($strInfo[infocontent]); ?></div>
+<h1 class="group_tit">
+<?php echo ($seo["title"]); ?>
+</h1>
+
+<form method="POST" action="<?php echo ($action); ?>" onsubmit="return newTopicFrom(this)"  enctype="multipart/form-data" id="form_tipic">
+<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+
+	<tr>
+    	<th>标题：</th>
+		<td><input style="width:400px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="100" size="50" name="title" gtbfieldid="2" class="txt"   placeholder="请填写标题"></td>
+    </tr>	
+    <tr><th>&nbsp;</th>
+        <td align="left" style="padding:0px 10px">
+        <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addVideo">添加视频</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addLink">添加链接</a>
+        </td>
+    </tr>
+    <tr>
+        <th>内容：</th><td><textarea style="width:99.5%;height:300px;" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strTopic[content]); ?></textarea></td>
+    </tr>
+    <tr>
+        <th>评论：</th>
+        <td><input type="radio" checked="select" name="iscomment" value="0" />允许 <input type="radio" name="iscomment" value="1" />不允许</td>
+    </tr>	
+    <tr>
+    	<th>&nbsp;</th><td>
+        <input type="hidden" name="groupid" value="<?php echo ($strGroup[groupid]); ?>" />
+        <input type="hidden" name="topic_id" value="<?php echo ($topic_id); ?>" id="topic_id" />
+        <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('group/index/show',array('id'=>$strGroup[groupid]));?>">返回</a>
+        </td>
+    </tr>
+</table>
+<div id="thumblst" class="item item-thumb-list">
+    <?php if(is_array($arrPhotos)): foreach($arrPhotos as $key=>$item): ?><div class="thumblst">
+      <div class="details">
+        <p>图片描述（30字以内）</p>
+        <textarea name="photodesc[]" maxlength="30"><?php echo ($item[title]); ?></textarea>
+        <input type="hidden" name="seqid[]" value="<?php echo ($item[seqid]); ?>" >
+        <br>
+        <br>
+        图片位置<br>
+        <a onclick="javascript:removePhoto(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_<?php echo ($item[seqid]); ?>" ajaxurl="<?php echo U('images/delete');?>" imgid="<?php echo ($item[id]); ?>">删除</a>
+        <label>
+         <?php if($item[align] == 'L'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>"  checked  value="L" >
+         <?php else: ?>
+         <input type="radio" name="layout_<?php echo ($item[seqid]); ?>"   value="L" ><?php endif; ?>
+          <span class="alignleft">居左</span></label>
+        <label>
+          <?php if($item[align] == 'C'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="C" >
+          <?php else: ?>
+          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="C" ><?php endif; ?>
+          <span class="aligncenter">居中</span></label>
+        <label>
+          <?php if($item[align] == 'R'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="R" >
+          <?php else: ?>
+          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="R" ><?php endif; ?>
+          <span class="alignright">居右</span></label>
+      </div>
+      <div class="thumb">
+        <div class="pl">[图片<?php echo ($item[seqid]); ?>]</div>
+        <img src="<?php echo ($item[simg]); ?>">
+      </div>
+      	<div class="clear"></div>
+    </div><?php endforeach; endif; ?>
+
+</div>
+<div id="videosbar"  class="item item-thumb-list">
+   <?php if(is_array($arrVideos)): foreach($arrVideos as $key=>$item): ?><div class="thumblst">
+    <div class="details">
+    <p>视频标题（30字以内）</p>
+    <textarea name="video_<?php echo ($item[seqid]); ?>_title" maxlength="30"><?php echo ($item[title]); ?></textarea>
+    <input type="hidden" value="<?php echo ($item[seqid]); ?>" name="videoseqid[]">
+    <br>
+    <br>
+    视频网址：<br>
+    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('videos/delete');?>" videoid="<?php echo ($item[videoid]); ?>">删除</a>
+    <p><?php echo ($item[url]); ?></p>
+    </div>
+    <div class="thumb">
+    <div class="pl">[视频<?php echo ($item[seqid]); ?>]</div>
+    <img src="<?php echo ($item[imgurl]); ?>"> </div>
+    <div class="clear"></div>
+    </div><?php endforeach; endif; ?>
+</div>
+<!--加载编辑器-->
+<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/lib/IKEditor.js"></script>
+
+<script language="javascript">
+$(function(){
+	$('#addImg').bind('click',function(){
+		var ajaxurl = "<?php echo U('public/images/add');?>";
+		var typeid = '<?php echo ($topic_id); ?>';
+		var data = "{'type':'topic','typeid':'"+typeid+"'}";		
+		addPhoto(ajaxurl, data);
+	});
+	$('#addLink').bind('click',function(){	
+		addLink();
+	})
+	$('#addVideo').bind('click',function(){
+		var ajaxurl = "<?php echo U('public/videos/add',array('type'=>'topic','typeid'=>$topic_id));?>";
+		addVideo(ajaxurl);
+	})
+});
+</script>
+</form>
+
+
+
+</div>
 </div>
 
-<div class="cright"><div class="infomenu">
-<ul>
-<?php if(is_array($arrMenu)): $i = 0; $__LIST__ = $arrMenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i; if($key == $infokey): ?><li class="select"><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li>
-    <?php else: ?>
-    <li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
-</ul>
-</div></div>
-</div>
-</div>
 
+
+<!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
 <div id="footer">
@@ -144,5 +271,6 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+
 </body>
 </html>

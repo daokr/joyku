@@ -527,7 +527,7 @@ class indexAction extends frontendAction {
 				$author = array('isauthor'=>1,'text'=>'只看楼主');
 			}
 			//显示列表
-			$pagesize = 3;
+			$pagesize = 30;
 			$count = $this->group_topics_comments->where($map)->order('addtime '.$sc)->count('topicid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrComment =  $this->group_topics_comments->where($map)->order('addtime '.$sc)->limit($pager->firstRow.','.$pager->listRows)->select();

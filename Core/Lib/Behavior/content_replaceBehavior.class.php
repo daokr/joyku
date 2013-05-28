@@ -45,8 +45,7 @@ class content_replaceBehavior extends Behavior {
         //开始替换css
         $replace['__SITE_THEME_CSS__'] = $sitecss;
         //扩展js
-        $appextendjs = APPS_URL.APP_NAME.'/Static/js/extend.func.js';
-        
+        $appextendjs = APPS_URL.GROUP_NAME.'/Static/js/extend.func.js';
         if(is_file($appextendjs)){
         	$replace['__EXTENDS_JS__'] = '<script src="'.C('ik_site_url').$appextendjs.'" type="text/javascript"></script>';
         }else{

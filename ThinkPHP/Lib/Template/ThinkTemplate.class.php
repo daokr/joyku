@@ -666,7 +666,7 @@ class  ThinkTemplate {
     private function parseTemplateName($templateName){
         if(substr($templateName,0,1)=='$')
             //支持加载变量文件名
-            $templateName = $this->get(substr($templateName,1));
+            $templateName = $this->get(substr($templateName,1)); 
         $array  =   explode(',',$templateName);
         $parseStr   =   '';
         foreach ($array as $templateName){
@@ -680,7 +680,17 @@ class  ThinkTemplate {
                 }else{
                     $path = THEME_PATH;
                 }
-                $templateName  =  $path.$module.C('TMPL_FILE_DEPR').$action.$this->config['template_suffix'];
+                //修改人小麦
+                if(substr($templateName,0,5) == 'IKAPP'){
+                	$path   =  explode(':',$templateName);
+                	$action = array_pop($path);
+            		$_mod_name = array_pop($path);
+            		$_app_name = array_pop($path);
+            		$templateName  =  APPS_PATH.$_app_name.'/Tpl/'.$_mod_name.'/'.$action.$this->config['template_suffix'];
+            	}else{
+                
+                	$templateName  =  $path.$module.C('TMPL_FILE_DEPR').$action.$this->config['template_suffix'];
+                }
             }
             // 获取模板文件内容
             $parseStr .= file_get_contents($templateName);

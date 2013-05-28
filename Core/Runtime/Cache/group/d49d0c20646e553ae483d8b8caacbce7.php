@@ -82,7 +82,7 @@ __EXTENDS_JS__
 </header>
 
 
-<?php if($app_name == 'public' && !empty($visitor) ): ?><div id="header">
+<?php if($app_name == 'public' && $module_name != 'index' ): ?><div id="header">
     
 	<div class="site_nav">
         <div class="<?php echo ($logo[style]); ?>">
@@ -127,67 +127,122 @@ __EXTENDS_JS__
 	</div>
         
 </div>
+<!--main-->
 <div class="midder">
-	<div class="mc">
-		<aside class="w190 fl">
-			<section class="categories">
-				<div class="hd">
-					<h3>全部分类</h3>
-				</div>
-				<ul class="list categories-list">
-                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/index/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
-				</ul>
-			</section>
-			<section class="personal-publish">
-				<div class="hd">
-					<h3>作品投稿</h3>
-				</div>
-				<div class="bd">
-					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
-					<p class="entrance">
-						<a href="<?php echo U('article/index/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
-					</p>
-				</div>
-			</section>
-		</aside>
-		<article class="w770 fr">
-			<section>
-				<div class="hd tag-heading">
-					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
-				</div>
 
-				<div class="bd">
-					<ul class="list-lined article-list">
-						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
-							<div class="title">
-								<a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
-                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
-                                </a>
-							</div>
-                           <?php if($item[isphoto]): ?><div class="cover">
-                                <a class="pic" href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">
-									<img src="<?php echo ($item[photo][simg]); ?>" />
-								</a> 
-							</div><?php endif; ?>                           
-							<div class="info">
-								<div class="article-desc-brief">
-									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
-                                    <a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">（更多）</a>
-								</div>
-							</div>
-							<a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
-						</li><?php endforeach; endif; ?>
+<div class="mc">
+<div id="group-info">
+	<img align="left" alt="<?php echo ($strGroup[groupname]); ?>" src="<?php echo ($strGroup[icon_48]); ?>" class="pil mr10 groupicon"/>
+    <h1 class="group_tit"><?php echo ($strGroup[groupname]); if($strGroup[isaudit] == 1): ?><font class="red">[审核中]</font><?php endif; ?></h1>
 
-					</ul>
-				</div>
-
-
-			</section>
-            
-             <div class="page"><?php echo ($pageUrl); ?></div>   
-             
-		</article>
+    <div class="group-misc">
+    <?php if($isGroupUser && ($strGroup[userid]!=$visitor[userid])): ?><span class="fleft mr5 color-gray">我是这个小组的<?php echo ($strGroup['role_user']); ?> <a class="j a_confirm_link" href="<?php echo U('group/index/quit',array('id'=>$strGroup['groupid']));?>" style="margin-left: 6px;">&gt;退出小组</a></span>
+    
+    <?php elseif($isGroupUser && ($strGroup[userid]==$visitor[userid])): ?>
+    
+    <span class="fleft mr5 color-gray">我是这个小组的<?php echo ($strGroup['role_leader']); ?></span><?php endif; ?>
+    <?php if($strGroup[joinway] == 0 && !$isGroupUser): ?><a rel="nofollow" class="button-join" href="<?php echo U('group/index/join',array('id'=>$strGroup['groupid']));?>">
+                    <span>加入小组</span>
+                </a><?php endif; ?>
+	<?php if($strGroup[joinway] != 0): ?><span>本小组禁止加入</span><?php endif; ?>
 	</div>
+    
+</div>
+
+<div class="cleft">
+<div class="infobox">
+
+<div class="bd">
+    <p>创建于<?php echo date('Y-m-d',$strGroup[addtime]) ?>&nbsp; &nbsp; <?php echo ($strGroup[role_leader]); ?>：<a href="<?php echo U('space/index/index',array('id'=>$strLeader[doname]));?>"><?php echo ($strLeader[username]); ?></a></p>
+    <?php echo nl2br($strGroup[groupdesc]); ?>
+</div>
+
+</div>
+
+<div class="box">
+
+<div class="box_content">
+
+    <h2 style="margin-top:10px">
+                <a class="rr bn-post" href="<?php echo U('group/index/add',array('id'=>$strGroup[groupid]));?>"><span>+发言</span></a>
+        最近小组话题  · · · · · ·
+    </h2>
+
+<div class="clear"></div>
+
+            <div class="indent">
+                <table class="olt">
+                    <tbody>
+                        <tr>
+                            <td>话题</td>
+                            <td nowrap="nowrap">作者</td>
+                            <td nowrap="nowrap">回应</td>
+                            <td align="right" nowrap="nowrap">最后回应</td>
+                        </tr>
+            <?php if(!empty($arrTopic)): if(is_array($arrTopic)): foreach($arrTopic as $key=>$item): ?><tr class="pl">
+                                <td class="td-title">
+                                <a title="<?php echo ($item[title]); ?>" href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>">
+                                <?php echo getsubstrutf8(t($item['title']),0,25); ?>
+                                </a>
+                                <?php if($item[isvideo] == 1): ?><img src="__PUBLIC__/images/lc_cinema.png" align="absmiddle" title="[视频]" alt="[视频]" /><?php endif; ?>                
+                                <?php if($item[istop] == 1): ?><img src="__PUBLIC__/images/headtopic_1.gif" title="[置顶]" alt="[置顶]" /><?php endif; ?>
+                                <?php if($item[addtime] > (strtotime(date('Y-m-d 00:00:00')))): ?><img src="__PUBLIC__/images/topic_new.gif" align="absmiddle"  title="[新帖]" alt="[新帖]" /><?php endif; ?> 
+                                <?php if($item[isphoto] == 1): ?><img src="__PUBLIC__/images/image_s.gif" title="[图片]" alt="[图片]" align="absmiddle" /><?php endif; ?> 
+                                <?php if($item[isattach] == 1): ?><img src="__PUBLIC__/images/attach.gif" title="[附件]" alt="[附件]" /><?php endif; ?> 
+                                <?php if($item[isdigest] == 1): ?><img src="__PUBLIC__/images/posts.gif" title="[精华]" alt="[精华]" /><?php endif; ?>
+            					</td>
+                                <td nowrap="nowrap"><a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a></td>
+                                <td nowrap="nowrap" ><?php if($item[count_comment]): echo ($item[count_comment]); endif; ?></td>
+                                <td nowrap="nowrap" class="time" align="right"><?php echo getTime($item[uptime],time()) ?></td>
+                            </tr><?php endforeach; endif; endif; ?>         
+                </tbody>
+              </table>
+            </div>
+
+	<div class="clear"></div>
+	<div class="page"><?php echo ($pageUrl); ?></div>
+
+</div>
+</div>
+
+</div>
+
+
+<div class="cright">
+    <div>
+        <h2>最新加入成员</h2>
+        <?php if(is_array($arrGroupUser)): foreach($arrGroupUser as $key=>$item): ?><dl class="obu">
+            <dt>
+            <a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><img alt="<?php echo ($item[username]); ?>" class="m_sub_img" src="<?php echo ($item[face]); ?>" /></a>
+            </dt>
+            <dd><?php echo ($item[username]); ?><br>
+                <span class="pl">(<a href="<?php echo U('location/area',array(areaid=>$item[area][areaid]));?>"><?php echo ($item[area][areaname]); ?></a>)</span>
+            </dd>
+     	 </dl><?php endforeach; endif; ?>
+    
+        <br clear="all">
+    
+        <?php if($visitor[userid] == $strGroup[userid]): ?><p class="pl2">&gt; <a href="<?php echo U('group/index/group_user',array(groupid=>$strGroup[groupid]));?>">成员管理 (<?php echo ($strGroup[count_user]); ?>)</a></p>
+            
+            <p class="pl2">&gt; <a href="<?php echo U('group/index/edit',array(d=>base,groupid=>$strGroup[groupid]));?>">修改小组设置 </a></p>
+            
+            <?php else: ?>
+            
+            <p class="pl2"><a href="<?php echo U('group/index/group_user',array(groupid=>$strGroup[groupid]));?>">浏览所有成员 (<?php echo ($strGroup[count_user]); ?>)</a></p><?php endif; ?>
+        
+       <div class="clear"></div>
+
+        
+    </div>
+    
+	<p class="pl">本页永久链接: <a href="http://www.ikphp.com<?php echo U('group/index/show',array(id=>$strGroup[groupid]));?>">http://www.ikphp.com<?php echo U('group/index/show',array(id=>$strGroup[groupid]));?></a></p>
+    
+    <p class="pl"><span class="feed"><a href="<?php echo U('group/index/rss',array(id=>$strGroup[groupid]));?>">feed: rss 2.0</a></span></p>
+    
+    <div class="clear"></div>
+    
+</div>
+</div>
 </div>
 <!--引入后前台的模版文件 -->
 <!--footer-->

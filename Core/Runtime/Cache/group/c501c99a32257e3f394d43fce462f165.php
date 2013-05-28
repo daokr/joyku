@@ -1,6 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
+<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
@@ -24,9 +25,11 @@
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
+
 </head>
 
 <body>
+<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -79,7 +82,7 @@ __EXTENDS_JS__
 </header>
 
 
-<?php if($app_name == 'public' && !empty($visitor) ): ?><div id="header">
+<?php if($app_name == 'public' && $module_name != 'index' ): ?><div id="header">
     
 	<div class="site_nav">
         <div class="<?php echo ($logo[style]); ?>">
@@ -101,24 +104,91 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
+<!--header-->
+<div id="header">
+    
+	<div class="site_nav">
+        <div class="<?php echo ($logo[style]); ?>">
+            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
+        </div>
+		<div class="appnav">
+			    <ul id="nav_bar">
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+			    </ul>
+		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <input type="hidden" value="all" name="type">
+                <div id="search_bar">
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
+                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
+                </div>
+		    </form>
+		</div>
+        <div class="cl"></div>
+	</div>
+        
+</div>
 
+<!--main-->
 <div class="midder">
+
 <div class="mc">
-<h1><?php echo ($seo["title"]); ?></h1>
-<div class="cleft">
-<div class="infocontent"><?php echo ($strInfo[infocontent]); ?></div>
-</div>
-
-<div class="cright"><div class="infomenu">
+<h1>更改<?php echo ($strGroup[groupname]); ?>设置</h1>
+<div class="tabnav">
 <ul>
-<?php if(is_array($arrMenu)): $i = 0; $__LIST__ = $arrMenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i; if($key == $infokey): ?><li class="select"><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li>
-    <?php else: ?>
-    <li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+<?php if(is_array($menu)): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i; if($type == $key): ?><li class="select"><a href="<?php echo ($item["url"]); ?>" ><?php echo ($item["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($item["url"]); ?>" ><?php echo ($item["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
 </ul>
-</div></div>
-</div>
 </div>
 
+<div class="cleft">
+
+<form method="POST" action="<?php echo U('group/index/update',array('d'=>'base'));?>" onsubmit="return createGroup(this);">
+<table align="center" style="width:100%;clear: both;" class="table_1">
+	<tr><th>小组名称：</th>
+    <td><input type="text" value="<?php echo ($strGroup[groupname]); ?>" maxlength="63" size="31" name="groupname" gtbfieldid="13" class="txt" placeholder="请填写小组名称"></td></tr>
+    <tr><th>小组介绍：</th>
+    	<td><textarea style="width:100%;height:300px;" name="groupdesc" id="editor_mini" class="txt"   placeholder="请填写小组介绍"><?php echo ($strGroup[groupdesc]); ?></textarea></td>
+    </tr>
+    <tr>
+        <th>小组标签：</th>
+        <td>
+            <input style="width:300px;" onKeyDown="checkTag(this)" onKeyUp="checkTag(this)"  onBlur="checkTag(this)" type="text" value="<?php echo ($strGroup[tags]); ?>"  name="tag" id="tag" tabindex="3" class="txt" placeholder="请填写小组标签"> <span class="tip">最多 5 个标签</span>
+        </td>
+    </tr> 
+    <tr>
+        <th>&nbsp;</th>
+        <td style="padding-top:0px ">
+            <p class="tips">标签作为关键词可以被用户搜索到，多个标签之间用空格分隔开。</p>
+        </td>
+    </tr>   
+    <tr>
+    	<th>&nbsp;</th>
+        <td>
+          <input type="hidden" name="groupid" value="<?php echo ($strGroup[groupid]); ?>" />
+          <input class="submit" type="submit" tabinde="8" value="更新小组设置" >
+        </td>
+    </tr>
+    
+</table>
+</form>
+
+
+</div>
+
+<div class="cright">
+
+<p class="pl2">&gt; <a href="<?php echo U('group/index/show',array('id'=>$strGroup[groupid]));?>">返回<?php echo ($strGroup[groupname]); ?></a></p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
 <div id="footer">
@@ -144,5 +214,6 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+
 </body>
 </html>

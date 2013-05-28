@@ -1,6 +1,8 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit(); if($module_name == 'admin' ): ?><!--引入后台管理的头部模版文件 -->
+<!DOCTYPE HTML>
 <html>
 <head>
+<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
@@ -24,9 +26,53 @@
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
+
 </head>
 
 <body>
+<div style="margin:150px auto; width:350px;">
+  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
+  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
+    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($message); ?></li>
+    <li style="color:#666;line-height: 10px;">&nbsp;</li>
+
+    <li style="color:#666;"> 
+        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
+        <script type="text/javascript">
+            (function(){
+                var secs=3,si=setInterval(function(){
+                    if(--secs){
+                        document.getElementById('f3s').innerHTML = secs;
+                    }
+                    else{
+                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
+                    }
+            }, 1000)})();
+        </script>
+ 	</li>
+
+  </ul>
+</div>
+</body>
+</html>
+<?php else: ?>
+<!--引入后前台的头部模版文件 -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
+<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
+<link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
+<meta name="robots" content="all" />
+<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
+<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
+<style>__SITE_THEME_CSS__</style>
+</head>
+
+<body>
+<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -79,7 +125,7 @@ __EXTENDS_JS__
 </header>
 
 
-<?php if($app_name == 'public' && !empty($visitor) ): ?><div id="header">
+<?php if($app_name == 'public' && $module_name != 'index' ): ?><div id="header">
     
 	<div class="site_nav">
         <div class="<?php echo ($logo[style]); ?>">
@@ -101,24 +147,53 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
-
-<div class="midder">
-<div class="mc">
-<h1><?php echo ($seo["title"]); ?></h1>
-<div class="cleft">
-<div class="infocontent"><?php echo ($strInfo[infocontent]); ?></div>
+<!--header-->
+<div id="header">
+    
+	<div class="site_nav">
+        <div class="<?php echo ($logo[style]); ?>">
+            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
+        </div>
+		<div class="appnav">
+			    <ul id="nav_bar">
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+			    </ul>
+		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <input type="hidden" value="all" name="type">
+                <div id="search_bar">
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
+                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
+                </div>
+		    </form>
+		</div>
+        <div class="cl"></div>
+	</div>
+        
 </div>
+<div style="margin:150px auto; width:350px;">
+  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
+  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
+    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($message); ?></li>
+    <li style="color:#666;line-height: 10px;">&nbsp;</li>
 
-<div class="cright"><div class="infomenu">
-<ul>
-<?php if(is_array($arrMenu)): $i = 0; $__LIST__ = $arrMenu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i; if($key == $infokey): ?><li class="select"><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li>
-    <?php else: ?>
-    <li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
-</ul>
-</div></div>
-</div>
-</div>
+    <li style="color:#666;"> 
+        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
+        <script type="text/javascript">
+            (function(){
+                var secs=3,si=setInterval(function(){
+                    if(--secs){
+                        document.getElementById('f3s').innerHTML = secs;
+                    }
+                    else{
+                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
+                    }
+            }, 1000)})();
+        </script>
+ 	</li>
 
+  </ul>
+</div>
+<!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
 <div id="footer">
@@ -144,5 +219,6 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+
 </body>
-</html>
+</html><?php endif; ?>
