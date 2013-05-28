@@ -16,4 +16,5 @@ return array(
     'ADMIN_AUTH_KEY'			=>  'administrator',
     'AUTH_PWD_ENCODER'          =>  'md5',	// 用户认证密码加密方式
     'DB_LIKE_FIELDS'            =>  'title|remark',
+ 	'URL_MODEL' => 0,
 );

@@ -5,6 +5,7 @@ class backendAction extends Action {
     function _initialize() {
     	C ( 'SHOW_RUN_TIME', false ); // 运行时间显示
     	C ( 'SHOW_PAGE_TRACE', false );
+    	C($setting);
         //检查认证识别号
         if ( 'public' != strtolower(MODULE_NAME)) {
 	        if(!isset($_SESSION[C('USER_AUTH_KEY')])) {
