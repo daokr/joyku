@@ -259,7 +259,7 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 
 
 /*tab切换导航*/
-.tabnav { padding:0px; background:url(../../../public/images/zbar.gif) repeat-x 0px bottom; margin-bottom:10px; height:30px;overflow: hidden;}
+.tabnav { padding:0px; background:url(/Public/images/zbar.gif) repeat-x 0px bottom; margin-bottom:10px; height:30px;overflow: hidden;}
 .tabnav ul { margin: 0;overflow: hidden;padding: 0;}
 .tabnav ul li { float: left; margin:0px 8px; margin-top:3px; padding: 0 20px; display:block; line-height:28px;}
 .tabnav ul li a{ color:#333}
@@ -430,7 +430,7 @@ input[type="radio"] { margin:0;padding:0; vertical-align:middle; margin-right:5p
 }
 /**load style <div class="loading-style1"><b></b>加载中，请稍候...</div>**/
 .loading-style1{ text-align:center; color:#999;}
-.loading-style1 b{ background:url(../../../public/images/loading.gif) no-repeat 0px 0px; display:block; width:20px; height:20px;
+.loading-style1 b{ background:url(/Public/images/loading.gif) no-repeat 0px 0px; display:block; width:20px; height:20px;
 margin:5px auto;}
 /**pop css**/
 .pop_win_bg { opacity: 0.3; filter: alpha(opacity=30); position: fixed; background: #000; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; _position: absolute; _top:expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight-this.offsetHeight)*.45))!important }
@@ -479,7 +479,7 @@ a.pop_win_close:hover { color: #fab0b6; background: none }
 
 /**分享**/
 .bn-sharing {
-    background-image: url(../../../public/images/a1.png) !important;
+    background-image: url(/Public/images/a1.png) !important;
     background-position: 100% -19px !important;
     background-repeat: no-repeat !important;
     padding-right:10px;
@@ -505,7 +505,7 @@ a.pop_win_close:hover { color: #fab0b6; background: none }
     top: -24px;}
 #db-div-sharing .bd{background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #AAAAAA;padding: 10px 0 0 10px;}
 .rec-ren, .rec-sina, .rec-kx, .rec-msn, .rec-qq, .rec-tx, .rec-sohu, .rec-hua, .rec-db {
-    background: url(../../../public/images/a3a.png) no-repeat scroll 0 0 transparent;
+    background: url(/Public/images/a3a.png) no-repeat scroll 0 0 transparent;
     padding-left: 20px;
 }
 #db-div-sharing .bd li {
@@ -570,8 +570,8 @@ a.lnk-sharing:hover, a.lnk-sharing:active {
 }
 a.btn-fav:link, a.btn-fav:visited {border-color:#f2ece7;background-color:#fff6ee;color:#99776b}
 a.btn-fav:hover, a.btn-fav:active {border-color:#edceba;background-color:#fff0e2;color:#99776b}
-.fav-add, .fav-add:link, .fav-add:hover {background:url(../../../public/images/ic_like.png) no-repeat 8px 3px}
-.fav-cancel, .fav-cancel:link, .fav-cancel:hover {background:url(../../../public/images/ic_like.png) no-repeat 8px -17px}
+.fav-add, .fav-add:link, .fav-add:hover {background:url(/Public/images/ic_like.png) no-repeat 8px 3px}
+.fav-cancel, .fav-cancel:link, .fav-cancel:hover {background:url(/Public/images/ic_like.png) no-repeat 8px -17px}
 .fav-num {display:inline-block;*display:inline;zoom:1;color:#666}
 /**推荐**/
 .frm-recbox{}

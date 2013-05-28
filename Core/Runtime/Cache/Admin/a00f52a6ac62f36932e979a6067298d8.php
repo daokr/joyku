@@ -10,7 +10,12 @@
 <script src="__ADMIN_STATIC__/js/common.js" type="text/javascript"></script>
 <style>.fbox{float:left;width:45%;margin-right:10px;}</style>
 <script>
-
+$(document).ready(function(){
+	$.getJSON("http://www.ikphp.com/ikphp/index.php?app=public&m=notice&a=isupdate&v=<?php echo (IKPHP_VERSION); ?>&callback=?", 
+	function(data){
+		$('#IKPHP_Notice').html(data);
+	}); 
+});
 </script>
 </head>
 <body>
@@ -22,11 +27,11 @@
 <div class="fbox">
 <h2>目录权限</h2>
 <table>
-<tr><td width="100">data目录</td><td>
+<tr><td width="170">data目录</td><td>
 <?php if(!is_writable('data')): ?><font color="red">不可写</font>(请设置为可写777权限)<?php else: ?>可写<?php endif; ?></td></tr>
-<tr><td>data/static目录</td><td><?php if(!is_writable('./data/static')): ?><font color="red">不可写</font>(请设置为可写777权限)<?php else: ?>可写<?php endif; ?></td></tr>
+<tr><td>Core/Runtime目录</td><td><?php if(!is_writable('./Core/Runtime')): ?><font color="red">不可写</font>(请设置为可写777权限)<?php else: ?>可写<?php endif; ?></td></tr>
 <tr><td>data/upload目录</td><td><?php if(!is_writable('./data/upload')): ?><font color="red">不可写</font>(请设置为可写777权限)<?php else: ?>可写<?php endif; ?></td></tr>
-<tr><td>data/config目录</td><td><?php if(!is_writable('./data/config')): ?><font color="red">不可写</font>(请设置为可写777权限)<?php else: ?>可写<?php endif; ?></td></tr>
+<tr><td>Core/Runtime/Data目录</td><td><?php if(!is_writable('./Core/Runtime/Data')): ?><font color="red">不可写</font>(请设置为可写777权限)<?php else: ?>可写<?php endif; ?></td></tr>
 </table>
 </div>
 

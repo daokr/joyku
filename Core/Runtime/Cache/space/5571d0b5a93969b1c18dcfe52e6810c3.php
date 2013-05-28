@@ -81,8 +81,7 @@ __EXTENDS_JS__
 
 </header>
 
-
-<?php if($app_name == 'public' && !empty($visitor) ): ?><div id="header">
+<?php if($app_name == 'public' && !empty($visitor)): ?><div id="header">
     
 	<div class="site_nav">
         <div class="<?php echo ($logo[style]); ?>">
@@ -169,7 +168,7 @@ __EXTENDS_JS__
 <div class="spacetopic">
     <?php if(!empty($arrMyTopic)): ?><table width="100%">
         <?php if(is_array($arrMyTopic)): foreach($arrMyTopic as $key=>$item): ?><tr>
-        <td><img src="__STATIC__/public/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
+        <td><img src="__PUBLIC__/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
         <a href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>"><?php echo ($item[title]); ?></a>&nbsp;&nbsp;</td>
         <td><?php if($item[count_comment]): echo ($item[count_comment]); endif; ?></td>
         <td style="width:120px;text-align:right;color:#999999;"><?php echo date('Y-m-d H:i',$item[addtime]) ?></td>
@@ -196,7 +195,7 @@ __EXTENDS_JS__
 <div class="spacetopic">
     <?php if(!empty($arrMyComment)): ?><table width="100%">
     <?php if(is_array($arrMyComment)): foreach($arrMyComment as $key=>$item): ?><tr>
-        <td><img src="__STATIC__/public/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
+        <td><img src="__PUBLIC__/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
         <a href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>"><?php echo ($item[title]); ?></a>&nbsp;&nbsp;</td>
         <td><?php if($item[count_comment]): echo ($item[count_comment]); endif; ?></td>
         <td style="width:120px;text-align:right;color:#999999;"><?php echo date('Y-m-d H:i',$item[addtime]) ?></td>
@@ -223,7 +222,7 @@ __EXTENDS_JS__
 <div class="spacetopic">
     <?php if(!empty($arrMyCollect)): ?><table width="100%">
     <?php if(is_array($arrMyCollect)): foreach($arrMyCollect as $key=>$item): ?><tr>
-        <td><img src="__STATIC__/public/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
+        <td><img src="__PUBLIC__/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
         <a href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>"><?php echo ($item[title]); ?></a>&nbsp;&nbsp;</td>
         <td><?php if($item[count_comment]): echo ($item[count_comment]); endif; ?></td>
         <td style="width:120px;text-align:right;color:#999999;"><?php echo date('Y-m-d H:i',$item[addtime]) ?></td>

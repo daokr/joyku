@@ -3,8 +3,8 @@
 class backendAction extends Action {
 
     function _initialize() {
-    	//C ( 'SHOW_RUN_TIME', false ); // 运行时间显示
-    	//C ( 'SHOW_PAGE_TRACE', false );
+    	C ( 'SHOW_RUN_TIME', false ); // 运行时间显示
+    	C ( 'SHOW_PAGE_TRACE', false );
     	//消除所有的magic_quotes_gpc转义
     	import("ORG.Util.Input");
     	import("ORG.Util.Page");

@@ -155,3 +155,30 @@ CREATE TABLE `ik_group_topics_recommend` (
   KEY `userid` (`userid`),
   KEY `topicid` (`topicid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='帖子推荐';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ik_tag_group_index`
+--
+DROP TABLE IF EXISTS `ik_tag_group_index`;
+CREATE TABLE `ik_tag_group_index` (
+  `groupid` int(11) NOT NULL DEFAULT '0',
+  `tagid` int(11) NOT NULL DEFAULT '0',
+  UNIQUE KEY `groupid_2` (`groupid`,`tagid`),
+  KEY `groupid` (`groupid`),
+  KEY `tagid` (`tagid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ik_tag_topic_index`
+--
+DROP TABLE IF EXISTS `ik_tag_topic_index`;
+CREATE TABLE `ik_tag_topic_index` (
+  `topicid` int(11) NOT NULL DEFAULT '0' COMMENT '帖子ID',
+  `tagid` int(11) NOT NULL DEFAULT '0',
+  UNIQUE KEY `topicid_2` (`topicid`,`tagid`),
+  KEY `topicid` (`topicid`),
+  KEY `tagid` (`tagid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

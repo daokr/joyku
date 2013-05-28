@@ -1,4 +1,17 @@
 <?php
+/*
+ * 爱客网单入口
+* @copyright (c) 2012-3000 IKPHP All Rights Reserved
+* @author 小麦
+* @Email:160780470@qq.com
+*/
+define ( 'IN_IK', true );
+//载入版本号
+require_once('version.php');
+if (!is_file('./data/install.lock')) {
+	header('Location: ./install.php');
+	exit;
+}
 //载入版本号
 require_once('version.php');
 //网站根路径设置

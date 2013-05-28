@@ -33,7 +33,7 @@ class groupModel extends Model {
 			$result = $this->where ( $where )->find ();
 			
 			if (!is_file(C('ik_attach_path') . $result['groupicon'])) {
-				$result['icon_48'] = __ROOT__ . "/extend/public/images/group.jpg";
+				$result['icon_48'] = __ROOT__ . "/Public/images/group.jpg";
 			}else{
 				$result['icon_48'] = attach($result['groupicon']);
 			}

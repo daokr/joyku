@@ -34,7 +34,7 @@
     <table width="100%">
         <foreach name="arrMyTopic" item="item">
         <tr>
-        <td><img src="__STATIC__/public/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
+        <td><img src="__PUBLIC__/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
         <a href="{:U('group/index/topic',array('id'=>$item[topicid]))}">{$item[title]}</a>&nbsp;&nbsp;</td>
         <td><if condition="$item[count_comment]">{$item[count_comment]}</if></td>
         <td style="width:120px;text-align:right;color:#999999;"><php> echo date('Y-m-d H:i',$item[addtime])</php></td>
@@ -67,7 +67,7 @@
     <table width="100%">
     <foreach name="arrMyComment" item="item">
         <tr>
-        <td><img src="__STATIC__/public/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
+        <td><img src="__PUBLIC__/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
         <a href="{:U('group/index/topic',array('id'=>$item[topicid]))}">{$item[title]}</a>&nbsp;&nbsp;</td>
         <td><if condition="$item[count_comment]">{$item[count_comment]}</if></td>
         <td style="width:120px;text-align:right;color:#999999;"><php> echo date('Y-m-d H:i',$item[addtime])</php></td>
@@ -100,7 +100,7 @@
     <table width="100%">
     <foreach name="arrMyCollect" item="item">
         <tr>
-        <td><img src="__STATIC__/public/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
+        <td><img src="__PUBLIC__/images/topic.gif" align="absmiddle"  title="[帖子]" alt="[帖子]" />
         <a href="{:U('group/index/topic',array('id'=>$item[topicid]))}">{$item[title]}</a>&nbsp;&nbsp;</td>
         <td><if condition="$item[count_comment]">{$item[count_comment]}</if></td>
         <td style="width:120px;text-align:right;color:#999999;"><php> echo date('Y-m-d H:i',$item[addtime])</php></td>

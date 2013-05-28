@@ -79,8 +79,7 @@ __EXTENDS_JS__
 
 </header>
 
-
-<?php if($app_name == 'public' && $module_name != 'index' ): ?><div id="header">
+<?php if($app_name == 'public' && !empty($visitor)): ?><div id="header">
     
 	<div class="site_nav">
         <div class="<?php echo ($logo[style]); ?>">

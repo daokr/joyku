@@ -50,7 +50,7 @@ class helpAction extends frontendAction {
 			$this->assign('count', $countdown);	
 			$this->display('down');
 		}else{
-			
+
 			if($from == 1)
 			{ 
 				$data = array('userip'=>get_client_ip(),'downfrom'=>'本地下载','downtime'=>time());
@@ -74,7 +74,15 @@ class helpAction extends frontendAction {
 					$this->down_mod->add();
 					header('Location: http://down.cnzz.cn/info/89353.aspx');
 				}
-			}			
+			}
+			if($from == 4)
+			{
+				$data = array('userip'=>get_client_ip(),'downfrom'=>'本地下载','downtime'=>time());
+				if(!false == $this->down_mod->create($data)){
+					$this->down_mod->add();
+					header('Location: http://www.ikphp.com/down/IKPHP_1.5.2.rar');
+				}
+			}		
 		}
 	}	
 	
