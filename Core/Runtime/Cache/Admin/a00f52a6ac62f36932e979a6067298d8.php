@@ -5,9 +5,9 @@
 <meta name="author" content="160780470@qq.com" />
 <meta name="Copyright" content="<?php echo ($ikphp["ikphp_site_name"]); ?>" />
 <title><?php echo ($title); ?></title>
-<link rel="stylesheet" type="text/css" href="__APP_STATIC__/css/style.css" />
+<link rel="stylesheet" type="text/css" href="__ADMIN_STATIC__/css/style.css" />
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
-<script src="__APP_STATIC__/js/common.js" type="text/javascript"></script>
+<script src="__ADMIN_STATIC__/js/common.js" type="text/javascript"></script>
 <style>.fbox{float:left;width:45%;margin-right:10px;}</style>
 <script>
 

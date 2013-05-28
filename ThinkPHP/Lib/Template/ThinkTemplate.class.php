@@ -666,7 +666,7 @@ class  ThinkTemplate {
     private function parseTemplateName($templateName){
         if(substr($templateName,0,1)=='$')
             //支持加载变量文件名
-            $templateName = $this->get(substr($templateName,1));
+            $templateName = $this->get(substr($templateName,1)); 
         $array  =   explode(',',$templateName);
         $parseStr   =   '';
         foreach ($array as $templateName){
@@ -674,13 +674,23 @@ class  ThinkTemplate {
                 // 解析规则为 模板主题:模块:操作 不支持 跨项目和跨分组调用
                 $path   =  explode(':',$templateName);
                 $action = array_pop($path);
-                $module = !empty($path)?array_pop($path):MODULE_NAME;
+                $module = !empty($path)?array_pop($path):MODULE_NAME; 
                 if(!empty($path) && THEME_NAME) {// 设置模板主题
                     $path = dirname(THEME_PATH).'/'.array_pop($path).'/';
                 }else{
                     $path = THEME_PATH;
                 }
-                $templateName  =  $path.$module.C('TMPL_FILE_DEPR').$action.$this->config['template_suffix'];
+                //修改人小麦
+                if(substr($templateName,0,5) == 'IKAPP'){
+                	$path   =  explode(':',$templateName);
+                	$action = array_pop($path);
+            		$_mod_name = array_pop($path);
+            		$_app_name = array_pop($path);
+            		$templateName  =  APPS_PATH.$_app_name.'/Tpl/'.$_mod_name.'/'.$action.$this->config['template_suffix'];
+            	}else{
+                
+                	$templateName  =  $path.$module.C('TMPL_FILE_DEPR').$action.$this->config['template_suffix'];
+                }
             }
             // 获取模板文件内容
             $parseStr .= file_get_contents($templateName);

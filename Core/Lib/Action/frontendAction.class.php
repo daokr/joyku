@@ -13,13 +13,17 @@ class frontendAction extends baseAction {
         //网站状态
         //初始化访问者
         $this->_init_visitor();
+        $this->app_mod = D('app');
         //第三方登陆模块
         //$this->_assign_oauth();
         //网站导航选中
         //$this->assign('nav_curr', '');
+        //判断是否已被卸载
+        $this->_isuninstall($this->app_name);
         //网站导航
-        $this->assign('arrNav',$this->_nav($this->module_name));
-        $this->assign('logo',$this->_navlogo($this->module_name));
+        $this->assign('topNav',$this->_topnav());
+        $this->assign('arrNav',$this->_nav($this->app_name));
+        $this->assign('logo',$this->_navlogo($this->app_name));
     }
     /**
      * 初始化访问者
@@ -80,77 +84,54 @@ class frontendAction extends baseAction {
     	$pager->setConfig('theme', '%upPage% %first% %linkPage% %end% %downPage%');
     	return $pager;
     } 
-	// 网站导航
-	protected  function _nav($module_name){
-		if (! empty ( $module_name )) {
+    // 顶部次导航
+    protected  function _topnav(){
+    	$arrNav = array ();
+		$arrNav['index'] = array('name'=>'首页', 'url'=>C('ik_site_url'));
+		$arrApp = $this->app_mod->field('app_name,app_alias,app_entry')->where(array('status'=>'1'))->order(array('display_order asc'))->select();
+		foreach($arrApp as $item){
+			if(empty($item['app_entry'])){
+				$item['app_entry'] = 'index/index';
+			}
+			$arrNav[$item['app_name']] = array('name'=>$item['app_alias'], 'url'=>U($item['app_name'].'/'.$item['app_entry']));
+		}
+    	return $arrNav; 	
+    }
+	// 网站主导航
+	protected  function _nav($app_name){
+		if (! empty ( $app_name ) && $app_name == 'public') {
 			$arrNav = array ();
-			switch ($module_name) {
-				case "group" :
-					// 小组导航
-					if($this->visitor->info['userid']){
-						$arrNav['index'] = array('name'=>'我的小组', 'url'=>U('group/index'));
-					}
-					$arrNav['explore'] = array('name'=>'发现小组', 'url'=>U('group/explore'));
-					$arrNav['explore_topic'] = array('name'=>'发现话题', 'url'=>U('group/explore_topic'));
-					$arrNav['nearby'] = array('name'=>'北京话题', 'url'=>U('group/nearby'));
-					break;
-
-				case "mall" :
-					// 小组导航
-					if($this->visitor->info['userid']){
-						$arrNav['index'] = array('name'=>'我的淘客', 'url'=>U('mall/mine'));
-					}
-					$arrNav['explore'] = array('name'=>'发现宝贝', 'url'=>U('mall/explore_goods'));
-					$arrNav['album'] = array('name'=>'发现专辑', 'url'=>U('mall/explore_album'));
-					$arrNav['share'] = array('name'=>'我要分享', 'url'=>U('mall/share'));
-					break;	
-									
-				case "article" :
-					// 文章
-				    $arrChannel = D('article_channel')->getAllChannel(array('isnav'=>'0'));
-				    foreach($arrChannel as $item){
-				    	$arrNav[$item['nameid']] = array('name'=>$item['name'], 'url'=>U('article/channel',array('nameid'=>$item['nameid'])));
-				    }
-				    if($this->visitor->info['userid']){
-				    	$arrNav['my_article'] = array('name'=>'我的文章', 'url'=>U('article/my_article'));
-				    }
-					break;
-				case "site" :
-					// 小站
-					$arrNav['index'] = array('name'=>'小站首页', 'url'=>U('site/index'));
-					if($this->visitor->info['userid']){
-						$arrNav['mysite'] = array('name'=>'我的小站', 'url'=>U('site/mysite'));
-					}
-					$arrNav['explore'] = array('name'=>'发现小站', 'url'=>U('site/explore'));
-					break;										
-				default:
-					$arrNav['index'] = array('name'=>'首页', 'url'=>C('ik_site_url'));
-					$arrNav['group'] = array('name'=>'小组', 'url'=>U('group/index'));
-					$arrNav['article'] = array('name'=>'阅读', 'url'=>U('article/index'));
-					break;
+			$arrNav['index'] = array('name'=>'首页', 'url'=>C('ik_site_url'));
+			$arrApp = $this->app_mod->field('app_name,app_alias,app_entry')->where(array('status'=>'1'))->order(array('display_order asc'))->select();
+			foreach($arrApp as $item){
+				if(empty($item['app_entry'])){
+					$item['app_entry'] = 'index/index';
+				}
+				$arrNav[$item['app_name']] = array('name'=>$item['app_alias'], 'url'=>U($item['app_name'].'/'.$item['app_entry']));
 			}
 			return $arrNav;
 		}		
 	}
 	// 导航logo
-	protected  function _navlogo($module_name){
-		if (! empty ( $module_name )) {
+	protected  function _navlogo($app_name){
+		if (! empty ( $app_name )) {
 			$arrLogo = array ();
-			switch ($module_name) {
-				case "group" :
-					$arrLogo = array('name'=>'小组', 'url'=>U('group/index'), 'style'=>'site_logo nav_logo');
-					break;
-				case "mall" :
-					$arrLogo = array('name'=>'商城', 'url'=>U('mall/index'), 'style'=>'site_logo nav_logo');
-					break;						
-				case "article" :
-					$arrLogo = array('name'=>'阅读', 'url'=>U('article/index'), 'style'=>'site_logo nav_logo');
-					break;
-				default:
-					$arrLogo = array('name'=>'爱客开源', 'url'=>C('ik_site_url'), 'style'=>'site_logo');
-					break;
+			$strApp = $this->app_mod->where(array('app_name'=>$app_name))->find();
+			if($strApp){
+				$arrLogo = array('name'=>$strApp['app_alias'], 'url'=>U($app_name.'/'.$strApp['app_entry']), 'style'=>'site_logo nav_logo');
+			}else{
+				$arrLogo = array('name'=>'爱客开源', 'url'=>C('ik_site_url'), 'style'=>'site_logo');
 			}
 			return $arrLogo;
+		}
+	}
+	// 判断应用是否已被卸载
+	protected  function _isuninstall($app_name){
+		if (! empty ( $app_name ) && !in_array($app_name, C('DEFAULT_APPS'))) {
+			$strApp = $this->app_mod->where(array('app_name'=>$app_name,'status'=>'1'))->find();
+			if(!$strApp){
+				$this->error('厄，该应用不存在哦！或已被禁用！');
+			}
 		}
 	}
   

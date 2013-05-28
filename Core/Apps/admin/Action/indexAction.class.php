@@ -13,19 +13,15 @@ class indexAction extends backendAction {
 		if(empty($ik)){
 			$ik = 'index';
 		}
-		//生成应用管理菜单 获取 应用Tpl 下的left_menu.html
-	
-/* 		$filename = APPS_PATH . '/' . $ik . '/Appinfo/admin_menu.php';
-		if(is_file($filename)){
-			$info = include_once $filename;
-			foreach ($info as $key=>$item){
-				echo $item['submenu']['name'];
-	
-			}
-		} */
-		 
 		$this->assign('ik', $ik);
-		$this->display();
+		
+	    //生成应用管理菜单 获取 应用Tpl 下的left_menu.html
+    	$leftfile = APPS_PATH.$ik.'/Tpl/admin/left_menu.html';
+    	if(is_file($leftfile)){
+    		$this->display($leftfile);
+    	}else{
+    		$this->display();
+    	}	
 	}	
 	public function main(){
 		// 检测文件夹权限

@@ -93,6 +93,10 @@ function refresh() {
 		<li class="on"><a style="outline:none;" hidefocus="true" data-id="index" href="javascript:;">首页</a></li>
 <li><a style="outline:none;" hidefocus="true" data-id="setting" href="javascript:;">全局配置</a></li>
 <li><a style="outline:none;" hidefocus="true" data-id="user" href="javascript:;">用户管理</a></li>
+<li><a style="outline:none;" hidefocus="true" data-id="apps" href="javascript:;">应用管理</a></li>
+<li><a style="outline:none;" hidefocus="true" data-id="oauth" href="javascript:;">第三方管理</a></li>
+<?php if(is_array($admin_top_nav)): foreach($admin_top_nav as $key=>$item): ?><li><a style="outline:none;" hidefocus="true" data-id="<?php echo ($item[app_name]); ?>" href="javascript:;"><?php echo ($item[app_alias]); ?>管理</a></li><?php endforeach; endif; ?>
+
     </ul>                   
 </div>
 <div class="LeftMenu">

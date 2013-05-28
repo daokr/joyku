@@ -1,0 +1,1629 @@
+[ 2013-05-28T14:27:54+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=admin&a=channel
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:34:11+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=admin&a=channel
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:34:25+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=admin&a=channel
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:34:29+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001213s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001398s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004207s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001080s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001733s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001838s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.017534s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017672s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000977s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000848s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001268s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000947s ]
+INFO: Run content_replace Behavior [ RunTime:0.001762s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006181s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000910s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001007s ]
+
+[ 2013-05-28T14:34:31+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=article
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000364s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000470s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004151s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001227s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001271s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001372s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.010653s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010766s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000426s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000333s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000286s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000352s ]
+INFO: Run content_replace Behavior [ RunTime:0.000842s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002541s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000451s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000560s ]
+
+[ 2013-05-28T14:34:31+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=admin&a=channel
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:34:47+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=admin&a=index
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:34:49+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=admin&a=cate
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:34:52+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000366s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000468s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004099s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001143s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001255s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001351s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.014189s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014326s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000486s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000364s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000287s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000335s ]
+INFO: Run content_replace Behavior [ RunTime:0.001033s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002849s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000376s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000455s ]
+
+[ 2013-05-28T14:35:59+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=article
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001541s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001681s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003972s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001147s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002129s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002229s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.014478s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014611s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001367s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001257s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001229s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001272s ]
+INFO: Run content_replace Behavior [ RunTime:0.001714s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007177s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001536s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001635s ]
+
+[ 2013-05-28T14:35:59+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=admin&a=channel
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:36:01+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=group
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001468s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001588s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004093s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001251s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002159s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002257s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.013211s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013327s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001377s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001270s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001201s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001284s ]
+INFO: Run content_replace Behavior [ RunTime:0.001718s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007175s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001324s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001411s ]
+
+[ 2013-05-28T14:36:03+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=admin&a=manage
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:44:01+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=article
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001420s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004195s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001125s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002356s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002478s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.013978s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014115s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001416s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001427s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001260s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001289s ]
+INFO: Run content_replace Behavior [ RunTime:0.001739s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007522s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001343s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001434s ]
+
+[ 2013-05-28T14:44:01+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=admin&a=channel
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:44:02+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=oauth
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001351s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001469s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004356s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001144s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002210s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002311s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.017331s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017447s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001371s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001260s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001024s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001302s ]
+INFO: Run content_replace Behavior [ RunTime:0.001685s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006974s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001286s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001368s ]
+
+[ 2013-05-28T14:44:02+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=oauth&a=manage
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:44:02+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=apps
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001414s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003936s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001009s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002185s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002283s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012833s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012957s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001353s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001255s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000974s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001274s ]
+INFO: Run content_replace Behavior [ RunTime:0.001709s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006889s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001299s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001384s ]
+
+[ 2013-05-28T14:44:03+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=user
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001536s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003902s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001107s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002171s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002267s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.016769s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016907s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001369s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001291s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000969s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001258s ]
+INFO: Run content_replace Behavior [ RunTime:0.001697s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006891s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001297s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001381s ]
+
+[ 2013-05-28T14:44:03+08:00 ] 127.0.0.1 /joyku/index.php/admin/user/manage
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:44:03+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=setting
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001553s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003897s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001133s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002376s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002482s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012614s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012750s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001323s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001257s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000965s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001254s ]
+INFO: Run content_replace Behavior [ RunTime:0.001694s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006797s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001269s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001352s ]
+
+[ 2013-05-28T14:44:03+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:44:03+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001288s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001428s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004567s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001487s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002514s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002637s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012787s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012933s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001329s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001262s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000985s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001269s ]
+INFO: Run content_replace Behavior [ RunTime:0.001694s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006848s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001324s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001414s ]
+
+[ 2013-05-28T14:50:57+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=oauth
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001505s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001640s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004077s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001167s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002188s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002286s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.017506s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017626s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000927s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001279s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001225s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001295s ]
+INFO: Run content_replace Behavior [ RunTime:0.001717s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006757s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001298s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001384s ]
+
+[ 2013-05-28T14:50:57+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=oauth&a=manage
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:50:58+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=apps
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001369s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004214s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001325s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002135s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002232s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.016988s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017117s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000453s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001359s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000970s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001271s ]
+INFO: Run content_replace Behavior [ RunTime:0.001673s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006038s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001264s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001357s ]
+
+[ 2013-05-28T14:50:58+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=user
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001385s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004414s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001529s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002487s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002644s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012061s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012211s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000365s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001264s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000987s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001295s ]
+INFO: Run content_replace Behavior [ RunTime:0.001698s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005911s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001307s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001393s ]
+
+[ 2013-05-28T14:50:59+08:00 ] 127.0.0.1 /joyku/index.php/admin/user/manage
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:50:59+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=setting
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001374s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003903s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001123s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002184s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002282s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.015746s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015884s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000419s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001496s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001023s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001286s ]
+INFO: Run content_replace Behavior [ RunTime:0.001721s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006272s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001276s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001360s ]
+
+[ 2013-05-28T14:50:59+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:50:59+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001372s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004307s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001123s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002150s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002248s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012483s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012684s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000476s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001319s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000993s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001867s ]
+INFO: Run content_replace Behavior [ RunTime:0.001756s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006767s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001302s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001387s ]
+
+[ 2013-05-28T14:51:55+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=setting
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001313s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001420s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003795s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001106s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002214s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002315s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.015930s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016066s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000444s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001298s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000987s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001296s ]
+INFO: Run content_replace Behavior [ RunTime:0.001694s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006025s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001446s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001564s ]
+
+[ 2013-05-28T14:51:55+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:51:57+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:51:58+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=user
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001372s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003835s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001119s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002193s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002293s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.015728s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015864s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000406s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001291s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000975s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001264s ]
+INFO: Run content_replace Behavior [ RunTime:0.001684s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005939s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001271s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001353s ]
+
+[ 2013-05-28T14:51:58+08:00 ] 127.0.0.1 /joyku/index.php/admin/user/manage
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T14:51:58+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001450s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003924s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001108s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002164s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002265s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.012029s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012163s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000398s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001355s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000997s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001276s ]
+INFO: Run content_replace Behavior [ RunTime:0.001690s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006044s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001583s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001679s ]
+
+[ 2013-05-28T15:13:51+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000862s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000970s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003985s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001175s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002158s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002279s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.017759s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017893s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001375s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001280s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001186s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001258s ]
+NOTIC: [8] Use of undefined constant __PUBLIC__ - assumed '__PUBLIC__' D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\content_replaceBehavior.class.php 第 23 行.
+NOTIC: [8] Undefined variable: sitecss D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\content_replaceBehavior.class.php 第 33 行.
+INFO: Run content_replace Behavior [ RunTime:0.002854s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008260s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001275s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001361s ]
+
+[ 2013-05-28T15:18:00+08:00 ] 127.0.0.1 /joyku/index.php
+ERR: Model:getNewGroup您所请求的方法不存在！
+
+[ 2013-05-28T15:19:42+08:00 ] 127.0.0.1 /joyku/index.php
+ERR: Model:getNewGroup您所请求的方法不存在！
+
+[ 2013-05-28T15:32:00+08:00 ] 127.0.0.1 /joyku/index.php
+ERR: Model:getNewGroup您所请求的方法不存在！
+
+[ 2013-05-28T15:32:02+08:00 ] 127.0.0.1 /joyku/index.php
+ERR: Model:getNewGroup您所请求的方法不存在！
+
+[ 2013-05-28T15:32:02+08:00 ] 127.0.0.1 /joyku/index.php
+ERR: Model:getNewGroup您所请求的方法不存在！
+
+[ 2013-05-28T15:37:20+08:00 ] 127.0.0.1 /joyku/index.php
+ERR: Model:getHotTopic您所请求的方法不存在！
+
+[ 2013-05-28T15:37:45+08:00 ] 127.0.0.1 /joyku/index.php
+ERR: Model:getHotUser您所请求的方法不存在！
+
+[ 2013-05-28T15:37:47+08:00 ] 127.0.0.1 /joyku/index.php
+ERR: Model:getHotUser您所请求的方法不存在！
+
+[ 2013-05-28T15:47:35+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000355s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000453s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003949s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001143s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001277s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001380s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.014066s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014203s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000438s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000328s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000260s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000324s ]
+INFO: Run content_replace Behavior [ RunTime:0.002615s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004273s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000356s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000436s ]
+
+[ 2013-05-28T15:47:41+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=setting
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000368s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000467s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003885s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001125s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001264s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001360s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.013874s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014031s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000426s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000349s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000265s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000335s ]
+INFO: Run content_replace Behavior [ RunTime:0.002639s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004302s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000362s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000461s ]
+
+[ 2013-05-28T15:47:41+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T15:47:48+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/edit
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T15:47:50+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T15:50:37+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000879s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001018s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003921s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001161s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002259s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002376s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.018205s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018341s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001392s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001273s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001199s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001281s ]
+INFO: Run content_replace Behavior [ RunTime:0.002833s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008301s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001277s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001364s ]
+
+[ 2013-05-28T15:50:38+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=setting
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000362s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000460s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003913s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001145s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.001260s ]
+INFO: [ view_template ] --END-- [ RunTime:0.001358s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.013550s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013683s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000434s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000322s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000250s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000337s ]
+INFO: Run content_replace Behavior [ RunTime:0.002098s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003723s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000354s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000433s ]
+
+[ 2013-05-28T15:50:38+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T16:17:57+08:00 ] 127.0.0.1 /joyku/index.php?app=adin
+ERR: 无法加载模块:index
+
+[ 2013-05-28T16:18:01+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000824s ]
+NOTIC: [8] Undefined variable: module_lang_file D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\load_langBehavior.class.php 第 20 行.
+NOTIC: [8] Undefined variable: commont_lang D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\load_langBehavior.class.php 第 28 行.
+NOTIC: [2] array_merge() [<a href='function.array-merge'>function.array-merge</a>]: Argument #2 is not an array D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\load_langBehavior.class.php 第 28 行.
+INFO: Run load_lang Behavior [ RunTime:0.001904s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002889s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004092s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001128s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002193s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002295s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.017439s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017574s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001384s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001482s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001221s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001288s ]
+INFO: Run content_replace Behavior [ RunTime:0.002864s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008573s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001450s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001559s ]
+
+[ 2013-05-28T16:18:02+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=setting
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000356s ]
+NOTIC: [8] Undefined variable: module_lang_file D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\load_langBehavior.class.php 第 20 行.
+NOTIC: [8] Undefined variable: commont_lang D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\load_langBehavior.class.php 第 28 行.
+NOTIC: [2] array_merge() [<a href='function.array-merge'>function.array-merge</a>]: Argument #2 is not an array D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\load_langBehavior.class.php 第 28 行.
+INFO: Run load_lang Behavior [ RunTime:0.001686s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002202s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003971s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001181s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002208s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002312s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.017307s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017441s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001552s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000589s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001349s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001291s ]
+INFO: Run content_replace Behavior [ RunTime:0.002685s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007810s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001283s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001369s ]
+
+[ 2013-05-28T16:18:03+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T16:18:05+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/edit
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T16:18:08+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T16:18:44+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/edit
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T16:18:45+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T16:22:07+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/edit
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T16:22:08+08:00 ] 127.0.0.1 /joyku/index.php/admin/setting/index
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T16:31:06+08:00 ] 127.0.0.1 /joyku/index.php?m=help&a=download
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T16:31:49+08:00 ] 127.0.0.1 /joyku/index.php?m=help&a=download
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T16:31:55+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=help&a=download
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T17:05:55+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T17:05:59+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore_topic
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T17:21:37+08:00 ] 127.0.0.1 /joyku/index.php?app=user&m=captcha&a=1369732896
+ERR: 无法加载模块:captcha
+
+[ 2013-05-28T17:21:38+08:00 ] 127.0.0.1 /joyku/index.php?app=user&m=captcha&a=1369732896
+ERR: 无法加载模块:captcha
+
+[ 2013-05-28T17:21:49+08:00 ] 127.0.0.1 /joyku/index.php?app=user&m=captcha&a=1369732896
+ERR: 无法加载模块:captcha
+
+[ 2013-05-28T17:22:22+08:00 ] 127.0.0.1 /joyku/index.php?app=user&m=captcha&a=1369732941
+ERR: 无法加载模块:captcha
+
+[ 2013-05-28T17:22:24+08:00 ] 127.0.0.1 /joyku/index.php?app=user&m=captcha&a=1369732941
+ERR: 无法加载模块:captcha
+
+[ 2013-05-28T17:22:26+08:00 ] 127.0.0.1 /joyku/index.php?app=user&m=captcha&a=1369732941
+ERR: 无法加载模块:captcha
+
+[ 2013-05-28T17:26:31+08:00 ] 127.0.0.1 /joyku/index.php?m=user&a=check&t=email&email=12ik%40sina.cn
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000414s ]
+INFO: Run load_lang Behavior [ RunTime:0.002886s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003499s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003888s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001134s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369732291 [ RunTime:0.000359s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004032s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001122s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000456s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.000421s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004270s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SELECT COUNT(userid) AS tp_count FROM `ik_user` WHERE ( email='12ik@sina.cn' AND userid<>'0' ) LIMIT 1   [ RunTime:0.000898s ]
+
+[ 2013-05-28T17:26:45+08:00 ] 127.0.0.1 /joyku/index.php?m=user&a=check&t=username&username=%E5%B0%8F%E9%BA%A6
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000385s ]
+INFO: Run load_lang Behavior [ RunTime:0.002790s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003350s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003857s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001085s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369732305 [ RunTime:0.000433s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004265s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001141s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000465s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.000421s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004238s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SELECT COUNT(userid) AS tp_count FROM `ik_user` WHERE ( username='小麦' AND userid<>'0' ) LIMIT 1   [ RunTime:0.000940s ]
+
+[ 2013-05-28T17:26:57+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:27:13+08:00 ] 127.0.0.1 /joyku/index.php?m=user&a=check&t=email&email=12ik%40sina.cn
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000422s ]
+INFO: Run load_lang Behavior [ RunTime:0.003253s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003865s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001182s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369732333 [ RunTime:0.000451s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004038s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001145s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000496s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.000476s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004255s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SELECT COUNT(userid) AS tp_count FROM `ik_user` WHERE ( email='12ik@sina.cn' AND userid<>'0' ) LIMIT 1   [ RunTime:0.000917s ]
+
+[ 2013-05-28T17:27:13+08:00 ] 127.0.0.1 /joyku/index.php?m=user&a=check&t=username&username=%E5%B0%8F%E9%BA%A6
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000937s ]
+INFO: Run load_lang Behavior [ RunTime:0.003042s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004174s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004189s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.000919s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369732333 [ RunTime:0.000379s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004051s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001205s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000509s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.000483s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004197s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SELECT COUNT(userid) AS tp_count FROM `ik_user` WHERE ( username='小麦' AND userid<>'0' ) LIMIT 1   [ RunTime:0.000985s ]
+
+[ 2013-05-28T17:27:13+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:32:56+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:32:59+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:33:25+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:42:26+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:43:09+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:43:30+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:45:47+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:45:56+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T17:45:57+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+ERR: 无法加载模块:index
+
+[ 2013-05-28T17:47:58+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+ERR: 无法加载模块:index
+
+[ 2013-05-28T17:50:24+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T17:53:20+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T17:57:41+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:05:16+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=area&ik=two&oneid=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000830s ]
+INFO: Run load_lang Behavior [ RunTime:0.002523s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003533s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003732s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001165s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369734616 [ RunTime:0.000403s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004186s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001165s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000579s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.000439s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004194s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SHOW COLUMNS FROM `ik_area` [ RunTime:0.003735s ]
+SQL: SELECT * FROM `ik_area` WHERE ( referid='1' )  [ RunTime:0.001384s ]
+
+[ 2013-05-28T18:05:18+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=area&ik=three&twoid=38
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000392s ]
+INFO: Run load_lang Behavior [ RunTime:0.002078s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002645s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003790s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001126s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369734618 [ RunTime:0.000448s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004045s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001091s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000514s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.000490s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004415s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SHOW COLUMNS FROM `ik_area` [ RunTime:0.003683s ]
+NOTIC: 建议使用I方法替代_get
+SQL: SELECT * FROM `ik_area` WHERE ( referid='38' )  [ RunTime:0.001214s ]
+
+[ 2013-05-28T18:05:20+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=setcity
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:05:28+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=joyku
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:06:10+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=joyku
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:06+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:11+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=login
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:11:11+08:00 ] 127.0.0.1 /joyku/index.php?&app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:20+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=create
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:11:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:46+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:54+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:11:54+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:11:59+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:01+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:02+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:03+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:12:07+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:12:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:12:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:12+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:12:16+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:29+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=create
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:14:29+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:32+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:37+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:14:37+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isshow&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:40+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isshow&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:41+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:41+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isdigest&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isdigest&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:43+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:43+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_istop&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:44+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:44+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=isdigest&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:44+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:14:46+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:20:40+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:21:33+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:22:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:24:45+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:25:19+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:26:03+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:26:04+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:27:45+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:30:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:30:40+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:30:48+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:30:54+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:31:39+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:32:02+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:32:18+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:32:19+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:32:41+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:33:34+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:34:04+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:35:07+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:35:33+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:36:13+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:36:31+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:37:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:37:31+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:41:46+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:44:23+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:45:05+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:28+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_edit&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:50+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=images&a=add
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:46:51+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=updatetopic
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:46:52+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:56+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=deltopic&topicid=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:56+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:57+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=add&id=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:46:59+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:00+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore_topic
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:02+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:06+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_recommend
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000374s ]
+INFO: Run load_lang Behavior [ RunTime:0.001627s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002173s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003617s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001019s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369737126 [ RunTime:0.000426s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003841s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001111s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000493s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) LIMIT 1   [ RunTime:0.000518s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.003845s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.003982s ]
+SQL: SHOW COLUMNS FROM `ik_group_users` [ RunTime:0.004150s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.004094s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_collects` [ RunTime:0.003684s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_comments` [ RunTime:0.004262s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: SHOW COLUMNS FROM `ik_group_topics_recommend` [ RunTime:0.016700s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics_recommend` WHERE ( `topicid` = 2 ) LIMIT 1   [ RunTime:0.001109s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics_recommend` WHERE ( `userid` = 1 ) AND ( `topicid` = 2 ) LIMIT 1   [ RunTime:0.000417s ]
+SQL: INSERT INTO `ik_group_topics_recommend` (`userid`,`topicid`,`content`,`addtime`) VALUES (1,2,'1414',1369738026) [ RunTime:0.000499s ]
+SQL: UPDATE `ik_group_topics` SET `count_recommend`=count_recommend+1 WHERE ( `topicid` = 2 ) [ RunTime:0.000468s ]
+
+[ 2013-05-28T18:47:08+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=topic_collect
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000357s ]
+INFO: Run load_lang Behavior [ RunTime:0.001609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002134s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003798s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001163s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1369737128 [ RunTime:0.000357s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.003814s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001118s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000498s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) LIMIT 1   [ RunTime:0.000522s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.003929s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004007s ]
+SQL: SHOW COLUMNS FROM `ik_group_users` [ RunTime:0.004103s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.004120s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_collects` [ RunTime:0.003722s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_comments` [ RunTime:0.004281s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics_collects` WHERE ( `userid` = 1 ) AND ( `topicid` = 2 ) LIMIT 1   [ RunTime:0.000804s ]
+SQL: INSERT INTO `ik_group_topics_collects` (`userid`,`topicid`,`addtime`) VALUES (1,2,1369738028) [ RunTime:0.000454s ]
+SQL: UPDATE `ik_group_topics` SET `count_collect`=count_collect+1 WHERE ( `topicid` = 2 ) [ RunTime:0.000462s ]
+SQL: SELECT `count_collect` FROM `ik_group_topics` WHERE ( `topicid` = 2 ) LIMIT 1   [ RunTime:0.000449s ]
+
+[ 2013-05-28T18:47:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:12+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=base&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:13+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=icon&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:13+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=base&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:14+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=icon&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:17+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=update&d=icon
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:47:18+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=edit&d=icon&groupid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:20+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:21+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:22+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore_topic
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:47:22+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=nearby
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:48:12+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=images&a=add
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:48:13+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=publish
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:48:13+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:51:04+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:25+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:32+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:35+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:41+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=category&cateid=3
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:42+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=category&cateid=4
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:42+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=category&cateid=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:52:43+08:00 ] 127.0.0.1 /joyku/index.php?app=article&m=index&a=category&cateid=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:07+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:10+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:12+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:12+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:14+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:15+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:16+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:16+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:19+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:19+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:22+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:22+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:24+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:25+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:26+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:26+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:28+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-05-28T18:53:28+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:32+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:33+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:35+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&sc=desc&isauthor=0
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:37+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=2&sc=desc&isauthor=0&p=3
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-05-28T18:53:42+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
