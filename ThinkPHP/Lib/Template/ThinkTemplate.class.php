@@ -674,7 +674,7 @@ class  ThinkTemplate {
                 // 解析规则为 模板主题:模块:操作 不支持 跨项目和跨分组调用
                 $path   =  explode(':',$templateName);
                 $action = array_pop($path);
-                $module = !empty($path)?array_pop($path):MODULE_NAME;
+                $module = !empty($path)?array_pop($path):MODULE_NAME; 
                 if(!empty($path) && THEME_NAME) {// 设置模板主题
                     $path = dirname(THEME_PATH).'/'.array_pop($path).'/';
                 }else{

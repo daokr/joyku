@@ -5,9 +5,9 @@
 <meta name="author" content="160780470@qq.com" />
 <meta name="Copyright" content="<?php echo ($ikphp["ikphp_site_name"]); ?>" />
 <title><?php echo ($title); ?></title>
-<link rel="stylesheet" type="text/css" href="__APP_STATIC__/css/style.css" />
+<link rel="stylesheet" type="text/css" href="__ADMIN_STATIC__/css/style.css" />
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
-<script src="__APP_STATIC__/js/common.js" type="text/javascript"></script>
+<script src="__ADMIN_STATIC__/js/common.js" type="text/javascript"></script>
 </head>
 <body>
 <!--main-->
@@ -20,7 +20,7 @@
 <li  <?php if($type == "attachment"): ?>class="select"<?php endif; ?> ><a href="<?php echo U('setting/index',array('type'=>'attachment'));?>">附件设置</a></li>
 </ul>
 </div>
-<form method="POST" action="<?php echo U('setting/edit');?>">
+<form method="POST" action="__GROUP__/setting/edit">
 <table cellpadding="0" cellspacing="0">
 
 	<tr>

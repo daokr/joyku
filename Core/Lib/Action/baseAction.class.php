@@ -8,13 +8,21 @@ class baseAction extends Action
 {
     protected function _initialize() {
     	//消除所有的magic_quotes_gpc转义
-    	import("@.ORG.Util.Input");
+    	import("ORG.Util.Input");
+    	import("ORG.Util.Page");
+    	import("ORG.Util.Dir");
     	Input::noGPC();
         //初始化网站配置
         if (false === $setting = F('setting')) {
             $setting = D('setting')->setting_cache();
         }
         C($setting);
+        //当前app名称
+        $this->assign('app_name',strtolower(GROUP_NAME));
+        //当前model名称
+        $this->assign('module_name',strtolower(MODULE_NAME));
+        //当前action名称
+        $this->assign('action_name',strtolower(ACTION_NAME)); 
     }
     /**
      * 上传文件默认规则定义
@@ -71,5 +79,15 @@ class baseAction extends Action
             exit;
         }
     }
- 
+    //新增一个写缓存的方法
+    protected function fcache($filename){
+    	if (!empty($filename) && false === $setting = F($filename)) {
+    		$res = M($filename)->getField('name,data');
+    		foreach ($res as $key=>$val) {
+    			$setting['ik_'.$key] = unserialize($val) ? unserialize($val) : $val;
+    		}
+    		F($filename,$setting);//写缓存
+    	}
+    	C(F($filename));//读缓存配置
+    }
 }
