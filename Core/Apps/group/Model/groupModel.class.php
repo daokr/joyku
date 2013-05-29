@@ -52,12 +52,12 @@ class groupModel extends Model {
 	// 某用户加入的小组 不包括自己创建的小组
 	public function getUserJoinGroup($userid){
 		$myCreateGroup = $this->getUserGroup($userid);
-		if(is_array($myCreateGroup)){
+		if(is_array($myCreateGroup)){ 
 			foreach($myCreateGroup as $item){
 				$arrGroup[] = $item['groupid'];
 			}
 		}
-		$strGroup = implode(',',$arrGroup);
+		$strGroup = empty($arrGroup) ? '' : implode(',',$arrGroup);
 		$where['userid'] = $userid;
 		$where['groupid']  = array('not in',$strGroup);
 		$result = M('group_users')->where ( $where )->select();

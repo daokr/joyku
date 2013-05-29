@@ -748,10 +748,12 @@ class indexAction extends frontendAction {
 				//发送系统消息(通知楼主有人回复他的帖子啦) 钩子
 				$strTopic = $this->group_topics_mod->getOneTopic($topicid);
 				if($strTopic['userid'] != $this->userid){	
+					$topicurl = C('ik_site_url').U('group/index/topic',array('id'=>$topicid));
+					
 					$msg_userid = '0';
 					$msg_touserid = $strTopic['userid'];
 					$msg_title = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧';
-					$msg_content = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧^_^ <br /><a href="'.C('ik_site_url').'group/index/topic/'.$topicid.'">'.C('ik_site_url').'group/index/topic/'.$topicid.'</a>';
+					$msg_content = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧^_^ <br /><a href="'.$topicurl.'">'.$topicurl.'</a>';
 					$this->message_mod->sendMessage($msg_userid,$msg_touserid,$msg_title,$msg_content);
 				
 				}				
@@ -801,15 +803,15 @@ class indexAction extends frontendAction {
 			//发送系统消息(通知楼主有人回复他的帖子啦) 钩子
 			$strTopic = $this->group_topics_mod->getOneTopic($topicid);
 			$strComment = $this->group_topics_comments->where(array('commentid'=>$referid))->find();
+			$topicurl = C('ik_site_url').U('group/index/topic',array('id'=>$topicid));
 			if($topicid && $strTopic['userid'] != $this->userid){
 				$msg_userid = '0';
 				$msg_touserid = $strTopic['userid'];
 				$msg_title = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧';
-				$msg_content = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧^_^ <br /><a href="'.C('ik_site_url').'group/index/topic/'.$topicid.'">'.C('ik_site_url').'group/index/topic/'.$topicid.'</a>';
+				$msg_content = '你的帖子：《'.$strTopic['title'].'》新增一条评论，快去看看给个回复吧^_^ <br /><a href="'.$topicurl.'">'.$topicurl.'</a>';
 				$this->message_mod->sendMessage($msg_userid,$msg_touserid,$msg_title,$msg_content);
 			}
 			if($referid && $strComment['userid'] != $this->userid){
-				$topicurl = C('ik_site_url').'group/index/topic/'.$topicid;
 				$msg_userid = '0';
 				$msg_touserid = $strComment['userid'];
 				$msg_title = '有人评论了你在帖子：《'.$strTopic['title'].'》中的回复，快去看看给个回复吧';

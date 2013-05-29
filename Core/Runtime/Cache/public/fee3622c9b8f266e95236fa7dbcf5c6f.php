@@ -142,6 +142,12 @@ __EXTENDS_JS__
     <div class="mc">
     
         <div class="cleft">
+        	<script>
+            	$(function(){
+					$('#aliimg').attr('src','__PUBLIC__/images/p/aliyun_'+(Math.ceil(Math.random()*3)+'.jpg'));
+				})
+            </script>
+        	<div style="margin-bottom:10px;"><a href="http://www.aliyun.com/cps/rebate?from_uid=7HcNHf+G+v2FyspfxPRCOw==" target="_blank"><img src="__PUBLIC__/images/p/aliyun_1.jpg" style="border-radius:5px;" id="aliimg"/></a></div>
         
             <h2>推荐小组<span class="pl">&nbsp;(<a href="<?php echo U('group/index/explore');?>">全部</a>) </span></h2>
         

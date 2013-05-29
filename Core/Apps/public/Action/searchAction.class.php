@@ -7,8 +7,8 @@ class searchAction extends frontendAction {
 	public function _initialize() {
 		parent::_initialize ();
 		
-		$this->group_topics_mod = D ( 'group://group_topics' );
-		$this->group_mod = D ( 'group://group' );
+		$this->group_topics_mod = D ( 'group/group_topics' );
+		$this->group_mod = D ( 'group/group' );
 		$this->user_mod = D ( 'user' );
 	}
 	public function index(){

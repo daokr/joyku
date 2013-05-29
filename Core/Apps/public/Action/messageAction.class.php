@@ -65,7 +65,7 @@ class messageAction extends frontendAction {
 						'userid'=>$userid,
 						'isoutbox'=>0,
 				);
-				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(10)->select();
+				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(20)->select();
 				foreach($arrMessages as $key=>$item){
 					$arrMessage[] = $item;
 					$arrMessage[$key]['touser']	 = $this->user_mod->getOneUser($item['touserid']);
@@ -83,7 +83,7 @@ class messageAction extends frontendAction {
 				$where['touserid'] = $userid;
 				$where['isspam'] =  array('neq',1);
 				$where['isinbox'] = 0;
-				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(10)->select();
+				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(20)->select();
 				foreach($arrMessages as $key=>$item){
 					$arrMessage[] = $item;
 					$arrMessage[$key]['user']	 = $this->user_mod->getOneUser($item['touserid']);
@@ -103,7 +103,7 @@ class messageAction extends frontendAction {
 						'isread'=>0,
 						'isinbox'=>0,
 				);
-				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(10)->select();
+				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(20)->select();
 				foreach($arrMessages as $key=>$item){
 					$arrMessage[] = $item;
 					$arrMessage[$key]['user']	 = $this->user_mod->getOneUser($item['touserid']);
@@ -137,7 +137,7 @@ class messageAction extends frontendAction {
 						'isspam'=>1,
 						'isinbox'=>0,
 				);
-				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(10)->select();
+				$arrMessages = $this->mod->where($where)->order('addtime desc')->limit(20)->select();
 				foreach($arrMessages as $key=>$item){
 					$arrMessage[] = $item;
 					$arrMessage[$key]['user']	 = $this->user_mod->getOneUser($item['touserid']);
