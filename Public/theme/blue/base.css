@@ -251,6 +251,7 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 .item .info { color: #666666; line-height: 1.4;overflow: hidden;word-break: break-all;word-wrap: break-word;}
 
 .tips{ background-color: #F8F8F8; color: #666666; padding: 8px 10px; border-radius:3px}
+.ntips{ color:#999999; margin:0px 5px}
 /**标题**/
 .tit-1{   border-bottom: 1px solid #DDDDDD;margin-bottom: 20px;padding-bottom: 5px; color:#333}
 /*底部*/
@@ -369,6 +370,7 @@ h1.title{
 	text-align:center;
 }
 .tit2{ line-height:30px;}
+
 
 /**发布表格**/
 .table_1{ width:100%}

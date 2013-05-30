@@ -1,7 +1,6 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
@@ -25,11 +24,9 @@
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
-
 </head>
 
 <body>
-<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -68,7 +65,7 @@ __EXTENDS_JS__
     <div class="top_items">
         <ul>
              <?php if(is_array($topNav)): foreach($topNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" title="<?php echo ($item[name]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
-             <li><a href="<?php echo U('develop/index/index');?>">应用商店</a></li>
+             <li><a href="<?php echo U('public/apps/index');?>">应用商店</a></li>
              <li><a href="<?php echo U('public/help/download');?>" style="color:#fff">IKPHP源码下载</a></li>                                                      
         </ul>
     </div>
@@ -103,29 +100,6 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
-<!--header-->
-<div id="header">
-    
-	<div class="site_nav">
-        <div class="<?php echo ($logo[style]); ?>">
-            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
-        </div>
-		<div class="appnav">
-			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
-			    </ul>
-		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
-                <input type="hidden" value="all" name="type">
-                <div id="search_bar">
-                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
-                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
-                </div>
-		    </form>
-		</div>
-        <div class="cl"></div>
-	</div>
-        
-</div>
 
 <div class="midder">
 <div class="mc">
@@ -137,23 +111,90 @@ __EXTENDS_JS__
 <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
 
 	<tr>
-    	<th>标题：</th>
-		<td><input style="width:400px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="100" size="50" name="title" gtbfieldid="2" class="txt"   placeholder="请填写标题"></td>
-    </tr>	
-    <tr><th>&nbsp;</th>
-        <td align="left" style="padding:0px 10px">
-        <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addVideo">添加视频</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addLink">添加链接</a>
+    	<th>应用名称：</th>
+		<td><input style="width:400px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="30" name="title"  class="txt"   placeholder="请填写应用名称"></td>
+    </tr>
+    <tr><th></th><td><span class="tips">请填写应用的名称如：IKPHP小组应用，名称中不要包含版本号，最多30个字</span></td></tr>  
+    <tr>
+        <th>版本号：</th>
+        <td><input style="width:200px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="30" name="title"  class="txt"   placeholder="1.0"></td>
+    </tr>
+    <tr>
+        <th>详细描述：</th><td><textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strTopic[content]); ?></textarea></td>
+    </tr>
+    <tr><th></th><td><span class="tips">请简要的阐述此插件的具体功能、安装方法、使用手册等内容。</span></td></tr>    
+    
+    <tr>
+        <th>类型：</th>
+        <td>
+            <label><input type="radio" checked name="apptype" value="1"/>应用</label> 
+            &nbsp;&nbsp;&nbsp;
+            <label><input type="radio" name="apptype" value="2" />插件</label>
+             &nbsp;&nbsp;&nbsp;
+            <label><input type="radio" name="apptype" value="3" />模版皮肤</label>
+        </td>
+    </tr>
+    <tbody class="tbodyitem">
+    <tr>
+        <th>应用分类：</th>
+        <td>
+			<select class="txt" name="cateid">
+                <option selected="selected" value="1">内容聚合</option>
+                <option value="2">广告</option>
+                <option value="3">图片相册</option>
+                <option value="4">附件下载</option>
+                <option value="5">生活服务</option>
+              </select>      
         </td>
     </tr>
     <tr>
-        <th>内容：</th><td><textarea style="width:99.5%;height:300px;" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strTopic[content]); ?></textarea></td>
+        <th>应用包名：</th>
+        <td><input style="width:200px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="30" name="title"  class="txt"   placeholder="AppName"><span class="ntips">应用包的英文名称</span></td>
+    </tr> 
+   </tbody>  
+    <tbody class="tbodyitem" style="display:none">
+    <tr>
+        <th>插件分类：</th>
+        <td>
+			<select class="txt" name="cateid">
+                <option selected="selected" value="1">内容聚合</option>
+                <option value="2">广告</option>
+                <option value="3">图片相册</option>
+                <option value="4">附件下载</option>
+                <option value="5">生活服务</option>
+              </select>      
+        </td>
     </tr>
     <tr>
-        <th>评论：</th>
-        <td><input type="radio" checked="select" name="iscomment" value="0" />允许 <input type="radio" name="iscomment" value="1" />不允许</td>
-    </tr>	
+        <th>插件包名：</th>
+        <td><input style="width:200px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="30" name="title"  class="txt"   placeholder="Plugin"><span class="ntips">插件包的英文名称</span></td>
+    </tr> 
+   </tbody> 
+    <tbody class="tbodyitem" style="display:none">
+    <tr>
+        <th>模版包名：</th>
+        <td><input style="width:200px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="30" name="title"  class="txt"   placeholder="Theme"><span class="ntips">模版包名的英文名称</span></td>
+    </tr> 
+   </tbody>               
+    <tr>
+        <th>IKPHP版本：</th>
+        <td><select name="appversion" class="txt">
+	            	<option value="1.5.1">IKPHP1.5.1</option>
+	        </select>
+      </td>
+    </tr>   
+    <tr>
+        <th>应用截图：</th>
+        <td><input name="appscreen" type="file"><span class="ntips">支持jpg,jpge,png格式，大小限制5M以内，最多上传5张图片</span></td>
+    </tr>
+    <tr>
+        <th>应用Logo：</th>
+        <td><input name="applogo" type="file"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span></td>
+    </tr>
+    <tr>
+        <th>应用包：</th>
+        <td><input name="appfile" type="file"><span class="ntips">支持zip,rar格式，大小:20M以内</span></td>
+    </tr>                 	
     <tr>
     	<th>&nbsp;</th><td>
         <input type="hidden" name="groupid" value="<?php echo ($strGroup[groupid]); ?>" />
@@ -162,22 +203,6 @@ __EXTENDS_JS__
         </td>
     </tr>
 </table>
-<style>
-.item-thumb-list{ padding-left:110px}
-.thumblst { width:580px;min-width:580px;}
-.thumblst .details textarea { width:90%; }
-.thumblst { min-height: 140px; min-width: 600px; border: 1px solid #d3d3d3; background:#f0f0f0; padding: 10px 12px; margin: 3px 0 7px }
-.thumblst .thumb { float: left; width: 160px; overflow:hidden;}
-.thumblst .thumb img { max-width: 130px; _width: 130px }
-.thumblst .thumb .pl { padding:0px; margin-bottom:5px; }
-.thumblst .details { float: right; width: 419px;}
-.thumblst .details .rr {float: right;}
-.thumblst .details p{ margin-bottom:5px;}
-.thumblst .details textarea{ width: 410px; height:66px;border:1px solid #ccc;}
-.alignleft{background:url(__PUBLIC__/images/align_left.png) no-repeat;padding:0 6px 0 25px}
-.aligncenter{background:url(__PUBLIC__/images/align_center.png) no-repeat;padding:0 6px 0 25px}
-.alignright{background:url(__PUBLIC__/images/align_right.png) no-repeat;padding:0 6px 0 25px}
-</style>
 <div id="thumblst" class="item item-thumb-list">
     <?php if(is_array($arrPhotos)): foreach($arrPhotos as $key=>$item): ?><div class="thumblst">
       <div class="details">
@@ -258,9 +283,6 @@ $(function(){
 </div>
 </div>
 
-
-
-<!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
 <div id="footer">
@@ -286,6 +308,5 @@ $(function(){
     </div>
 </div>
 </footer>
-
 </body>
 </html>

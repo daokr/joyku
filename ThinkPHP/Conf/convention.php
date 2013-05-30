@@ -140,7 +140,7 @@ return  array(
     'OUTPUT_ENCODE'         =>  false, // 页面压缩输出
     'HTTP_CACHE_CONTROL'    =>  'private', // 网页缓存控制
 	/* 爱客系统应用配置 修改人小麦 */
-	'DEFAULT_APPS'          =>  array('public','admin','space'), //默认核心应用
+	'DEFAULT_APPS'          =>  array('public','admin','space','develop'), //默认核心应用
 
 
 );

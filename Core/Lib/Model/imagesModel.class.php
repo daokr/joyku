@@ -81,5 +81,14 @@ class imagesModel extends Model {
 			return false;
 		}
 	}
+	// 根据map条件查询
+	public function getImagesByMap($map,$order='',$limit=''){
+		
+		!empty($map) && $arrImages = $this->where($map)->order($order)->limit($limit)->select();
+		foreach($arrImages as $item){
+			$result[] = $this->getImageById($item['id']);
+		}
+		return $result;
+	}
 
 }

@@ -68,7 +68,7 @@ __EXTENDS_JS__
     <div class="top_items">
         <ul>
              <?php if(is_array($topNav)): foreach($topNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" title="<?php echo ($item[name]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
-             <li><a href="<?php echo U('develop/index/index');?>">应用商店</a></li>
+             <li><a href="<?php echo U('public/apps/index');?>">应用商店</a></li>
              <li><a href="<?php echo U('public/help/download');?>" style="color:#fff">IKPHP源码下载</a></li>                                                      
         </ul>
     </div>
@@ -126,140 +126,68 @@ __EXTENDS_JS__
 	</div>
         
 </div>
-
 <div class="midder">
-<div class="mc">
-<h1 class="group_tit">
-<?php echo ($seo["title"]); ?>
-</h1>
+	<div class="mc">
+		<aside class="w190 fl">
+			<section class="categories">
+				<div class="hd">
+					<h3>全部分类</h3>
+				</div>
+				<ul class="list categories-list">
+                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/index/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
+				</ul>
+			</section>
+			<section class="personal-publish">
+				<div class="hd">
+					<h3>作品投稿</h3>
+				</div>
+				<div class="bd">
+					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
+					<p class="entrance">
+						<a href="<?php echo U('article/index/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
+					</p>
+				</div>
+			</section>
+		</aside>
+		<article class="w770 fr">
+			<section>
+				<div class="hd tag-heading">
+					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
+				</div>
 
-<form method="POST" action="<?php echo ($action); ?>" onsubmit="return newTopicFrom(this)"  enctype="multipart/form-data" id="form_tipic">
-<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+				<div class="bd">
+					<ul class="list-lined article-list">
+						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
+							<div class="title">
+								<a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
+                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
+                                </a>
+							</div>
+                           <?php if($item[isphoto]): ?><div class="cover">
+                                <a class="pic" href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">
+									<img src="<?php echo ($item[photo][simg]); ?>" />
+								</a> 
+							</div><?php endif; ?>                           
+							<div class="info">
+								<div class="article-desc-brief">
+									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
+                                    <a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">（更多）</a>
+								</div>
+							</div>
+							<a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
+						</li><?php endforeach; endif; ?>
 
-	<tr>
-    	<th>标题：</th>
-		<td><input style="width:400px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="100" size="50" name="title" gtbfieldid="2" class="txt"   placeholder="请填写标题"></td>
-    </tr>	
-    <tr><th>&nbsp;</th>
-        <td align="left" style="padding:0px 10px">
-        <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addVideo">添加视频</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addLink">添加链接</a>
-        </td>
-    </tr>
-    <tr>
-        <th>内容：</th><td><textarea style="width:99.5%;height:300px;" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strTopic[content]); ?></textarea></td>
-    </tr>
-    <tr>
-        <th>评论：</th>
-        <td><input type="radio" checked="select" name="iscomment" value="0" />允许 <input type="radio" name="iscomment" value="1" />不允许</td>
-    </tr>	
-    <tr>
-    	<th>&nbsp;</th><td>
-        <input type="hidden" name="groupid" value="<?php echo ($strGroup[groupid]); ?>" />
-        <input type="hidden" name="topic_id" value="<?php echo ($topic_id); ?>" id="topic_id" />
-        <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('group/index/show',array('id'=>$strGroup[groupid]));?>">返回</a>
-        </td>
-    </tr>
-</table>
-<style>
-.item-thumb-list{ padding-left:110px}
-.thumblst { width:580px;min-width:580px;}
-.thumblst .details textarea { width:90%; }
-.thumblst { min-height: 140px; min-width: 600px; border: 1px solid #d3d3d3; background:#f0f0f0; padding: 10px 12px; margin: 3px 0 7px }
-.thumblst .thumb { float: left; width: 160px; overflow:hidden;}
-.thumblst .thumb img { max-width: 130px; _width: 130px }
-.thumblst .thumb .pl { padding:0px; margin-bottom:5px; }
-.thumblst .details { float: right; width: 419px;}
-.thumblst .details .rr {float: right;}
-.thumblst .details p{ margin-bottom:5px;}
-.thumblst .details textarea{ width: 410px; height:66px;border:1px solid #ccc;}
-.alignleft{background:url(__PUBLIC__/images/align_left.png) no-repeat;padding:0 6px 0 25px}
-.aligncenter{background:url(__PUBLIC__/images/align_center.png) no-repeat;padding:0 6px 0 25px}
-.alignright{background:url(__PUBLIC__/images/align_right.png) no-repeat;padding:0 6px 0 25px}
-</style>
-<div id="thumblst" class="item item-thumb-list">
-    <?php if(is_array($arrPhotos)): foreach($arrPhotos as $key=>$item): ?><div class="thumblst">
-      <div class="details">
-        <p>图片描述（30字以内）</p>
-        <textarea name="photodesc[]" maxlength="30"><?php echo ($item[title]); ?></textarea>
-        <input type="hidden" name="seqid[]" value="<?php echo ($item[seqid]); ?>" >
-        <br>
-        <br>
-        图片位置<br>
-        <a onclick="javascript:removePhoto(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_<?php echo ($item[seqid]); ?>" ajaxurl="<?php echo U('images/delete');?>" imgid="<?php echo ($item[id]); ?>">删除</a>
-        <label>
-         <?php if($item[align] == 'L'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>"  checked  value="L" >
-         <?php else: ?>
-         <input type="radio" name="layout_<?php echo ($item[seqid]); ?>"   value="L" ><?php endif; ?>
-          <span class="alignleft">居左</span></label>
-        <label>
-          <?php if($item[align] == 'C'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="C" >
-          <?php else: ?>
-          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="C" ><?php endif; ?>
-          <span class="aligncenter">居中</span></label>
-        <label>
-          <?php if($item[align] == 'R'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="R" >
-          <?php else: ?>
-          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="R" ><?php endif; ?>
-          <span class="alignright">居右</span></label>
-      </div>
-      <div class="thumb">
-        <div class="pl">[图片<?php echo ($item[seqid]); ?>]</div>
-        <img src="<?php echo ($item[simg]); ?>">
-      </div>
-      	<div class="clear"></div>
-    </div><?php endforeach; endif; ?>
+					</ul>
+				</div>
 
+
+			</section>
+            
+             <div class="page"><?php echo ($pageUrl); ?></div>   
+             
+		</article>
+	</div>
 </div>
-<div id="videosbar"  class="item item-thumb-list">
-   <?php if(is_array($arrVideos)): foreach($arrVideos as $key=>$item): ?><div class="thumblst">
-    <div class="details">
-    <p>视频标题（30字以内）</p>
-    <textarea name="video_<?php echo ($item[seqid]); ?>_title" maxlength="30"><?php echo ($item[title]); ?></textarea>
-    <input type="hidden" value="<?php echo ($item[seqid]); ?>" name="videoseqid[]">
-    <br>
-    <br>
-    视频网址：<br>
-    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('videos/delete');?>" videoid="<?php echo ($item[videoid]); ?>">删除</a>
-    <p><?php echo ($item[url]); ?></p>
-    </div>
-    <div class="thumb">
-    <div class="pl">[视频<?php echo ($item[seqid]); ?>]</div>
-    <img src="<?php echo ($item[imgurl]); ?>"> </div>
-    <div class="clear"></div>
-    </div><?php endforeach; endif; ?>
-</div>
-<!--加载编辑器-->
-<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/lib/IKEditor.js"></script>
-
-<script language="javascript">
-$(function(){
-	$('#addImg').bind('click',function(){
-		var ajaxurl = "<?php echo U('public/images/add');?>";
-		var typeid = '<?php echo ($topic_id); ?>';
-		var data = "{'type':'topic','typeid':'"+typeid+"'}";		
-		addPhoto(ajaxurl, data);
-	});
-	$('#addLink').bind('click',function(){	
-		addLink();
-	})
-	$('#addVideo').bind('click',function(){
-		var ajaxurl = "<?php echo U('public/videos/add',array('type'=>'topic','typeid'=>$topic_id));?>";
-		addVideo(ajaxurl);
-	})
-});
-</script>
-</form>
-
-
-
-</div>
-</div>
-
-
-
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>

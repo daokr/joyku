@@ -68,7 +68,7 @@ __EXTENDS_JS__
     <div class="top_items">
         <ul>
              <?php if(is_array($topNav)): foreach($topNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" title="<?php echo ($item[name]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
-             <li><a href="<?php echo U('develop/index/index');?>">应用商店</a></li>
+             <li><a href="<?php echo U('public/apps/index');?>">应用商店</a></li>
              <li><a href="<?php echo U('public/help/download');?>" style="color:#fff">IKPHP源码下载</a></li>                                                      
         </ul>
     </div>
@@ -126,20 +126,27 @@ __EXTENDS_JS__
 	</div>
         
 </div>
-
 <div class="midder">
-<div class="mc">
-<h1 class="group_tit">
-<?php echo ($seo["title"]); ?>
-</h1>
-
-<form method="POST" action="<?php echo ($action); ?>" onsubmit="return newTopicFrom(this)"  enctype="multipart/form-data" id="form_tipic">
+    <div class="mc">
+        <h1>
+        <?php echo ($seo["title"]); ?>
+        </h1>    
+<form method="POST" action="<?php echo U('article/index/publish');?>"  onsubmit="return checkForm(this);"  enctype="multipart/form-data" id="form_tipic">
 <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
 
 	<tr>
     	<th>标题：</th>
-		<td><input style="width:400px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="100" size="50" name="title" gtbfieldid="2" class="txt"   placeholder="请填写标题"></td>
+		<td><input style="width:400px;" type="text" value="<?php echo ($strArticle[title]); ?>" maxlength="100" size="50" name="title" tabindex="1" class="txt" placeholder="请填写标题"></td>
     </tr>	
+    <tr>
+        <th>发表到：</th>
+        <td>
+            <select name="cateid" class="txt" id="cate_select" style="float:left;" tabindex="2" >
+                <option  value="0">默认分类</option>
+                <?php echo ($arrCate); ?>
+            </select>            
+        </td>
+    </tr>
     <tr><th>&nbsp;</th>
         <td align="left" style="padding:0px 10px">
         <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
@@ -148,20 +155,21 @@ __EXTENDS_JS__
         </td>
     </tr>
     <tr>
-        <th>内容：</th><td><textarea style="width:99.5%;height:300px;" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strTopic[content]); ?></textarea></td>
-    </tr>
+        <th>内容：</th>
+        <td style="padding-bottom:0px">
+        <input type="hidden" name="id" value="<?php echo ($strArticle[aid]); ?>"/>
+        <textarea tabindex="3"  style="width:99.5%;height:300px;" maxlength="10000" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strArticle[content]); ?></textarea>
+        <div class="ik_toolbar" id="ik_toolbar"><span class="textnum" id="textnum"><em>0</em> / <em>10000</em> 受欢迎的字数 </span></div>
+        </td>
+    </tr> 
     <tr>
-        <th>评论：</th>
-        <td><input type="radio" checked="select" name="iscomment" value="0" />允许 <input type="radio" name="iscomment" value="1" />不允许</td>
-    </tr>	
-    <tr>
-    	<th>&nbsp;</th><td>
-        <input type="hidden" name="groupid" value="<?php echo ($strGroup[groupid]); ?>" />
-        <input type="hidden" name="topic_id" value="<?php echo ($topic_id); ?>" id="topic_id" />
-        <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('group/index/show',array('id'=>$strGroup[groupid]));?>">返回</a>
+    	<th>&nbsp;</th>
+        <td style="padding-top:0px">
+        <input class="submit" type="submit" value="好啦，发表" tabindex="4" > <a href="<?php echo U('article/index/index');?>">返回</a>
         </td>
     </tr>
 </table>
+
 <style>
 .item-thumb-list{ padding-left:110px}
 .thumblst { width:580px;min-width:580px;}
@@ -238,28 +246,25 @@ __EXTENDS_JS__
 $(function(){
 	$('#addImg').bind('click',function(){
 		var ajaxurl = "<?php echo U('public/images/add');?>";
-		var typeid = '<?php echo ($topic_id); ?>';
-		var data = "{'type':'topic','typeid':'"+typeid+"'}";		
+		var typeid = '<?php echo ($strArticle[aid]); ?>';
+		var data = "{'type':'article','typeid':'"+typeid+"'}";		
 		addPhoto(ajaxurl, data);
 	});
 	$('#addLink').bind('click',function(){	
 		addLink();
 	})
 	$('#addVideo').bind('click',function(){
-		var ajaxurl = "<?php echo U('public/videos/add',array('type'=>'topic','typeid'=>$topic_id));?>";
+		var ajaxurl = "<?php echo U('public/videos/add',array('type'=>'article','typeid'=>$strArticle[aid]));?>";
 		addVideo(ajaxurl);
 	})
 });
 </script>
+
 </form>
 
-
-
+    
+    </div>
 </div>
-</div>
-
-
-
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>

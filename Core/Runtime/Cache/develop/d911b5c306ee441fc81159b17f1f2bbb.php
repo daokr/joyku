@@ -129,36 +129,106 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-<h1 class="group_tit">
+<h1>
 <?php echo ($seo["title"]); ?>
 </h1>
 
-<form method="POST" action="<?php echo ($action); ?>" onsubmit="return newTopicFrom(this)"  enctype="multipart/form-data" id="form_tipic">
+<div class="nav-step">
+              <span>1. 填写应用信息</span>
+              <span class="pl">&gt;</span>
+              <span class="pl">2. 管理员审核</span>
+              <span class="pl">&gt;</span>
+              <span class="pl">3. 应用上线</span>
+</div>
+            
+<form method="POST" action="<?php echo ($Form[action]); ?>" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
 <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
 
 	<tr>
-    	<th>标题：</th>
-		<td><input style="width:400px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="100" size="50" name="title" gtbfieldid="2" class="txt"   placeholder="请填写标题"></td>
-    </tr>	
+    	<th>应用标题：</th>
+		<td><input style="width:400px;" type="text" value="" maxlength="30" name="title"  class="txt"   placeholder="请填写应用简要名称"></td>
+    </tr>
+    <tr><th></th><td><span class="tips">请填写应用的名称如：IKPHP小组应用，名称中不要包含版本号，最多30个字</span></td></tr>  
+    <tr>
+        <th>版本号：</th>
+        <td><input style="width:200px;" type="text" value="" maxlength="30" name="version"  class="txt"   placeholder="1.0"></td>
+    </tr>
     <tr><th>&nbsp;</th>
         <td align="left" style="padding:0px 10px">
-        <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addVideo">添加视频</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addImg">插入截图</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="javascript:;" id="addLink">添加链接</a>
+        </td>
+    </tr>    
+    <tr>
+        <th>详细描述：</th><td>
+        <textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="desc" class="txt"   placeholder="请填写详细的描述"></textarea>
+        </td>
+    </tr>
+    <tr><th></th><td><span class="tips">请简要的阐述此插件的具体功能、安装方法、使用手册等内容。</span></td></tr>    
+    
+    <tr>
+        <th>类型：</th>
+        <td>
+            <label><input type="radio" name="apptype" value="1" checked/>应用</label> 
+            &nbsp;&nbsp;&nbsp;
+            <label><input type="radio" name="apptype" value="2" />插件</label>
+             &nbsp;&nbsp;&nbsp;
+            <label><input type="radio" name="apptype" value="3" />模版皮肤</label>
+        </td>
+    </tr>
+    <tbody class="tbodyitem">
+    <tr>
+        <th>应用分类：</th>
+        <td>
+			<select class="txt" name="cateid">
+                <option selected="selected" value="1">内容聚合</option>
+            </select>      
         </td>
     </tr>
     <tr>
-        <th>内容：</th><td><textarea style="width:99.5%;height:300px;" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strTopic[content]); ?></textarea></td>
+        <th>应用包名：</th>
+        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">应用包的英文名称</span></td>
+    </tr> 
+   </tbody>  
+   <tbody class="tbodyitem" style="display:none">
+    <tr>
+        <th>插件分类：</th>
+        <td>
+			<select class="txt" name="cateid">
+                <option selected="selected" value="1">内容聚合</option>
+              </select>      
+        </td>
     </tr>
     <tr>
-        <th>评论：</th>
-        <td><input type="radio" checked="select" name="iscomment" value="0" />允许 <input type="radio" name="iscomment" value="1" />不允许</td>
-    </tr>	
+        <th>插件包名：</th>
+        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="Plugin"><span class="ntips">插件包的英文名称</span></td>
+    </tr> 
+   </tbody> 
+    <tbody class="tbodyitem" style="display:none">
+    <tr>
+        <th>模版包名：</th>
+        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="Theme"><span class="ntips">模版包名的英文名称</span></td>
+    </tr> 
+   </tbody>               
+    <tr>
+        <th>IKPHP版本：</th>
+        <td><select name="ikphpversion" class="txt">
+	            	<option value="1.5.1">IKPHP1.5.1</option>
+	        </select>
+      </td>
+    </tr>   
+    <tr>
+        <th>应用Logo：</th>
+        <td><input name="applogo" type="file"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span></td>
+    </tr>
+    <tr>
+        <th>应用安装包：</th>
+        <td><input name="appfile" type="file"><span class="ntips">支持zip,rar格式，大小:20M以内</span></td>
+    </tr>                 	
     <tr>
     	<th>&nbsp;</th><td>
-        <input type="hidden" name="groupid" value="<?php echo ($strGroup[groupid]); ?>" />
-        <input type="hidden" name="topic_id" value="<?php echo ($topic_id); ?>" id="topic_id" />
-        <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('group/index/show',array('id'=>$strGroup[groupid]));?>">返回</a>
+        <input type="hidden" name="appid" value="<?php echo ($appid); ?>" id="appid" />
+        <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('develop/index/index');?>">返回</a>
         </td>
     </tr>
 </table>
@@ -238,17 +308,13 @@ __EXTENDS_JS__
 $(function(){
 	$('#addImg').bind('click',function(){
 		var ajaxurl = "<?php echo U('public/images/add');?>";
-		var typeid = '<?php echo ($topic_id); ?>';
-		var data = "{'type':'topic','typeid':'"+typeid+"'}";		
+		var typeid = '<?php echo ($appid); ?>';
+		var data = "{'type':'appscreen','typeid':'"+typeid+"'}";		
 		addPhoto(ajaxurl, data);
 	});
 	$('#addLink').bind('click',function(){	
 		addLink();
-	})
-	$('#addVideo').bind('click',function(){
-		var ajaxurl = "<?php echo U('public/videos/add',array('type'=>'topic','typeid'=>$topic_id));?>";
-		addVideo(ajaxurl);
-	})
+	});
 });
 </script>
 </form>
@@ -257,8 +323,6 @@ $(function(){
 
 </div>
 </div>
-
-
 
 <!--引入后前台的模版文件 -->
 <!--footer-->
