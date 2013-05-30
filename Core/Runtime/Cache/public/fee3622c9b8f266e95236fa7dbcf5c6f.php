@@ -27,6 +27,8 @@ __EXTENDS_JS__
 </head>
 
 <body>
+
+<?php echo W('Editor',array('contentName'=>'content','value'=>''));?>
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
