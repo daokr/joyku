@@ -290,7 +290,7 @@ function U($url='',$vars='',$suffix=true,$redirect=false,$domain=false) {
  * @param string $path Widget所在路径
  * @return void
  */
-function W($name, $data=array(), $return=false,$path='') { echo BASE_LIB_PATH;die;
+function W($name, $data=array(), $return=false,$path='') {
     $class      =   $name . 'Widget';
     $path       =   empty($path) ? BASE_LIB_PATH : $path;
     require_cache($path . 'Widget/' . $class . '.class.php');

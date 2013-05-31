@@ -1,0 +1,58 @@
+      <!--comment评论-->
+      <ul class="comment" id="comment">
+       <if condition="!empty($arrTopicComment)">
+        <foreach name="arrTopicComment" item="item">
+        <li class="clearfix">
+          <div class="user-face"> <a href="{:U('space/index/index',array('id'=>$item[user][doname]))}"><img title="{$item[user][username]}" alt="{$item[user][username]}" src="{$item[user][face]}"></a> </div>
+          <div class="reply-doc">
+            <h4><span class="fr"></span><a href="{:U('space/index/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <php> echo date('Y-m-d H:i:s',$item[addtime])</php></h4>
+            
+            <if condition="$item[referid] neq 0">
+            <div class="recomment"><a href="{:U('space/index/index',array('id'=>$item[recomment][user][doname]))}"><img src="{$item[recomment][user][face]}" width="24" align="absmiddle"></a> <strong><a href="{:U('space/index/index',array('id'=>$item[recomment][user][doname]))}">{$item[recomment][user][username]}</a></strong>：{$item[recomment][content]}</div>
+            </if>
+            
+            <p> {$item[content]} </p>
+            
+            <!--签名--> 
+            <if condition="!empty($item[user][signed])">
+            <div class="signed">{$item[user][signed]}</div>
+            </if>
+            
+            <div class="group_banned"> 
+              <if condition="$isGroupUser neq 0">
+              <span><a href="javascript:void(0)"  onclick="commentOpen({$item[commentid]},{$item[topicid]})">回复</a></span> 
+              </if>
+              <if condition="($strTopic[userid] eq $visitor[userid]) OR ($strGroup[userid] eq $visitor[userid]) OR ($visitor[userid] eq $item[userid]) OR ($strGroupUser[isadmin] eq 1) OR ($visitor[userid] eq 1)">
+              <span><a class="j a_confirm_link" href="{:U('group/index/topic',array('d'=>'delcomment','commentid'=>$item[commentid]))}" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span> 
+              </if>
+            </div>
+            <div id="rcomment_{$item[commentid]}" style="display:none; clear:both; padding:0px 10px">
+              <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_{$item[commentid]}" type="text" onkeydown="keyRecomment({$item[commentid]},{$item[topicid]},event)" class="txt"></textarea>
+              <p style=" padding:5px 0px">
+                <button onclick="recomment({$item[commentid]},{$item[topicid]})" id="recomm_btn_{$item[commentid]}" class="subab">提交</button>
+                &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_{$item[commentid]}').slideToggle('fast');">取消</a> </p>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </li>
+        </foreach> 
+        </if>
+      </ul>
+      <div class="page">{$pageUrl}</div>
+      <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
+      <div> 
+        <if condition="!$visitor['userid']">
+        <div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="{:U('public/user/login')}">登录</a> | <a href="{:U('public/user/register')}">注册</a></div>
+        <elseif condition="!$isGroupUser" /> 
+        不是本组成员不能回应此贴哦 
+        <elseif condition="$strTopic[iscomment] eq 1 && $strTopic[userid] neq $visitor['userid']" />
+        本帖除作者外不允许任何人评论 
+        <else />
+        <form method="POST" action="{:U('group/index/topic',array('d'=>'addcomment'))}" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
+          <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
+          <input type="hidden" name="topicid" value="{$strTopic[topicid]}" />
+          <input type="hidden" name="p" value="{$page}" />
+          <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
+        </form>
+        </if>
+      </div>

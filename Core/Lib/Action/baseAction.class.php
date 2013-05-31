@@ -39,6 +39,7 @@ class baseAction extends Action
      * 上传文件
      */
     protected function _upload($file, $dir = '', $thumb = array(), $save_rule='uniqid') {
+    	import("ORG.Util.UploadFile");
     	$upload = new UploadFile();
     	if ($dir) {
     		$upload_path = C('ik_attach_path') . $dir . '/';
@@ -54,6 +55,7 @@ class baseAction extends Action
     		$upload->thumbRemoveOrigin = isset($thumb['remove_origin']) ? true : false;
     		$upload->is_fixed = false; // 固定高宽  
     	}
+    	
     	//自定义上传规则
     	$upload = $this->_upload_init($upload);
     	if( $save_rule!='uniqid' ){

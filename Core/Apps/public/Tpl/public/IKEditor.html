@@ -24,7 +24,7 @@
         <br>
         <br>
         图片位置<br>
-        <a onclick="javascript:removePhoto(this, '{$item[seqid]}');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_{$item[seqid]}" ajaxurl="{:U('images/delete')}" imgid="{$item[id]}">删除</a>
+        <a onclick="javascript:removePhoto(this, '{$item[seqid]}');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_{$item[seqid]}" ajaxurl="{:U('public/images/delete')}" imgid="{$item[id]}">删除</a>
         <label>
          <if condition="$item[align] eq 'L'">
          <input type="radio" name="layout_{$item[seqid]}"  checked  value="L" >
@@ -66,7 +66,7 @@
     <br>
     <br>
     视频网址：<br>
-    <a onclick="javascript:removeVideo(this, '{$item[seqid]}');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="{:U('videos/delete')}" videoid="{$item[videoid]}">删除</a>
+    <a onclick="javascript:removeVideo(this, '{$item[seqid]}');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="{:U('public/imagesvideos/delete')}" videoid="{$item[videoid]}">删除</a>
     <p>{$item[url]}</p>
     </div>
     <div class="thumb">

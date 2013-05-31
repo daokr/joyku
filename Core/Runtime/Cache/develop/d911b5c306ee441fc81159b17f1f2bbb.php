@@ -141,17 +141,17 @@ __EXTENDS_JS__
               <span class="pl">3. 应用上线</span>
 </div>
             
-<form method="POST" action="<?php echo ($Form[action]); ?>" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
+<form method="POST" action="<?php echo U('develop/index/add');?>" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
 <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
 
 	<tr>
     	<th>应用标题：</th>
-		<td><input style="width:400px;" type="text" value="" maxlength="30" name="title"  class="txt"   placeholder="请填写应用简要名称"></td>
+		<td><input style="width:400px;" type="text" value="<?php echo ($strApp[title]); ?>" maxlength="30" name="title"  class="txt"   placeholder="请填写应用简要名称"></td>
     </tr>
     <tr><th></th><td><span class="tips">请填写应用的名称如：IKPHP小组应用，名称中不要包含版本号，最多30个字</span></td></tr>  
     <tr>
         <th>版本号：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="version"  class="txt"   placeholder="1.0"></td>
+        <td><input style="width:200px;" type="text" value="<?php echo ($strApp[version]); ?>"  maxlength="30" name="version"  class="txt"   placeholder="1.0"></td>
     </tr>
     <tr><th>&nbsp;</th>
         <td align="left" style="padding:0px 10px">
@@ -161,7 +161,7 @@ __EXTENDS_JS__
     </tr>    
     <tr>
         <th>详细描述：</th><td>
-        <textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="desc" class="txt"   placeholder="请填写详细的描述"></textarea>
+        <textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="desc" class="txt"   placeholder="请填写详细的描述"><?php echo ($strApp[desc]); ?></textarea>
         </td>
     </tr>
     <tr><th></th><td><span class="tips">请简要的阐述此插件的具体功能、安装方法、使用手册等内容。</span></td></tr>    
@@ -178,38 +178,18 @@ __EXTENDS_JS__
     </tr>
     <tbody class="tbodyitem">
     <tr>
-        <th>应用分类：</th>
+        <th>分类：</th>
         <td>
 			<select class="txt" name="cateid">
                 <option selected="selected" value="1">内容聚合</option>
             </select>      
         </td>
     </tr>
-    <tr>
-        <th>应用包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">应用包的英文名称</span></td>
-    </tr> 
    </tbody>  
-   <tbody class="tbodyitem" style="display:none">
     <tr>
-        <th>插件分类：</th>
-        <td>
-			<select class="txt" name="cateid">
-                <option selected="selected" value="1">内容聚合</option>
-              </select>      
-        </td>
-    </tr>
-    <tr>
-        <th>插件包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="Plugin"><span class="ntips">插件包的英文名称</span></td>
-    </tr> 
-   </tbody> 
-    <tbody class="tbodyitem" style="display:none">
-    <tr>
-        <th>模版包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="Theme"><span class="ntips">模版包名的英文名称</span></td>
-    </tr> 
-   </tbody>               
+        <th>包名：</th>
+        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
+    </tr>          
     <tr>
         <th>IKPHP版本：</th>
         <td><select name="ikphpversion" class="txt">
@@ -227,7 +207,8 @@ __EXTENDS_JS__
     </tr>                 	
     <tr>
     	<th>&nbsp;</th><td>
-        <input type="hidden" name="appid" value="<?php echo ($appid); ?>" id="appid" />
+        <input type="hidden" name="appid" value="<?php echo ($appid); ?>"/>
+        <input type="hidden" name="userid" value="<?php echo ($userid); ?>"/>
         <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('develop/index/index');?>">返回</a>
         </td>
     </tr>
@@ -257,7 +238,7 @@ __EXTENDS_JS__
         <br>
         <br>
         图片位置<br>
-        <a onclick="javascript:removePhoto(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_<?php echo ($item[seqid]); ?>" ajaxurl="<?php echo U('images/delete');?>" imgid="<?php echo ($item[id]); ?>">删除</a>
+        <a onclick="javascript:removePhoto(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_<?php echo ($item[seqid]); ?>" ajaxurl="<?php echo U('public/images/delete');?>" imgid="<?php echo ($item[id]); ?>">删除</a>
         <label>
          <?php if($item[align] == 'L'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>"  checked  value="L" >
          <?php else: ?>
@@ -291,7 +272,7 @@ __EXTENDS_JS__
     <br>
     <br>
     视频网址：<br>
-    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('videos/delete');?>" videoid="<?php echo ($item[videoid]); ?>">删除</a>
+    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('public/imagesvideos/delete');?>" videoid="<?php echo ($item[videoid]); ?>">删除</a>
     <p><?php echo ($item[url]); ?></p>
     </div>
     <div class="thumb">

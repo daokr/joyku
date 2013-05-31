@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<div class="midder">
+<div class="mc">
+<h1>
+{$seo.title}
+</h1>
+ 
+
+<div id="openappbox">
+			<div class="opentitlenav">
+				<p class="appmz">共有<b>2</b>个应用</p>
+				<p class="applx">类型</p>
+				<p class="appkf">审核状态</p>
+				<p class="appcs">下载次数</p>
+				<p class="appmt">更新时间</p>
+				<p class="appcz">操作</p>
+			</div>
+			<ul>
+            	<foreach name="arrApp" item="item">
+				<li>
+					<p class="pic">
+                    <a href="{:U('develop/index/show',array('id'=>$item[appid]))}">
+                    <img width="64" height="64" src="{$item[icon_100]}"></a>
+                    </p>
+					<p class="name"><b><a href="{:U('develop/index/show',array('id'=>$item[appid]))}">{$item[title]}</a></b><em></em></p>
+					<p class="sort">
+                      <eq name="item.apptype" value="1">应用</eq>
+                      <eq name="item.apptype" value="2">插件</eq>
+                      <eq name="item.apptype" value="3">模版皮肤</eq>
+                    </p>
+					<p class="oper">
+                   	 	
+                        <if condition="$item[isaudit] eq 1">
+                        	<eq name="item.status" value="0">审核未通过</eq>
+                            <eq name="item.status" value="1">审核通过</eq>
+                        <else/>
+                        	审核中
+                        </if>
+                    </p>
+					<p class="down">{$item[count_down]}</p>
+					<p class="mtime">{$item.addtime|date="Y-m-d",###}</p>
+					<p class="caoz"><a href="{:U('develop/index/editapp',array('id'=>$item[appid]))}">[编辑]</a></p>
+				</li>
+                </foreach>		
+             </ul> 
+	<div class="page"></div>
+</div>
+
+
+
+</div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>

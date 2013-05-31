@@ -27,8 +27,6 @@ __EXTENDS_JS__
 </head>
 
 <body>
-
-<?php echo W('Editor',array('contentName'=>'content','value'=>''));?>
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -67,7 +65,7 @@ __EXTENDS_JS__
     <div class="top_items">
         <ul>
              <?php if(is_array($topNav)): foreach($topNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" title="<?php echo ($item[name]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
-             <li><a href="<?php echo U('public/apps/index');?>">应用商店</a></li>
+             <li><a href="<?php echo U('develop/index/index');?>">应用商店</a></li>
              <li><a href="<?php echo U('public/help/download');?>" style="color:#fff">IKPHP源码下载</a></li>                                                      
         </ul>
     </div>
