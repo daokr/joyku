@@ -2,6 +2,7 @@
 /**
  * 编辑器
  * @example W('Editor',array('width'=>300,'height'=>'200','contentName'=>'mycontent','value'=>'默认的值'))
+ * {:W('Editor',array('contentName'=>'content','value'=>''),0,LIB_PATH)}
  * @author jason
  * @version TS3.0
  */
@@ -20,7 +21,7 @@ class EditorWidget extends Widget{
 	    $var['contentName'] = 'content';
 	    $var['width'] = '100%';
 	    !empty($data) && $var = array_merge($var,$data);
-	    $content = $this->renderFile(dirname(__FILE__).'/default.html',$var);
+	    $content = $this->renderFile(dirname(__FILE__).'/EditorWidget/default.html',$var);
 	    unset($var,$data);
 	    // 输出数据
 	    return $content;

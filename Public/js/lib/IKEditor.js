@@ -149,7 +149,7 @@ function removePhoto(obj, seq_id){
         success:    function(data, status){
             var oText, o = $(obj);
             if(data.r == 0){
-                oText = $("textarea[name='content']");
+                oText = $('#editor_full');
                 oText.val(oText.val().replace('[图片' + seq_id + ']', ''));
                 o.closest(".thumblst").slideUp('fast',function(){$(this).remove()});
             }else{
@@ -240,7 +240,7 @@ function removeVideo(obj, seq_id){
         success:    function(data, status){
             var oText, o = $(obj);
             if(data.r == 0){
-                oText = $("textarea[name='content']");
+                oText = $('#editor_full');
                 oText.val(oText.val().replace('[视频' + seq_id + ']', ''));
                 o.closest(".thumblst").slideUp('fast',function(){$(this).remove()});
             }else{

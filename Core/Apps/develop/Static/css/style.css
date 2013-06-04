@@ -32,3 +32,156 @@ h1 {
     font-size: 14px;
     margin-right: 15px;
 }
+
+.image-list li {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #EEEEEE;
+    border-image: none;
+    float: left;
+    padding: 13px 0 5px;
+    text-align: center;
+    width: 126px;
+}
+.input-content{ padding:10px 0px; display:none}
+.image-list li a.name{text-align:center;display:block;padding:3px 0 0 0; clear:both}
+.image-list li a.name:hover{ background:none; color:#333}
+
+
+.file-list {
+    border-color: -moz-use-text-color #DDDDDD #DDDDDD;
+    border-image: none;
+    border-right: 1px solid #DDDDDD;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    margin: 10px 0 0;
+    overflow: hidden;
+}
+
+.ico-jpg-small {
+    background-position: -168px -58px;
+}
+.file-list li {
+	margin: 0; 
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-top: 1px solid #DDDDDD;
+    line-height: 16px;
+    padding: 5px;
+    position: relative;
+}
+a.ico-close, a.ico-close:hover, .ico-close1 {
+    background: url(../images/del.png) no-repeat scroll 0 0 transparent;
+    display: inline-block;
+    height: 18px;
+    overflow: hidden;
+    vertical-align: 0;
+    width: 18px;
+}
+a.ico-close:hover{background-position:0 -50px;vertical-align:0;_vertical-align:2px}
+.file-list .ico-close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+
+.ico-doc-small, .ico-docx-small, .ico-xls-small, .ico-xlsx-small, .ico-txt-small, .ico-pdf-small, .ico-pdfx-small, .ico-ppt-small, .ico-pptx-small, .ico-pic-small, .ico-jpg-small, .ico-jpeg-small, .ico-gif-small, .ico-png-small, .ico-bmp-small, .ico-tif-small, .ico-rar-small , .ico-zip-small , .ico-doc, .ico-docx, .ico-xls, .ico-xlsx, .ico-txt, .ico-pdf, .ico-pdfx, .ico-ppt, .ico-pptx, .ico-pic, .ico-jpg, .ico-jpeg, .ico-gif, .ico-png, .ico-bmp, .ico-tif, .ico-rar, .ico-zip,.ico-attach
+{width:16px;height:16px;background:url(../images/ico-file.png) no-repeat;display:inline-block;vertical-align:middle;overflow:hidden;margin:0 5px 0 0}
+
+.ico-doc-small, .ico-docx-small, .ico-xls-small, .ico-xlsx-small, .ico-txt-small, .ico-pdf-small, .ico-pdfx-small, .ico-ppt-small, .ico-pptx-small, .ico-pic-small, .ico-jpg-small, .ico-jpeg-small, .ico-gif-small, .ico-png-small, .ico-bmp-small, .ico-tif-small, .ico-rar-small, .ico-zip-small{width:18px;height:18px;vertical-align: -4px;}
+
+.ico-doc, .ico-docx, .ico-xls, .ico-xlsx, .ico-txt, .ico-pdf, .ico-pdfx, .ico-ppt, .ico-pptx, .ico-pic, .ico-jpg, .ico-jpeg, .ico-gif, .ico-png, .ico-bmp, .ico-tif, .ico-rar, .ico-zip{width:48px;height:48px}
+
+
+.ico-doc{background-position:0 0}          .ico-doc-small{background-position:0 -58px}
+.ico-docx{background-position:0 0}         .ico-docx-small{background-position:0 -58px}
+.ico-xls{background-position:-58px 0}      .ico-xls-small{background-position:-28px -58px}
+.ico-xlsx{background-position:-58px 0}     .ico-xlsx-small{background-position:-28px -58px}
+.ico-txt{background-position:-174px 0}     .ico-txt-small{background-position:-84px -58px}
+.ico-pdf{background-position:-116px 0}     .ico-pdf-small{background-position:-56px -58px}
+.ico-pdfx{background-position:-116px 0}    .ico-pdfx-small{background-position:-56px -58px}
+.ico-ppt{background-position:-232px 0}     .ico-ppt-small{background-position:-112px -58px}
+.ico-pptx{background-position:-232px 0}    .ico-pptx-small{background-position:-112px -58px}
+.ico-pic{background-position:-290px 0}     .ico-pic-small{background-position:-140px -58px}
+.ico-jpg{background-position:-348px 0}     .ico-jpg-small{background-position:-168px -58px}
+.ico-jpeg{background-position:-348px 0}    .ico-jpeg-small{background-position:-168px -58px}
+.ico-gif{background-position:-406px 0}     .ico-gif-small{background-position:-196px -58px}
+.ico-png{background-position:-522px 0}     .ico-png-small{background-position:-252px -58px}
+.ico-bmp{background-position:-580px 0}     .ico-bmp-small{background-position:-280px -58px}
+.ico-tif{background-position:-464px 0}     .ico-tif-small{background-position:-224px -58px}
+.ico-rar{background-position:-638px 0}     .ico-rar-small{background-position:-308px -58px}
+.ico-zip{background-position:-638px 0}     .ico-zip-small{background-position:-308px -58px}
+.ico-attach{background-position:-365px -59px;width:14px;height:15px;display:inline-block;vertical-align:top;margin:1px 0 0 5px;*margin-top:-2px;}
+/**我的app**/
+#openappbox{overflow:hidden;}
+#openappbox .opentitlenav{ height:26px; font-size:12px;margin:5px 0 0 0; color:#666; background:#fafafa;}
+#openappbox .opentitlenav p{ float:left; display:block; height:26px; line-height:26px;}
+#openappbox .opentitlenav p.appmz{ width:300px; background:#fafafa; padding-left:10px}
+#openappbox .opentitlenav p.appmz b{ font-weight:lighter; color:#ff3300; padding:0 3px 0 3px;}
+#openappbox .opentitlenav p.applx{ width:100px; background:#fafafa;}
+#openappbox .opentitlenav p.apppf{ width:180px; background:#fafafa;}
+#openappbox .opentitlenav p.appcs{ width:100px; background:#fafafa;}
+#openappbox .opentitlenav p.appmt{ width:100px; background:#fafafa;}
+#openappbox .opentitlenav p.appkf{ width:150px; background:#fafafa;}
+#openappbox .opentitlenav p.appcz{ width:130px; background:#fafafa; float:right}
+
+#openappbox ul{ overflow:hidden}
+#openappbox ul li{ height:84px; border-bottom:1px #ddd dashed; padding-left:10px}
+#openappbox p{ float:left; display:block; font-size:12px;}
+#openappbox p.pic{ padding:10px 0 0 0; width:74px;}
+#openappbox p.name{ width:226px;}
+#openappbox p.name b{ width:226px; font-size:14px; float:left; line-height:23px; padding:10px 0 0 0;}
+#openappbox p.name em{ width:226px; float:left; font-style:normal; line-height:18px; color:#999;}
+#openappbox p.sort{ width:100px; line-height:80px; color:#999;}
+#openappbox p.ping{ width:180px; padding:30px 0 0 0;}
+#openappbox p.down{ width:100px; line-height:80px; color:#999;}
+#openappbox p.mtime{ width:100px; line-height:80px; color:#999;}
+#openappbox p.oper{ width:150px; line-height:80px;}
+#openappbox p.oper i{ font-style:normal; color:#2f9701;height:32px;line-height:32px;padding:24px 0 0;display:block}
+#openappbox p.oper b{ font-style:normal; color:#ff0000; font-weight:lighter;}
+#openappbox p.oper img{ vertical-align:middle; padding:0 5px 5px 0;}
+#openappbox p.caoz{ width:130px; line-height:80px; float:right}
+
+/**显示**/
+
+.recomment-tag {
+    background-color: #43b12d;
+    border-radius: 3px 3px 3px 3px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    margin-right: 10px;
+    padding: 1px 5px;
+    vertical-align: 5px;
+}
+.common-item, .item-subject {
+    overflow: hidden;
+}
+.common-item .pic, .item-subject .pic {
+    float: left;
+    margin-right: 12px;
+}
+.item-subject .pic { min-height:0; _height:auto; }
+.item-subject .pic img { max-width:170px; max-height:260px; }
+.app_info {margin-bottom: 15px; float: left; width: 300px; color:#666; }
+.app_info li { margin-bottom:8px; margin-top:3px}
+.app_info li .attr-name{ display:inline-block; text-align:right; width:60px}
+.item-desc p {}
+
+.appcoutinfo{float:right; width:220px;}
+.appcoutinfo .infos{ text-align:right}
+.appcoutinfo .infos span{ margin:0px 0px 0px 5px; color:#9a9a9a}
+.downbar{ display:block;}
+.downbar a{ display:block; width:100px;  overflow:hidden; color:#fff; height:28px; line-height:28px; font-size:14px;
+ text-align:center; background-color:#d5c9b9; border-radius:3px;}
+.downbar a:hover{ background-color:#beab93}
+
+
+
+.mod {
+    margin-bottom: 40px;
+    word-break: break-all;
+}
+.side-nav {
+    color: #666666;
+    font-size: 14px;
+}

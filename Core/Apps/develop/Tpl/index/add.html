@@ -21,7 +21,7 @@
               <span class="pl">3. 应用上线</span>
 </div>
             
-<form method="POST" action="{$Form[action]}" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
+<form method="POST" action="{:U('develop/index/add')}" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
 <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
 
 	<tr>
@@ -31,14 +31,8 @@
     <tr><th></th><td><span class="tips">请填写应用的名称如：IKPHP小组应用，名称中不要包含版本号，最多30个字</span></td></tr>  
     <tr>
         <th>版本号：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="version"  class="txt"   placeholder="1.0"></td>
-    </tr>
-    <tr><th>&nbsp;</th>
-        <td align="left" style="padding:0px 10px">
-        <a href="javascript:;" id="addImg">插入截图</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addLink">添加链接</a>
-        </td>
-    </tr>    
+        <td><input style="width:200px;" type="text" value=""  maxlength="30" name="version"  class="txt" ></td>
+    </tr>   
     <tr>
         <th>详细描述：</th><td>
         <textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="desc" class="txt"   placeholder="请填写详细的描述"></textarea>
@@ -58,38 +52,22 @@
     </tr>
     <tbody class="tbodyitem">
     <tr>
-        <th>应用分类：</th>
+        <th>分类：</th>
         <td>
 			<select class="txt" name="cateid">
                 <option selected="selected" value="1">内容聚合</option>
             </select>      
         </td>
     </tr>
-    <tr>
-        <th>应用包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">应用包的英文名称</span></td>
-    </tr> 
    </tbody>  
-   <tbody class="tbodyitem" style="display:none">
     <tr>
-        <th>插件分类：</th>
-        <td>
-			<select class="txt" name="cateid">
-                <option selected="selected" value="1">内容聚合</option>
-              </select>      
-        </td>
-    </tr>
-    <tr>
-        <th>插件包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="Plugin"><span class="ntips">插件包的英文名称</span></td>
+        <th>包名：</th>
+        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
     </tr> 
-   </tbody> 
-    <tbody class="tbodyitem" style="display:none">
     <tr>
-        <th>模版包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="Theme"><span class="ntips">模版包名的英文名称</span></td>
-    </tr> 
-   </tbody>               
+        <th>官方网站：</th>
+        <td><input style="width:200px;" type="text" value="" maxlength="50" name="appsite"  class="txt"   placeholder="http://"></td>
+    </tr>    
     <tr>
         <th>IKPHP版本：</th>
         <td><select name="ikphpversion" class="txt">
@@ -98,33 +76,99 @@
       </td>
     </tr>   
     <tr>
-        <th>应用Logo：</th>
-        <td><input name="applogo" type="file"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span></td>
+        <th valign="top" style="padding-top:10px">Logo：</th>
+        <td><input name="applogo_file" type="file" id="applogo"><input type="hidden" name="applogo"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span>
+        <div class="input-content">
+            <ul class="image-list">
+
+            </ul>
+        </div>        
+        </td>
     </tr>
     <tr>
-        <th>应用安装包：</th>
-        <td><input name="appfile" type="file"><span class="ntips">支持zip,rar格式，大小:20M以内</span></td>
+        <th valign="top" style="padding-top:10px">截图：</th>
+        <td><input name="screenshot_file" type="file" id="screenshot"><span class="ntips">支持jpg,jpge,png格式，大小限制<php>echo intval(C('ik_attr_allow_size')/1024);</php>M以内，最多上传5张图片</span>
+        <div class="input-content">
+            <ul class="image-list">
+
+            </ul>
+        </div> 
+        </td>
+    </tr>    
+    <tr>
+        <th>安装包：</th>
+        <td><input name="appfile_file" type="file" id="appfile"><input type="hidden" name="appfile"><span class="ntips">支持zip,rar格式，大小:<php>echo intval(C('ik_attr_allow_size')/1024);</php>M以内</span>
+        <div class="input-content">
+        <ul class="file-list">
+            <li>
+            <i class="ico-jpg-small"></i>
+            <a class="ico-close right" href="javascript:void(0)" onclick="uploadFile.removeAttachId(this,'file',21055)"></a>
+            <a href="#">2122.jpg</a><span>(62.16 KB)</span>
+            </li>
+        </ul>
+        </div>
+        </td>
     </tr>                 	
     <tr>
     	<th>&nbsp;</th><td>
-        <input type="hidden" name="appid" value="{$appid}" id="appid" />
+        <input type="hidden" name="appid" value="{$appid}"/>
+        <input type="hidden" name="userid" value="{$userid}"/>
         <input class="submit" type="submit" value="好啦，发布"> <a href="{:U('develop/index/index')}">返回</a>
         </td>
     </tr>
 </table>
-<include file="IKAPP:public:public:IKEditor" />
+<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
 <script language="javascript">
 $(function(){
-	$('#addImg').bind('click',function(){
-		var ajaxurl = "{:U('public/images/add')}";
-		var typeid = '{$appid}';
-		var data = "{'type':'appscreen','typeid':'"+typeid+"'}";		
-		addPhoto(ajaxurl, data);
-	});
-	$('#addLink').bind('click',function(){	
-		addLink();
-	});
+	$('input[type=file]').bind('change',function(){
+		var ajaxurl = "{:U('develop/index/ajax_upload',array('userid'=>$userid,'appid'=>$appid))}";
+		var obj = $(this).parent().find('.input-content');
+		var _self=$(this);
+		ajaxUpload(_self,obj,ajaxurl);
+	   
+	})
 });
+function ajaxUpload(_self,obj,ajaxurl){
+	var list = obj.find('.image-list');
+	var fileid = _self.attr('id'); 
+	if(list.length==0){
+		list = obj.find('.file-list');
+	}
+	if(list==0){ return;}
+	$.ajaxFileUpload(
+            {
+                url : ajaxurl,
+                fileElementId : fileid,
+                dataType : 'json',
+                allowType : 'jpg|png|gif|jpeg',
+                begin : function(){
+					var html = '<li><img src="__PUBLIC__/images/loading.gif"></li>';
+ 					list.html(html);obj.fadeIn(100);
+                },
+                complete : function(){
+                },
+                success : function(data, status){
+					
+                    if(data.r == 0){
+                        alert(data.html);
+                    }else{
+                        buildHtml(fileid,list,data);
+                    }
+                },
+                error : function(data, status, e){
+                    // console.log(e);
+                }
+            }
+       ); 
+}
+function buildHtml(fileid,list,data){
+	var id = fileid;
+	if(id=='applogo'){
+		var html = '<li><img width="100" height="100" src="'+data.small_photo_url+'">'+
+		'<a class="name" href="javascript:void(0)" onclick="removeAttachId(this)" actionurl="'+data.delurl+'">删除</a></li>';
+		list.html(html);
+	}
+}
 </script>
 </form>
 

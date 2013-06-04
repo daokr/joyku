@@ -82,7 +82,8 @@ class helpAction extends frontendAction {
 					$this->down_mod->add();
 					header('Location: http://www.ikphp.com/down/IKPHP_1.5.2.rar');
 				}
-			}		
+			}
+
 		}
 	}	
 	
