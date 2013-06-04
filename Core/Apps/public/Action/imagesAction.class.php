@@ -23,7 +23,7 @@ class imagesAction extends frontendAction {
 		$type = $this->_post('type','trim');
 		$userid = $this->userid;
 		// 上传
-		if (! empty ( $file )) {
+		if (! empty ( $file['name'] )) {
 			$data_dir = date ( 'Y/md/H' );
 			$result = savelocalfile($file,$type . '/' . $data_dir,
 					array (

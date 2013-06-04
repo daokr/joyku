@@ -10,6 +10,7 @@ class indexAction extends frontendAction {
 		// 访问者控制
 		if (! $this->visitor->is_login && in_array ( ACTION_NAME, array (
 				'add',
+				'ajax_upload',
 		) )) {
 			$this->redirect ( 'public/user/login' );
 		} else {
@@ -79,11 +80,7 @@ class indexAction extends frontendAction {
 			}
 		}else{
 			$appid = $this->_get('id','trim,intval','0');
-			if($appid>0){
-				$strApp = $this->dev_mod->getOneApp(array('appid'=>$appid));
-				$this->assign('strApp', $strApp);
-			}
-			
+
 			//查看该用户的图片
 			$arrImages = $this->images_mod->getImagesByMap(array('type'=>'appscreen','typeid'=>$appid,'userid'=>$userid),
 					'addtime asc');
@@ -159,6 +156,47 @@ class indexAction extends frontendAction {
 				'subtitle' => '应用商店'
 		) );
 		$this->display ();
+	}
+	//ajax上传文件
+	public function ajax_upload(){
+		$userid = $this->_get('userid','intval','0');
+		$appid = $this->_get('appid','intval','0');
+		
+		$applogo = $_FILES ['applogo_file'];
+		$screenshot = $_FILES ['screenshot_file'];
+		$appfile = $_FILES ['appfile_file'];
+		
+		if(!empty($applogo['name'])){
+			//传logo
+			$result = savelocalfile($applogo,'develop/'.$userid.'/applogo',
+					array('width'=>'48,100','height'=>'48,100'),
+					array('jpg','jpeg','png','gif'),
+					md5($appid));
+			if (!$result ['error']) {
+				$arrJson = array(
+						'small_photo_url'=>  attach($result['img_100_100']),
+						'small_photo_path'=> $result['img_100_100'],
+						'delurl' => U('develop/index/ajax_del_file'),
+				);
+				echo json_encode($arrJson);
+				return ;
+			}else{
+				$arrJson = array('r'=>0, 'html'=> $result ['error']);
+				echo json_encode($arrJson);
+				return ;
+			}
+						
+
+		}elseif(!empty($screenshot['name'])){
+			$arrJson = array('r'=>1, 'html'=> '请选择图片再上传！');
+			echo json_encode($arrJson);
+			return ;
+		}else{
+			$arrJson = array('r'=>0, 'html'=> '请选择图片再上传！');
+			echo json_encode($arrJson);
+			return;
+		}
+		
 	}	
 		
 	

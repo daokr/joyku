@@ -42,7 +42,9 @@ h1 {
     text-align: center;
     width: 126px;
 }
+.input-content{ padding:10px 0px; display:none}
 .image-list li a.name{text-align:center;display:block;padding:3px 0 0 0; clear:both}
+.image-list li a.name:hover{ background:none; color:#333}
 
 
 .file-list {
