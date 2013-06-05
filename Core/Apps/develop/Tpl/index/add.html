@@ -16,9 +16,9 @@
 <div class="nav-step">
               <span>1. 填写应用信息</span>
               <span class="pl">&gt;</span>
-              <span class="pl">2. 管理员审核</span>
-              <span class="pl">&gt;</span>
-              <span class="pl">3. 应用上线</span>
+              <span class="pl">2. 上传应用图片</span>
+              <span class="pl">&gt;</span>              
+              <span class="pl">3. 提交应用</span>
 </div>
             
 <form method="POST" action="{:U('develop/index/add')}" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
@@ -76,100 +76,12 @@
       </td>
     </tr>   
     <tr>
-        <th valign="top" style="padding-top:10px">Logo：</th>
-        <td><input name="applogo_file" type="file" id="applogo"><input type="hidden" name="applogo"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span>
-        <div class="input-content">
-            <ul class="image-list">
-
-            </ul>
-        </div>        
-        </td>
-    </tr>
-    <tr>
-        <th valign="top" style="padding-top:10px">截图：</th>
-        <td><input name="screenshot_file" type="file" id="screenshot"><span class="ntips">支持jpg,jpge,png格式，大小限制<php>echo intval(C('ik_attr_allow_size')/1024);</php>M以内，最多上传5张图片</span>
-        <div class="input-content">
-            <ul class="image-list">
-
-            </ul>
-        </div> 
-        </td>
-    </tr>    
-    <tr>
-        <th>安装包：</th>
-        <td><input name="appfile_file" type="file" id="appfile"><input type="hidden" name="appfile"><span class="ntips">支持zip,rar格式，大小:<php>echo intval(C('ik_attr_allow_size')/1024);</php>M以内</span>
-        <div class="input-content">
-        <ul class="file-list">
-            <li>
-            <i class="ico-jpg-small"></i>
-            <a class="ico-close right" href="javascript:void(0)" onclick="uploadFile.removeAttachId(this,'file',21055)"></a>
-            <a href="#">2122.jpg</a><span>(62.16 KB)</span>
-            </li>
-        </ul>
-        </div>
-        </td>
-    </tr>                 	
-    <tr>
     	<th>&nbsp;</th><td>
-        <input type="hidden" name="appid" value="{$appid}"/>
         <input type="hidden" name="userid" value="{$userid}"/>
-        <input class="submit" type="submit" value="好啦，发布"> <a href="{:U('develop/index/index')}">返回</a>
+        <input class="submit" type="submit" value="好啦，继续下一步"> <a href="{:U('develop/index/index')}">返回</a>
         </td>
     </tr>
 </table>
-<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
-<script language="javascript">
-$(function(){
-	$('input[type=file]').bind('change',function(){
-		var ajaxurl = "{:U('develop/index/ajax_upload',array('userid'=>$userid,'appid'=>$appid))}";
-		var obj = $(this).parent().find('.input-content');
-		var _self=$(this);
-		ajaxUpload(_self,obj,ajaxurl);
-	   
-	})
-});
-function ajaxUpload(_self,obj,ajaxurl){
-	var list = obj.find('.image-list');
-	var fileid = _self.attr('id'); 
-	if(list.length==0){
-		list = obj.find('.file-list');
-	}
-	if(list==0){ return;}
-	$.ajaxFileUpload(
-            {
-                url : ajaxurl,
-                fileElementId : fileid,
-                dataType : 'json',
-                allowType : 'jpg|png|gif|jpeg',
-                begin : function(){
-					var html = '<li><img src="__PUBLIC__/images/loading.gif"></li>';
- 					list.html(html);obj.fadeIn(100);
-                },
-                complete : function(){
-                },
-                success : function(data, status){
-					
-                    if(data.r == 0){
-                        alert(data.html);
-                    }else{
-                        buildHtml(fileid,list,data);
-                    }
-                },
-                error : function(data, status, e){
-                    // console.log(e);
-                }
-            }
-       ); 
-}
-function buildHtml(fileid,list,data){
-	var id = fileid;
-	if(id=='applogo'){
-		var html = '<li><img width="100" height="100" src="'+data.small_photo_url+'">'+
-		'<a class="name" href="javascript:void(0)" onclick="removeAttachId(this)" actionurl="'+data.delurl+'">删除</a></li>';
-		list.html(html);
-	}
-}
-</script>
 </form>
 
 

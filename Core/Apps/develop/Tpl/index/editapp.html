@@ -16,12 +16,14 @@
 <div class="nav-step">
               <span>1. 填写应用信息</span>
               <span class="pl">&gt;</span>
+              <span class="pl">2. 上传应用图片</span>
+              <span class="pl">&gt;</span>              
               <span class="pl">2. 管理员审核</span>
               <span class="pl">&gt;</span>
               <span class="pl">3. 应用上线</span>
 </div>
             
-<form method="POST" action="{:U('develop/index/editapp')}" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
+<form method="POST" action="{:U('develop/index/editapp',array('id'=>$strApp[appid]))}" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
 <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
 
 	<tr>
@@ -32,13 +34,7 @@
     <tr>
         <th>版本号：</th>
         <td><input style="width:200px;" type="text" value="{$strApp[version]}"  maxlength="30" name="version"  class="txt"   placeholder="1.0"></td>
-    </tr>
-    <tr><th>&nbsp;</th>
-        <td align="left" style="padding:0px 10px">
-        <a href="javascript:;" id="addImg">插入截图</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addLink">添加链接</a>
-        </td>
-    </tr>    
+    </tr> 
     <tr>
         <th>详细描述：</th><td>
         <textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="desc" class="txt"   placeholder="请填写详细的描述">{$strApp[desc]}</textarea>
@@ -68,7 +64,7 @@
    </tbody>  
     <tr>
         <th>包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
+        <td><input style="width:200px;" type="text" value="{$strApp[package_name]}" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
     </tr>          
     <tr>
         <th>IKPHP版本：</th>
@@ -76,54 +72,13 @@
 	            	<option value="1.5.1">IKPHP1.5.1</option>
 	        </select>
       </td>
-    </tr>   
-    <tr>
-        <th>应用Logo：</th>
-        <td><input name="applogo" type="file"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span>
-<div class="input-content" uploadcontent="file">
-    <ul class="image-list">
-        <li>
-        <img width="100" height="100" src="http://tsimg.tsurl.cn/2013/0516/21/5194e30a8dc83.jpg!100x100.cut.jpg"><a class="name" href="javascript:void(0)" onclick="uploadFile.removeAttachId(this,'image',19751)">删除</a>
-        </li>
-    </ul>
-</div>
-        </td>
-    </tr>
-    <tr>
-        <th>应用安装包：</th>
-        <td><input name="appfile" type="file"><span class="ntips">支持zip,rar格式，大小:20M以内</span>
-<div class="input-content" uploadcontent="file">
-<ul class="file-list">
-    <li>
-    <i class="ico-jpg-small"></i>
-    <a class="ico-close right" href="javascript:void(0)" onclick="uploadFile.removeAttachId(this,'file',21055)"></a>
-    <a href="#">2122.jpg</a><span>(62.16 KB)</span>
-    </li>
-</ul>
-</div>
-        </td>
-    </tr>                 	
+    </tr>                  	
     <tr>
     	<th>&nbsp;</th><td>
-        <input type="hidden" name="appid" value="{$appid}" id="appid" />
-        <input class="submit" type="submit" value="好啦，保存"> <a href="{:U('develop/index/index')}">返回</a>
+        <input class="submit" type="submit" value="好啦，保存下一步">
         </td>
     </tr>
 </table>
-<include file="IKAPP:public:public:IKEditor" />
-<script language="javascript">
-$(function(){
-	$('#addImg').bind('click',function(){
-		var ajaxurl = "{:U('public/images/add')}";
-		var typeid = '{$appid}';
-		var data = "{'type':'appscreen','typeid':'"+typeid+"'}";		
-		addPhoto(ajaxurl, data);
-	});
-	$('#addLink').bind('click',function(){	
-		addLink();
-	});
-});
-</script>
 </form>
 
 

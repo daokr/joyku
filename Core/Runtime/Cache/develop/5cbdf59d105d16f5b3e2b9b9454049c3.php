@@ -136,12 +136,14 @@ __EXTENDS_JS__
 <div class="nav-step">
               <span>1. 填写应用信息</span>
               <span class="pl">&gt;</span>
+              <span class="pl">2. 上传应用图片</span>
+              <span class="pl">&gt;</span>              
               <span class="pl">2. 管理员审核</span>
               <span class="pl">&gt;</span>
               <span class="pl">3. 应用上线</span>
 </div>
             
-<form method="POST" action="<?php echo U('develop/index/editapp');?>" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
+<form method="POST" action="<?php echo U('develop/index/editapp',array('id'=>$strApp[appid]));?>" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
 <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
 
 	<tr>
@@ -152,13 +154,7 @@ __EXTENDS_JS__
     <tr>
         <th>版本号：</th>
         <td><input style="width:200px;" type="text" value="<?php echo ($strApp[version]); ?>"  maxlength="30" name="version"  class="txt"   placeholder="1.0"></td>
-    </tr>
-    <tr><th>&nbsp;</th>
-        <td align="left" style="padding:0px 10px">
-        <a href="javascript:;" id="addImg">插入截图</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="javascript:;" id="addLink">添加链接</a>
-        </td>
-    </tr>    
+    </tr> 
     <tr>
         <th>详细描述：</th><td>
         <textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="desc" class="txt"   placeholder="请填写详细的描述"><?php echo ($strApp[desc]); ?></textarea>
@@ -188,7 +184,7 @@ __EXTENDS_JS__
    </tbody>  
     <tr>
         <th>包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
+        <td><input style="width:200px;" type="text" value="<?php echo ($strApp[package_name]); ?>" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
     </tr>          
     <tr>
         <th>IKPHP版本：</th>
@@ -196,125 +192,13 @@ __EXTENDS_JS__
 	            	<option value="1.5.1">IKPHP1.5.1</option>
 	        </select>
       </td>
-    </tr>   
-    <tr>
-        <th>应用Logo：</th>
-        <td><input name="applogo" type="file"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span>
-<div class="input-content" uploadcontent="file">
-    <ul class="image-list  clearfix">
-        <li>
-        <img width="100" height="100" src="http://tsimg.tsurl.cn/2013/0516/21/5194e30a8dc83.jpg!100x100.cut.jpg"><a class="name" href="javascript:void(0)" onclick="uploadFile.removeAttachId(this,'image',19751)">删除</a>
-        </li>
-    </ul>
-</div>
-        </td>
-    </tr>
-    <tr>
-        <th>应用安装包：</th>
-        <td><input name="appfile" type="file"><span class="ntips">支持zip,rar格式，大小:20M以内</span>
-<div class="input-content" uploadcontent="file">
-<ul class="file-list">
-    <li>
-    <i class="ico-jpg-small"></i>
-    <a class="ico-close right" href="javascript:void(0)" onclick="uploadFile.removeAttachId(this,'file',21055)"></a>
-    <a href="#">2122.jpg</a><span>(62.16 KB)</span>
-    </li>
-</ul>
-</div>
-        </td>
-    </tr>                 	
+    </tr>                  	
     <tr>
     	<th>&nbsp;</th><td>
-        <input type="hidden" name="appid" value="<?php echo ($appid); ?>" id="appid" />
-        <input class="submit" type="submit" value="好啦，保存"> <a href="<?php echo U('develop/index/index');?>">返回</a>
+        <input class="submit" type="submit" value="好啦，保存下一步">
         </td>
     </tr>
 </table>
-<style>
-.item-thumb-list{ padding-left:110px}
-.thumblst { width:580px;min-width:580px;}
-.thumblst .details textarea { width:90%; }
-.thumblst { min-height: 140px; min-width: 600px; border: 1px solid #d3d3d3; background:#f0f0f0; padding: 10px 12px; margin: 3px 0 7px }
-.thumblst .thumb { float: left; width: 160px; overflow:hidden;}
-.thumblst .thumb img { max-width: 130px; _width: 130px }
-.thumblst .thumb .pl { padding:0px; margin-bottom:5px; }
-.thumblst .details { float: right; width: 419px;}
-.thumblst .details .rr {float: right;}
-.thumblst .details p{ margin-bottom:5px;}
-.thumblst .details textarea{ width: 410px; height:66px;border:1px solid #ccc;}
-.alignleft{background:url(__PUBLIC__/images/align_left.png) no-repeat;padding:0 6px 0 25px}
-.aligncenter{background:url(__PUBLIC__/images/align_center.png) no-repeat;padding:0 6px 0 25px}
-.alignright{background:url(__PUBLIC__/images/align_right.png) no-repeat;padding:0 6px 0 25px}
-</style>
-<div id="thumblst" class="item item-thumb-list">
-    <?php if(is_array($arrPhotos)): foreach($arrPhotos as $key=>$item): ?><div class="thumblst">
-      <div class="details">
-        <p>图片描述（30字以内）</p>
-        <textarea name="photodesc[]" maxlength="30"><?php echo ($item[title]); ?></textarea>
-        <input type="hidden" name="seqid[]" value="<?php echo ($item[seqid]); ?>" >
-        <br>
-        <br>
-        图片位置<br>
-        <a onclick="javascript:removePhoto(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_<?php echo ($item[seqid]); ?>" ajaxurl="<?php echo U('public/images/delete');?>" imgid="<?php echo ($item[id]); ?>">删除</a>
-        <label>
-         <?php if($item[align] == 'L'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>"  checked  value="L" >
-         <?php else: ?>
-         <input type="radio" name="layout_<?php echo ($item[seqid]); ?>"   value="L" ><?php endif; ?>
-          <span class="alignleft">居左</span></label>
-        <label>
-          <?php if($item[align] == 'C'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="C" >
-          <?php else: ?>
-          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="C" ><?php endif; ?>
-          <span class="aligncenter">居中</span></label>
-        <label>
-          <?php if($item[align] == 'R'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="R" >
-          <?php else: ?>
-          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="R" ><?php endif; ?>
-          <span class="alignright">居右</span></label>
-      </div>
-      <div class="thumb">
-        <div class="pl">[图片<?php echo ($item[seqid]); ?>]</div>
-        <img src="<?php echo ($item[simg]); ?>">
-      </div>
-      	<div class="clear"></div>
-    </div><?php endforeach; endif; ?>
-
-</div>
-<div id="videosbar"  class="item item-thumb-list">
-   <?php if(is_array($arrVideos)): foreach($arrVideos as $key=>$item): ?><div class="thumblst">
-    <div class="details">
-    <p>视频标题（30字以内）</p>
-    <textarea name="video_<?php echo ($item[seqid]); ?>_title" maxlength="30"><?php echo ($item[title]); ?></textarea>
-    <input type="hidden" value="<?php echo ($item[seqid]); ?>" name="videoseqid[]">
-    <br>
-    <br>
-    视频网址：<br>
-    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('public/imagesvideos/delete');?>" videoid="<?php echo ($item[videoid]); ?>">删除</a>
-    <p><?php echo ($item[url]); ?></p>
-    </div>
-    <div class="thumb">
-    <div class="pl">[视频<?php echo ($item[seqid]); ?>]</div>
-    <img src="<?php echo ($item[imgurl]); ?>"> </div>
-    <div class="clear"></div>
-    </div><?php endforeach; endif; ?>
-</div>
-<!--加载编辑器-->
-<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/lib/IKEditor.js"></script>
-
-<script language="javascript">
-$(function(){
-	$('#addImg').bind('click',function(){
-		var ajaxurl = "<?php echo U('public/images/add');?>";
-		var typeid = '<?php echo ($appid); ?>';
-		var data = "{'type':'appscreen','typeid':'"+typeid+"'}";		
-		addPhoto(ajaxurl, data);
-	});
-	$('#addLink').bind('click',function(){	
-		addLink();
-	});
-});
-</script>
 </form>
 
 
