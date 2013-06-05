@@ -1,6 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
+<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
@@ -24,9 +25,11 @@
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
+
 </head>
 
 <body>
+<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -100,72 +103,70 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
-<!--main-->
-<div class="midder">
-<div class="mc">
-
-<h1 class="set_tit">用户信息管理</h1>
-<div class="tabnav">
-<ul>
-<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
-<?php else: ?>
-<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
-</ul>
+<!--header-->
+<div id="header">
+    
+	<div class="site_nav">
+        <div class="<?php echo ($logo[style]); ?>">
+            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
+        </div>
+		<div class="appnav">
+			    <ul id="nav_bar">
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+			    </ul>
+		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <input type="hidden" value="all" name="type">
+                <div id="search_bar">
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
+                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
+                </div>
+		    </form>
+		</div>
+        <div class="cl"></div>
+	</div>
+        
 </div>
+<div class="midder">
+	<div class="mc">
+    	
+	<div class="boxShadow">
+  	<div class="banner"><a class="btn-release" href="<?php echo U('develop/index/add');?>"></a><a class="btn-manage" href="#"></a></div>
+		<div class="model clearfix">
+			<ul>
+				<li class=""><a href="#"><strong>开发者风采</strong><br><p>认证开发者的展示平台</p></a></li>			
+				<li class=""><a href="#"><strong>开发文档</strong><br><p>开发相关的文档</p></a></li>
+				<li class=""><a href="#"><strong>交流论坛</strong><br><p>站长与开发者的对话</p></a></li>
+				<li class=""><a href="#"><strong>需求市场</strong><br><p>开发者与需求方的沟通桥梁</p></a></li>
+			</ul>
+		</div>
+		<!-- 
+		<div class="clearfix pb20">
+			<div class="mod-list">
+				<div class="tit"><a href="" class="fr">更多动态>></a><h3>最新动态</h3></div>
+				<ul>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+				</ul>
+			</div>
+			<div class="mod-list">
+				<div class="tit"><a href="" class="fr">更多动态>></a><h3>帮助中心</h3></div>
+				<ul>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+				</ul>
+			</div>
+		</div> -->
+	</div>
 
-    <div class="utable">
-        <form method="POST" action="<?php echo U('public/user/setbase');?>">
-        <table cellpadding="0" cellspacing="0" width="100%" class="table_1">
-        <tr>
-        <th>登陆Email：</th><td><input class="txt" value="<?php echo ($info["email"]); ?>" disabled="true" /></td>
-        </tr>
-        <tr><th>名 号：</th><td><input class="txt" name="username" value="<?php echo ($info["username"]); ?>"  /></td></tr>
-        
-        <tr><th>性 别：</th><td>
-        
-        <?php if($info["sex"] == '0'): ?><input checked="select" name="sex" type="radio" value="0" />保密 
-        <?php else: ?>
-        <input  name="sex" type="radio" value="0" />保密<?php endif; ?>
-        <?php if($info["sex"] == '1'): ?><input checked="select" name="sex" type="radio" value="1" />男  
-        <?php else: ?>
-        <input  name="sex" type="radio" value="1" />男<?php endif; ?>
-        <?php if($info["sex"] == '2'): ?><input checked="select" name="sex" type="radio" value="2" />女 
-        <?php else: ?>
-        <input name="sex" type="radio" value="2" />女<?php endif; ?>
-        
-        
-        </td></tr>
-        
-        <tr><th>常居地：</th>
-        <td>
-        <?php if(!empty($strarea)): echo ($strarea[one][areaname]); ?> 
-        <?php echo ($strarea[two][areaname]); ?> 
-        <?php echo ($strarea[three][areaname]); endif; ?>
-        </td>
-        </tr>
-        
-        <tr><th>当前所在地：</th><td><input class="txt" name="address" value="<?php echo ($info["address"]); ?>" /></td></tr>
-        
-        <tr><th>登陆IP：</th><td><input class="txt" name="ip" value="<?php echo ($info["ip"]); ?>" disabled="true" /></td></tr>
-        
-        <tr><th>手 机：</th><td><input class="txt" name="phone" value="<?php echo ($info["phone"]); ?>"  /></td></tr>
-        
-        <tr><th>Blog地址：</th><td><input class="txt" name="blog" value="<?php echo ($info["blog"]); ?>"  /></td></tr>
-        
-        <tr><th>自我介绍：</th><td><textarea class="utext" name="about" style="height:70px; width:480px"><?php echo ($info["about"]); ?></textarea></td></tr>
-        
-        <tr><th>签 名：</th><td>
-        <textarea class="utext" name="signed" style="height:70px; width:480px"><?php echo t($info['signed']); ?></textarea>
-        (支持url链接，只需要输入http://www.******.com即可)
-        </td></tr>
-        
-        <tr><th></th><td><input class="submit" type="submit" value="更新个人资料"  /></td></tr>
-        
-        </table>
-        </form>
     </div>
 </div>
-</div>
+<!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
 <div id="footer">
@@ -191,5 +192,6 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+
 </body>
 </html>

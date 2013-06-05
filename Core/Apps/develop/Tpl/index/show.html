@@ -22,9 +22,11 @@
     <div class="mod item-subject">
         <div class="pic">
             <a href="#"><img width="100" alt=" " src="{$strApp[icon_100]}"></a>
+            <if condition="$visitor[userid] eq $strApp[userid]">
             <div class="th-modify">
                 <a href="{:U('develop/index/add_upload',array('id'=>$strApp[appid]))}">增改描述或图标</a>
         	</div>
+            </if>
         </div>
         <div class="app_info">
         <ul>
@@ -86,20 +88,18 @@
 
 
 <div class="cright">
-
+ 	<if condition="$visitor[userid] eq $strApp[userid]">
     <p class="pl2"> &gt; <a href="{:U('develop/index/editapp',array('id'=>$strApp[appid]))}">编辑应用信息</a></p>
+    </if>
     <p class="pl2"> &gt; <a href="{:U('develop/index/applist')}">发现更多应用</a></p>
 
     <div class="mod">
         <h2>
-            用过这个应用的人
+            下载过这个应用的人
                 &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
-                <span class="pl">&nbsp;(
-                        <a href="http://www.douban.com/subject/21254131/collections">全部27人</a>
-                    ) </span>
         </h2>
 
-        <foreach name="arrGroupUser" item="item">
+        <foreach name="arrDownUser" item="item">
         <dl class="obu">
             <dt>
             <a href="{:U('space/index/index',array('id'=>$item[doname]))}"><img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}" /></a>
@@ -109,7 +109,6 @@
             </dd>
      	 </dl>
         </foreach>
-        
        <div class="clear"></div>
     </div>
 

@@ -28,3 +28,22 @@ CREATE TABLE `ik_develop` (
   PRIMARY KEY (`appid`),
   KEY `title` (`title`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ik_develop_comments`
+--
+DROP TABLE IF EXISTS `ik_develop_comments`;
+CREATE TABLE `ik_develop_comments` (
+  `commentid` int(11) NOT NULL AUTO_INCREMENT COMMENT '评论ID',
+  `referid` int(11) NOT NULL DEFAULT '0',
+  `appid` int(11) NOT NULL DEFAULT '0' COMMENT '应用ID',
+  `userid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `content` text NOT NULL COMMENT '回复内容',
+  `addtime` int(11) DEFAULT '0' COMMENT '回复时间',
+  PRIMARY KEY (`commentid`),
+  KEY `appid` (`appid`),
+  KEY `userid` (`userid`),
+  KEY `referid` (`referid`,`appid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='话题回复/评论' AUTO_INCREMENT=1 ;

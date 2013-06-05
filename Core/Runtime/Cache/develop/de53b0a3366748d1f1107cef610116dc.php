@@ -1,6 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
+<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
@@ -24,9 +25,11 @@
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
+
 </head>
 
 <body>
+<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -100,72 +103,177 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
-<!--main-->
+<!--header-->
+<div id="header">
+    
+	<div class="site_nav">
+        <div class="<?php echo ($logo[style]); ?>">
+            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
+        </div>
+		<div class="appnav">
+			    <ul id="nav_bar">
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+			    </ul>
+		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <input type="hidden" value="all" name="type">
+                <div id="search_bar">
+                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
+                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
+                </div>
+		    </form>
+		</div>
+        <div class="cl"></div>
+	</div>
+        
+</div>
+
 <div class="midder">
 <div class="mc">
+<h1>
+<?php echo ($seo["title"]); ?>
+</h1>
 
-<h1 class="set_tit">用户信息管理</h1>
-<div class="tabnav">
-<ul>
-<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
-<?php else: ?>
-<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
-</ul>
+<div class="nav-step">
+              <span class="pl">1. 填写应用信息</span>
+              <span class="pl">&gt;</span>
+              <span >2. 上传应用图片</span>
+              <span class="pl">&gt;</span>              
+              <span class="pl">3. 提交应用</span>
 </div>
-
-    <div class="utable">
-        <form method="POST" action="<?php echo U('public/user/setbase');?>">
-        <table cellpadding="0" cellspacing="0" width="100%" class="table_1">
-        <tr>
-        <th>登陆Email：</th><td><input class="txt" value="<?php echo ($info["email"]); ?>" disabled="true" /></td>
-        </tr>
-        <tr><th>名 号：</th><td><input class="txt" name="username" value="<?php echo ($info["username"]); ?>"  /></td></tr>
-        
-        <tr><th>性 别：</th><td>
-        
-        <?php if($info["sex"] == '0'): ?><input checked="select" name="sex" type="radio" value="0" />保密 
-        <?php else: ?>
-        <input  name="sex" type="radio" value="0" />保密<?php endif; ?>
-        <?php if($info["sex"] == '1'): ?><input checked="select" name="sex" type="radio" value="1" />男  
-        <?php else: ?>
-        <input  name="sex" type="radio" value="1" />男<?php endif; ?>
-        <?php if($info["sex"] == '2'): ?><input checked="select" name="sex" type="radio" value="2" />女 
-        <?php else: ?>
-        <input name="sex" type="radio" value="2" />女<?php endif; ?>
-        
-        
-        </td></tr>
-        
-        <tr><th>常居地：</th>
-        <td>
-        <?php if(!empty($strarea)): echo ($strarea[one][areaname]); ?> 
-        <?php echo ($strarea[two][areaname]); ?> 
-        <?php echo ($strarea[three][areaname]); endif; ?>
+            
+<form method="POST" action="<?php echo U('develop/index/add_upload',array('id'=>$strApp[appid]));?>" enctype="multipart/form-data" id="ikform">
+<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+    <tr>
+        <th valign="top" style="padding-top:10px">Logo：</th>
+        <td><input name="applogo_file" type="file" id="applogo" onChange="uploadfile(this,'applogo');"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span>
+        <div class="input-content">
+            <ul class="image-list">
+           		<?php if($strApp[applogo]): ?><li>
+                <img width="100" height="100" src="<?php echo attach($strApp[applogo]);?>">
+                </li><?php endif; ?>
+            </ul>
+        </div>        
         </td>
-        </tr>
-        
-        <tr><th>当前所在地：</th><td><input class="txt" name="address" value="<?php echo ($info["address"]); ?>" /></td></tr>
-        
-        <tr><th>登陆IP：</th><td><input class="txt" name="ip" value="<?php echo ($info["ip"]); ?>" disabled="true" /></td></tr>
-        
-        <tr><th>手 机：</th><td><input class="txt" name="phone" value="<?php echo ($info["phone"]); ?>"  /></td></tr>
-        
-        <tr><th>Blog地址：</th><td><input class="txt" name="blog" value="<?php echo ($info["blog"]); ?>"  /></td></tr>
-        
-        <tr><th>自我介绍：</th><td><textarea class="utext" name="about" style="height:70px; width:480px"><?php echo ($info["about"]); ?></textarea></td></tr>
-        
-        <tr><th>签 名：</th><td>
-        <textarea class="utext" name="signed" style="height:70px; width:480px"><?php echo t($info['signed']); ?></textarea>
-        (支持url链接，只需要输入http://www.******.com即可)
-        </td></tr>
-        
-        <tr><th></th><td><input class="submit" type="submit" value="更新个人资料"  /></td></tr>
-        
-        </table>
-        </form>
-    </div>
+    </tr>
+    <tr>
+        <th valign="top" style="padding-top:10px">截图：</th>
+        <td><input name="screenshot_file" type="file" id="screenshot" onChange="uploadfile(this,'screenshot');"><span class="ntips">支持jpg,jpge,png格式，大小限制<?php echo intval(C('ik_attr_allow_size')/1024); ?>M以内，最多上传5张图片</span>
+        <div class="input-content">
+            <ul class="image-list">
+				<?php if(is_array($arrPhoto)): foreach($arrPhoto as $key=>$item): ?><li>
+                <img width="100" height="100" src="<?php echo ($item[simg]); ?>">
+                <a class="name" href="javascript:void(0)" onclick="removeAttachId(this)" delurl="<?php echo U('develop/index/ajax_del_file', array('id'=>$item[id]));?>">删除</a>
+                </li><?php endforeach; endif; ?>
+            </ul>
+        </div> 
+        </td>
+    </tr>    
+    <tr>
+        <th valign="top" style="padding-top:10px">安装包：</th>
+        <td><input name="appfile_file" type="file" id="appfile"  onChange="uploadfile(this,'appfile');"><span class="ntips">支持zip,rar格式，大小:5M以内</span>
+        <div class="input-content">
+        <ul class="file-list">
+        	<?php if($strApp[appfile]): ?><li>
+            <i class="ico-rar-small"></i>
+            <a class="ico-close right" href="javascript:void(0)" onclick="removeAttachId(this)"></a>
+            </li><?php endif; ?>
+        </ul>
+        </div>
+        </td>
+    </tr>                 	
+    <tr>
+    	<th>&nbsp;</th><td>
+        <input type="hidden" name="userid" value="<?php echo ($userid); ?>"/>
+        <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('develop/index/editapp',array('id'=>$strApp[appid]));?>">返回到上一步</a>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
+<script language="javascript">
+function uploadfile(o,id){
+	var ajaxurl = "<?php echo U('develop/index/ajax_upload',array('userid'=>$userid,'appid'=>$strApp[appid]));?>";
+	var obj = $(o).parent().find('.input-content');
+	var _self=$(o);
+	if(id=='screenshot' && obj.find('li').length>5){
+		error('只能上传6张截图');
+		return;
+	}
+	ajaxUpload(_self,obj,ajaxurl);
+}
+function ajaxUpload(_self,obj,ajaxurl){
+	var list = obj.find('.image-list');
+	var fileid = _self.attr('id'); 
+	if(list.length==0){
+		list = obj.find('.file-list');
+	}
+	if(list==0){ return;}
+	$.ajaxFileUpload(
+            {
+                url : ajaxurl,
+                fileElementId : fileid,
+                dataType : 'json',
+                allowType : 'jpg|png|gif|jpeg|zip|rar',
+                begin : function(){
+					var html = '<li id="loading"><img src="__PUBLIC__/images/loading.gif"></li>';
+ 					list.append(html);obj.fadeIn(100);
+                },
+                complete : function(){
+					list.find('#loading').remove();
+                },
+                success : function(data, status){
+					
+                    if(data.r == 0){
+                        error(data.html);
+                    }else{
+                        buildHtml(fileid,list,data);
+                    }
+                },
+                error : function(data, status, e){
+                    // console.log(e);
+                }
+            }
+       ); 
+}
+function buildHtml(fileid,list,data){
+	var id = fileid;
+	if(id=='applogo'){
+		var html = '<li><img width="100" height="100" src="'+data.photo_url+'"></li>';
+		list.html(html);
+		return;
+	}
+	if(id=='screenshot'){
+		var html = '<li><img width="100" height="100" src="'+data.photo_url+'">'+
+		'<a class="name" href="javascript:void(0)" onclick="removeAttachId(this)" delurl="'+data.delurl+'">删除</a></li>';
+		list.append(html);
+		return;		
+	}
+	if(id=='appfile'){
+		var html = '<li><i class="ico-rar-small"></i><a class="ico-close right" href="javascript:void(0)" onclick="removeAttachId(this)"></a>'+data.savename+'<span>('+data.filesize+' KB)</span></li>';
+		list.html(html);
+		return;		
+	}
+}
+function removeAttachId(obj){
+	var delurl = $(obj).attr('delurl');
+	if(delurl){
+		$.post(delurl,{},function(data){
+			if(data.r == 1){
+				$(obj).parent().remove();
+			}
+		},'json');
+	}else{
+		$(obj).parent().fadeOut(100).remove();
+	}
+}
+</script>
+</form>
+
+
+
 </div>
 </div>
+
+<!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
 <div id="footer">
@@ -191,5 +299,6 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+
 </body>
 </html>

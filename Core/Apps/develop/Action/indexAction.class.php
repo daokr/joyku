@@ -19,6 +19,7 @@ class indexAction extends frontendAction {
 		$this->user_mod = D ( 'user' );
 		$this->images_mod = D('images');
 		$this->dev_mod = D('develop');
+		$this->dev_comments_mod = D('develop_comments');
 		
 		//生成导航
 		$this->assign('arrNav',$this->_nav());
@@ -168,8 +169,42 @@ class indexAction extends frontendAction {
 		if($strApp ['userid']!=$user['userid']){
 			$this->dev_mod->where(array('appid'=>$id))->setInc('count_view');
 		}
+		//获取评论
+		$page = $this->_get('p','intval',1);
+		$sc = $this->_get('sc','trim','asc');
+		$isauthor = $this->_get('isauthor','trim','0');
+		
+		//查询条件 是否显示
+		$map['appid'] = $strApp ['appid'];
+		if($isauthor){
+			$map['userid']  = $strApp ['userid'];
+			$author = array('isauthor'=>0,'text'=>'查看所有回应');
+		}else{
+			$author = array('isauthor'=>1,'text'=>'只看楼主');
+		}
+		//显示列表
+		$pagesize = 30;
+		$count = $this->dev_comments_mod->where($map)->order('addtime '.$sc)->count('appid');
+		$pager = $this->_pager($count, $pagesize);
+		$arrComment =  $this->dev_comments_mod->where($map)->order('addtime '.$sc)->limit($pager->firstRow.','.$pager->listRows)->select();
+		foreach($arrComment as $key=>$item){
+			$commentList[] = $item;
+			$commentList[$key]['user'] = $this->user_mod->getOneUser($item['userid']); 
+			$commentList[$key]['content'] = h($item['content']);
+			if($item['referid']>0){
+				$recomment = $this->dev_comments_mod->recomment($item['referid']);
+				$commentList[$key]['recomment'] = $recomment;
+			}
+		}
+		$this->assign('pageUrl', $pager->fshow());
+		$this->assign('commentList', $commentList);
+		$this->assign ( 'sc', $sc );
+		$this->assign ( 'author', $author );
+		$this->assign ( 'isauthor', $isauthor );
+		//评论list结束
 
 		$this->assign ( 'strApp', $strApp );
+		$this->assign ( 'page', $page );
 		$this->_config_seo ( array (
 				'title' => $strApp ['title'],
 				'subtitle' => '应用商店'
@@ -292,6 +327,79 @@ class indexAction extends frontendAction {
 			$isdel && $arrJson = array('r'=>1, 'html'=> '删除成功！');
 			echo json_encode($arrJson); 
 		}
+	}
+	
+	// 添加评论
+	public function addcomment(){
+		$appid	= $this->_post('appid','intval');
+		$content	= $this->_post('content','trim');
+		$page	= $this->_post('p','intval','1');
+		if(empty($content)){
+			
+			$this->error('没有任何内容是不允许你通过滴^_^');
+				
+		}elseif(mb_strlen($content,'utf8')>10000){
+				
+			$this->error('发这么多内容干啥,最多只能写10000千个字^_^,回去重写哇！');
+				
+		}else{ 
+			//执行添加
+			$data = array(
+					'appid'	=> $appid,
+					'userid'	=> $this->userid,
+					'content'	=> ikwords($content),
+					'addtime'	=> time(),
+			);
+			if (false !== $this->dev_comments_mod->create ( $data )) {
+				$commentid = $this->dev_comments_mod->add ();
+				$this->redirect ( 'develop/index/show', array (
+						'id' => $appid,
+						'p'  => $page,
+				) );
+			}
+		}
+		
+	}
+	
+	// 回复评论
+	public function recomment(){
+		$objid = $this->_post('objid');
+		$referid = $this->_post('referid');
+		$content = $this->_post('content');		
+		//安全性检查
+		if( mb_strlen($content, 'utf8') > 10000)
+		{
+			echo 1;
+			exit ();
+		}
+		//执行添加
+		$data = array(
+				'appid'	=> $objid,
+				'userid'	=> $this->userid,
+				'referid'	=> $referid,
+				'content'	=> ikwords($content), // ajax 提交过来数据的转一下
+				'addtime'	=> time(),
+		);
+		if (false !== $this->dev_comments_mod->create ( $data )) {
+			$commentid = $this->dev_comments_mod->add ();
+			echo 0;
+		}
+	}
+	// 删除某条评论
+	public function delcomment(){
+		$commentid = $this->_get('commentid','intval');
+		$userid = $this->userid;
+		$strComment = $this->dev_comments_mod->where(array('commentid'=>$commentid))->find();
+		$strApp = $this->dev_mod->getOneApp(array('appid'=>$strComment['appid']));
+				
+		// 只有应用发布人 可以删除 其他权限不允许删除
+		if($strApp['userid']==$userid || $strComment['userid']==$userid){
+			$this->dev_comments_mod->delComment($commentid);
+			$this->redirect ( 'develop/index/show', array (
+					'id' => $strComment['appid'],
+			) );			
+		}
+
 	}
 		
 	

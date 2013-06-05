@@ -140,9 +140,9 @@ __EXTENDS_JS__
     <div class="mod item-subject">
         <div class="pic">
             <a href="#"><img width="100" alt=" " src="<?php echo ($strApp[icon_100]); ?>"></a>
-            <div class="th-modify">
+            <?php if($visitor[userid] == $strApp[userid]): ?><div class="th-modify">
                 <a href="<?php echo U('develop/index/add_upload',array('id'=>$strApp[appid]));?>">增改描述或图标</a>
-        	</div>
+        	</div><?php endif; ?>
         </div>
         <div class="app_info">
         <ul>
@@ -196,47 +196,48 @@ __EXTENDS_JS__
 <div class="mod">
 	      <!--comment评论-->
       <ul class="comment" id="comment">
-       <?php if(!empty($arrTopicComment)): if(is_array($arrTopicComment)): foreach($arrTopicComment as $key=>$item): ?><li class="clearfix">
-          <div class="user-face"> <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img title="<?php echo ($item[user][username]); ?>" alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a> </div>
-          <div class="reply-doc">
-            <h4><span class="fr"></span><a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <?php echo date('Y-m-d H:i:s',$item[addtime]) ?></h4>
-            
-            <?php if($item[referid] != 0): ?><div class="recomment"><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><img src="<?php echo ($item[recomment][user][face]); ?>" width="24" align="absmiddle"></a> <strong><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><?php echo ($item[recomment][user][username]); ?></a></strong>：<?php echo ($item[recomment][content]); ?></div><?php endif; ?>
-            
-            <p> <?php echo ($item[content]); ?> </p>
-            
-            <!--签名--> 
-            <?php if(!empty($item[user][signed])): ?><div class="signed"><?php echo ($item[user][signed]); ?></div><?php endif; ?>
-            
-            <div class="group_banned"> 
-              <?php if($isGroupUser != 0): ?><span><a href="javascript:void(0)"  onclick="commentOpen(<?php echo ($item[commentid]); ?>,<?php echo ($item[topicid]); ?>)">回复</a></span><?php endif; ?>
-              <?php if(($strTopic[userid] == $visitor[userid]) OR ($strGroup[userid] == $visitor[userid]) OR ($visitor[userid] == $item[userid]) OR ($strGroupUser[isadmin] == 1) OR ($visitor[userid] == 1)): ?><span><a class="j a_confirm_link" href="<?php echo U('group/index/topic',array('d'=>'delcomment','commentid'=>$item[commentid]));?>" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span><?php endif; ?>
-            </div>
-            <div id="rcomment_<?php echo ($item[commentid]); ?>" style="display:none; clear:both; padding:0px 10px">
-              <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_<?php echo ($item[commentid]); ?>" type="text" onkeydown="keyRecomment(<?php echo ($item[commentid]); ?>,<?php echo ($item[topicid]); ?>,event)" class="txt"></textarea>
-              <p style=" padding:5px 0px">
-                <button onclick="recomment(<?php echo ($item[commentid]); ?>,<?php echo ($item[topicid]); ?>)" id="recomm_btn_<?php echo ($item[commentid]); ?>" class="subab">提交</button>
-                &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_<?php echo ($item[commentid]); ?>').slideToggle('fast');">取消</a> </p>
-            </div>
-          </div>
-          <div class="clear"></div>
-        </li><?php endforeach; endif; endif; ?>
+       <?php if(!empty($commentList)): if(is_array($commentList)): foreach($commentList as $key=>$item): ?><li class="clearfix">
+                  <div class="user-face"> 
+                  <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img title="<?php echo ($item[user][username]); ?>" alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a> 
+                  </div>
+                  <div class="reply-doc">
+                    <h4>
+                        <span class="fr"></span>
+                        <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> 
+                        <?php echo date('Y-m-d H:i:s',$item[addtime]) ?>
+                    </h4>
+                    
+                    <?php if($item[referid] != 0): ?><div class="recomment"><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><img src="<?php echo ($item[recomment][user][face]); ?>" width="24" align="absmiddle"></a> <strong><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><?php echo ($item[recomment][user][username]); ?></a></strong>：<?php echo ($item[recomment][content]); ?></div><?php endif; ?>
+                    
+                    <p><?php echo ($item[content]); ?></p>
+                    
+                    <div class="group_banned"> 
+                      <?php if($visitor[userid] != 0): ?><span><a href="javascript:void(0)"  onclick="commentOpen(<?php echo ($item[commentid]); ?>,<?php echo ($item[appid]); ?>)">回复</a></span><?php endif; ?>
+                      <?php if(($strApp[userid] == $visitor[userid]) OR ($visitor[userid] == $item[userid])): ?><span><a class="j a_confirm_link" href="<?php echo U('develop/index/delcomment',array('commentid'=>$item[commentid]));?>" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span><?php endif; ?>
+                    </div>
+                    <div id="rcomment_<?php echo ($item[commentid]); ?>" style="display:none; clear:both; padding:0px 10px">
+                      <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_<?php echo ($item[commentid]); ?>" type="text" onkeydown="keyRecomment(<?php echo ($item[commentid]); ?>,<?php echo ($item[appid]); ?>,event)" class="txt"></textarea>
+                      <p style=" padding:5px 0px">
+                        <button onclick="recomment(this,<?php echo ($item[commentid]); ?>,<?php echo ($item[appid]); ?>)" id="recomm_btn_<?php echo ($item[commentid]); ?>" class="subab" data-url="<?php echo U('develop/index/recomment');?>">提交</button>
+                        &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_<?php echo ($item[commentid]); ?>').slideToggle('fast');">取消</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="clear"></div>
+                </li><?php endforeach; endif; endif; ?>
       </ul>
+      
       <div class="page"><?php echo ($pageUrl); ?></div>
       <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
       <div> 
-        <?php if(!$visitor['userid']): ?><div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="<?php echo U('public/user/login');?>">登录</a> | <a href="<?php echo U('public/user/register');?>">注册</a></div>
-        <?php elseif(!$isGroupUser): ?> 
-        不是本组成员不能回应此贴哦 
-        <?php elseif($strTopic[iscomment] == 1 && $strTopic[userid] != $visitor['userid']): ?>
-        本帖除作者外不允许任何人评论 
-        <?php else: ?>
-        <form method="POST" action="<?php echo U('group/index/topic',array('d'=>'addcomment'));?>" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
-          <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
-          <input type="hidden" name="topicid" value="<?php echo ($strTopic[topicid]); ?>" />
-          <input type="hidden" name="p" value="<?php echo ($page); ?>" />
-          <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
-        </form><?php endif; ?>
+            <?php if(!$visitor['userid']): ?><div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="<?php echo U('public/user/login');?>">登录</a> | <a href="<?php echo U('public/user/register');?>">注册</a></div>
+            <?php else: ?>
+            <form method="POST" action="<?php echo U('develop/index/addcomment');?>" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
+              <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
+              <input type="hidden" name="appid" value="<?php echo ($strApp[appid]); ?>" />
+              <input type="hidden" name="p" value="<?php echo ($page); ?>" />
+              <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
+            </form><?php endif; ?>
       </div>
 </div>
     
@@ -247,20 +248,16 @@ __EXTENDS_JS__
 
 
 <div class="cright">
-
-    <p class="pl2"> &gt; <a href="<?php echo U('develop/index/editapp',array('id'=>$strApp[appid]));?>">编辑应用信息</a></p>
+ 	<?php if($visitor[userid] == $strApp[userid]): ?><p class="pl2"> &gt; <a href="<?php echo U('develop/index/editapp',array('id'=>$strApp[appid]));?>">编辑应用信息</a></p><?php endif; ?>
     <p class="pl2"> &gt; <a href="<?php echo U('develop/index/applist');?>">发现更多应用</a></p>
 
     <div class="mod">
         <h2>
-            用过这个应用的人
+            下载过这个应用的人
                 &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
-                <span class="pl">&nbsp;(
-                        <a href="http://www.douban.com/subject/21254131/collections">全部27人</a>
-                    ) </span>
         </h2>
 
-        <?php if(is_array($arrGroupUser)): foreach($arrGroupUser as $key=>$item): ?><dl class="obu">
+        <?php if(is_array($arrDownUser)): foreach($arrDownUser as $key=>$item): ?><dl class="obu">
             <dt>
             <a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><img alt="<?php echo ($item[username]); ?>" class="m_sub_img" src="<?php echo ($item[face]); ?>" /></a>
             </dt>
@@ -268,7 +265,6 @@ __EXTENDS_JS__
                 <span class="pl">(<a href="<?php echo U('location/area',array(areaid=>$item[area][areaid]));?>"><?php echo ($item[area][areaname]); ?></a>)</span>
             </dd>
      	 </dl><?php endforeach; endif; ?>
-        
        <div class="clear"></div>
     </div>
 

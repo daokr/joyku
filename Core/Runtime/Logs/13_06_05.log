@@ -1955,3 +1955,693 @@ NOTIC: 建议使用I方法替代_get
 [ 2013-06-05T18:36:22+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=userapp&id=1
 NOTIC: 建议使用I方法替代_get
 
+[ 2013-06-05T21:46:37+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=explore
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T21:46:50+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=login
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-06-05T21:57:50+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=add_upload&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T21:58:01+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=ajax_upload&userid=1&appid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T21:58:05+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=ajax_upload&userid=1&appid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T21:58:09+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=ajax_upload&userid=1&appid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T21:58:13+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=ajax_upload&userid=1&appid=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T21:58:21+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=add_upload&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T21:58:21+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=preview&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T21:58:25+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:06:51+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:18:04+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:25:14+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=addcomment
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-06-05T22:25:14+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:38:06+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:38:38+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:38:43+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=addcomment
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-06-05T22:38:43+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:38:49+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&d=recomment
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000483s ]
+INFO: Run load_lang Behavior [ RunTime:0.003095s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003795s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004057s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001275s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1370442228 [ RunTime:0.000403s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004427s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001409s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000325s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'group' ) LIMIT 1   [ RunTime:0.000502s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.004547s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004867s ]
+SQL: SHOW COLUMNS FROM `ik_group_users` [ RunTime:0.004789s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.004434s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_collects` [ RunTime:0.003799s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics_comments` [ RunTime:0.005141s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: INSERT INTO `ik_group_topics_comments` (`topicid`,`userid`,`referid`,`content`,`addtime`) VALUES (1,1,1,'成都市的',1370443129) [ RunTime:0.000442s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics_comments` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000456s ]
+SQL: UPDATE `ik_group_topics` SET `uptime`=1370443129,`count_comment`=2 WHERE ( `topicid` = 1 ) [ RunTime:0.000377s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000270s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000270s ]
+SQL: SELECT * FROM `ik_group_topics_comments` WHERE ( `commentid` = 1 ) LIMIT 1   [ RunTime:0.000238s ]
+
+[ 2013-06-05T22:38:49+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:39:46+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:39:48+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:39:59+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=12ik
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:40:29+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:40:41+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:40:56+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:41:24+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=setbase
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-06-05T22:41:33+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=userapp&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:41:35+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:41:47+08:00 ] 127.0.0.1 /joyku/index.php?app=group&m=index&a=topic&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:43:09+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:43:23+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=addcomment
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-06-05T22:43:23+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:45:14+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:45:19+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=addcomment
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-06-05T22:45:19+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:47:57+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:49:33+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:50:04+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T22:56:26+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:01:58+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:02:03+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=recomment
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000705s ]
+INFO: Run load_lang Behavior [ RunTime:0.003114s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004049s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004034s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001454s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1370443623 [ RunTime:0.000244s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004342s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001346s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'develop' ) LIMIT 1   [ RunTime:0.000492s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004643s ]
+SQL: SHOW COLUMNS FROM `ik_images` [ RunTime:0.003933s ]
+SQL: SHOW COLUMNS FROM `ik_develop` [ RunTime:0.005013s ]
+SQL: SHOW COLUMNS FROM `ik_develop_comments` [ RunTime:0.004250s ]
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: INSERT INTO `ik_develop_comments` (`appid`,`userid`,`referid`,`content`,`addtime`) VALUES (1,1,1,'范德萨发烧',1370444523) [ RunTime:0.000500s ]
+
+[ 2013-06-05T23:02:03+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:02:41+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=recomment
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000416s ]
+INFO: Run load_lang Behavior [ RunTime:0.002798s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003376s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003977s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001365s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1370443661 [ RunTime:0.000254s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004303s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001363s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'develop' ) LIMIT 1   [ RunTime:0.000317s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004548s ]
+SQL: SHOW COLUMNS FROM `ik_images` [ RunTime:0.004009s ]
+SQL: SHOW COLUMNS FROM `ik_develop` [ RunTime:0.005049s ]
+SQL: SHOW COLUMNS FROM `ik_develop_comments` [ RunTime:0.006525s ]
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: INSERT INTO `ik_develop_comments` (`appid`,`userid`,`referid`,`content`,`addtime`) VALUES (1,1,3,'真牛逼啊ikphp',1370444561) [ RunTime:0.000465s ]
+
+[ 2013-06-05T23:02:42+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:06:33+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:10:07+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:10:25+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=4
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:10:26+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:11:10+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=5
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:11:10+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:12:14+08:00 ] 127.0.0.1 /joyku/index.php?m=user&a=check&t=username&username=xiaoma
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000422s ]
+INFO: Run load_lang Behavior [ RunTime:0.002557s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003139s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004140s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001626s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1370444234 [ RunTime:0.000271s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.007450s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000552s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000332s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.006290s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SELECT COUNT(userid) AS tp_count FROM `ik_user` WHERE ( username='xiaoma' AND userid<>'0' ) LIMIT 1   [ RunTime:0.000423s ]
+
+[ 2013-06-05T23:12:16+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=register
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-06-05T23:12:16+08:00 ] 127.0.0.1 /joyku/index.php?app=space&m=index&a=index&id=160780470
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:12:22+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=userapp&id=2
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:12:36+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:12:51+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=recomment
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000624s ]
+INFO: Run load_lang Behavior [ RunTime:0.003183s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004051s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004066s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 2 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001339s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1370444271 [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004629s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001420s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'develop' ) LIMIT 1   [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.005127s ]
+SQL: SHOW COLUMNS FROM `ik_images` [ RunTime:0.005204s ]
+SQL: SHOW COLUMNS FROM `ik_develop` [ RunTime:0.006925s ]
+SQL: SHOW COLUMNS FROM `ik_develop_comments` [ RunTime:0.006355s ]
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: INSERT INTO `ik_develop_comments` (`appid`,`userid`,`referid`,`content`,`addtime`) VALUES (1,2,3,'niubilea',1370445171) [ RunTime:0.000406s ]
+
+[ 2013-06-05T23:12:52+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:13:00+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:14:36+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:14:38+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:14:58+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=6
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:15:03+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=6
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:15:05+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=6
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:15:10+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:15:13+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=6
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:15:21+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:15:25+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:16:23+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:16:35+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=6
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:16:40+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:16:42+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=6
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:16:42+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:16:44+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:16:47+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:16:54+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=addcomment
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-06-05T23:16:54+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:17:01+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:17:05+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=7
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:17:43+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:17:52+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:31+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:35+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=7
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:35+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:38+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:40+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:44+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=recomment
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000606s ]
+INFO: Run load_lang Behavior [ RunTime:0.002893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003685s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004321s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 2 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001416s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1370444684 [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004638s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001405s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'develop' ) LIMIT 1   [ RunTime:0.000332s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004666s ]
+SQL: SHOW COLUMNS FROM `ik_images` [ RunTime:0.004115s ]
+SQL: SHOW COLUMNS FROM `ik_develop` [ RunTime:0.007760s ]
+SQL: SHOW COLUMNS FROM `ik_develop_comments` [ RunTime:0.006743s ]
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: INSERT INTO `ik_develop_comments` (`appid`,`userid`,`referid`,`content`,`addtime`) VALUES (1,2,3,'fdasfdsafsssssssssssss',1370445584) [ RunTime:0.001020s ]
+
+[ 2013-06-05T23:19:44+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1&p=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:48+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=8
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:48+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:51+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=recomment
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000590s ]
+INFO: Run load_lang Behavior [ RunTime:0.003032s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003974s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004091s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 2 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001849s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1370444691 [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004517s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001512s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'develop' ) LIMIT 1   [ RunTime:0.000374s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.008000s ]
+SQL: SHOW COLUMNS FROM `ik_images` [ RunTime:0.004245s ]
+SQL: SHOW COLUMNS FROM `ik_develop` [ RunTime:0.005121s ]
+SQL: SHOW COLUMNS FROM `ik_develop_comments` [ RunTime:0.004512s ]
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+SQL: INSERT INTO `ik_develop_comments` (`appid`,`userid`,`referid`,`content`,`addtime`) VALUES (1,2,2,'fdsafasdfasdfas',1370445591) [ RunTime:0.000418s ]
+
+[ 2013-06-05T23:19:52+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:53+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:58+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=delcomment&commentid=9
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:19:58+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:20:03+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:20:08+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:20:09+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:20:29+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:20:33+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:20:46+08:00 ] 127.0.0.1 /joyku/index.php?app=public&m=user&a=login
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+NOTIC: 建议使用I方法替代_post
+
+[ 2013-06-05T23:20:47+08:00 ] 127.0.0.1 /joyku/index.php?&app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:21:45+08:00 ] 127.0.0.1 /joyku/index.php?&app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:22:11+08:00 ] 127.0.0.1 /joyku/index.php?&app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:22:40+08:00 ] 127.0.0.1 /joyku/index.php?&app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:23:13+08:00 ] 127.0.0.1 /joyku/index.php?&app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:24:16+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:24:25+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=userapp&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:24:34+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=show&id=1
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:24:42+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=userapp&id=1
+NOTIC: 建议使用I方法替代_get
+
+[ 2013-06-05T23:25:21+08:00 ] 127.0.0.1 /joyku/index.php?app=develop&m=index&a=userapp&id=2
+NOTIC: 建议使用I方法替代_get
+
