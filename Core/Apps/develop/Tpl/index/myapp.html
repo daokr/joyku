@@ -16,8 +16,8 @@
 
 <div id="openappbox">
 			<div class="opentitlenav">
-				<p class="appmz">共有<b>2</b>个应用</p>
-				<p class="applx">类型</p>
+				<p class="appmz">共有<b>{$count}</b>个应用</p>
+				<p class="applx">分类</p>
 				<p class="appkf">审核状态</p>
 				<p class="appcs">下载次数</p>
 				<p class="appmt">更新时间</p>
@@ -30,11 +30,11 @@
                     <a href="{:U('develop/index/show',array('id'=>$item[appid]))}">
                     <img width="64" height="64" src="{$item[icon_100]}"></a>
                     </p>
-					<p class="name"><b><a href="{:U('develop/index/show',array('id'=>$item[appid]))}">{$item[title]}</a></b><em></em></p>
+					<p class="name"><b><a href="{:U('develop/index/show',array('id'=>$item[appid]))}">{$item[title]}</a></b>
+                    <em><php>echo getsubstrutf8(t($item['desc']),0,30)</php></em>
+                    </p>
 					<p class="sort">
-                      <eq name="item.apptype" value="1">应用</eq>
-                      <eq name="item.apptype" value="2">插件</eq>
-                      <eq name="item.apptype" value="3">模版皮肤</eq>
+							模型内容			
                     </p>
 					<p class="oper">
                    	 	
@@ -46,12 +46,20 @@
                         </if>
                     </p>
 					<p class="down">{$item[count_down]}</p>
-					<p class="mtime">{$item.addtime|date="Y-m-d",###}</p>
-					<p class="caoz"><a href="{:U('develop/index/editapp',array('id'=>$item[appid]))}">[编辑]</a></p>
+					<p class="mtime">{$item.uptime|date="Y-m-d",###}</p>
+					<p class="caoz">
+                    <if condition="$visitor[userid] eq $item[userid]">
+                   		 <a href="{:U('develop/index/editapp',array('id'=>$item[appid]))}">[编辑]</a>&nbsp;&nbsp;
+                    </if>
+                     	 <a href="{:U('develop/index/show',array('id'=>$item[appid]))}">[去看看]</a>
+                    </p>
 				</li>
                 </foreach>		
              </ul> 
-	<div class="page"></div>
+
+        <div class="clear"></div>
+        <div class="page">{$pageUrl}</div>
+
 </div>
 
 

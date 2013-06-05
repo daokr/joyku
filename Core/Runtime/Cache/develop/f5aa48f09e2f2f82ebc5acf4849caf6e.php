@@ -136,8 +136,8 @@ __EXTENDS_JS__
 
 <div id="openappbox">
 			<div class="opentitlenav">
-				<p class="appmz">共有<b>2</b>个应用</p>
-				<p class="applx">类型</p>
+				<p class="appmz">共有<b><?php echo ($count); ?></b>个应用</p>
+				<p class="applx">分类</p>
 				<p class="appkf">审核状态</p>
 				<p class="appcs">下载次数</p>
 				<p class="appmt">更新时间</p>
@@ -149,11 +149,11 @@ __EXTENDS_JS__
                     <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">
                     <img width="64" height="64" src="<?php echo ($item[icon_100]); ?>"></a>
                     </p>
-					<p class="name"><b><a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a></b><em></em></p>
+					<p class="name"><b><a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a></b>
+                    <em><?php echo getsubstrutf8(t($item['desc']),0,30) ?></em>
+                    </p>
 					<p class="sort">
-                      <?php if(($item["apptype"]) == "1"): ?>应用<?php endif; ?>
-                      <?php if(($item["apptype"]) == "2"): ?>插件<?php endif; ?>
-                      <?php if(($item["apptype"]) == "3"): ?>模版皮肤<?php endif; ?>
+							模型内容			
                     </p>
 					<p class="oper">
                    	 	
@@ -163,11 +163,17 @@ __EXTENDS_JS__
                         	审核中<?php endif; ?>
                     </p>
 					<p class="down"><?php echo ($item[count_down]); ?></p>
-					<p class="mtime"><?php echo (date("Y-m-d",$item["addtime"])); ?></p>
-					<p class="caoz"><a href="<?php echo U('develop/index/editapp',array('id'=>$item[appid]));?>">[编辑]</a></p>
+					<p class="mtime"><?php echo (date("Y-m-d",$item["uptime"])); ?></p>
+					<p class="caoz">
+                    <?php if($visitor[userid] == $item[userid]): ?><a href="<?php echo U('develop/index/editapp',array('id'=>$item[appid]));?>">[编辑]</a>&nbsp;&nbsp;<?php endif; ?>
+                     	 <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">[去看看]</a>
+                    </p>
 				</li><?php endforeach; endif; ?>		
              </ul> 
-	<div class="page"></div>
+
+        <div class="clear"></div>
+        <div class="page"><?php echo ($pageUrl); ?></div>
+
 </div>
 
 

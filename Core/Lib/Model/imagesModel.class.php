@@ -91,5 +91,10 @@ class imagesModel extends Model {
 		}
 		return $result;
 	}
+	//统计数量
+	public function countImagesByMap($map){
+		!empty($map) && $count = $this->where($map)->count('id');
+		return $count;
+	}
 
 }

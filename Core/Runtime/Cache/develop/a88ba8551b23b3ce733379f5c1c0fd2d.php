@@ -130,9 +130,9 @@ __EXTENDS_JS__
 <div class="midder">
 <div class="mc">
 <h1><?php echo ($seo["title"]); ?>
-    <span class="recomment-tag">
+	<?php if(($strApp["isrecommend"]) == "1"): ?><span class="recomment-tag">
         推荐
-    </span>
+    </span><?php endif; ?>
 </h1>
 
 <div class="cleft">
@@ -140,13 +140,16 @@ __EXTENDS_JS__
     <div class="mod item-subject">
         <div class="pic">
             <a href="#"><img width="100" alt=" " src="<?php echo ($strApp[icon_100]); ?>"></a>
+            <div class="th-modify">
+                <a href="<?php echo U('develop/index/add_upload',array('id'=>$strApp[appid]));?>">增改描述或图标</a>
+        	</div>
         </div>
         <div class="app_info">
         <ul>
             <li>
                 <span class="attr-name">应用类别：</span>
                 <span class="attr-value">
-                    <a href="/app">移动应用</a>
+                    <a href="/app">内容聚合</a>
                 </span>
             </li>
     
@@ -160,7 +163,7 @@ __EXTENDS_JS__
             <li>
                 <span class="attr-name">官方网站：</span>        
                 <span class="attr-value">
-                    <a target="_blank" href="http://www.douban.com/link2?url=http%3A//www.quora.com">http://www.quora.com</a>
+                    <a target="_blank" href="<?php echo ($strApp[appsite]); ?>"><?php echo ($strApp[appsite]); ?></a>
                 </span>
             </li>
     
@@ -174,18 +177,18 @@ __EXTENDS_JS__
         </ul>
     	</div>
         <div class="appcoutinfo">
-        	<div class="infos"><span>浏览：717</span><span>下载：717</span><span>评论：<a href="#">717</a></span></div>
-        	<div class="downbar"><a href="#">点击下载</a></div>
+        	<div class="downbar"><a href="#">↓点击下载</a></div>
+            <div class="infos"><span>浏览：<?php echo ($strApp[count_view]); ?></span><span>下载：<?php echo ($strApp[count_down]); ?></span></div>
         </div>
 
 	</div>
 
 <div id="link-report" class="mod item-desc">
     <h2>
-        简介&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+        应用简介&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
     </h2>
     <div class="desc-box">
-		<?php echo ($strApp[html_desc]); ?>
+		<?php echo nl2br($strApp[desc]); ?>
     </div>
 </div>    
 
@@ -235,7 +238,6 @@ __EXTENDS_JS__
           <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
         </form><?php endif; ?>
       </div>
-
 </div>
     
     
@@ -245,9 +247,9 @@ __EXTENDS_JS__
 
 
 <div class="cright">
-    <div class="mod side-nav">
-    &gt; <a href="<?php echo U('develop/index/applist');?>">发现更多应用</a>
-    </div>
+
+    <p class="pl2"> &gt; <a href="<?php echo U('develop/index/editapp',array('id'=>$strApp[appid]));?>">编辑应用信息</a></p>
+    <p class="pl2"> &gt; <a href="<?php echo U('develop/index/applist');?>">发现更多应用</a></p>
 
     <div class="mod">
         <h2>

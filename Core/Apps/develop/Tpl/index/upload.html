@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<div class="midder">
+<div class="mc">
+<h1>
+{$seo.title}
+</h1>
+
+<div class="nav-step">
+              <span class="pl">1. 填写应用信息</span>
+              <span class="pl">&gt;</span>
+              <span >2. 上传应用图片</span>
+              <span class="pl">&gt;</span>              
+              <span class="pl">3. 提交应用</span>
+</div>
+            
+<form method="POST" action="{:U('develop/index/add_upload',array('id'=>$strApp[appid]))}" enctype="multipart/form-data" id="ikform">
+<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+    <tr>
+        <th valign="top" style="padding-top:10px">Logo：</th>
+        <td><input name="applogo_file" type="file" id="applogo" onChange="uploadfile(this,'applogo');"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span>
+        <div class="input-content">
+            <ul class="image-list">
+           		<if condition="$strApp[applogo]"> 
+                <li>
+                <img width="100" height="100" src="{:attach($strApp[applogo])}">
+                </li>
+                </if>
+            </ul>
+        </div>        
+        </td>
+    </tr>
+    <tr>
+        <th valign="top" style="padding-top:10px">截图：</th>
+        <td><input name="screenshot_file" type="file" id="screenshot" onChange="uploadfile(this,'screenshot');"><span class="ntips">支持jpg,jpge,png格式，大小限制<php>echo intval(C('ik_attr_allow_size')/1024);</php>M以内，最多上传5张图片</span>
+        <div class="input-content">
+            <ul class="image-list">
+				<foreach name="arrPhoto" item="item">
+                <li>
+                <img width="100" height="100" src="{$item[simg]}">
+                <a class="name" href="javascript:void(0)" onclick="removeAttachId(this)" delurl="{:U('develop/index/ajax_del_file', array('id'=>$item[id]))}">删除</a>
+                </li>
+                </foreach>
+            </ul>
+        </div> 
+        </td>
+    </tr>    
+    <tr>
+        <th valign="top" style="padding-top:10px">安装包：</th>
+        <td><input name="appfile_file" type="file" id="appfile"  onChange="uploadfile(this,'appfile');"><span class="ntips">支持zip,rar格式，大小:5M以内</span>
+        <div class="input-content">
+        <ul class="file-list">
+        	<if condition="$strApp[appfile]"> 
+            <li>
+            <i class="ico-rar-small"></i>
+            <a class="ico-close right" href="javascript:void(0)" onclick="removeAttachId(this)"></a>
+            </li>
+            </if>
+        </ul>
+        </div>
+        </td>
+    </tr>                 	
+    <tr>
+    	<th>&nbsp;</th><td>
+        <input type="hidden" name="userid" value="{$userid}"/>
+        <input class="submit" type="submit" value="好啦，发布"> <a href="{:U('develop/index/editapp',array('id'=>$strApp[appid]))}">返回到上一步</a>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
+<script language="javascript">
+function uploadfile(o,id){
+	var ajaxurl = "{:U('develop/index/ajax_upload',array('userid'=>$userid,'appid'=>$strApp[appid]))}";
+	var obj = $(o).parent().find('.input-content');
+	var _self=$(o);
+	if(id=='screenshot' && obj.find('li').length>5){
+		error('只能上传6张截图');
+		return;
+	}
+	ajaxUpload(_self,obj,ajaxurl);
+}
+function ajaxUpload(_self,obj,ajaxurl){
+	var list = obj.find('.image-list');
+	var fileid = _self.attr('id'); 
+	if(list.length==0){
+		list = obj.find('.file-list');
+	}
+	if(list==0){ return;}
+	$.ajaxFileUpload(
+            {
+                url : ajaxurl,
+                fileElementId : fileid,
+                dataType : 'json',
+                allowType : 'jpg|png|gif|jpeg|zip|rar',
+                begin : function(){
+					var html = '<li id="loading"><img src="__PUBLIC__/images/loading.gif"></li>';
+ 					list.append(html);obj.fadeIn(100);
+                },
+                complete : function(){
+					list.find('#loading').remove();
+                },
+                success : function(data, status){
+					
+                    if(data.r == 0){
+                        error(data.html);
+                    }else{
+                        buildHtml(fileid,list,data);
+                    }
+                },
+                error : function(data, status, e){
+                    // console.log(e);
+                }
+            }
+       ); 
+}
+function buildHtml(fileid,list,data){
+	var id = fileid;
+	if(id=='applogo'){
+		var html = '<li><img width="100" height="100" src="'+data.photo_url+'"></li>';
+		list.html(html);
+		return;
+	}
+	if(id=='screenshot'){
+		var html = '<li><img width="100" height="100" src="'+data.photo_url+'">'+
+		'<a class="name" href="javascript:void(0)" onclick="removeAttachId(this)" delurl="'+data.delurl+'">删除</a></li>';
+		list.append(html);
+		return;		
+	}
+	if(id=='appfile'){
+		var html = '<li><i class="ico-rar-small"></i><a class="ico-close right" href="javascript:void(0)" onclick="removeAttachId(this)"></a>'+data.savename+'<span>('+data.filesize+' KB)</span></li>';
+		list.html(html);
+		return;		
+	}
+}
+function removeAttachId(obj){
+	var delurl = $(obj).attr('delurl');
+	if(delurl){
+		$.post(delurl,{},function(data){
+			if(data.r == 1){
+				$(obj).parent().remove();
+			}
+		},'json');
+	}else{
+		$(obj).parent().fadeOut(100).remove();
+	}
+}
+</script>
+</form>
+
+
+
+</div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>

@@ -68,7 +68,7 @@ __EXTENDS_JS__
     <div class="top_items">
         <ul>
              <?php if(is_array($topNav)): foreach($topNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" title="<?php echo ($item[name]); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
-             <li><a href="<?php echo U('public/apps/index');?>">应用商店</a></li>
+             <li><a href="<?php echo U('develop/index/index');?>">应用商店</a></li>
              <li><a href="<?php echo U('public/help/download');?>" style="color:#fff">IKPHP源码下载</a></li>                                                      
         </ul>
     </div>
@@ -128,43 +128,65 @@ __EXTENDS_JS__
 </div>
 <div class="midder">
 	<div class="mc">
-    	
-	<div class="boxShadow">
-  	<div class="banner"><a class="btn-release" href="<?php echo U('public/apps/add');?>"></a><a class="btn-manage" href="#"></a></div>
-		<div class="model clearfix">
-			<ul>
-				<li class=""><a href="#"><strong>开发者风采</strong><br><p>认证开发者的展示平台</p></a></li>			
-				<li class=""><a href="#"><strong>开发文档</strong><br><p>开发相关的文档</p></a></li>
-				<li class=""><a href="#"><strong>交流论坛</strong><br><p>站长与开发者的对话</p></a></li>
-				<li class=""><a href="#"><strong>需求市场</strong><br><p>开发者与需求方的沟通桥梁</p></a></li>
-			</ul>
-		</div>
-		<!-- 
-		<div class="clearfix pb20">
-			<div class="mod-list">
-				<div class="tit"><a href="" class="fr">更多动态>></a><h3>最新动态</h3></div>
-				<ul>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+		<aside class="w190 fl">
+			<section class="categories">
+				<div class="hd">
+					<h3>全部分类</h3>
+				</div>
+				<ul class="list categories-list">
+                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/index/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
 				</ul>
-			</div>
-			<div class="mod-list">
-				<div class="tit"><a href="" class="fr">更多动态>></a><h3>帮助中心</h3></div>
-				<ul>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
-					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
-				</ul>
-			</div>
-		</div> -->
-	</div>
+			</section>
+			<section class="personal-publish">
+				<div class="hd">
+					<h3>作品投稿</h3>
+				</div>
+				<div class="bd">
+					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
+					<p class="entrance">
+						<a href="<?php echo U('article/index/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
+					</p>
+				</div>
+			</section>
+		</aside>
+		<article class="w770 fr">
+			<section>
+				<div class="hd tag-heading">
+					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
+				</div>
 
-    </div>
+				<div class="bd">
+					<ul class="list-lined article-list">
+						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
+							<div class="title">
+								<a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
+                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
+                                </a>
+							</div>
+                           <?php if($item[isphoto]): ?><div class="cover">
+                                <a class="pic" href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">
+									<img src="<?php echo ($item[photo][simg]); ?>" />
+								</a> 
+							</div><?php endif; ?>                           
+							<div class="info">
+								<div class="article-desc-brief">
+									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
+                                    <a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">（更多）</a>
+								</div>
+							</div>
+							<a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
+						</li><?php endforeach; endif; ?>
+
+					</ul>
+				</div>
+
+
+			</section>
+            
+             <div class="page"><?php echo ($pageUrl); ?></div>   
+             
+		</article>
+	</div>
 </div>
 <!--引入后前台的模版文件 -->
 <!--footer-->
