@@ -14,7 +14,7 @@
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
@@ -139,7 +139,7 @@ __EXTENDS_JS__
 	
     <div class="mod item-subject">
         <div class="pic">
-            <a href="#"><img width="100" alt=" " src="<?php echo ($strApp[icon_100]); ?>"></a>
+            <a href="<?php echo ($strApp[icon_100]); ?>"><img width="100" alt=" " src="<?php echo ($strApp[icon_100]); ?>"></a>
             <?php if($visitor[userid] == $strApp[userid]): ?><div class="th-modify">
                 <a href="<?php echo U('develop/index/add_upload',array('id'=>$strApp[appid]));?>">增改描述或图标</a>
         	</div><?php endif; ?>
@@ -168,20 +168,30 @@ __EXTENDS_JS__
             </li>
     
             <li>
-                <span class="attr-name">参考价格：</span>
+                <span class="attr-name">需要积分：</span>
                 <span class="attr-value"> 
-                    免费
-                </span>
+                100 （<a href="#">如何获取积分？</a>） </span>
             </li>        
     
         </ul>
     	</div>
         <div class="appcoutinfo">
-        	<div class="downbar"><a href="#">↓点击下载</a></div>
+        	<?php if(!empty($strApp[appfile]) && $strApp[isaudit] == 1): ?><div class="downbar"><a href="<?php echo U('develop/index/down',array('id'=>$strApp[appid]));?>">↓点击下载</a></div>
+            <?php else: ?>
+            <div class="downbar"><b>应用审核中</b></div><?php endif; ?>
             <div class="infos"><span>浏览：<?php echo ($strApp[count_view]); ?></span><span>下载：<?php echo ($strApp[count_down]); ?></span></div>
         </div>
 
 	</div>
+
+<?php if(!empty($strApp[screenshotList])): ?><div class="mod screenshot">
+    	<div class="header">应用截图</div>
+        <div class="screenshots">
+        	<?php if(is_array($strApp[screenshotList])): foreach($strApp[screenshotList] as $key=>$item): ?><a href="<?php echo ($item[bimg]); ?>" target="_blank">
+                <img width="165" alt="" src="<?php echo ($item[mimg]); ?>">
+            </a><?php endforeach; endif; ?>
+        </div>
+</div><?php endif; ?> 
 
 <div id="link-report" class="mod item-desc">
     <h2>
@@ -257,7 +267,7 @@ __EXTENDS_JS__
                 &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
         </h2>
 
-        <?php if(is_array($arrDownUser)): foreach($arrDownUser as $key=>$item): ?><dl class="obu">
+        <?php if(is_array($downuserList)): foreach($downuserList as $key=>$item): ?><dl class="obu">
             <dt>
             <a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><img alt="<?php echo ($item[username]); ?>" class="m_sub_img" src="<?php echo ($item[face]); ?>" /></a>
             </dt>

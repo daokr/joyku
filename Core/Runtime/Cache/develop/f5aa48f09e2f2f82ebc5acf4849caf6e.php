@@ -14,7 +14,7 @@
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
@@ -129,11 +129,7 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-<h1>
-<?php echo ($seo["title"]); ?>
-</h1>
- 
-
+<h1><span class="add_new"><a href="<?php echo U('develop/index/add');?>">+发布新应用</a></span><?php echo ($seo["title"]); ?></h1>
 <div id="openappbox">
 			<div class="opentitlenav">
 				<p class="appmz">共有<b><?php echo ($count); ?></b>个应用</p>
@@ -170,7 +166,6 @@ __EXTENDS_JS__
                     </p>
 				</li><?php endforeach; endif; ?>		
              </ul> 
-
         <div class="clear"></div>
         <div class="page"><?php echo ($pageUrl); ?></div>
 

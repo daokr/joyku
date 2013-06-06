@@ -224,6 +224,13 @@ IKCOM.init_lnk_share = function(o){
 		return false;
 	});	
 };
+//IKPHP 小麦写的弹窗登录
+IKCOM.init_show_login = function(o){
+    $(o).click(function(){
+		return pop_win.load(show_login_url);
+		return false;
+    });
+}
 //IK ajax
 $.post_withck = function( url, data, callback, type, traditional) {
     if ($.isFunction(data)) {

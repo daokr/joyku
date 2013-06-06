@@ -21,7 +21,7 @@
 	
     <div class="mod item-subject">
         <div class="pic">
-            <a href="#"><img width="100" alt=" " src="{$strApp[icon_100]}"></a>
+            <a href="{$strApp[icon_100]}"><img width="100" alt=" " src="{$strApp[icon_100]}"></a>
             <if condition="$visitor[userid] eq $strApp[userid]">
             <div class="th-modify">
                 <a href="{:U('develop/index/add_upload',array('id'=>$strApp[appid]))}">增改描述或图标</a>
@@ -52,20 +52,36 @@
             </li>
     
             <li>
-                <span class="attr-name">参考价格：</span>
+                <span class="attr-name">需要积分：</span>
                 <span class="attr-value"> 
-                    免费
-                </span>
+                100 （<a href="#">如何获取积分？</a>） </span>
             </li>        
     
         </ul>
     	</div>
         <div class="appcoutinfo">
-        	<div class="downbar"><a href="#">↓点击下载</a></div>
+        	<if condition="!empty($strApp[appfile]) && $strApp[isaudit] eq 1">
+        	<div class="downbar"><a href="{:U('develop/index/down',array('id'=>$strApp[appid]))}">↓点击下载</a></div>
+            <else/>
+            <div class="downbar"><b>应用审核中</b></div>
+            </if>
             <div class="infos"><span>浏览：{$strApp[count_view]}</span><span>下载：{$strApp[count_down]}</span></div>
         </div>
 
 	</div>
+
+<if condition="!empty($strApp[screenshotList])">
+<div class="mod screenshot">
+    	<div class="header">应用截图</div>
+        <div class="screenshots">
+        	<foreach name="strApp[screenshotList]" item="item">
+            <a href="{$item[bimg]}" target="_blank">
+                <img width="165" alt="" src="{$item[mimg]}">
+            </a>
+            </foreach>
+        </div>
+</div>
+</if> 
 
 <div id="link-report" class="mod item-desc">
     <h2>
@@ -99,7 +115,7 @@
                 &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
         </h2>
 
-        <foreach name="arrDownUser" item="item">
+        <foreach name="downuserList" item="item">
         <dl class="obu">
             <dt>
             <a href="{:U('space/index/index',array('id'=>$item[doname]))}"><img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}" /></a>

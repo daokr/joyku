@@ -435,14 +435,14 @@ input[type="radio"] { margin:0;padding:0; vertical-align:middle; margin-right:5p
 .loading-style1 b{ background:url(/Public/images/loading.gif) no-repeat 0px 0px; display:block; width:20px; height:20px;
 margin:5px auto;}
 /**pop css**/
-.pop_win_bg { opacity: 0.3; filter: alpha(opacity=30); position: fixed; background: #000; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; _position: absolute; _top:expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight-this.offsetHeight)*.45))!important }
+.pop_win_bg { opacity: 0.4; filter: alpha(opacity=40); position: fixed; background: #000;  _position: absolute; _top:expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight-this.offsetHeight)*.45))!important }
 .pop_win form { padding: 0; margin: 0; border: 1px solid #fff }
 aa.pop_win_close, .pop_win_close:visited, .pop_win_close:link { position: absolute; right: 0; top: 0; font: 11px "Comic Sans MS"; margin: 9px 10px 0 0; padding: 0 0.3em; color: #b4b4b4; z-index: 99 }
 a.pop_win_close:hover { color: #fab0b6; background: none }
-.pop_win { background: #fff; padding: 17px 14px 16px 12px; _padding-right: 0; visibility: hidden; position: fixed; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; _position: absolute; _margin-top: expression(eval(document.documentElement.scrollTop)); }
-.pop_win { padding:0;border:1px solid #c8c8c8; }
+.pop_win { background: #fff; padding: 17px 14px 16px 12px; _padding-right: 0; visibility: hidden; position: fixed;  _position: absolute; _margin-top: expression(eval(document.documentElement.scrollTop)); }
+.pop_win { padding:0;}
 .pop_win .panel { width:450px;padding:10px 20px 20px;text-align:center; }
-.pop_win_bg { background-color:#999;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px;}
+.pop_win_bg { background-color:#999;}
 .pop_win .waiting { position:absolute;display:none;top:50%;left:50%;margin-left:-50px;width:100px;text-align:center;color:#060;font-size:14px; }
 /*rec*/
 .rectitle { padding:10px 19px;margin-bottom:10px;overflow:hidden;word-break:break-all; }

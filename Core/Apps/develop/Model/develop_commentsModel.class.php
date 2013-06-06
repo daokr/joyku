@@ -31,4 +31,17 @@ class develop_commentsModel extends Model {
 			return false;
 		}
 	}
+	// 获取指定 appid 评论
+	public function getCommentByAppid($appid,$order='addtime asc',$limit='1'){
+		$arrComment = $this->where(array('appid'=>$appid))->order($order)->limit($limit)->select();
+		if($arrComment){
+			foreach ($arrComment as $key=>$item){
+				$result[] = $item;
+				$result[$key]['user'] = D('user')->getOneUser($item['userid']);
+			}
+			return $result;
+		}else{
+			return false;
+		}		
+	}
 }

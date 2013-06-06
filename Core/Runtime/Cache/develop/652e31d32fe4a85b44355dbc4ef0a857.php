@@ -14,7 +14,7 @@
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
@@ -128,9 +128,96 @@ __EXTENDS_JS__
 </div>
 <div class="midder">
 	<div class="mc">
-    	
-	
+    <h1><?php echo ($seo["title"]); ?></h1>
+        <div class="cleft">
+            <div id="th-apps">
+            	<div class="mod hd">
+                    <h2>
+                        大家在谈论
+                            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                    </h2>
+                    <div class="cate-tab">
+                     	<a href="<?php echo U('develop/index/applist');?>" <?php if(($apptype) == "0"): ?>class="on"<?php endif; ?> >最新</a>
+						<?php if(is_array($typeList)): foreach($typeList as $key=>$item): if($item[id] == $apptype): ?><a href="<?php echo U('develop/index/applist',array('type'=>$item[id]));?>" class="on"><?php echo ($item[name]); ?></a>
+                          <?php else: ?>
+                          <a href="<?php echo U('develop/index/applist',array('type'=>$item[id]));?>"><?php echo ($item[name]); ?></a><?php endif; endforeach; endif; ?>
+                    </div>
+                 </div>
+                <div class="bd">
+                	<div class="comment-list">
+                    		<?php if(is_array($arrApp)): foreach($arrApp as $key=>$item): ?><div data-id="$item[appid]" class="common-item">
+                                <div class="pic">
+                                  <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><img alt="<?php echo ($item[title]); ?>" src="<?php echo ($item[icon_100]); ?>"></a>
+                                </div>
+                                <span class="digg">
+                                	<?php if($visitor[userid] > 0): ?><a title="有用" class="a_digg <?php echo ($item[digged]); ?>"  data-url="<?php echo U('develop/index/vote',array('id'=>$item[appid]));?>" href="javascript:;" onClick="postvote(this)">有用</a>
+                                    <?php else: ?>
+                                    <a title="有用" class="i a_show_login a_digg"  data-url="<?php echo U('develop/index/vote',array('id'=>$item[appid]));?>" href="javascript:;">有用</a><?php endif; ?>
+                                    <span class="counter"><?php echo ($item[count_vote]); ?></span>
+                                </span>
+                                <div class="info">
+                                     	<?php if($item[comment][content]): ?><p><?php echo getsubstrutf8(t($item[comment][content]),0,80) ?></p><?php endif; ?>
+                                        <div class="info-ft">
+                                            <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a> |
+                                            <a href="<?php echo U('develop/index/applist',array('type'=>$apptype,'cateid'=>$item[cateid]));?>"><?php echo ($item[cate][catename]); ?></a>,
+                                            <?php if($item[comment][content]): echo ($item[comment][user][username]); ?>的短评<?php endif; ?>
+                                        </div>
+                                 </div>
+                            </div><?php endforeach; endif; ?> 
+                                               
+                    </div>
+                    <div class="page"><?php echo ($pageUrl); ?></div>
+                </div>
+            </div>	
+        
+        </div><!--//left-->
+        <div class="cright">
 
+            <div class="mod" id="th-app-cate">
+                <h2>
+                    发现更多应用
+                        &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                </h2>
+              <div class="sub-mod list cate-list">
+                <ul>
+                  <li>[分类]</li>
+                  <li><a href="/app/android?cat_id=1087">游戏</a></li>
+                  <li><a href="/app/android?cat_id=1072">生活</a></li>
+                  <li><a href="/app/android?cat_id=1063">工具</a></li>
+                  <li><a href="/app/android?cat_id=1065">影音</a></li>
+                  <li><a href="/app/android?cat_id=1068">教育</a></li>
+                  <li><a href="/app/android?cat_id=1080">社交</a></li>
+                  <li><a href="/app/android?cat_id=1083">新闻</a></li>
+                  <li><a href="/app/android?cat_id=1067">摄影</a></li>
+                  <li><a href="/app/android">(全部)</a></li>
+                </ul>
+              </div>
+            </div>
+
+        	<div class="mod">
+                <h2>
+                        iOS最近流行的应用
+                            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                </h2>
+                <div class="th-app-pop">
+                     <ul>
+                     <li class="common-item">
+                     <div class="pic">
+                         <a href="http://www.douban.com/subject/20508491/"><img width="48" src="http://img3.douban.com/spic/s26008770.jpg"></a>
+                     </div>
+                     <div class="info">
+                         <div class="title">
+                           <a href="http://www.douban.com/subject/20508491/">豆瓣阅读</a>
+                         </div>
+                         <div class="favs">433人用过 / 图书</div>
+                     </div>
+                     </li>
+                     </ul>
+                </div> 
+            </div><!--//mod-->
+            
+        </div><!--//right-->
+    
     </div>
 </div>
 <!--引入后前台的模版文件 -->

@@ -89,3 +89,20 @@ function recomment(obj,rid,tid){
 				}
 	})
 }
+// 有用投票
+function postvote(that){
+	var url = $(that).attr('data-url');
+	var counter = $(that).parent().find('.counter');;
+	$.post(url,{} ,function(res){
+		
+		if(res.r==1)
+		{	
+			counter.html(res.num);
+			$(that).removeClass('digged');					
+		}else if(res.r==0)
+		{
+			counter.html(res.num);
+			$(that).addClass('digged');	
+		}		
+	},'json')	
+}

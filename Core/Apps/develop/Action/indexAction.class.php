@@ -11,6 +11,13 @@ class indexAction extends frontendAction {
 		if (! $this->visitor->is_login && in_array ( ACTION_NAME, array (
 				'add',
 				'ajax_upload',
+				'add_upload',
+				'ajax_del_file',
+				'ajax_upload',
+				'delcomment',
+				'down',
+				'editapp',
+				'recomment',
 		) )) {
 			$this->redirect ( 'public/user/login' );
 		} else {
@@ -19,7 +26,9 @@ class indexAction extends frontendAction {
 		$this->user_mod = D ( 'user' );
 		$this->images_mod = D('images');
 		$this->dev_mod = D('develop');
+		$this->dev_cate_mod = D('develop_cate');
 		$this->dev_comments_mod = D('develop_comments');
+		$this->deve_down_mod = M('develop_down');
 		
 		//生成导航
 		$this->assign('arrNav',$this->_nav());
@@ -76,7 +85,7 @@ class indexAction extends frontendAction {
 	public function userapp() {
 		$userid = $this->_get('id','trim,intval');
 		
-		empty($userid) && $this->error('没有这样的应用！');
+		empty($userid) && $this->redirect('public/user/login');
 
 		if($userid == $this->userid){
 			//查询
@@ -89,6 +98,9 @@ class indexAction extends frontendAction {
 			$map['isaudit'] = 1;//通过审核
 			
 			$user = $this->user_mod->getOneUser($userid);
+			if(empty($user['username'])){
+				$this->redirect('develop/index/index');
+			}
 			$this->_config_seo (array('title'=>$user['username'].'发布的应用','subtitle'=>'应用商店'));
 		}
 		//显示列表
@@ -114,7 +126,40 @@ class indexAction extends frontendAction {
 	}
 	// 应用列表
 	public function applist() {
-		$this->_config_seo (array('title'=>'发现感兴趣的移动应用','subtitle'=>'应用商店'));
+		$apptype = $this->_get('type','trim,intval','0');
+		$cateid = $this->_get('cateid','trim,intval','0');
+		//类型
+		$typeList = $this->dev_mod->getTypeList();
+		
+		if(!empty($apptype)){
+			$map['apptype'] = $apptype; 
+		}
+		if(!empty($cateid)){
+			$map['cateid'] = $cateid; 
+		}
+		//查询
+		$map['isaudit'] = 1; //通过审核
+		//显示列表
+		$pagesize = 1;
+		$count = $this->dev_mod->where($map)->order('addtime DESC')->count('appid');
+		$pager = $this->_pager($count, $pagesize);
+		$arrApps = $this->dev_mod->where($map)->order('addtime DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
+		if($arrApps){
+			foreach($arrApps as $key=>$item){
+				$arrApp[] = $this->dev_mod->getOneApp(array('appid'=>$item['appid']));
+				$arrApp[$key]['cate'] = $this->dev_cate_mod->getOneCate($item['cateid']);
+				$comment = $this->dev_comments_mod->getCommentByAppid($item['appid']);
+				$islike =  M('develop_vote')->where(array('userid'=>$this->userid, 'appid'=>$item['appid']))->count('*');
+				$arrApp[$key]['comment'] = $comment[0];
+				$arrApp[$key]['digged'] = $islike > 0 ? 'digged' : '';
+			}
+		}
+		$this->assign('pageUrl', $pager->fshow());
+				
+		$this->assign('arrApp',$arrApp);
+		$this->assign('apptype',$apptype);
+		$this->assign('typeList',$typeList);
+		$this->_config_seo (array('title'=>'发现感兴趣的应用','subtitle'=>'应用商店'));
 		$this->display();		
 	}	
 	//编辑应用
@@ -123,17 +168,14 @@ class indexAction extends frontendAction {
 		$appid = $this->_get('id','trim,intval','0');
 		if($appid>0){
 			if(IS_POST){
-				if (false === $this->dev_mod->create ()) {
-					$this->error ( $this->dev_mod->getError () );
-				}
-				// 保存当前数据对象
-				$res = $this->dev_mod->where(array('appid'=>$appid))->save ();
-				if ($res !== false) { // 保存成功
-					$this->redirect('develop/index/add_upload',array('id'=>$appid));
-				} else {
-					// 失败提示
-					$this->error ( '更新应用失败!' );
-				}
+				
+				// 更新应用数据操作
+				$map = array ();
+				$map ['appid'] = $_GET['id'];
+				unset ( $_GET['id'] );
+				$this->dev_mod->where ( $map )->save ( $_POST );
+				$this->redirect('develop/index/add_upload',array('id'=>$appid));
+				
 			}else{
 				$strApp = $this->dev_mod->getOneApp(array('appid'=>$appid,'userid'=>$userid));
 				$this->assign('strApp', $strApp);
@@ -165,6 +207,11 @@ class indexAction extends frontendAction {
 		!empty($id) && $strApp = $this->dev_mod->getOneApp ( array('appid'=>$id) );
 		! $strApp && $this->error ( '呃...你想要的东西不在这儿' );
 		
+		// 下载过这个应用的人
+		$downuserList = $this->dev_mod->getDownUser(array('appid'=>$id),'downtime desc',10);
+		
+		// 应用截图
+		$strApp['screenshotList'] = D('images')->getImagesByMap(array('type'=>'screenshot','typeid'=>$id,'userid'=>$strApp['userid']));
 		// 浏览量加 +1
 		if($strApp ['userid']!=$user['userid']){
 			$this->dev_mod->where(array('appid'=>$id))->setInc('count_view');
@@ -205,6 +252,7 @@ class indexAction extends frontendAction {
 
 		$this->assign ( 'strApp', $strApp );
 		$this->assign ( 'page', $page );
+		$this->assign('downuserList',$downuserList);
 		$this->_config_seo ( array (
 				'title' => $strApp ['title'],
 				'subtitle' => '应用商店'
@@ -401,6 +449,50 @@ class indexAction extends frontendAction {
 		}
 
 	}
+	// 下载
+	public function down(){
+		$userid = $this->userid;
+		$appid = $this->_get('id');
+		// 根据id获取内容
+		!empty($appid) && $strApp = $this->dev_mod->getOneApp ( array('appid'=>$appid) );
+		! $strApp && $this->error ( '呃...你想要的东西不在这儿' );
+		// 判断积分是否大于指定规则
+		
+		$data = array(
+					'userid'=>$userid,
+					'appid' =>$appid,
+					'downtime'=>time(),
+				);
+		//防止重复下载
+		$isdown = $this->deve_down_mod->where(array('userid'=>$userid,'appid' =>$appid))->find();
+		if(empty($isdown)){
+			if(!false == $this->deve_down_mod->create($data)){
+				$this->deve_down_mod->add();
+			}			
+		}else{
+			$this->deve_down_mod->where(array('userid'=>$userid,'appid' =>$appid))->setField('downtime',time());
+		}
+		//下载+1
+		$this->dev_mod->where(array('appid'=>$appid))->setInc('count_down');
+		header('Location: '.attach($strApp['appfile']));
+	}
+	
+	// 投票
+	public function vote(){
+		$userid = $this->userid;
+		$appid = $this->_get('id');
+		if(!empty($appid) && $userid>0){
+			
+			$arrJson = $this->dev_mod->appVote ( $userid, $appid );
+			header ( "Content-Type: application/json", true );
+			echo json_encode ( $arrJson );
+			
+		}else{
+			echo 3;
+		}
+		exit();
+	}
+
 		
 	
 }

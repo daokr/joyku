@@ -606,4 +606,11 @@ class userAction extends userbaseAction {
 		$captcha = new Captcha();
 		$captcha->CreateImage();
 	}
+	//ajax登录
+	public function ajaxlogin(){
+		
+		$jump = $_SERVER['HTTP_REFERER'];
+		$this->assign('jump',$jump);
+		$this->display('login_form');	
+	}
 }

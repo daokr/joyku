@@ -14,7 +14,7 @@
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
@@ -130,7 +130,7 @@ __EXTENDS_JS__
 	<div class="mc">
     	
 	<div class="boxShadow">
-  	<div class="banner"><a class="btn-release" href="<?php echo U('develop/index/add');?>"></a><a class="btn-manage" href="#"></a></div>
+  	<div class="banner"><a class="btn-release" href="<?php echo U('develop/index/add');?>">发布新应用</a><a class="btn-manage" href="<?php echo U('develop/index/userapp',array('id'=>$visitor[userid]));?>">管理我的应用</a></div>
 		<div class="model clearfix">
 			<ul>
 				<li class=""><a href="#"><strong>开发者风采</strong><br><p>认证开发者的展示平台</p></a></li>			
