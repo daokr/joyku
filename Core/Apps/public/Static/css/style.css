@@ -465,3 +465,25 @@ input,button,textarea,select,optgroup,option {
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
+
+.common-item, .item-subject {
+    overflow: hidden;
+}
+.common-item .pic, .item-subject .pic {
+    float: left;
+    margin-right: 12px;
+}
+.item-subject .pic { min-height:0; _height:auto; }
+.item-subject .pic img { max-width:170px; max-height:260px; }
+.th-app-pop li {
+	margin-top:15px
+}
+.th-app-pop .favs {
+	color:#999
+}
+.list li {
+    display: inline-block;
+    letter-spacing: normal;
+    vertical-align: top;
+    word-spacing: normal;
+}

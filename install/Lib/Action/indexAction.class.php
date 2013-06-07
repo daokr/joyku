@@ -81,7 +81,8 @@ class indexAction extends Action {
 					exit ();
 				} else {
 					$this->_set_temp ( $_POST );
-					$this->redirect ( 'install' );
+					//$this->redirect ( 'install' );
+					header('Location: install.php?m=index&a=install');
 				}
 			} else {
 				if (mysql_get_server_info ( $conn ) > '4.1') {
@@ -96,7 +97,7 @@ class indexAction extends Action {
 					exit ();
 				}
 				$this->_set_temp ( $_POST );
-				$this->redirect ( 'install' );
+				header('Location: install.php?m=index&a=install');
 			}
 		} else {
 			$this->assign ( 'database_name_tip', L ( 'database_name_tip' ) );
@@ -157,7 +158,7 @@ class indexAction extends Action {
 		$run = mysql_query ( "UPDATE `" . $temp_info['dbprefix'] . "setting` set `data`='".$temp_info ['site_url']."' where `name`='site_url'" , $conn );
 
 		//修改配置文件
-		$config_file = './data/config/db.php';
+		$config_file = './Core/Conf/db.php';
 		$config_data['DB_SQL'] = $temp_info['sql'];
 		$config_data['DB_HOST'] = $temp_info['dbhost'];
 		$config_data['DB_NAME'] = $temp_info['dbname'];
@@ -167,7 +168,8 @@ class indexAction extends Action {
 		$config_data['DB_PREFIX'] = $temp_info['dbprefix'];
 		file_put_contents($config_file, "<?php\r\nreturn " . var_export($config_data, true) . ";");
 		//安装完毕
-		$this->redirect ( 'result');
+		header('Location: install.php?m=index&a=result');
+		//$this->redirect ( 'result');
 	}
 	public function result() {
         touch('./data/install.lock');

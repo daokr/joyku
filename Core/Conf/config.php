@@ -2,7 +2,7 @@
 return array(
 
     'APP_AUTOLOAD_PATH'         =>  '@.TagLib',
-    'APP_GROUP_LIST'            =>  'public,admin,group,article',
+    'APP_GROUP_LIST'            =>  'public,admin,group,article,develop',
     'DEFAULT_GROUP'             =>  'public',	
 	'VAR_GROUP'             => 'app',     // 默认分组获取变量		
 	'DEFAULT_MODULE'            => 'index', // 默认模块名称		

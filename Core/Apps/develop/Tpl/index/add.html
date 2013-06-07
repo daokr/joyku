@@ -55,7 +55,7 @@
         <th>分类：</th>
         <td>
 			<select class="txt" name="cateid">
-                <option selected="selected" value="1">内容聚合</option>
+                <foreach name="cateList" item="item"><option value="{$item[cateid]}">{$item[catename]}</option></foreach>
             </select>      
         </td>
     </tr>
@@ -71,7 +71,7 @@
     <tr>
         <th>IKPHP版本：</th>
         <td><select name="ikphpversion" class="txt">
-	            	<option value="1.5.1">IKPHP1.5.1</option>
+	            	<option value="1.5.3">IKPHP1.5.3</option>
 	        </select>
       </td>
     </tr>   

@@ -657,6 +657,9 @@ class indexAction extends frontendAction {
 			$exploreGroup[] =  $item;
 			$exploreGroup[$key]['groupname'] = getsubstrutf8(t($item[groupname]),0,14);
 			$exploreGroup[$key]['groupdesc'] = getsubstrutf8(t($item['groupdesc']),0,45);
+			if($this->userid > 0){
+				$exploreGroup[$key]['isGroupUser'] = $this->_mod->isGroupUser ( $this->userid, $item['groupid'] );
+			}
 		}
 			
 		$this->assign('pageUrl', $pager->fshow());

@@ -14,7 +14,7 @@
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
@@ -145,6 +145,11 @@ __EXTENDS_JS__
                     </div>
                     <div class="info"><?php echo ($item[count_user]); ?> 个成员 在此聚集 </div>
                     <div><p><?php echo ($item[groupdesc]); ?></p></div>
+                    <?php if($item[joinway] == 0 && !$item[isGroupUser]): if(empty($visitor)): ?><div class="join"><a class="i a_show_login lnk-join" href="<?php echo U('group/index/join',array('id'=>$item['groupid']));?>"><i>+</i>加入小组</a></div>
+                    	<?php else: ?>
+                    	<div class="join"><a class="lnk-join" href="<?php echo U('group/index/join',array('id'=>$item['groupid']));?>"><i>+</i>加入小组</a></div><?php endif; ?>
+                    <?php else: ?>
+                    	<div class="join"><span class="joined">√已加入</span></div><?php endif; ?>
                 </div>
             </div><?php endforeach; endif; ?>
             

@@ -874,7 +874,6 @@ a.mini-share:hover {
 }
 .group_tit{ }
 .joingroup{ background-color:#F0F0F0; padding:2px 0px; line-height:20px; border-radius:0px 0px 3px 3px;display:block; clear:both; text-align:center;}
-.joined{ background-color:#F0F0F0; padding:2px 0px; line-height:20px; border-radius:0px 0px 3px 3px; display:block; clear:both; text-align:center; color:#999}
 
 
 .bn-post span{ color:#CA6445; font-size:13px; background-color:#FAE9DA; border:1px solid #F8DCC3}
@@ -1111,8 +1110,20 @@ word-spacing:-0.43em; }
 .group-list .result p {
 	color:#666;
 	word-wrap:break-word;
-	word-break:break-all
+	word-break:break-all;
+	margin-bottom:10px;
 }
+
+.group-list .result .join{}
+.group-list .result .join a:active, .group-list .result .join a:hover, .group-list .result .join a:link, .group-list .result .join a:visited {
+	color:#ca6445
+}
+.group-list .result .join a:active, .group-list .result .join a:hover {
+	background-color:#ca6445;
+	color:#fff
+}
+.group-list .result .joined{ color:#999999}
+
 .group-cate-bd {
 	border:1px solid #eee
 }

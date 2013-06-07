@@ -57,6 +57,8 @@ class indexAction extends frontendAction {
 				$this->error ( '发布新应用失败!' );
 			}
 		}else{
+			$cateList = $this->dev_cate_mod->getCateList();
+			$this->assign('cateList',$cateList); //获取分类
 			$this->assign('userid',$userid);
 			$this->_config_seo (array('title'=>'发布新应用','subtitle'=>'应用商店'));
 			$this->display();
@@ -140,7 +142,7 @@ class indexAction extends frontendAction {
 		//查询
 		$map['isaudit'] = 1; //通过审核
 		//显示列表
-		$pagesize = 1;
+		$pagesize = 40;
 		$count = $this->dev_mod->where($map)->order('addtime DESC')->count('appid');
 		$pager = $this->_pager($count, $pagesize);
 		$arrApps = $this->dev_mod->where($map)->order('addtime DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
@@ -155,10 +157,17 @@ class indexAction extends frontendAction {
 			}
 		}
 		$this->assign('pageUrl', $pager->fshow());
+		
+		//获取下载最多的；最流行的
+		$arrpopApp = $this->dev_mod->getPopApp(10);
+		//获取全部分类
+		$cateList = $this->dev_cate_mod->getCateList();
 				
 		$this->assign('arrApp',$arrApp);
 		$this->assign('apptype',$apptype);
 		$this->assign('typeList',$typeList);
+		$this->assign('cateList',$cateList);
+		$this->assign('arrpopApp',$arrpopApp);
 		$this->_config_seo (array('title'=>'发现感兴趣的应用','subtitle'=>'应用商店'));
 		$this->display();		
 	}	
@@ -178,6 +187,8 @@ class indexAction extends frontendAction {
 				
 			}else{
 				$strApp = $this->dev_mod->getOneApp(array('appid'=>$appid,'userid'=>$userid));
+				$cateList = $this->dev_cate_mod->getCateList();
+				$this->assign('cateList',$cateList); //获取分类
 				$this->assign('strApp', $strApp);
 				$this->assign('userid',$userid);
 				$this->_config_seo (array('title'=>'编辑应用','subtitle'=>'应用商店'));

@@ -149,7 +149,7 @@ __EXTENDS_JS__
             <li>
                 <span class="attr-name">应用类别：</span>
                 <span class="attr-value">
-                    <a href="/app">内容聚合</a>
+                    <a href="<?php echo U('develop/index/applist',array('type'=>$strApp[apptype],'cateid'=>$strApp[cateid]));?>">内容聚合</a>
                 </span>
             </li>
     
@@ -170,7 +170,8 @@ __EXTENDS_JS__
             <li>
                 <span class="attr-name">需要积分：</span>
                 <span class="attr-value"> 
-                100 （<a href="#">如何获取积分？</a>） </span>
+                免费
+                </span>
             </li>        
     
         </ul>

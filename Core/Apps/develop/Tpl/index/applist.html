@@ -68,38 +68,33 @@
                 </h2>
               <div class="sub-mod list cate-list">
                 <ul>
-                  <li>[分类]</li>
-                  <li><a href="/app/android?cat_id=1087">游戏</a></li>
-                  <li><a href="/app/android?cat_id=1072">生活</a></li>
-                  <li><a href="/app/android?cat_id=1063">工具</a></li>
-                  <li><a href="/app/android?cat_id=1065">影音</a></li>
-                  <li><a href="/app/android?cat_id=1068">教育</a></li>
-                  <li><a href="/app/android?cat_id=1080">社交</a></li>
-                  <li><a href="/app/android?cat_id=1083">新闻</a></li>
-                  <li><a href="/app/android?cat_id=1067">摄影</a></li>
-                  <li><a href="/app/android">(全部)</a></li>
+                  <foreach name="cateList" item="item">
+                  <li><a href="{:U('develop/index/applist',array('type'=>$apptype,'cateid'=>$item[cateid]))}">{$item[catename]}</a></li>
+                  </foreach>
                 </ul>
               </div>
             </div>
 
         	<div class="mod">
                 <h2>
-                        iOS最近流行的应用
+                        最近流行的应用
                             &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
                 </h2>
                 <div class="th-app-pop">
                      <ul>
-                     <li class="common-item">
-                     <div class="pic">
-                         <a href="http://www.douban.com/subject/20508491/"><img width="48" src="http://img3.douban.com/spic/s26008770.jpg"></a>
-                     </div>
-                     <div class="info">
-                         <div class="title">
-                           <a href="http://www.douban.com/subject/20508491/">豆瓣阅读</a>
+                     	<foreach name="arrpopApp" item="item">
+                         <li class="common-item">
+                         <div class="pic">
+                             <a href="{:U('develop/index/show',array('id'=>$item[appid]))}"><img width="48" src="{$item[icon_100]}"></a>
                          </div>
-                         <div class="favs">433人用过 / 图书</div>
-                     </div>
-                     </li>
+                         <div class="info">
+                             <div class="title">
+                               <a href="{:U('develop/index/show',array('id'=>$item[appid]))}">{$item[title]}</a>
+                             </div>
+                             <div class="favs">{$item[count_down]}人用过 / {$item[cate][catename]}</div>
+                         </div>
+                         </li>
+                         </foreach>
                      </ul>
                 </div> 
             </div><!--//mod-->
