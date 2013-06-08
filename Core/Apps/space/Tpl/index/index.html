@@ -219,7 +219,7 @@
         </h2>
     
         <foreach name="arrMyGroup" item="item">
-            <dl class="ob"><dt><a href="{:U('group/show',array('id'=>$item[groupid]))}"><img alt="{$item[groupname]}" class="m_sub_img" src="{$item[icon_48]}"></a></dt>
+            <dl class="ob"><dt><a href="{:U('group/index/show',array('id'=>$item[groupid]))}"><img alt="{$item[groupname]}" class="m_sub_img" src="{$item[icon_48]}"></a></dt>
             <dd><a href="{:U('group/index/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a> <span>({$item[count_user]})</span></dd>
             </dl>
         </foreach>

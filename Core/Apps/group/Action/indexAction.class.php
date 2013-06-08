@@ -304,7 +304,7 @@ class indexAction extends frontendAction {
 		$this->assign ( 'strGroup', $group );
 		$this->assign ( 'strLeader', $strLeader );
 		$this->assign ( 'arrGroupUser', $arrGroupUser );
-		$this->_config_seo ();
+		$this->_config_seo (array('title'=>$group['groupname'],'subtitle'=>'小组'));
 		$this->display ();
 	}
 	// 发布新帖
@@ -555,7 +555,7 @@ class indexAction extends frontendAction {
 			$this->assign ( 'action', $action );
 			$this->assign ( 'isGroupUser', $isGroupUser );
 			$this->assign ( 'arrCollectUser', $arrCollectUser );
-			$this->_config_seo ();
+			$this->_config_seo (array('title'=>$strTopic['title'],'subtitle'=>$strGroup['groupname']));
 			$this->display ();
 		}
 	

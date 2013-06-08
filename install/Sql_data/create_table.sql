@@ -110,7 +110,7 @@ CREATE TABLE `ik_user_online` (
 DROP TABLE IF EXISTS `ik_setting`;
 CREATE TABLE `ik_setting` (
   `name` char(32) NOT NULL DEFAULT '' COMMENT '选项名字',
-  `data` char(255) NOT NULL DEFAULT '' COMMENT '选项内容',
+  `data` char(500) NOT NULL DEFAULT '' COMMENT '选项内容',
   UNIQUE KEY `name` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='系统管理配置';
 
