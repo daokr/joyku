@@ -20,11 +20,11 @@ class content_replaceBehavior extends Behavior {
         $replace['__SITE_URL__'] = C('ik_site_url');
         
         //网站应用风格路径
-        $replace['__STATIC_CSS__'] = 'Core/Apps/'.GROUP_NAME.'/Static/css';
+        $replace['__STATIC_CSS__'] = C('ik_site_url').'Core/Apps/'.GROUP_NAME.'/Static/css';
         //网站应用风格图片路径
-        $replace['__STATIC_IMG__'] = 'Core/Apps/'.GROUP_NAME.'/Static/images';
+        $replace['__STATIC_IMG__'] = C('ik_site_url').'Core/Apps/'.GROUP_NAME.'/Static/images';
         //网站应用风格图片路径
-        $replace['__STATIC_JS__'] = 'Core/Apps/'.GROUP_NAME.'/Static/js';
+        $replace['__STATIC_JS__'] = C('ik_site_url').'Core/Apps/'.GROUP_NAME.'/Static/js';
         
         //网站基本风格
         $basecss = 'Public/theme/'.C('ik_site_theme').'/base.css';
