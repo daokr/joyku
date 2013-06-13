@@ -9,8 +9,8 @@
 <h2>{$title}</h2>
 <div class="tabnav">
 <ul>
-     <li><a href="{:U('robots/add',array('ik'=>'add_robot'))}">添加机器人</a></li>
-     <li  class="select"><a href="{:U('robots/lists')}">浏览机器人</a></li>
+     <li><a href="{:U('article/robots/add',array('ik'=>'add_robot'))}">添加机器人</a></li>
+     <li  class="select"><a href="{:U('article/robots/lists')}">浏览机器人</a></li>
 </ul>
 </div>
  
@@ -25,12 +25,12 @@
 <foreach name="list" item="item">
 <tr>
     <td>{$item[name]}</td>
-    <td>{$item[lasttime]}</td>
+    <td>{$item.lasttime|date="Y-m-d",###}</td>
     <td>{$item[robotnum]}</td>
     <td>
-    <a href="{:U('robots/startrobot',array('clearcache'=>'1','robotid'=>$item[robotid]))}">开始采集</a> 
-    <a href="{:U('robots/edit',array('robotid'=>$item[robotid]))}">编辑配置</a> 
-    <a href="{:U('robots/delete',array('robotid'=>$item[robotid]))}">删除机器</a></td>
+    <a href="{:U('article/robots/startrobot',array('clearcache'=>'1','robotid'=>$item[robotid]))}">开始采集</a> 
+    <a href="{:U('article/robots/edit',array('robotid'=>$item[robotid]))}">编辑配置</a> 
+    <a href="{:U('article/robots/delete',array('robotid'=>$item[robotid]))}">删除机器</a></td>
 </tr>
 </foreach>
 </table>

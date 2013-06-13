@@ -126,89 +126,99 @@ __EXTENDS_JS__
 	</div>
         
 </div>
-
 <div class="midder">
-<div class="mc">
-<h1>
-<?php echo ($seo["title"]); ?>
-</h1>
 
-<div class="nav-step">
-              <span>1. 填写应用信息</span>
-              <span class="pl">&gt;</span>
-              <span class="pl">2. 上传应用图片</span>
-              <span class="pl">&gt;</span>              
-              <span class="pl">3. 提交应用</span>
-</div>
-            
-<form method="POST" action="<?php echo U('develop/index/add');?>" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
-<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
 
-	<tr>
-    	<th>应用标题：</th>
-		<td><input style="width:400px;" type="text" value="" maxlength="30" name="title"  class="txt"   placeholder="请填写应用简要名称"></td>
-    </tr>
-    <tr><th></th><td><span class="tips">请填写应用的名称如：IKPHP小组应用，名称中不要包含版本号，最多30个字</span></td></tr>  
-    <tr>
-        <th>版本号：</th>
-        <td><input style="width:200px;" type="text" value=""  maxlength="30" name="version"  class="txt" ></td>
-    </tr>   
-    <tr>
-        <th>详细描述：</th><td>
-        <textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="desc" class="txt"   placeholder="请填写详细的描述"></textarea>
-        </td>
-    </tr>
-    <tr><th></th><td><span class="tips">请简要的阐述此插件的具体功能、安装方法、使用手册等内容。</span></td></tr>    
+    <div class="mc">
     
-    <tr>
-        <th>类型：</th>
-        <td>
-            <label><input type="radio" name="apptype" value="1" checked/>应用</label> 
-            &nbsp;&nbsp;&nbsp;
-            <label><input type="radio" name="apptype" value="2" />插件</label>
-             &nbsp;&nbsp;&nbsp;
-            <label><input type="radio" name="apptype" value="3" />模版皮肤</label>
-        </td>
-    </tr>
-    <tbody class="tbodyitem">
-    <tr>
-        <th>分类：</th>
-        <td>
-			<select class="txt" name="cateid">
-                <?php if(is_array($cateList)): foreach($cateList as $key=>$item): ?><option value="<?php echo ($item[cateid]); ?>"><?php echo ($item[catename]); ?></option><?php endforeach; endif; ?>
-            </select>      
-        </td>
-    </tr>
-   </tbody>  
-    <tr>
-        <th>包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
-    </tr> 
-    <tr>
-        <th>官方网站：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="50" name="appsite"  class="txt"   placeholder="http://"></td>
-    </tr>    
-    <tr>
-        <th>IKPHP版本：</th>
-        <td><select name="ikphpversion" class="txt">
-	            	<option value="1.5.3">IKPHP1.5.3</option>
-	        </select>
-      </td>
-    </tr>   
-    <tr>
-    	<th>&nbsp;</th><td>
-        <input type="hidden" name="userid" value="<?php echo ($userid); ?>"/>
-        <input class="submit" type="submit" value="好啦，继续下一步"> <a href="<?php echo U('develop/index/index');?>">返回</a>
-        </td>
-    </tr>
-</table>
-</form>
+   	    <h1><?php echo ($seo["title"]); ?></h1>
+       
+        <div class="cleft w700">
 
 
+            <div class="group_topics">
+                <table class="olt">
+                    <tbody>
+            <?php if(!empty($arrTopic)): if(is_array($arrTopic)): foreach($arrTopic as $key=>$item): ?><tr class="pl">
+               <td class="td-subject"><a title="<?php echo ($item[title]); ?>" href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>"><?php echo getsubstrutf8(t($item['title']),0,25); ?></a>
+                <?php if($item[isvideo] == 1): ?><img src="__PUBLIC__/images/lc_cinema.png" align="absmiddle" title="[视频]" alt="[视频]" /><?php endif; ?>                
+                <?php if($item[istop] == 1): ?><img src="__PUBLIC__/images/headtopic_1.gif" title="[置顶]" alt="[置顶]" /><?php endif; ?>
+                <?php if($item[addtime] > (strtotime(date('Y-m-d 00:00:00')))): ?><img src="__PUBLIC__/images/topic_new.gif" align="absmiddle"  title="[新帖]" alt="[新帖]" /><?php endif; ?> 
+                <?php if($item[isphoto] == 1): ?><img src="__PUBLIC__/images/image_s.gif" title="[图片]" alt="[图片]" align="absmiddle" /><?php endif; ?> 
+                <?php if($item[isattach] == 1): ?><img src="__PUBLIC__/images/attach.gif" title="[附件]" alt="[附件]" /><?php endif; ?> 
+                <?php if($item[isdigest] == 1): ?><img src="__PUBLIC__/images/posts.gif" title="[精华]" alt="[精华]" /><?php endif; ?>
 
-</div>
-</div>
+                </td>
+                <td class="td-reply" nowrap="nowrap"><?php if($item[count_comment] > 0): echo ($item[count_comment]); ?> 回应<?php endif; ?></td>
+                <td class="td-time" nowrap="nowrap"><?php echo getTime($item[uptime],time()); ?></td>
+                <td align="right"><a href="<?php echo U('group/index/show',array('id'=>$item[groupid]));?>"><?php echo getsubstrutf8(t($item[group][groupname]),0,10); ?></a></td>
+                </tr><?php endforeach; endif; endif; ?>         
+                </tbody>
+              </table>
+            </div>
+            
+             
+            
+            <div class="clear"></div>
+    
+    
+    	</div>
+    
+        <div class="cright w250" id="cright">   
+              
+			<div class="mod" id="g-user-profile">
 
+    <div class="usercard">
+      <div class="pic">
+            <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
+      </div>
+      <div class="info">
+           <div class="name">
+               <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
+           </div>
+                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
+                 <br>
+       </div>
+    </div>
+               
+    <div class="group-nav">
+     <ul>
+		<?php if($action_name == 'my_group_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_group_topics');?>">我的小组话题</a></li>
+		<?php else: ?>
+		<li class=""><a href="<?php echo U('group/index/my_group_topics');?>">我的小组话题</a></li><?php endif; ?>
+        
+		<?php if($action_name == 'my_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_topics');?>">我发起的话题</a></li>
+		<?php else: ?>
+		<li class=""><a href="<?php echo U('group/index/my_topics');?>">我发起的话题</a></li><?php endif; ?>
+        		
+		<?php if($action_name == 'my_replied_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_replied_topics');?>">我回应的话题</a></li>
+		<?php else: ?>
+		<li class=""><a href="<?php echo U('group/index/my_replied_topics');?>">我回应的话题</a></li><?php endif; ?>
+		
+		<?php if($action_name == 'my_collect_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_collect_topics');?>">我喜欢的话题</a></li>
+		<?php else: ?>
+		<li class=""><a href="<?php echo U('group/index/my_collect_topics');?>">我喜欢的话题</a></li><?php endif; ?>
+		
+		<?php if($action_name == 'mine'): ?><li class="on"><a href="<?php echo U('group/index/mine');?>">我管理/加入的小组</a></li>
+		<?php else: ?>
+		<li class=""><a href="<?php echo U('group/index/mine');?>">我管理/加入的小组</a></li><?php endif; ?>
+     </ul>
+    </div>
+             
+</div> 
+         
+<div class="mod">
+<?php if($visitor): ?><div class="create-group">
+<a href="<?php echo U('group/index/create');?>"><i>+</i>申请创建小组</a>
+</div><?php endif; ?>
+</div>                 
+        
+        </div>
+    
+    </div><!--//mc-->
+
+
+</div>                
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>

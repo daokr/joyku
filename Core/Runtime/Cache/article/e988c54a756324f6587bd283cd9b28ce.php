@@ -126,89 +126,68 @@ __EXTENDS_JS__
 	</div>
         
 </div>
-
 <div class="midder">
-<div class="mc">
-<h1>
-<?php echo ($seo["title"]); ?>
-</h1>
+	<div class="mc">
+		<aside class="w190 fl">
+			<section class="categories">
+				<div class="hd">
+					<h3>全部分类</h3>
+				</div>
+				<ul class="list categories-list">
+                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/index/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
+				</ul>
+			</section>
+			<section class="personal-publish">
+				<div class="hd">
+					<h3>作品投稿</h3>
+				</div>
+				<div class="bd">
+					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
+					<p class="entrance">
+						<a href="<?php echo U('article/index/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
+					</p>
+				</div>
+			</section>
+		</aside>
+		<article class="w770 fr">
+			<section>
+				<div class="hd tag-heading">
+					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
+				</div>
 
-<div class="nav-step">
-              <span>1. 填写应用信息</span>
-              <span class="pl">&gt;</span>
-              <span class="pl">2. 上传应用图片</span>
-              <span class="pl">&gt;</span>              
-              <span class="pl">3. 提交应用</span>
-</div>
+				<div class="bd">
+					<ul class="list-lined article-list">
+						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
+							<div class="title">
+								<a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
+                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
+                                </a>
+							</div>
+                           <?php if($item[isphoto]): ?><div class="cover">
+                                <a class="pic" href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">
+									<img src="<?php echo ($item[photo][simg]); ?>" />
+								</a> 
+							</div><?php endif; ?>                           
+							<div class="info">
+								<div class="article-desc-brief">
+									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
+                                    <a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">（更多）</a>
+								</div>
+							</div>
+							<a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
+						</li><?php endforeach; endif; ?>
+
+					</ul>
+				</div>
+
+
+			</section>
             
-<form method="POST" action="<?php echo U('develop/index/add');?>" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
-<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
-
-	<tr>
-    	<th>应用标题：</th>
-		<td><input style="width:400px;" type="text" value="" maxlength="30" name="title"  class="txt"   placeholder="请填写应用简要名称"></td>
-    </tr>
-    <tr><th></th><td><span class="tips">请填写应用的名称如：IKPHP小组应用，名称中不要包含版本号，最多30个字</span></td></tr>  
-    <tr>
-        <th>版本号：</th>
-        <td><input style="width:200px;" type="text" value=""  maxlength="30" name="version"  class="txt" ></td>
-    </tr>   
-    <tr>
-        <th>详细描述：</th><td>
-        <textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="desc" class="txt"   placeholder="请填写详细的描述"></textarea>
-        </td>
-    </tr>
-    <tr><th></th><td><span class="tips">请简要的阐述此插件的具体功能、安装方法、使用手册等内容。</span></td></tr>    
-    
-    <tr>
-        <th>类型：</th>
-        <td>
-            <label><input type="radio" name="apptype" value="1" checked/>应用</label> 
-            &nbsp;&nbsp;&nbsp;
-            <label><input type="radio" name="apptype" value="2" />插件</label>
-             &nbsp;&nbsp;&nbsp;
-            <label><input type="radio" name="apptype" value="3" />模版皮肤</label>
-        </td>
-    </tr>
-    <tbody class="tbodyitem">
-    <tr>
-        <th>分类：</th>
-        <td>
-			<select class="txt" name="cateid">
-                <?php if(is_array($cateList)): foreach($cateList as $key=>$item): ?><option value="<?php echo ($item[cateid]); ?>"><?php echo ($item[catename]); ?></option><?php endforeach; endif; ?>
-            </select>      
-        </td>
-    </tr>
-   </tbody>  
-    <tr>
-        <th>包名：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
-    </tr> 
-    <tr>
-        <th>官方网站：</th>
-        <td><input style="width:200px;" type="text" value="" maxlength="50" name="appsite"  class="txt"   placeholder="http://"></td>
-    </tr>    
-    <tr>
-        <th>IKPHP版本：</th>
-        <td><select name="ikphpversion" class="txt">
-	            	<option value="1.5.3">IKPHP1.5.3</option>
-	        </select>
-      </td>
-    </tr>   
-    <tr>
-    	<th>&nbsp;</th><td>
-        <input type="hidden" name="userid" value="<?php echo ($userid); ?>"/>
-        <input class="submit" type="submit" value="好啦，继续下一步"> <a href="<?php echo U('develop/index/index');?>">返回</a>
-        </td>
-    </tr>
-</table>
-</form>
-
-
-
+             <div class="page"><?php echo ($pageUrl); ?></div>   
+             
+		</article>
+	</div>
 </div>
-</div>
-
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>

@@ -6,9 +6,7 @@
 class robotsAction extends backendAction {
 	public function _initialize() {
 		parent::_initialize ();
-		if (is_file ( COMMON_PATH . 'robot.func.php' )) {
-			include COMMON_PATH . 'robot.func.php';
-		}
+		require_once APPS_PATH.'article/Common/robot.func.php';
 		$this->robots_mod = D ( 'article_robots' );
 		$this->cate_mod = D ( 'article_cate' );
 		$this->channel_mod = D ( 'article_channel' );
@@ -1118,7 +1116,8 @@ class robotsAction extends backendAction {
 		@ini_set ( 'max_execution_time', 2000 ); // 设置超时时间
 		$robotid = $this->_get ( 'robotid', 'intval' );
 		// 跳转地址
-		$theurl = U ( 'article/robots/startrobot' );
+		//$theurl = U ( 'article/robots/startrobot' );
+		$theurl = 'index.php?app=article&m=robots&a=startrobot';
 		
 		$lpage = $this->_get ( 'lpage', 'intval', '0' ); // 列表页的页数
 		$mpage = $this->_get ( 'mpage', 'intval', '0' ); // 页面的分页数

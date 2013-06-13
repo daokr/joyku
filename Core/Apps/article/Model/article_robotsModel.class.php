@@ -60,8 +60,8 @@ class article_robotsModel extends Model
 			
 			
 			//dump(D('article_item')->create($arrArticleItem));die;
-			if(!false == D('article_item')->create($arrArticleItem)){
-				$newitemid = D('article_item')->add();
+			if(!false == M('article_item')->create($arrArticleItem)){
+				$newitemid = M('article_item')->add();
 				if($newitemid>0){
 					$arrArticle['itemid'] = $newitemid; //内容
 					if(!false == D('article')->create($arrArticle)){
