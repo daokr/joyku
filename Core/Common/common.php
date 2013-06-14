@@ -1308,3 +1308,19 @@ function ikhtml_video($type,$typeid,$content){
 		return;
 	}
 }
+//扫描目录
+function ikScanDir($dir, $isDir = null) {
+
+	if ($isDir == null) {
+		$dirs = array_filter ( glob ( $dir . '/' . '*' ), 'is_dir' );
+	} else {
+		$dirs = array_filter ( glob ( $dir . '/' . '*' ), 'is_file' );
+	}
+
+	foreach ( $dirs as $key => $item ) {
+		$arrDirs [] = array_pop ( explode ( '/', $item ) );
+	}
+
+	return $arrDirs;
+
+}

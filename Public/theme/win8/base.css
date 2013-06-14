@@ -17,7 +17,7 @@ address, caption, cite, code, dfn, em, i, th, var, optgroup {
     font-style: normal;
     font-weight: normal;
 }
-body{ color:#333; font:12px/1.5  Arial,Helvetica,sans-serif,Microsoft YaHei; direction:ltr; background-color:#fff}
+body{ color:#333; font:12px/1.5  Arial,Helvetica,sans-serif,Microsoft YaHei; direction:ltr; background:url(bg.gif) repeat 0px 0px}
 /**节日
 body{
 -moz-transform: rotate(-10deg); 
@@ -41,7 +41,7 @@ h1 {
     word-wrap: break-word;
 }
 h2 {
-    color: #006600;
+    color: #2496cd;
     font: 14px/150% Arial,Helvetica,sans-serif;
 	margin:8px 0px;
 	letter-spacing: 2px;
@@ -194,17 +194,15 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 #styleBox{ width:54px; height:54px; background:url(../../images/style.jpg) no-repeat 0px 0px; position:fixed; top:103px; right:0px; border-radius:50px}
 #styleBox a{ display:block; width:100%; height:100%; line-height:999px; overflow:hidden}
 #styleBox a:hover{ background:url(../../images/style.jpg) no-repeat -54px 0px; background-color:transparent;border-radius:10px}
-
 /*头部*/
-.top_nav {clear:both;width:100%;color:#fff; height:35px; line-height:35px;
-/*background-color:#545652;*/ background:#50555a; }
+.top_nav {clear:both;width:100%;color:#fff; height:35px; line-height:35px; background:#379BE9; }
 .top_nav .top_bd{ width:100%; margin:0;}
 .top_nav .top_info{ float:right; margin-right:15px}
-.top_nav .top_items{ float:left; margin-left:15px; font-size:13px}
-.top_nav .top_items li{ float:left; margin-right:10px}
-.top_nav a{ margin:0px 5px;}
-.top_nav a:active, .top_nav a:hover, .top_nav a:link, .top_nav a:visited {color:#D5D5D5}
-.top_nav a:active, .top_nav a:hover {color:#fff;background-color:transparent}
+.top_nav .top_items{ float:left; margin-left:15px; font-size:14px}
+.top_nav .top_items li{ float:left;background:url(bg_nav_li_24.png) no-repeat right center; padding-right:2px}
+.top_nav a{ padding:5px 8px;}
+.top_nav a:active, .top_nav a:hover, .top_nav a:link, .top_nav a:visited {color:#fff; }
+.top_nav a:active, .top_nav a:hover {background-color:#1669AB}
 
 /**导航样式**/
 #header {width:100%; margin:0px auto;margin-bottom:40px; background-color:#F8F8F8; overflow:hidden}
@@ -236,8 +234,8 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 .midder{width:1000px;margin:0 auto;padding:0;overflow:hidden;height:auto !important; min-height:400px; margin-top:15px; }
 .midder{ }
 .midder .mc{overflow:hidden;display: block;}
-.midder .mc .cleft{float: left;padding-right: 10px; width: 640px;background-color:#fff; }
-.midder .mc .cright{float: right;width: 310px;background-color:#fff; }
+.midder .mc .cleft{float: left;padding-right: 10px; width: 640px;background-color:#fff; padding:10px}
+.midder .mc .cright{float: right;width: 310px;background-color:#fff; padding:10px }
 .w190{width:190px}
 .w770{width:770px}
 .midder .mc .w250{ width:250px}

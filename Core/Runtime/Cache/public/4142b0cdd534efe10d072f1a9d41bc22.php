@@ -1,7 +1,6 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
@@ -25,11 +24,9 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
-
 </head>
 
 <body>
-<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -103,92 +100,28 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
-<!--header-->
-<div id="header">
-    
-	<div class="site_nav">
-        <div class="<?php echo ($logo[style]); ?>">
-            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
-        </div>
-		<div class="appnav">
-			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
-			    </ul>
-		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
-                <input type="hidden" value="all" name="type">
-                <div id="search_bar">
-                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
-                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
-                </div>
-		    </form>
-		</div>
-        <div class="cl"></div>
-	</div>
-        
-</div>
 <div class="midder">
-	<div class="mc">
-		<aside class="w190 fl">
-			<section class="categories">
-				<div class="hd">
-					<h3>全部分类</h3>
-				</div>
-				<ul class="list categories-list">
-                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/index/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
-				</ul>
-			</section>
-			<section class="personal-publish">
-				<div class="hd">
-					<h3>作品投稿</h3>
-				</div>
-				<div class="bd">
-					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
-					<p class="entrance">
-						<a href="<?php echo U('article/index/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
-					</p>
-				</div>
-			</section>
-		</aside>
-		<article class="w770 fr">
-			<section>
-				<div class="hd tag-heading">
-					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
-				</div>
-
-				<div class="bd">
-					<ul class="list-lined article-list">
-						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
-							<div class="title">
-								<a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
-                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
-                                </a>
-							</div>
-                           <?php if($item[isphoto]): ?><div class="cover">
-                                <a class="pic" href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">
-									<img src="<?php echo ($item[photo][simg]); ?>" />
-								</a> 
-							</div><?php endif; ?>                           
-							<div class="info">
-								<div class="article-desc-brief">
-									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
-                                    <a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">（更多）</a>
-								</div>
-							</div>
-							<a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
-						</li><?php endforeach; endif; ?>
-
-					</ul>
-				</div>
-
-
-			</section>
-            
-             <div class="page"><?php echo ($pageUrl); ?></div>   
-             
-		</article>
-	</div>
-</div>
-<!--引入后前台的模版文件 -->
+   	<div class="mc">
+    	<h1><?php echo ($seo["title"]); ?></h1>
+        <div class="themelist">
+        	<ul>
+            	<?php if(is_array($arrTheme)): foreach($arrTheme as $key=>$item): if($ikTheme == $item): ?><li class="on" onclick="selectTheme(this,'<?php echo ($item); ?>')"><a href="javascript:;"  >
+                        <label>
+                            <img src="__PUBLIC__/theme/<?php echo ($item); ?>/preview.jpg"><br /> <?php echo ($item); ?>
+                        </label>
+                        </a>
+                    </li>
+                    <?php else: ?>
+                    <li onclick="selectTheme(this,'<?php echo ($item); ?>')"><a href="javascript:;" onclick="selectTheme(this,'<?php echo ($item); ?>')" >
+                        <label>
+                            <img src="__PUBLIC__/theme/<?php echo ($item); ?>/preview.jpg"><br /> <?php echo ($item); ?>
+                        </label>
+                        </a>
+                    </li><?php endif; endforeach; endif; ?>
+            </ul>
+        </div>
+    </div><!--//mc-->
+</div><!--//midder-->
 <!--footer-->
 <footer>
 <div id="footer">
@@ -215,6 +148,5 @@ __EXTENDS_JS__
 </div>
 </footer>
 <div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
-
 </body>
 </html>

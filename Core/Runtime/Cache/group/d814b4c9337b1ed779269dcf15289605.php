@@ -7,7 +7,7 @@
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
 <meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
-<style>__SITE_THEME_CSS__</style>
+__SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <!--<![endif]-->
@@ -304,6 +304,7 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+<div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
 
 </body>
 </html>

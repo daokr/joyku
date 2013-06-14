@@ -45,5 +45,17 @@ class indexAction extends frontendAction {
 		$this->_config_seo ();
 		$this->display ();
 	}
+	public function style(){
+
+		$ikTheme = cookie('ikTheme');
+		$ikTheme = empty($ikTheme) ? 'blue' : $ikTheme;
+		$arrTheme	= ikScanDir('Public/theme');
+		$this->assign('arrTheme',$arrTheme);
+		$this->assign('ikTheme',$ikTheme);
+		$this->_config_seo ( array (
+				'title' => '更换主题风格',
+		) );
+		$this->display();
+	}
 
 }

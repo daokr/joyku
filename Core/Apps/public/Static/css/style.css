@@ -487,3 +487,9 @@ input,button,textarea,select,optgroup,option {
     vertical-align: top;
     word-spacing: normal;
 }
+/**风格设置**/
+.themelist{ display:block; overflow:hidden}
+.themelist li{ margin:10px; float:left; display:inline-block; text-align:center; font-size:14px;}
+.themelist li label{ cursor:pointer;}
+.themelist li a{ display:block; border:#fff solid 1px; padding:5px}
+.themelist li a:hover,.themelist li.on a{ background-color:transparent; color:#333;border:#ddd solid 1px;}

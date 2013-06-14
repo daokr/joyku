@@ -373,6 +373,7 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+<div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
 
 </body>
 </html>

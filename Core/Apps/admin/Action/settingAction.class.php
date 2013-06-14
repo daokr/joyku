@@ -37,6 +37,22 @@ class settingAction extends backendAction {
 			$this->display();
 		}	
 	}
+	//风格设置
+	public function theme(){
+		if(IS_POST){
+			
+			$site_theme = $this->_post('site_theme','trim','');
+			if(!empty($site_theme)){
+				$this->_mod->where(array('name' => 'site_theme'))->save(array('data' => $site_theme));
+				$this->success(L('operation_success'));
+			}
+		}else{
+			$arrTheme = ikScanDir ( 'Public/theme' );
+			$this->assign('arrTheme',$arrTheme);
+			$this->title ( '网站风格设置' );
+			$this->display();
+		}
+	}
 	public function edit() {
 		$setting = $this->_post('setting', ',');
 		foreach ($setting as $key => $val) {

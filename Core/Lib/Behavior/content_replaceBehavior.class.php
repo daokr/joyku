@@ -35,15 +35,17 @@ class content_replaceBehavior extends Behavior {
         $appmodulecss = 'Core/Apps/'.GROUP_NAME.'/Static/css/'.MODULE_NAME.'.css';
         
         if(is_file($basecss)){
-        	$sitecss = '@import url('.C('ik_site_url').$basecss.');';
-        	
+        	$sitecss = '<link rel="stylesheet" type="text/css" href="'.C('ik_site_url').$basecss.'" id="baseTheme" />';
+        }
+        if(cookie('ikTheme')){
+        	$iktheme = C('ik_site_url').'Public/theme/'.cookie('ikTheme').'/base.css';
+        	$sitecss .= '<link rel="stylesheet" type="text/css" href="'.$iktheme.'" id="ikTheme" />';
         }
         if(is_file($appcss)){
-        	$sitecss .= '@import url('.C('ik_site_url').$appcss.');';
-        	
+        	$sitecss .= '<link rel="stylesheet" type="text/css" href="'.C('ik_site_url').$appcss.'" id="appTheme" />';
         }
         if(is_file($appmodulecss)){
-        	$sitecss .= '@import url('.C('ik_site_url').$appmodulecss.');';
+        	$sitecss .= '<link rel="stylesheet" type="text/css" href="'.C('ik_site_url').$appmodulecss.'" id="moduleTheme" />';
         }
         //开始替换css
         $replace['__SITE_THEME_CSS__'] = $sitecss;

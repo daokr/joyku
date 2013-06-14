@@ -249,3 +249,7 @@ cursor:pointer; display:block; float:left}
 .Toolbar_inbox .btn_a:hover span { background-position: right -26px;word-wrap:normal }
 
 .pagebar{ text-align:center; margin:10px; font-size:14px;}
+
+.themelist{ display:block; overflow:auto}
+.themelist li{ margin:10px; float:left; height:110px; display:inline-block}
+.themelist li label{ cursor:pointer;}
