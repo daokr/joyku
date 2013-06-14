@@ -304,7 +304,7 @@ class indexAction extends frontendAction {
 		$this->assign ( 'strGroup', $group );
 		$this->assign ( 'strLeader', $strLeader );
 		$this->assign ( 'arrGroupUser', $arrGroupUser );
-		$this->_config_seo ();
+		$this->_config_seo (array('title'=>$group['groupname'],'subtitle'=>'小组'));
 		$this->display ();
 	}
 	// 发布新帖
@@ -555,7 +555,7 @@ class indexAction extends frontendAction {
 			$this->assign ( 'action', $action );
 			$this->assign ( 'isGroupUser', $isGroupUser );
 			$this->assign ( 'arrCollectUser', $arrCollectUser );
-			$this->_config_seo ();
+			$this->_config_seo (array('title'=>$strTopic['title'],'subtitle'=>$strGroup['groupname']));
 			$this->display ();
 		}
 	
@@ -657,6 +657,9 @@ class indexAction extends frontendAction {
 			$exploreGroup[] =  $item;
 			$exploreGroup[$key]['groupname'] = getsubstrutf8(t($item[groupname]),0,14);
 			$exploreGroup[$key]['groupdesc'] = getsubstrutf8(t($item['groupdesc']),0,45);
+			if($this->userid > 0){
+				$exploreGroup[$key]['isGroupUser'] = $this->_mod->isGroupUser ( $this->userid, $item['groupid'] );
+			}
 		}
 			
 		$this->assign('pageUrl', $pager->fshow());

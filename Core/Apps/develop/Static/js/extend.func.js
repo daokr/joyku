@@ -18,7 +18,13 @@ function checkForm(that){
 	var desc = $(that).find('input[name=desc]').val();
 	var package_name = $(that).find('input[name=package_name]').val();
 	var format = /^[a-zA-Z]{1}[a-zA-Z0-9\-_]{0,14}$/;
-
+	var url = $.trim($(that).find('input[name=appsite]').val());
+	
+	if(url !== ''){
+	  url = /^http:\/\//.test(url)? url:"http://"+url;
+	  $(that).find('input[name=appsite]').val(url);
+	}
+			
 	if (title == '' || desc == '') {
 	   tips('应用标题、详细描述、包名、各项都必须填写'); return false;
 	}

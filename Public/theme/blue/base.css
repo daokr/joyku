@@ -191,7 +191,10 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 .fr{float:right;}
  
 /*结构*/
- 
+#styleBox{ width:54px; height:54px; background:url(../../images/style.jpg) no-repeat 0px 0px; position:fixed; top:103px; right:0px; border-radius:50px}
+#styleBox a{ display:block; width:100%; height:100%; line-height:999px; overflow:hidden}
+#styleBox a:hover{ background:url(../../images/style.jpg) no-repeat -54px 0px; background-color:transparent;border-radius:10px}
+
 /*头部*/
 .top_nav {clear:both;width:100%;color:#fff; height:35px; line-height:35px;
 /*background-color:#545652;*/ background:#50555a; }
@@ -230,7 +233,7 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 
 
 /*中部*/
-.midder{width:980px;margin:0 auto;padding:0;overflow:hidden;height:auto !important; min-height:400px; margin-top:15px; }
+.midder{width:1000px;margin:0 auto;padding:0;overflow:hidden;height:auto !important; min-height:400px; margin-top:15px; }
 .midder{ }
 .midder .mc{overflow:hidden;display: block;}
 .midder .mc .cleft{float: left;padding-right: 10px; width: 640px;background-color:#fff; }

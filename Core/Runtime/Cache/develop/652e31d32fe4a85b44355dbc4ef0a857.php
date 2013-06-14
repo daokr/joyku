@@ -180,38 +180,29 @@ __EXTENDS_JS__
                 </h2>
               <div class="sub-mod list cate-list">
                 <ul>
-                  <li>[分类]</li>
-                  <li><a href="/app/android?cat_id=1087">游戏</a></li>
-                  <li><a href="/app/android?cat_id=1072">生活</a></li>
-                  <li><a href="/app/android?cat_id=1063">工具</a></li>
-                  <li><a href="/app/android?cat_id=1065">影音</a></li>
-                  <li><a href="/app/android?cat_id=1068">教育</a></li>
-                  <li><a href="/app/android?cat_id=1080">社交</a></li>
-                  <li><a href="/app/android?cat_id=1083">新闻</a></li>
-                  <li><a href="/app/android?cat_id=1067">摄影</a></li>
-                  <li><a href="/app/android">(全部)</a></li>
+                  <?php if(is_array($cateList)): foreach($cateList as $key=>$item): ?><li><a href="<?php echo U('develop/index/applist',array('type'=>$apptype,'cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
                 </ul>
               </div>
             </div>
 
         	<div class="mod">
                 <h2>
-                        iOS最近流行的应用
+                        最近流行的应用
                             &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
                 </h2>
                 <div class="th-app-pop">
                      <ul>
-                     <li class="common-item">
-                     <div class="pic">
-                         <a href="http://www.douban.com/subject/20508491/"><img width="48" src="http://img3.douban.com/spic/s26008770.jpg"></a>
-                     </div>
-                     <div class="info">
-                         <div class="title">
-                           <a href="http://www.douban.com/subject/20508491/">豆瓣阅读</a>
+                     	<?php if(is_array($arrpopApp)): foreach($arrpopApp as $key=>$item): ?><li class="common-item">
+                         <div class="pic">
+                             <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><img width="48" src="<?php echo ($item[icon_100]); ?>"></a>
                          </div>
-                         <div class="favs">433人用过 / 图书</div>
-                     </div>
-                     </li>
+                         <div class="info">
+                             <div class="title">
+                               <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a>
+                             </div>
+                             <div class="favs"><?php echo ($item[count_down]); ?>人用过 / <?php echo ($item[cate][catename]); ?></div>
+                         </div>
+                         </li><?php endforeach; endif; ?>
                      </ul>
                 </div> 
             </div><!--//mod-->
@@ -246,6 +237,7 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+<div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
 
 </body>
 </html>

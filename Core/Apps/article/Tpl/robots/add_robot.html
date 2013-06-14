@@ -65,7 +65,7 @@ function debugsubmit(obj, nodename, process) {
 	editdoc.close();
 	obj.form.target = 'debugframe';
 	//跳转地址
-	$('#theform').attr('action','index.php?g=admin&m=robots&a=add&ik=debug_robot');	
+	$('#theform').attr('action','index.php?app=article&m=robots&a=add&ik=debug_robot');	
 	
 	//$('#f_debugurl').val(debugurl);
 	//$('#f_allowurlnull').checked = allowurlnull;
@@ -175,7 +175,7 @@ function addreplace(str, replace, replaceto) {
       <th>预定义发布时间
         <p>导入资讯分类以后，定义的发布时间</p></th>
       <td><input type="text" readonly="" value="{$thevalue[defaultaddtime]}" size="30" id="defaultaddtime" name="defaultaddtime">
-        <img src="apps/admin/Static/images/time.gif" onclick="WdatePicker({el:'defaultaddtime',dateFmt:'yyyy-MM-dd HH:mm:ss'});">&nbsp;<a onclick="$('defaultaddtime').value='';" href="javascript:;">清空</a></td>
+        <img src="__PUBLIC__/js/date/skin/datePicker.gif" onclick="WdatePicker({el:'defaultaddtime',dateFmt:'yyyy-MM-dd HH:mm:ss'});" align="absmiddle">&nbsp;<a onclick="$('#defaultaddtime').val('')" href="javascript:;">清空</a></td>
     </tr>
   </tbody>
 </table>

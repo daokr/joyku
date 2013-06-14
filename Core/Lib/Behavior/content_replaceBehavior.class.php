@@ -20,11 +20,11 @@ class content_replaceBehavior extends Behavior {
         $replace['__SITE_URL__'] = C('ik_site_url');
         
         //网站应用风格路径
-        $replace['__STATIC_CSS__'] = 'Core/Apps/'.GROUP_NAME.'/Static/css';
+        $replace['__STATIC_CSS__'] = C('ik_site_url').'Core/Apps/'.GROUP_NAME.'/Static/css';
         //网站应用风格图片路径
-        $replace['__STATIC_IMG__'] = 'Core/Apps/'.GROUP_NAME.'/Static/images';
+        $replace['__STATIC_IMG__'] = C('ik_site_url').'Core/Apps/'.GROUP_NAME.'/Static/images';
         //网站应用风格图片路径
-        $replace['__STATIC_JS__'] = 'Core/Apps/'.GROUP_NAME.'/Static/js';
+        $replace['__STATIC_JS__'] = C('ik_site_url').'Core/Apps/'.GROUP_NAME.'/Static/js';
         
         //网站基本风格
         $basecss = 'Public/theme/'.C('ik_site_theme').'/base.css';
@@ -35,15 +35,17 @@ class content_replaceBehavior extends Behavior {
         $appmodulecss = 'Core/Apps/'.GROUP_NAME.'/Static/css/'.MODULE_NAME.'.css';
         
         if(is_file($basecss)){
-        	$sitecss = '@import url('.C('ik_site_url').$basecss.');';
-        	
+        	$sitecss = '<link rel="stylesheet" type="text/css" href="'.C('ik_site_url').$basecss.'" id="baseTheme" />';
+        }
+        if(cookie('ikTheme')){
+        	$iktheme = C('ik_site_url').'Public/theme/'.cookie('ikTheme').'/base.css';
+        	$sitecss .= '<link rel="stylesheet" type="text/css" href="'.$iktheme.'" id="ikTheme" />';
         }
         if(is_file($appcss)){
-        	$sitecss .= '@import url('.C('ik_site_url').$appcss.');';
-        	
+        	$sitecss .= '<link rel="stylesheet" type="text/css" href="'.C('ik_site_url').$appcss.'" id="appTheme" />';
         }
         if(is_file($appmodulecss)){
-        	$sitecss .= '@import url('.C('ik_site_url').$appmodulecss.');';
+        	$sitecss .= '<link rel="stylesheet" type="text/css" href="'.C('ik_site_url').$appmodulecss.'" id="moduleTheme" />';
         }
         //开始替换css
         $replace['__SITE_THEME_CSS__'] = $sitecss;

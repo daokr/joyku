@@ -53,7 +53,6 @@ class imagesModel extends Model {
 	public function getImagesByTypeid($type, $typeid){
 		$where = array('type'=>$type, 'typeid'=> $typeid );
 		$arrImages = $this->where($where)->order('seqid asc')->select();
-		dump($this->getLastSql());die;
 		foreach($arrImages as $item){
 			$result[] = $this->getImageById($item['id']);
 		}

@@ -68,6 +68,18 @@ class developModel extends Model {
 				);
 		return $type;
 	}
+	// 获取下载最多的app
+	public function getPopApp($limit){
+		$arrApp = $this->field('appid,cateid')->order('count_down desc')->limit($limit)->select();
+		if($arrApp){
+			foreach($arrApp as $key=>$item){
+				$res[] = $this->getOneApp(array('appid'=>$item['appid']));
+				$res[$key]['cate'] = D('develop/develop_cate')->getOneCate($item['cateid']);
+			}
+			return $res;
+		}
+		return false;
+	}
 	// 投票
 	public function appVote($userid, $appid){
 		$is_like = M('develop_vote')->where(array('userid'=>$userid, 'appid'=>$appid))->count('*');

@@ -174,7 +174,7 @@ a.ico-close:hover{background-position:0 -50px;vertical-align:0;_vertical-align:2
 
 .appcoutinfo{float:right; width:220px;}
 .appcoutinfo .infos{ text-align:right; display:block; clear:both; margin-top:10px}
-.appcoutinfo .infos span{ margin:0px 0px 0px 5px; color:#999}
+.appcoutinfo .infos span{ margin:0px 0px 0px 15px; color:#999}
 .downbar{ display:block; height:35px}
 .downbar a{ display:block; width:100px;  overflow:hidden; color:#fff; height:28px; line-height:28px; font-size:14px;
  text-align:center; background-color:#beab93; border-radius:3px; float:right}
@@ -364,7 +364,7 @@ a.ico-close:hover{background-position:0 -50px;vertical-align:0;_vertical-align:2
     word-spacing: normal;
 }
 .cate-list li {
-	margin-bottom:4px;
+	margin-bottom:8px;
 	width:20.8%;
 }
 #th-app-cate .sub-mod {

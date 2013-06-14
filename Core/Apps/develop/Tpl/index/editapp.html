@@ -57,7 +57,13 @@
         <th>分类：</th>
         <td>
 			<select class="txt" name="cateid">
-                <option selected="selected" value="1">内容聚合</option>
+                <foreach name="cateList" item="item">
+                	<if condition="$strApp[cateid] eq $item[cateid]">
+                	<option selected="selected" value="{$item[cateid]}">{$item[catename]}</option>
+                    <else/>
+                    <option value="{$item[cateid]}">{$item[catename]}</option>
+                    </if>
+                </foreach>
             </select>      
         </td>
     </tr>
@@ -65,11 +71,15 @@
     <tr>
         <th>包名：</th>
         <td><input style="width:200px;" type="text" value="{$strApp[package_name]}" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
-    </tr>          
+    </tr>
+    <tr>
+        <th>官方网站：</th>
+        <td><input style="width:200px;" type="text" value="{$strApp[appsite]}" maxlength="50" name="appsite"  class="txt"   placeholder="http://"></td>
+    </tr>               
     <tr>
         <th>IKPHP版本：</th>
         <td><select name="ikphpversion" class="txt">
-	            	<option value="1.5.1">IKPHP1.5.1</option>
+	            	<option value="1.5.3">IKPHP1.5.3</option>
 	        </select>
       </td>
     </tr>                  	

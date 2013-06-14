@@ -10,6 +10,7 @@ class indexAction extends frontendAction {
 		$this->user_mod = D ( 'user' );
 		$this->group_topic_mod = D ( 'group/group_topics' );
 		$this->article_mod = D('article/article');
+		$this->dev_mod = D('develop/develop');
 	}
 	public function index() {
 		// 来路
@@ -27,11 +28,15 @@ class indexAction extends frontendAction {
 			$arrRecommendGroup [] = $item;
 			$arrRecommendGroup [$key] ['groupdesc'] = getsubstrutf8 ( t ( $item ['groupdesc'] ), 0, 35 );
 		}
+		//获取推荐的应用
+		$arrpopApp = $this->dev_mod->getPopApp(10);
+		
 		//统计用户数
 		$count_user = $this->user_mod->count('*'); 
 		
 		$this->assign ( 'ret_url', $ret_url );
 		$this->assign ( 'count_user', $count_user );
+		$this->assign ( 'arrpopApp', $arrpopApp );
 		$this->assign ( 'arrNewGroup', $arrNewGroup );
 		$this->assign ( 'arrNewArticle', $arrNewArticle );
 		$this->assign ( 'arrRecommendGroup', $arrRecommendGroup );
@@ -39,6 +44,18 @@ class indexAction extends frontendAction {
 		$this->assign ( 'arrHotTopic', $arrHotTopic ); 
 		$this->_config_seo ();
 		$this->display ();
+	}
+	public function style(){
+
+		$ikTheme = cookie('ikTheme');
+		$ikTheme = empty($ikTheme) ? 'blue' : $ikTheme;
+		$arrTheme	= ikScanDir('Public/theme');
+		$this->assign('arrTheme',$arrTheme);
+		$this->assign('ikTheme',$ikTheme);
+		$this->_config_seo ( array (
+				'title' => '更换主题风格',
+		) );
+		$this->display();
 	}
 
 }

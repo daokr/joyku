@@ -14,7 +14,7 @@
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
@@ -328,7 +328,7 @@ __EXTENDS_JS__
             -->
         </h2>
     
-        <?php if(is_array($arrMyGroup)): foreach($arrMyGroup as $key=>$item): ?><dl class="ob"><dt><a href="<?php echo U('group/show',array('id'=>$item[groupid]));?>"><img alt="<?php echo ($item[groupname]); ?>" class="m_sub_img" src="<?php echo ($item[icon_48]); ?>"></a></dt>
+        <?php if(is_array($arrMyGroup)): foreach($arrMyGroup as $key=>$item): ?><dl class="ob"><dt><a href="<?php echo U('group/index/show',array('id'=>$item[groupid]));?>"><img alt="<?php echo ($item[groupname]); ?>" class="m_sub_img" src="<?php echo ($item[icon_48]); ?>"></a></dt>
             <dd><a href="<?php echo U('group/index/show',array('id'=>$item[groupid]));?>"><?php echo ($item[groupname]); ?></a> <span>(<?php echo ($item[count_user]); ?>)</span></dd>
             </dl><?php endforeach; endif; ?>
     
@@ -373,6 +373,7 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+<div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
 
 </body>
 </html>

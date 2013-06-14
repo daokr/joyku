@@ -175,7 +175,7 @@ __EXTENDS_JS__
         <th>分类：</th>
         <td>
 			<select class="txt" name="cateid">
-                <option selected="selected" value="1">内容聚合</option>
+                <?php if(is_array($cateList)): foreach($cateList as $key=>$item): ?><option value="<?php echo ($item[cateid]); ?>"><?php echo ($item[catename]); ?></option><?php endforeach; endif; ?>
             </select>      
         </td>
     </tr>
@@ -191,7 +191,7 @@ __EXTENDS_JS__
     <tr>
         <th>IKPHP版本：</th>
         <td><select name="ikphpversion" class="txt">
-	            	<option value="1.5.1">IKPHP1.5.1</option>
+	            	<option value="1.5.3">IKPHP1.5.3</option>
 	        </select>
       </td>
     </tr>   

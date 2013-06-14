@@ -7,9 +7,9 @@ class develop_cateModel extends Model {
 	// 自动验证设置
 
 	// 获取全部分类
-	public function getCateList(){
-		$list= $this->order('orderid asc')->select();
-		if(empty($list)){
+	public function getCateList($limit=''){
+		$list= $this->order('orderid asc')->limit($limit)->select();
+		if(!empty($list)){
 			return $list;
 		}	
 		return false;

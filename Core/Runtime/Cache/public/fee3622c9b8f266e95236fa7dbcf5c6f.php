@@ -6,7 +6,7 @@
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
 <meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
-<style>__SITE_THEME_CSS__</style>
+__SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <!--<![endif]-->
@@ -203,6 +203,28 @@ __EXTENDS_JS__
             </dl><?php endforeach; endif; ?>
             <br clear="all"/>
             </div>
+
+        	<div class="mod">
+                <h2>
+                        最近流行的应用
+                            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                </h2>
+                <div class="th-app-pop">
+                     <ul>
+                     	<?php if(is_array($arrpopApp)): foreach($arrpopApp as $key=>$item): ?><li class="common-item">
+                         <div class="pic">
+                             <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><img width="48" src="<?php echo ($item[icon_100]); ?>"></a>
+                         </div>
+                         <div class="info">
+                             <div class="title">
+                               <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a>
+                             </div>
+                             <div class="favs"><?php echo ($item[count_down]); ?>人用过 / <?php echo ($item[cate][catename]); ?></div>
+                         </div>
+                         </li><?php endforeach; endif; ?>
+                     </ul>
+                </div> 
+            </div><!--//mod-->  
             
             <h2>最新创建小组&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="<?php echo U('group/index/explore');?>">全部</a>) </span></h2>
             <div class="line23">
@@ -213,6 +235,8 @@ __EXTENDS_JS__
 			<div class="line23">
 			<?php if(is_array($arrNewArticle)): foreach($arrNewArticle as $key=>$item): ?><a href="<?php echo U('article/index/show',array('id'=>$item[itemid]));?>"><?php echo ($item[title]); ?></a><br><?php endforeach; endif; ?>
 			</div>
+            
+          
             
 
         
@@ -247,5 +271,6 @@ __EXTENDS_JS__
     </div>
 </div>
 </footer>
+<div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
 </body>
 </html>

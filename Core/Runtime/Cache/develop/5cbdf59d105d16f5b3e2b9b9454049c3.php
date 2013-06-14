@@ -14,7 +14,7 @@
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
@@ -177,7 +177,9 @@ __EXTENDS_JS__
         <th>分类：</th>
         <td>
 			<select class="txt" name="cateid">
-                <option selected="selected" value="1">内容聚合</option>
+                <?php if(is_array($cateList)): foreach($cateList as $key=>$item): if($strApp[cateid] == $item[cateid]): ?><option selected="selected" value="<?php echo ($item[cateid]); ?>"><?php echo ($item[catename]); ?></option>
+                    <?php else: ?>
+                    <option value="<?php echo ($item[cateid]); ?>"><?php echo ($item[catename]); ?></option><?php endif; endforeach; endif; ?>
             </select>      
         </td>
     </tr>
@@ -185,11 +187,15 @@ __EXTENDS_JS__
     <tr>
         <th>包名：</th>
         <td><input style="width:200px;" type="text" value="<?php echo ($strApp[package_name]); ?>" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
-    </tr>          
+    </tr>
+    <tr>
+        <th>官方网站：</th>
+        <td><input style="width:200px;" type="text" value="<?php echo ($strApp[appsite]); ?>" maxlength="50" name="appsite"  class="txt"   placeholder="http://"></td>
+    </tr>               
     <tr>
         <th>IKPHP版本：</th>
         <td><select name="ikphpversion" class="txt">
-	            	<option value="1.5.1">IKPHP1.5.1</option>
+	            	<option value="1.5.3">IKPHP1.5.3</option>
 	        </select>
       </td>
     </tr>                  	

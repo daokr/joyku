@@ -121,6 +121,30 @@
             </foreach>
             <br clear="all"/>
             </div>
+
+        	<div class="mod">
+                <h2>
+                        最近流行的应用
+                            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                </h2>
+                <div class="th-app-pop">
+                     <ul>
+                     	<foreach name="arrpopApp" item="item">
+                         <li class="common-item">
+                         <div class="pic">
+                             <a href="{:U('develop/index/show',array('id'=>$item[appid]))}"><img width="48" src="{$item[icon_100]}"></a>
+                         </div>
+                         <div class="info">
+                             <div class="title">
+                               <a href="{:U('develop/index/show',array('id'=>$item[appid]))}">{$item[title]}</a>
+                             </div>
+                             <div class="favs">{$item[count_down]}人用过 / {$item[cate][catename]}</div>
+                         </div>
+                         </li>
+                         </foreach>
+                     </ul>
+                </div> 
+            </div><!--//mod-->  
             
             <h2>最新创建小组&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('group/index/explore')}">全部</a>) </span></h2>
             <div class="line23">
@@ -135,6 +159,8 @@
 			<a href="{:U('article/index/show',array('id'=>$item[itemid]))}">{$item[title]}</a><br>
  			</foreach>
 			</div>
+            
+          
             
 
         

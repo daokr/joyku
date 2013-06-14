@@ -13,7 +13,7 @@
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
@@ -107,7 +107,10 @@ __EXTENDS_JS__
 <div class="cleft">
     <div class="infocontent">
     	<h2>最新版本下载：<font color="#CCCCCC">已被下载（<?php echo ($count); ?>）次</font></h2>
-        <p>IKPHP_1.5.2版 更新时间 2013.5.25 
+        <p>IKPHP_1.5.3版 更新时间 2013.06.07 [稳定版] 
+        <br>下载地址：<a href="<?php echo U('public/help/download',array('id'=>'5'));?>" target="_blank">在本站下载</a>
+        </p>    	
+        <p>IKPHP_1.5.2版 更新时间 2013.5.25 [测试版]
         <br>下载地址：<a href="<?php echo U('public/help/download',array('id'=>'4'));?>" target="_blank">在本站下载</a>
         </p>
         

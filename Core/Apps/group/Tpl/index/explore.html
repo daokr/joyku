@@ -26,6 +26,15 @@
                     </div>
                     <div class="info">{$item[count_user]} 个成员 在此聚集 </div>
                     <div><p>{$item[groupdesc]}</p></div>
+                    <if condition="$item[joinway] eq 0 && !$item[isGroupUser]">
+                    	<empty name="visitor"> 
+                    	<div class="join"><a class="i a_show_login lnk-join" href="{:U('group/index/join',array('id'=>$item['groupid']))}"><i>+</i>加入小组</a></div>
+                    	<else/>
+                    	<div class="join"><a class="lnk-join" href="{:U('group/index/join',array('id'=>$item['groupid']))}"><i>+</i>加入小组</a></div>                        
+                        </empty>
+                    <else/>
+                    	<div class="join"><span class="joined">√已加入</span></div>
+                    </if>
                 </div>
             </div>
             </foreach>
