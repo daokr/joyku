@@ -870,7 +870,7 @@ class indexAction extends frontendAction {
 		// 发帖人 小组组长 管理员 可以删除 其他权限不允许删除
 		if($strTopic['userid']==$userid || $strGroup['userid']==$userid ){
 			$this->group_topics_mod->delComment($commentid);
-			$this->redirect ( 'group/index/topic', array (
+			$this->redirect ( 'group/index/topic#comment', array (
 					'id' => $strComment['topicid'],
 			) );			
 		}

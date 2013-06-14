@@ -12,6 +12,9 @@ class indexAction extends frontendAction {
 				'delete',
 				'edit',
 				'publish',
+				'addcomment',
+				'recomment'.
+				'delcomment',
 				
 		) )) {
 			$this->redirect ( 'public/user/login' );
@@ -22,6 +25,7 @@ class indexAction extends frontendAction {
 		$this->cate_mod = D ( 'article_cate' );
 		$this->item_mod = M ( 'article_item' );
 		$this->channel_mod = D ( 'article_channel' );
+		$this->comment_mod = D ( 'article_comment' );
 		$this->user_mod = D ( 'user' );
 		//生成导航
 		$this->assign('arrNav',$this->_nav());
@@ -47,9 +51,9 @@ class indexAction extends frontendAction {
 		$map = array('isaudit'=>'0');
 		//显示列表
 		$pagesize = 30;
-		$count = $this->item_mod->where($map)->order('orderid desc')->count('itemid');
+		$count = $this->item_mod->where($map)->order('addtime desc')->count('itemid');
 		$pager = $this->_pager($count, $pagesize);
-		$arrItemid =  $this->item_mod->field('itemid')->where($map)->order('orderid desc')->limit($pager->firstRow.','.$pager->listRows)->select();
+		$arrItemid =  $this->item_mod->field('itemid')->where($map)->order('addtime desc')->limit($pager->firstRow.','.$pager->listRows)->select();
 		foreach($arrItemid as $key=>$item){
 			$arrArticle [] = $this->mod->getOneArticle($item['itemid']); 
 		}
@@ -270,6 +274,44 @@ class indexAction extends frontendAction {
 		//下一篇帖子
 		$downArticle = $this->mod->getOneArticle($id+1);
 		
+		//获取评论
+		$page = $this->_get('p','intval',1);
+		$sc = $this->_get('sc','trim','asc');
+		$isauthor = $this->_get('isauthor','trim','0');
+		
+		//查询条件 是否显示
+		$map['aid'] = $strArticle ['aid'];
+		if($isauthor){
+			$map['userid']  = $strArticle ['userid'];
+			$author = array('isauthor'=>0,'text'=>'查看所有回应');
+		}else{
+			$author = array('isauthor'=>1,'text'=>'只看楼主');
+		}
+		//显示列表
+		$pagesize = 30;
+		$count = $this->comment_mod->where($map)->order('addtime '.$sc)->count();
+		$pager = $this->_pager($count, $pagesize);
+		$arrComment =  $this->comment_mod->where($map)->order('addtime '.$sc)->limit($pager->firstRow.','.$pager->listRows)->select();
+		foreach($arrComment as $key=>$item){
+			$commentList[] = $item;
+			$commentList[$key]['user'] = $this->user_mod->getOneUser($item['userid']);
+			$commentList[$key]['content'] = h($item['content']);
+			if($item['referid']>0){
+				$recomment = $this->comment_mod->recomment($item['referid']);
+				$commentList[$key]['recomment'] = $recomment;
+			}
+		}
+		$this->assign('pageUrl', $pager->fshow());
+		$this->assign('commentList', $commentList);
+		$this->assign ( 'sc', $sc );
+		$this->assign ( 'author', $author );
+		$this->assign ( 'isauthor', $isauthor );
+		$this->assign ( 'page', $page );
+		//评论list结束
+		
+		//获取最新的 8文章
+		$arrNewArticle = $this->mod->getArticleItemByMap('count_view desc','10');
+		$this->assign ( 'arrNewArticle', $arrNewArticle );
 
 		$this->assign ( 'strArticle', $strArticle );
 		$this->assign ( 'upArticle', $upArticle );
@@ -364,4 +406,80 @@ class indexAction extends frontendAction {
 			$this->error('你无权访问该页面！',U('public/user/login'));
 		}
 	}
+	// 添加评论
+	public function addcomment(){
+		$aid	= $this->_post('aid','intval');
+		$content	= $this->_post('content','trim');
+		$page	= $this->_post('p','intval','1');
+		if(empty($content)){
+				
+			$this->error('没有任何内容是不允许你通过滴^_^');
+	
+		}elseif(mb_strlen($content,'utf8')>10000){
+	
+			$this->error('发这么多内容干啥,最多只能写10000千个字^_^,回去重写哇！');
+	
+		}else{
+			//执行添加
+			$data = array(
+					'aid'	=> $aid,
+					'userid'	=> $this->userid,
+					'content'	=> ikwords($content),
+					'addtime'	=> time(),
+			);
+			if (false !== $this->comment_mod->create ( $data )) {
+				$commentid = $this->comment_mod->add ();
+				if($commentid>0){
+					$this->item_mod->where(array('itemid'=>$aid))->setInc('count_comment');
+					$this->redirect ( 'article/index/show', array (
+							'id' => $aid,
+							'p'  => $page,
+					) );
+				}
+
+			}
+		}
+	
+	}
+	// 回复评论
+	public function recomment(){
+		$objid = $this->_post('objid');
+		$referid = $this->_post('referid');
+		$content = $this->_post('content');
+		//安全性检查
+		if( mb_strlen($content, 'utf8') > 10000)
+		{
+			echo 1;
+			exit ();
+		}
+		//执行添加
+		$data = array(
+				'aid'	=> $objid,
+				'userid'	=> $this->userid,
+				'referid'	=> $referid,
+				'content'	=> ikwords($content), // ajax 提交过来数据的转一下
+				'addtime'	=> time(),
+		);
+		if (false !== $this->comment_mod->create ( $data )) {
+			$commentid = $this->comment_mod->add ();
+			echo 0;
+		}
+	}
+	// 删除某条评论
+	public function delcomment(){
+		$commentid = $this->_get('commentid','intval');
+		$userid = $this->userid;
+		$strComment = $this->comment_mod->where(array('cid'=>$commentid))->find();
+		$strArticle = $this->mod->getOneArticle ( $strComment['aid'] );
+	
+		// 只有应用发布人 可以删除 其他权限不允许删除
+		if($strArticle['userid']==$userid || $strComment['userid']==$userid){
+			$this->comment_mod->delComment($commentid);
+			$this->item_mod->where(array('itemid'=>$strComment['aid']))->setDec('count_comment'); //评论减1
+			$this->redirect ( 'article/index/show#comment', array (
+					'id' => $strComment['aid'],
+			) );
+		}
+	
+	}	
 }

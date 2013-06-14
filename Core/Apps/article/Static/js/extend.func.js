@@ -2,12 +2,20 @@ function tips(c){ $.dialog({content: '<font style="font-size:14px;">'+c+'</font>
 function succ(c){ $.dialog({icon: 'succeed',content: '<font  style="font-size:14px;">'+c+'</font>' , time:2000});}
 function error(c){$.dialog({icon: 'error',content: '<font  style="font-size:14px;">'+c+'</font>' , time:2000});}
 
-/*显示隐藏回复*/
-function commentOpen(id,gid)
+
+//安全性检测 回应帖子
+function checkComment(obj)
 {
-	$('#rcomment_'+id).slideToggle('fast');
+
+	if($(obj).find('textarea[name=content]').val() == ''){ error('你回应的内容不能为空'); return false;}
+	if($(obj).find('textarea[name=content]').val().length > 2000){ error('你已经输入了<font color="red">'+$(obj).find('textarea[name=content]').val().length+'</font>个字；你回应的内容不能超过<font color="red">2000</font>个字。');return false;}
+	
+	$(obj).find('input[type=submit]').val('正在提交^_^').attr('disabled',true);
+	
+	return true;
 }
 //Ctrl+Enter 回应
+
 function keyComment(obj,event)
 {
      if(event.ctrlKey == true)
@@ -20,19 +28,11 @@ function keyComment(obj,event)
 		return false;
 	}
 }
-//安全性检测 回应帖子
-function checkComment(obj)
+/*显示隐藏回复*/
+function commentOpen(id,gid)
 {
-
-	if($(obj).find('textarea[name=content]').val() == ''){ error('你回应的内容不能为空'); return false;}
-	if($(obj).find('textarea[name=content]').val().length > 2000){ error('你已经输入了<font color="red">'+$(obj).find('textarea[name=content]').val().length+'</font>个字；你回应的内容不能超过<font color="red">2000</font>个字。');return false;}
-	
-	$(obj).find('input[type=submit]').val('正在提交^_^').attr('disabled',true);
-	
-	return true;
+	$('#rcomment_'+id).slideToggle('fast');
 }
-
-//Ctrl+Enter 回复评论
 function keyRecomment(rid,tid,event)
 {
      if(event.ctrlKey == true)
@@ -43,13 +43,13 @@ function keyRecomment(rid,tid,event)
 	}
 }
 //回复评论
-function recomment(rid,tid,itemid){
+function recomment(obj,rid,tid){
 
 	c = $('#recontent_'+rid).val();
 	if(c==''){tips('回复内容不能为空');return false;}
-	var url = siteUrl+'index.php?app=article&a=comment&ik=recomment';
+	var url = $(obj).attr('data-url');
 	$('#recomm_btn_'+rid).hide();
-	$.post(url,{referid:rid,nid:tid,infoid:itemid,content:c} ,function(rs){
+	$.post(url,{referid:rid,objid:tid,content:c} ,function(rs){
 				if(rs == 0)
 				{
 					succ('回复成功');
@@ -59,8 +59,9 @@ function recomment(rid,tid,itemid){
 					tips('回复内容写这么多干啥，删除点吧老大^_^')
 					$('#recomm_btn_'+rid).show();
 				}
-	})	
+	})
 }
+
 
 //提交新建
 function checkForm(that)

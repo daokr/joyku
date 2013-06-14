@@ -3,7 +3,6 @@
 #nav_bar li a{ color:#834343}
 #nav_bar li a:hover{ background-color:#825d5b; color:#fff;}
 
-body{background:#fffff9}
 .link{background-color:transparent;border:0;cursor:pointer}
 .link,.link:hover,a,a:hover{text-decoration:none}
 .link,a:link,a,a:visited{color:#825d5b}
@@ -93,13 +92,15 @@ section .hd{padding-bottom:5px;border-bottom:1px solid #ddd;margin-bottom:9px}
 	color:#fff
 }
 .create-group a:link, .create-group a:visited {
-	color:#ca6445;
+	color:#ca6445; font-size:14px
 }
 .create-group a:hover, .create-group a:active {
 	background:#ca6445;
 	color:#fff;
 }
 /*comment评论列表*/
+/**orderbar**/
+.orderbar{ text-align:right; padding-bottom:5px}
 .comment{width: 100%;overflow:hidden;}
 .comment li {margin: 0 0 0px 0px;overflow:hidden; display:block;}
 .comment li .user-face {float: left;height: 48px;overflow: hidden;width: 48px; margin-top:0px;}

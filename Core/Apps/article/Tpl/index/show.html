@@ -32,6 +32,9 @@
           </div>
       </div>
     
+<div class="mod">
+	<include file="comment" />
+</div>
     
     
     </div>
@@ -40,6 +43,15 @@
     <div class="cright">
     
         <include file="right_menu" />
+        
+        <div class="mod">
+			<h2>浏览人数最多文章&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('article/index/index')}">全部</a>) </span></h2>
+			<div class="line23">
+			<foreach name="arrNewArticle" item="item">
+			<a href="{:U('article/index/show',array('id'=>$item[itemid]))}">{$item[title]}</a><br>
+ 			</foreach>
+			</div>        
+        </div>
         
     </div>
 
