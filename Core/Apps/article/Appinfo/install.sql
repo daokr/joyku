@@ -89,7 +89,6 @@ CREATE TABLE `ik_article_comment` (
   KEY `referid` (`referid`,`aid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='文章回复/评论' AUTO_INCREMENT=1 ;
 
-
 -- --------------------------------------------------------
 
 --

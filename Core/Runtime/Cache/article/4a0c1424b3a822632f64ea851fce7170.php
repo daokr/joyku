@@ -8,7 +8,7 @@
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
 <meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
-<style>__SITE_THEME_CSS__</style>
+__SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <!--<![endif]-->
@@ -68,7 +68,7 @@ __EXTENDS_JS__
 <meta name="robots" content="all" />
 <meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
 <meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-<style>__SITE_THEME_CSS__</style>
+__SITE_THEME_CSS__
 </head>
 
 <body>
@@ -209,15 +209,16 @@ __EXTENDS_JS__
         </span>
         <div class="cl"></div>
         <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  
-        <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线<br />
+        <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线 <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />
         <span style="font-size:0.83em;">{__RUNTIME__}          </span>
 
-        <!--<script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script>-->
+        
        
         </p>   
     </div>
 </div>
 </footer>
+<div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
 
 </body>
 </html><?php endif; ?></if>

@@ -7,7 +7,7 @@
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
 <meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
-<style>__SITE_THEME_CSS__</style>
+__SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <!--<![endif]-->
@@ -152,6 +152,59 @@ __EXTENDS_JS__
           </div>
       </div>
     
+<div class="mod">
+	       <div class="orderbar"> 
+        <?php if(($page == 1) && ($strArticle[count_comment] > 3)): ?><a href="<?php echo U('article/index/show',array('id'=>$strArticle[aid],'sc'=>$sc,'isauthor'=>$author[isauthor]));?>"><?php echo ($author[text]); ?></a>&nbsp;&nbsp;
+        <?php if($sc == 'asc'): ?><a href="<?php echo U('article/index/show',array('id'=>$strArticle[aid],'sc'=>'desc','isauthor'=>$isauthor));?>">倒序阅读</a> 
+        <?php else: ?>
+        	<a href="<?php echo U('article/index/show',array('id'=>$strArticle[aid],'sc'=>'asc','isauthor'=>$isauthor));?>">正序阅读</a><?php endif; endif; ?>
+      </div>
+      <!--comment评论-->
+      <ul class="comment" id="comment">
+       <?php if(!empty($commentList)): if(is_array($commentList)): foreach($commentList as $key=>$item): ?><li class="clearfix">
+                  <div class="user-face"> 
+                  <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img title="<?php echo ($item[user][username]); ?>" alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a> 
+                  </div>
+                  <div class="reply-doc">
+                    <h4>
+                        <span class="fr"></span>
+                        <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> 
+                        <?php echo date('Y-m-d H:i:s',$item[addtime]) ?>
+                    </h4>
+                    
+                    <?php if($item[referid] != 0): ?><div class="recomment"><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><img src="<?php echo ($item[recomment][user][face]); ?>" width="24" align="absmiddle"></a> <strong><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><?php echo ($item[recomment][user][username]); ?></a></strong>：<?php echo ($item[recomment][content]); ?></div><?php endif; ?>
+                    
+                    <p><?php echo ($item[content]); ?></p>
+                    
+                    <div class="group_banned"> 
+                      <?php if($visitor[userid] != 0): ?><span><a href="javascript:void(0)"  onclick="commentOpen(<?php echo ($item[cid]); ?>,<?php echo ($item[aid]); ?>)">回复</a></span><?php endif; ?>
+                      <?php if(($strApp[userid] == $visitor[userid]) OR ($visitor[userid] == $item[userid])): ?><span><a class="j a_confirm_link" href="<?php echo U('article/index/delcomment',array('commentid'=>$item[cid]));?>" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span><?php endif; ?>
+                    </div>
+                    <div id="rcomment_<?php echo ($item[cid]); ?>" style="display:none; clear:both; padding:0px 10px">
+                      <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_<?php echo ($item[cid]); ?>" type="text" onkeydown="keyRecomment(<?php echo ($item[cid]); ?>,<?php echo ($item[aid]); ?>,event)" class="txt"></textarea>
+                      <p style=" padding:5px 0px">
+                        <button onclick="recomment(this,<?php echo ($item[cid]); ?>,<?php echo ($item[aid]); ?>)" id="recomm_btn_<?php echo ($item[cid]); ?>" class="subab" data-url="<?php echo U('article/index/recomment');?>">提交</button>
+                        &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_<?php echo ($item[cid]); ?>').slideToggle('fast');">取消</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="clear"></div>
+                </li><?php endforeach; endif; endif; ?>
+      </ul>
+      
+      <div class="page"><?php echo ($pageUrl); ?></div>
+      <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
+      <div> 
+            <?php if(!$visitor['userid']): ?><div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="<?php echo U('public/user/login');?>">登录</a> | <a href="<?php echo U('public/user/register');?>">注册</a></div>
+            <?php else: ?>
+            <form method="POST" action="<?php echo U('article/index/addcomment');?>" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
+              <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
+              <input type="hidden" name="aid" value="<?php echo ($strArticle[aid]); ?>" />
+              <input type="hidden" name="p" value="<?php echo ($page); ?>" />
+              <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
+            </form><?php endif; ?>
+      </div>
+</div>
     
     
     </div>
@@ -184,6 +237,13 @@ __EXTENDS_JS__
     </div><?php endif; ?>
 </div>
         
+        <div class="mod">
+			<h2>浏览人数最多文章&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="<?php echo U('article/index/index');?>">全部</a>) </span></h2>
+			<div class="line23">
+			<?php if(is_array($arrNewArticle)): foreach($arrNewArticle as $key=>$item): ?><a href="<?php echo U('article/index/show',array('id'=>$item[itemid]));?>"><?php echo ($item[title]); ?></a><br><?php endforeach; endif; ?>
+			</div>        
+        </div>
+        
     </div>
 
 </div>
@@ -206,15 +266,16 @@ __EXTENDS_JS__
         </span>
         <div class="cl"></div>
         <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  
-        <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线<br />
+        <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线 <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />
         <span style="font-size:0.83em;">{__RUNTIME__}          </span>
 
-        <!--<script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script>-->
+        
        
         </p>   
     </div>
 </div>
 </footer>
+<div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
 
 </body>
 </html>

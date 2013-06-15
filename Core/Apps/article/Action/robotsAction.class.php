@@ -1487,7 +1487,7 @@ class robotsAction extends backendAction {
 			showprogress ( '无法链接到指定的URL地址', 1 );
 		}
 		$strCate = $this->cate_mod->getOneCate($thevalue ['importcatid']);
-		$listurl = U('article/index/index',array('ik'=>'list','nameid'=>$strCate['nameid'],'isaudit'=>0));
+		$listurl = U('article/admin/index',array('ik'=>'list','nameid'=>$strCate['nameid'],'isaudit'=>0));
 		showprogress ( '<font color=green>采集完成，<a href="'.$listurl.'">点击此处查看</a> 采集结果</font>', 1 );
 		$listarr = array ();
 		$thevalue = array ();

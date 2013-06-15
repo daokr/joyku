@@ -205,7 +205,8 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 .top_nav a:active, .top_nav a:hover {background-color:#1669AB}
 
 /**导航样式**/
-#header {width:100%; margin:0px auto;margin-bottom:40px; background-color:#F8F8F8; overflow:hidden}
+#header {width:100%; margin:0px auto;margin-bottom:40px;  overflow:hidden;background-color: #F5F5F5;
+border-bottom: 1px solid #EEEEEE;box-shadow:0 1px 3px rgba(100,100,100,.3);-moz-box-shadow:0 1px 3px rgba(100,100,100,.3);-webkit-box-shadow:0 1px 3px rgba(100,100,100,.3);}
 #header .site_nav { width:980px; margin:0 auto; padding-top:18px; padding-bottom:10px}
 #header .site_nav .site_logo{ float:left; width:165px; height:40px; background:url(logo.png) no-repeat 0px 0px;}
 #header .site_nav .site_logo a{ display: block;height: 100%; line-height: 100em; overflow: hidden;width: 100%;}
@@ -234,8 +235,10 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 .midder{width:1000px;margin:0 auto;padding:0;overflow:hidden;height:auto !important; min-height:400px; margin-top:15px; }
 .midder{ }
 .midder .mc{overflow:hidden;display: block;}
-.midder .mc .cleft{float: left;padding-right: 10px; width: 640px;background-color:#fff; padding:10px}
-.midder .mc .cright{float: right;width: 310px;background-color:#fff; padding:10px }
+.midder .mc .cleft{float: left;padding-right: 10px; width: 640px;background-color:#fff; padding:10px;
+box-shadow:0 1px 3px rgba(100,100,100,.3);-moz-box-shadow:0 1px 3px rgba(100,100,100,.3);-webkit-box-shadow:0 1px 3px rgba(100,100,100,.3);-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;
+}
+.midder .mc .cright{float: right;width: 310px;background-color:#fff; padding:10px;box-shadow:0 1px 3px rgba(100,100,100,.3);-moz-box-shadow:0 1px 3px rgba(100,100,100,.3);-webkit-box-shadow:0 1px 3px rgba(100,100,100,.3);-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px; }
 .w190{width:190px}
 .w770{width:770px}
 .midder .mc .w250{ width:250px}

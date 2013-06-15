@@ -17,8 +17,15 @@ return array (
     '/^group\/topic\/(\d+)\/sc\/(\w+)\/isauthor\/(\d)$/' => 'group/index/topic?id=:1&sc=:2&isauthor=:3',
     '/^group\/topic\/(\d+)\/sc\/(\w+)\/isauthor\/(\d)\/p\/(\d+)$/' => 'group/index/topic?id=:1&sc=:2&isauthor=:3&p=:4',
     '/^group\/(\d+)$/' => 'group/index/show?id=:1',
+  		
     '/^article\/(\d+)$/' => 'article/index/show?id=:1',
     '/^article\/category\/cateid\/(\d+)$/' => 'article/index/category?cateid=:1',
+  	'/^article\/(\d+)\/sc\/(\w+)$/' => 'article/index/show?id=:1&sc=:2',
+  	'/^article\/(\d+)\/sc\/(\w+)\/p\/(\d+)$/' => 'article/index/show?id=:1&sc=:2&p=:3',
+  	'/^article\/(\d+)\/p\/(\d+)$/' => 'article/index/show?id=:1&p=:2',
+  	'/^article\/(\d+)\/sc\/(\w+)\/isauthor\/(\d)$/' => 'article/index/show?id=:1&sc=:2&isauthor=:3',
+  	'/^article\/(\d+)\/sc\/(\w+)\/isauthor\/(\d)\/p\/(\d+)$/' => 'article/index/show?id=:1&sc=:2&isauthor=:3&p=:4',  		
+  		
     '/^event\/(\w+)-(\w+)$/' => 'event/index/lists?time=:1&type=:2',
     '/^event\/(\d+)$/' => 'event/index/show?id=:1',
     '/^develop\/(\d+)$/' => 'develop/index/show?id=:1',

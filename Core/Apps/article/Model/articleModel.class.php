@@ -73,5 +73,15 @@ class articleModel extends Model {
 			return false;
 		}		
 	}
+	// 获取点击最多的文章
+	public function getArticleItemByMap($order,$limit='10'){
+		$where['isaudit'] = '0';
+		$strItem = M('article_item')->where($where)->order($order)->limit($limit)->select();
+		if(!empty($strItem)){
+			return $strItem;
+		}else{
+			return false;
+		}
+	}
 
 }
