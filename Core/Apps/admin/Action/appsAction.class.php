@@ -114,11 +114,19 @@ class appsAction extends backendAction {
 		if(IS_POST){
 			$status = $this->app_mod->saveApp($_POST);
 			if($status === true){
+				$config_file = CONF_PATH . 'config.php';
+				$config = require CONF_PATH . 'config.php';
+				$new_config = array(
+						'APP_GROUP_LIST' => $config['APP_GROUP_LIST'].','.$_POST['app_name']
+				);
+				$this->update_config($new_config, $config_file);
+				
 				if(intval($_POST['is_edit']) == 1){
 					$this->success('编辑['.$_POST['app_alias'].']成功 ',U('admin/apps/installed'));
 				}else{
 					$this->success('安装['.$_POST['app_alias'].']成功 ',U('admin/apps/uninstall'));
 				}
+
 			}else{
 				$this->error($status);
 			}

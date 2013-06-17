@@ -253,7 +253,7 @@ var set_cookie = function(dict, days, domain, path){
     date.setTime(date.getTime()+((days || 30)*24*60*60*1000));
     var expires = "; expires="+date.toGMTString();
     for (var i in dict){
-        document.cookie = i+"="+dict[i]+expires+"; domain=" + (domain || "12ik.com") + "; path=" + (path || "/");
+        document.cookie = i+"="+dict[i]+expires+"; domain=" + (domain || "ikphp.com") + "; path=" + (path || "/");
     }
 }
 // 转移==> core/cookie.js
