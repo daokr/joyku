@@ -253,7 +253,7 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 .item .pic img { margin-bottom: -3px;}
 .item .info { color: #666666; line-height: 1.4;overflow: hidden;word-break: break-all;word-wrap: break-word;}
 
-.tips{ background-color: #F8F8F8; color: #666666; padding: 8px 10px; border-radius:3px}
+.tips{ background-color: #F8F8F8; color: #666666; padding: 8px 10px; border-radius:3px; text-align:left}
 .ntips{ color:#999999; margin:0px 5px}
 /**标题**/
 .tit-1{   border-bottom: 1px solid #DDDDDD;margin-bottom: 20px;padding-bottom: 5px; color:#333}
@@ -445,6 +445,7 @@ a.pop_win_close:hover { color: #fab0b6; background: none }
 .pop_win { background: #fff; padding: 17px 14px 16px 12px; _padding-right: 0; visibility: hidden; position: fixed;  _position: absolute; _margin-top: expression(eval(document.documentElement.scrollTop)); }
 .pop_win { padding:0;}
 .pop_win .panel { width:450px;padding:10px 20px 20px;text-align:center; }
+.pop_win .panel .tips{ padding:5px;}
 .pop_win_bg { background-color:#999;}
 .pop_win .waiting { position:absolute;display:none;top:50%;left:50%;margin-left:-50px;width:100px;text-align:center;color:#060;font-size:14px; }
 /*rec*/
