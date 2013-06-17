@@ -26,16 +26,8 @@ class indexAction extends frontendAction {
 		}
 		$arrNav['explore_goods'] = array('name'=>'发现宝贝', 'url'=>U('mall/index/explore_goods'));
 		$arrNav['explore_album'] = array('name'=>'发现专辑', 'url'=>U('mall/index/explore_album'));
-		$arrNav['share'] = array('name'=>'分享宝贝', 'url'=>U('mall/index/share'));
+		$arrNav['share'] = array('name'=>'分享宝贝', 'url'=>U('mall/item/fetch_item'));
 		return $arrNav;
-	}
-	public function share() {
-	
-		$url = $this->_post('url','trim','');
-		
-		empty($url) && $this->ajaxReturn(array('r'=>1, 'html'=> '请填写商品地址！'));
-		$this->ajaxReturn(array('r'=>0, 'html'=> '抓取ok'));
-		
 	}
 	public function index() {
 		$userid = $this->userid;
@@ -52,15 +44,7 @@ class indexAction extends frontendAction {
 	}
 	
 	public function explore_goods() {
-	
-		$c = new TopClient;
-		$c->appkey = appkey;
-		$c->secretKey = secret;
-		$req = new ItemGetRequest;
-		$req->setFields("num_iid,title,price");
-		$req->setNumIid(3838293428);
-		$req->setTrackIid("123_track_456");
-		$resp = $c->execute($req, $sessionKey);
+
 		
 		$this->_config_seo (array('title'=>'发现宝贝','subtitle'=>'爱客商城'));
 		$this->display();
