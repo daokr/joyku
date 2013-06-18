@@ -36,19 +36,20 @@ $(function(){
 					type: 'post',
 					url: ajaxurl,
 					data: {
-						url: encodeURIComponent(gurl)  //编码传送
+						url: gurl  //编码传送
 					},
-					dataType:'json',
+					dataType:'JSON',
 					beforeSend: function() {
 					   $('#errtips').css('color','green').html('正在抓取中。。');
 					},					
-					success: function(data) { 
-						if(res.r){
-							$('#errtips').html(res.html)
+					success: function(res) { 
+						if(res.r==1){
+							$('#errtips').css({'color':'red','background-color':'#F8F8F8'}).html(res.html); 
 						}else{
-							$('#errtips').html(res.html)
+							buildHtml(res.html);
+							//pop_win.close();
 						}
-						pop_win.close();
+						
 					}
 				});			  
 			  
@@ -62,7 +63,24 @@ $(function(){
 		return false;;
 	})
 });
-
+function buildHtml(data){
+	var plist = '<ul>';
+	for(var i=0; i<data.imgs.length;i++){
+		plist += '<li><a href="javascript:;"><img src="'+data.imgs[i].url+'" width="100" heigth="100"></a></li>';
+	}
+	plist += '</ul>';
+	
+	pop_win([
+	'<div class="rectitle"><span class="m">嗯~ 就是它吧</span></div>',
+	'<div class="panel propanel">',
+	'<div class="item"><label>宝贝名称：</label><input name="title" type="text" value="'+data.title+'"></div>',
+	'<div class="item"><label>评论一下：</label><textarea name="procomment" placeholder="喜欢它什么呢？" maxlength="150">很喜欢这个宝贝！</textarea></div>',
+	'<div class="item"><label>宝贝标签：</label><input name="tags" type="text" value="'+data.tags+'"></div>',
+	'<div class="item"><label>宝贝图片：</label><div class="proList">'+plist+'</div></div>',
+	'</div>',
+	'<div class="bn-layout"><input type="button" value="确定" class="confirmbtn">',
+	'<input type="button" value="取消" class="cancellinkbtn" onclick="pop_win.close();" ></div>'].join('') );
+}
 //新建检查
 function createCheck(that)
 {

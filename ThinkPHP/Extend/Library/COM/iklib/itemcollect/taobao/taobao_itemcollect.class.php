@@ -15,30 +15,36 @@ class taobao_itemcollect {
             return false;
         }
         $key = 'taobao_' . $id;
-        $item_site = M('item_site')->where(array('code' => $this->_code))->find();
+        $item_site = M('mall_item_site')->where(array('code' => $this->_code))->find();
         $api_config = unserialize($item_site['config']);
 
         //使用淘宝开放平台API
         vendor('Taobaotop.TopClient');
         vendor('Taobaotop.RequestCheckUtil');
         vendor('Taobaotop.Logger');
+        vendor('Taobaotop.request.ItemGetRequest');
         $tb_top = new TopClient;
-        $tb_top->appkey = $api_config['app_key'];
-        $tb_top->secretKey = $api_config['app_secret'];
-        $req = $tb_top->load_api('ItemGetRequest');
-        $req->setFields('detail_url,title,nick,pic_url,price,item_img');
-        $req->setNumIid($id);
+        $tb_top->appkey = $api_config['app_key']; 
+        $tb_top->secretKey = $api_config['app_secret']; 
+        $req = new ItemGetRequest;
+        $req->setFields('detail_url,title,nick,pic_url,price,item_img,property_alias,location');
+        $req->setNumIid($id); 
         $resp = $tb_top->execute($req);
         if (!isset($resp->item)) {
             return false;
         }
         $item = (array) $resp->item;
+        //组装数据
         $result = array();
         $result['item']['key_id'] = $key;
         $result['item']['title'] = strip_tags($item['title']);
         $result['item']['price'] = $item['price'];
         $result['item']['img'] = $item['pic_url'];
         $result['item']['url'] = $item['detail_url'];
+        
+        $result['item']['nick'] = $item['nick'];
+        $result['item']['property_alias'] = $item['property_alias'];
+        $result['item']['location'] = $item['location'];
 
         //商品相册
         $result['item']['imgs'] = array();
@@ -60,7 +66,8 @@ class taobao_itemcollect {
         }
         
         //淘客信息
-        $req = $tb_top->load_api('TaobaokeItemsDetailGetRequest');
+        vendor('Taobaotop.request.TaobaokeItemsDetailGetRequest');
+        $req = new TaobaokeItemsDetailGetRequest;
         $req->setFields("click_url");
         $req->setNumIids($id);
         $resp = $tb_top->execute($req);
@@ -70,6 +77,7 @@ class taobao_itemcollect {
                 $result['item']['url'] = $taoke['click_url'];
             }
         }
+        import("ORG.Util.Url");
         $result['item']['url'] = Url::replace($result['item']['url'], array('spm' => '2014.21069764.' . $api_config['app_key'] . '.0'));
         return $result;
     }

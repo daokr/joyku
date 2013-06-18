@@ -42,3 +42,21 @@ CREATE TABLE `ik_mall_album_cate` (
   `seo_desc` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `ik_mall_item_site`;
+CREATE TABLE `ik_mall_item_site` (
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+  `code` varchar(20) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `domain` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `desc` varchar(255) NOT NULL,
+  `config` text NOT NULL,
+  `author` varchar(50) NOT NULL,
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+INSERT INTO `ik_mall_item_site` (`id`, `code`, `name`, `domain`, `url`, `desc`, `config`, `author`, `ordid`, `status`) VALUES
+(5, 'taobao', '淘宝', 'taobao.com,tianmao.com,tmall.com', 'http://www.taobao.com', '通过淘宝开放平台获取商品数据，可到 http://open.taobao.com/ 查看详细', 'a:3:{s:7:"app_key";s:8:"21509482";s:10:"app_secret";s:32:"9d99e5a73a30ce41e19c35a877e64005";s:9:"taoke_pid";s:8:"16185888";}', 'PinPHP TEAM', 255, 1);

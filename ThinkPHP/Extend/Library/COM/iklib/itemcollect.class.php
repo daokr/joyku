@@ -17,14 +17,16 @@ class itemcollect {
         $host = explode('.', $host);
         $host = array_slice($host, -2, 2);
         $domain = implode('.', $host);
-        $item_site_mod = M('item_site');
+        $item_site_mod = M('mall_item_site');
         $class = $item_site_mod->where(array(
             'domain' => array('like', '%'.$domain.'%'),
         ))->getField('code');
         if (!$class) {
             return false;
         }
-        $class_file = LIB_PATH . 'Pinlib/itemcollect/'.$class.'/'.$class.'_itemcollect.class.php';
+
+        $class_file =  LIBRARY_PATH.'COM/iklib/itemcollect/'.$class.'/'.$class.'_itemcollect.class.php';
+        
         if (is_file($class_file)) {
             include_once($class_file);
             $class_name = $class . "_itemcollect";

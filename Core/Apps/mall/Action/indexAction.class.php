@@ -68,5 +68,10 @@ class indexAction extends frontendAction {
 		$this->_config_seo (array('title'=>'创建新专辑','subtitle'=>'爱客商城'));
 		$this->display();
 	}	
-	
+	public function test(){
+		$tag_list = D('tag')->get_tags_by_title('安真美 正品 2013夏季新款女包 最新流行笑脸包包 明星女包 包邮');
+		$tags = implode(' ', $tag_list);
+		dump($tags);
+		$this->display();
+	}	
 }
