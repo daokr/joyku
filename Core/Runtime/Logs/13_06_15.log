@@ -3943,3 +3943,121 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:0.001069s ]
 INFO: [ view_end ] --END-- [ RunTime:0.001142s ]
 
+[ 2013-06-15T12:14:35+08:00 ] 127.0.0.1 /joyku/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.044209s ]
+INFO: Run load_lang Behavior [ RunTime:0.051391s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.095854s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.087531s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.018922s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371268774 [ RunTime:0.032045s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.035267s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.038130s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000523s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.016529s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.084639s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.028118s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.031265s ]
+SQL: SHOW COLUMNS FROM `ik_article` [ RunTime:0.053982s ]
+SQL: SHOW COLUMNS FROM `ik_develop` [ RunTime:0.038768s ]
+SQL: SELECT `groupid` FROM `ik_group` WHERE ( `isshow` = 0 ) ORDER BY addtime desc LIMIT 10   [ RunTime:0.001062s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000311s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000415s ]
+SQL: SELECT `userid`,`topicid`,`groupid`,`content`,`title` FROM `ik_group_topics` WHERE ( `groupid` > 0 ) AND ( `isaudit` = 0 ) ORDER BY istop desc,addtime desc LIMIT 15   [ RunTime:0.000477s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000746s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000490s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000446s ]
+SQL: SHOW COLUMNS FROM `ik_user_online` [ RunTime:0.004192s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 1 ) AND ( `ctime` > 1371268774 ) LIMIT 1   [ RunTime:0.001581s ]
+SQL: SELECT `userid` FROM `ik_user` WHERE ( `isenable` = 0 ) ORDER BY uptime desc LIMIT 12   [ RunTime:0.000385s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000339s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 1 ) AND ( `ctime` > 1371268774 ) LIMIT 1   [ RunTime:0.000303s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 2 ) LIMIT 1   [ RunTime:0.000319s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 2 ) AND ( `ctime` > 1371268774 ) LIMIT 1   [ RunTime:0.000400s ]
+SQL: SHOW COLUMNS FROM `ik_article_item` [ RunTime:0.027933s ]
+SQL: SELECT * FROM `ik_article_item` WHERE ( `isaudit` = 0 ) ORDER BY addtime desc LIMIT 8   [ RunTime:0.001328s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `isrecommend` = 1 ) ORDER BY groupid asc LIMIT 10   [ RunTime:0.000500s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000328s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000301s ]
+SQL: SELECT `appid`,`cateid` FROM `ik_develop` ORDER BY count_down desc LIMIT 10   [ RunTime:0.012555s ]
+SQL: SELECT * FROM `ik_develop` WHERE ( `appid` = 1 ) LIMIT 1   [ RunTime:0.000399s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000329s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 1 ) AND ( `ctime` > 1371268774 ) LIMIT 1   [ RunTime:0.000307s ]
+SQL: SHOW COLUMNS FROM `ik_develop_cate` [ RunTime:0.003767s ]
+ERR: 1146:Table 'ikphp5.ik_develop_cate' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `ik_develop_cate`
+SQL: SELECT * FROM `ik_develop_cate` WHERE ( `cateid` = '1' ) LIMIT 1   [ RunTime:0.002008s ]
+ERR: 1146:Table 'ikphp5.ik_develop_cate' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `ik_develop_cate` WHERE ( `cateid` = '1' ) LIMIT 1  
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user` LIMIT 1   [ RunTime:0.000291s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.050773s ]
+INFO: [ view_template ] --END-- [ RunTime:0.050901s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant userid - assumed 'userid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 104 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 157 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 163 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant video - assumed 'video' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 178 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 180 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 180 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 180 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 180 行.
+NOTIC: [8] Use of undefined constant simg - assumed 'simg' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 180 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 181 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 195 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant isonline - assumed 'isonline' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 198 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 195 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant isonline - assumed 'isonline' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 198 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 216 行.
+NOTIC: [8] Use of undefined constant icon_100 - assumed 'icon_100' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 216 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 220 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 220 行.
+NOTIC: [8] Use of undefined constant count_down - assumed 'count_down' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 222 行.
+NOTIC: [8] Use of undefined constant cate - assumed 'cate' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 222 行.
+NOTIC: [8] Use of undefined constant catename - assumed 'catename' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 222 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.326725s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.326866s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.025265s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.019054s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.027689s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.019931s ]
+INFO: Run content_replace Behavior [ RunTime:0.035468s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.127888s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.051371s ]
+INFO: [ view_end ] --END-- [ RunTime:0.051511s ]
+
