@@ -224,3 +224,26 @@ border-top: none;color: #111111;height: 34px;line-height: 33px;overflow: hidden;
 .site-tags dd:hover{ background-color:#f2f2f2; border-radius:2px;}
 .site-tags dd.selected, .site-tags dd.selected:hover{ background-color: #F5F5F5;color: #999999;}
 
+/**pop**/
+.propanel{}
+.propanel .item{}
+
+.propanel .item { margin-top:10px; overflow:hidden; lineheight:1.62;font-size:13px; height:1.62}
+
+.propanel .item label { width:6em; float:left; text-align:right;}
+.propanel .item input ,.propanel .item  textarea { width:360px; float:left; }
+.propanel .item  textarea { height:55px;}
+.propanel .item  input,.propanel .item  textarea {padding:3px;border:1px solid #ccc;font-size:13px;}
+.propanel .item  input:focus,.propanel .item  textarea {border-color:gray}
+.propanel .proList{ display:block; float:left; width:360px}
+.propanel .proList li{ float:left; margin:0px 5px 0px 0px;}
+.propanel .proList li img{ padding:2px; border:#DEDEDE solid 1px; opacity:0.7;filter:alpha(opacity=70);}
+.propanel .proList li a:hover{ background:none;}
+.propanel .proList li a:hover img{opacity:1;filter:alpha(opacity=100);}
+.propanel .result_bar{ padding:40px 10px; text-align:center; font-size:14px;}
+.propanel .result_bar a{ color:#007722; text-decoration:underline}
+.propanel .result_bar a:hover{ color:#007722; background-color:#fff}
+
+/**单品页**/
+.item-subject .pic { min-height:0; _height:auto; }
+.item-subject .pic img { max-width:310px; max-height:310px; }

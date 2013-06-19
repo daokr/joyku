@@ -8851,3 +8851,22 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:0.001475s ]
 INFO: [ view_end ] --END-- [ RunTime:0.001613s ]
 
+[ 2013-06-17T19:16:18+08:00 ] 127.0.0.1 /joyku/index.php/mall/item/fetch_item
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000761s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000891s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000382s ]
+INFO: Run load_lang Behavior [ RunTime:0.002073s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002647s ]
+NOTIC: [8] Undefined index:  userid D:\APMServ5.2.6\www\htdocs\joyku\ThinkPHP\Extend\Library\COM\iklib\user_visitor.class.php 第 16 行.
+NOTIC: [8] Undefined index:  userid D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Action\frontendAction.class.php 第 33 行.
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.003981s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001098s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371466878 [ RunTime:0.000384s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004158s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001277s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000522s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) LIMIT 1   [ RunTime:0.000639s ]
+NOTIC: 建议使用I方法替代_post
+

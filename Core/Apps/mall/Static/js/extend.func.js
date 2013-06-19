@@ -4,12 +4,12 @@ function error(c){$.dialog({icon: 'error',content: '<font  style="font-size:14px
 
 $(function(){
 	$('.a_share').bind('click',function(){
-	var ajaxurl = $(this).attr('href');
-	var templ_link ='<form class="frm-addlink" action="javascript:;">'+
+	var ajaxurl = $(this).attr('data-url');
+	var templ_link ='<div class="frm-addlink">'+
                 '<div class="item">'+
                 '<label>宝贝网址：</label><input name="href" type="text" value="" placeholder="将商品网址粘贴到这里">'+
 				'</div>'+			
-            '</form>';
+            '</div>';
 	pop_win([
 	'<div class="rectitle"><span class="m">分享宝贝</span></div>',
 	'<div class="panel">',
@@ -19,49 +19,93 @@ $(function(){
 	'</div>',
 	templ_link,
 	'</div>',
-	'<div class="bn-layout"><input type="button" value="确定" class="confirmbtn">',
+	'<div class="bn-layout"><input type="button" value="确定" class="confirmbtn" onclick="addlink(\'.frm-addlink\',\''+ajaxurl+'\')">',
+	'<input type="button" value="取消" class="cancellinkbtn" onclick="pop_win.close();" ></div>'].join('') );
+	})
+	
+});
+function addlink(frm,ajaxurl){
+	var frm = $(frm);
+	var gurl = $.trim(frm.find('input[name=href]').val());
+	if(gurl !== ''){
+	 //url = /^http:\/\//.test(url)? url:"http://"+url;
+	  //执行ajax
+	  if(!ikUtil.isURl(gurl)) { 
+		  $('#errtips').css({'color':'red','background-color':'#F8F8F8'}).html('不是一个有效的商品地址！'); 
+		  return false; 
+	  }
+		$.ajax({
+			type: 'post',
+			url: ajaxurl,
+			data: {
+				url: gurl  //编码传送
+			},
+			dataType:'JSON',
+			beforeSend: function() {
+			   $('#errtips').css('color','green').html('正在抓取中。。');
+			},					
+			success: function(res) { 
+				if(res.r==1){
+					$('#errtips').css({'color':'red','background-color':'#F8F8F8'}).html(res.html); 
+				}else{
+					buildHtml(res.html);
+					//pop_win.close();
+				}
+				
+			}
+		});			  
+	  
+	}
+}
+function buildHtml(data){
+	var plist = '<ul>';
+	for(var i=0; i<data.imgs.length;i++){
+		plist += '<li><a href="javascript:;"><img src="'+data.imgs[i].url+'" width="100" heigth="100"></a></li>';
+	}
+	plist += '</ul>';
+	
+	pop_win([
+	'<div class="rectitle"><span class="m">嗯~ 就是它吧</span></div>',
+	'<div class="panel propanel"><div class="frm-fetch" id="frm-fetch">',
+	'<div class="item"><label>宝贝名称：</label><input name="title" type="text" value="'+data.title+'" maxlength="100"></div>',
+	'<div class="item"><label>评论一下：</label><textarea name="intro" placeholder="喜欢它什么呢？" maxlength="150">很喜欢这个宝贝！</textarea></div>',
+	'<div class="item"><label>宝贝标签：</label><input name="tags" type="text" value="'+data.tags+'"></div>',
+	'<div class="item"><label>宝贝图片：</label><div class="proList">'+plist+'</div></div>',
+	'</div></div>',
+	'<div class="bn-layout"><input type="button" value="确定" class="confirmbtn" id="publishitem">',
 	'<input type="button" value="取消" class="cancellinkbtn" onclick="pop_win.close();" ></div>'].join('') );
 	
-	var addlink = function(frm, o){
-            var gurl = $.trim(frm.find('input[name=href]').val());
-            if(gurl !== ''){
-             //url = /^http:\/\//.test(url)? url:"http://"+url;
-              //执行ajax
-              if(!ikUtil.isURl(gurl)) { 
-				  $('#errtips').css({'color':'red','background-color':'#F8F8F8'}).html('不是一个有效的商品地址！'); 
-				  return false; 
-			  }
-			 
-				$.ajax({
-					type: 'post',
-					url: ajaxurl,
-					data: {
-						url: encodeURIComponent(gurl)  //编码传送
-					},
-					dataType:'json',
-					beforeSend: function() {
-					   $('#errtips').css('color','green').html('正在抓取中。。');
-					},					
-					success: function(data) { 
-						if(res.r){
-							$('#errtips').html(res.html)
-						}else{
-							$('#errtips').html(res.html)
-						}
-						pop_win.close();
-					}
-				});			  
-			  
-            }
-		 return false; 
-    };
-	
-	$('.pop_win .confirmbtn').live('click',function(){
-		addlink( $('.frm-addlink'), pop_win);	
+	$('.pop_win #publishitem').live('click',function(){
+		fetch_item( $('.frm-fetch'), data.itemobj);	
 	});
-		return false;;
-	})
-});
+}
+function fetch_item(obj,item){
+		var form = obj;
+		var	intro = form.find('input[name=intro]').val(),
+			title = form.find('input[name=title]').val(),
+			tags = form.find('input[name=tags]').val();
+		//安全检查
+		
+		$.ajax({
+			url: siteUrl + 'index.php?app=mall&m=item&a=publish_item',
+			type: 'POST',
+			data: {
+				item: item,
+				intro: intro,
+				title: title,
+				tags:tags
+			},
+			dataType: 'json',
+			success: function(res){
+					pop_win([
+					'<div class="rectitle"><span class="m">提示：</span></div>',
+					'<div class="panel propanel">',
+					'<div class="result_bar"><p>'+res.html+'</p></div>',
+					'</div>'].join('') );
+					
+			}
+		});
+}
 
 //新建检查
 function createCheck(that)

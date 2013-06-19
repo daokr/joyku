@@ -93,5 +93,22 @@ class tagModel extends Model
 		D('tag_topic_index')->where($where)->delete();
 		return true;
 	}
+	//根据标题获取tag
+	public function get_tags_by_title($title, $num=10)
+	{
+		vendor('pscws4.pscws4', '', '.class.php');
+		$pscws = new PSCWS4();
+		$pscws->set_dict(IK_DATA_PATH . 'scws/dict.utf8.xdb');
+		$pscws->set_rule(IK_DATA_PATH . 'scws/rules.utf8.ini');
+		$pscws->set_ignore(true);
+		$pscws->send_text($title);
+		$words = $pscws->get_tops($num);
+		$pscws->close();
+		$tags = array();
+		foreach ($words as $val) {
+			$tags[] = $val['word'];
+		}
+		return $tags;
+	}
 	
 }
