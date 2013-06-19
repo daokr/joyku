@@ -21,11 +21,11 @@ INSERT INTO `ik_mall_item_site` (`id`, `code`, `name`, `domain`, `url`, `desc`, 
 
 
 DROP TABLE IF EXISTS `ik_tag_mall_item_index`;
-CREATE TABLE `ik_tag_group_index` (
+CREATE TABLE `ik_tag_mall_item_index` (
   `itemid` int(11) NOT NULL DEFAULT '0',
   `tagid` int(11) NOT NULL DEFAULT '0',
-  UNIQUE KEY `groupid_2` (`groupid`,`tagid`),
-  KEY `groupid` (`groupid`),
+  UNIQUE KEY `itemid_2` (`itemid`,`tagid`),
+  KEY `itemid` (`itemid`),
   KEY `tagid` (`tagid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

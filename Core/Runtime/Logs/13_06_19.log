@@ -7756,3 +7756,2192 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:0.001368s ]
 INFO: [ view_end ] --END-- [ RunTime:0.001485s ]
 
+[ 2013-06-19T23:23:25+08:00 ] 127.0.0.1 /joyku/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.042793s ]
+INFO: Run load_lang Behavior [ RunTime:0.073481s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.116534s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.099764s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001445s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371654504 [ RunTime:0.038739s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.034993s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001757s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000488s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.006311s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.092910s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.027496s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.032039s ]
+SQL: SHOW COLUMNS FROM `ik_article` [ RunTime:0.055275s ]
+SQL: SHOW COLUMNS FROM `ik_develop` [ RunTime:0.038466s ]
+SQL: SELECT `groupid` FROM `ik_group` WHERE ( `isshow` = 0 ) ORDER BY addtime desc LIMIT 10   [ RunTime:0.000674s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000421s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000386s ]
+SQL: SELECT `userid`,`topicid`,`groupid`,`content`,`title` FROM `ik_group_topics` WHERE ( `groupid` > 0 ) AND ( `isaudit` = 0 ) ORDER BY istop desc,addtime desc LIMIT 15   [ RunTime:0.000540s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000302s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000300s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000801s ]
+SQL: SHOW COLUMNS FROM `ik_user_online` [ RunTime:0.003824s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 1 ) AND ( `ctime` > 1371654504 ) LIMIT 1   [ RunTime:0.002799s ]
+SQL: SELECT `userid` FROM `ik_user` WHERE ( `isenable` = 0 ) ORDER BY uptime desc LIMIT 12   [ RunTime:0.000668s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000341s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 1 ) AND ( `ctime` > 1371654504 ) LIMIT 1   [ RunTime:0.000363s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 2 ) LIMIT 1   [ RunTime:0.000325s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 2 ) AND ( `ctime` > 1371654504 ) LIMIT 1   [ RunTime:0.000442s ]
+SQL: SHOW COLUMNS FROM `ik_article_item` [ RunTime:0.025350s ]
+SQL: SELECT * FROM `ik_article_item` WHERE ( `isaudit` = 0 ) ORDER BY addtime desc LIMIT 8   [ RunTime:0.000753s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `isrecommend` = 1 ) ORDER BY groupid asc LIMIT 10   [ RunTime:0.000501s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000340s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000551s ]
+SQL: SELECT `appid`,`cateid` FROM `ik_develop` ORDER BY count_down desc LIMIT 10   [ RunTime:0.010018s ]
+SQL: SELECT * FROM `ik_develop` WHERE ( `appid` = 1 ) LIMIT 1   [ RunTime:0.000590s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000488s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 1 ) AND ( `ctime` > 1371654504 ) LIMIT 1   [ RunTime:0.000485s ]
+SQL: SHOW COLUMNS FROM `ik_develop_cate` [ RunTime:0.004001s ]
+ERR: 1146:Table 'ikphp5.ik_develop_cate' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `ik_develop_cate`
+SQL: SELECT * FROM `ik_develop_cate` WHERE ( `cateid` = '1' ) LIMIT 1   [ RunTime:0.001794s ]
+ERR: 1146:Table 'ikphp5.ik_develop_cate' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `ik_develop_cate` WHERE ( `cateid` = '1' ) LIMIT 1  
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user` LIMIT 1   [ RunTime:0.000277s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.064253s ]
+INFO: [ view_template ] --END-- [ RunTime:0.064398s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant userid - assumed 'userid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 104 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 157 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 163 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant video - assumed 'video' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 178 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 179 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 181 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 195 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant isonline - assumed 'isonline' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 198 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 195 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant isonline - assumed 'isonline' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 198 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 216 行.
+NOTIC: [8] Use of undefined constant icon_100 - assumed 'icon_100' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 216 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 220 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 220 行.
+NOTIC: [8] Use of undefined constant count_down - assumed 'count_down' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 222 行.
+NOTIC: [8] Use of undefined constant cate - assumed 'cate' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 222 行.
+NOTIC: [8] Use of undefined constant catename - assumed 'catename' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 222 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.280762s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.280894s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.025530s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.007486s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.034450s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.058028s ]
+INFO: Run content_replace Behavior [ RunTime:0.095040s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.221113s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.103423s ]
+INFO: [ view_end ] --END-- [ RunTime:0.103554s ]
+
+[ 2013-06-19T23:24:37+08:00 ] 127.0.0.1 /joyku/index.php/mall/index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.075679s ]
+INFO: [ route_check ] --END-- [ RunTime:0.075850s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001449s ]
+INFO: Run load_lang Behavior [ RunTime:0.005042s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.006725s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004867s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.000975s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371654577 [ RunTime:0.000294s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004698s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.002213s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.003143s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003267s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: topNav D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\5b5b6bff30330b8a18890ccb41af5fc6.php 第 113 行.
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\5b5b6bff30330b8a18890ccb41af5fc6.php 第 153 行.
+NOTIC: [8] Undefined variable: logo D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\5b5b6bff30330b8a18890ccb41af5fc6.php 第 153 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\5b5b6bff30330b8a18890ccb41af5fc6.php 第 154 行.
+NOTIC: [8] Undefined variable: logo D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\5b5b6bff30330b8a18890ccb41af5fc6.php 第 154 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\5b5b6bff30330b8a18890ccb41af5fc6.php 第 154 行.
+NOTIC: [8] Undefined variable: logo D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\5b5b6bff30330b8a18890ccb41af5fc6.php 第 154 行.
+NOTIC: [8] Undefined variable: arrNav D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\5b5b6bff30330b8a18890ccb41af5fc6.php 第 158 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.117366s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.117500s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001549s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001347s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001277s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001352s ]
+INFO: Run content_replace Behavior [ RunTime:0.006579s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.012531s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002907s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003026s ]
+
+[ 2013-06-19T23:24:50+08:00 ] 127.0.0.1 /joyku/index.php?app=admin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000448s ]
+INFO: Run load_lang Behavior [ RunTime:0.020198s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020854s ]
+
+[ 2013-06-19T23:24:50+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=public&a=login
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000413s ]
+INFO: Run load_lang Behavior [ RunTime:0.004014s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004622s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002268s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002384s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: site_title D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\faad89492273e792b4af225b4821bf5d.php 第 5 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.054945s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055065s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000499s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000377s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000317s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000407s ]
+NOTIC: [8] Undefined variable: sitecss D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\content_replaceBehavior.class.php 第 45 行.
+INFO: Run content_replace Behavior [ RunTime:0.004434s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006374s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002396s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002502s ]
+
+[ 2013-06-19T23:24:53+08:00 ] 127.0.0.1 /joyku/index.php/admin/public/checkLogin
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000572s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000693s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000430s ]
+INFO: Run load_lang Behavior [ RunTime:0.003964s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004600s ]
+SQL: SHOW COLUMNS FROM `ik_admin` [ RunTime:0.017803s ]
+SQL: SELECT * FROM `ik_admin` WHERE ( `status` > 0 ) LIMIT 1   [ RunTime:0.001661s ]
+SQL: UPDATE `ik_admin` SET `last_time`=1371655493,`last_ip`='127.0.0.1' WHERE ( `userid` = 1 ) [ RunTime:0.008340s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002833s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002960s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: ikphp D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\bf98e66a2ff94804ad17dc4d98c1dd72.php 第 6 行.
+NOTIC: [8] Undefined variable: title D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\bf98e66a2ff94804ad17dc4d98c1dd72.php 第 7 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.044301s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044419s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000489s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000375s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000318s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000405s ]
+NOTIC: [8] Undefined variable: sitecss D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Behavior\content_replaceBehavior.class.php 第 45 行.
+INFO: Run content_replace Behavior [ RunTime:0.004381s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006290s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002493s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002596s ]
+
+[ 2013-06-19T23:24:54+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000765s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000983s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000485s ]
+INFO: Run load_lang Behavior [ RunTime:0.007932s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008654s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004889s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001545s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002224s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002347s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\599a9a2499051b068f5610d6e61d6336.php 第 99 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\599a9a2499051b068f5610d6e61d6336.php 第 99 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\599a9a2499051b068f5610d6e61d6336.php 第 99 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\599a9a2499051b068f5610d6e61d6336.php 第 99 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.119114s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.119240s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000620s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000405s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000375s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000446s ]
+INFO: Run content_replace Behavior [ RunTime:0.004520s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006719s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002251s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002348s ]
+
+[ 2013-06-19T23:24:55+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/main
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000583s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000719s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.012439s ]
+INFO: Run load_lang Behavior [ RunTime:0.013608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.026281s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.006776s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.000608s ]
+NOTIC: [8] Use of undefined constant gd_info - assumed 'gd_info' D:\APMServ5.2.6\www\htdocs\joyku\Core\Apps\admin\Action\indexAction.class.php 第 52 行.
+NOTIC: [8] Use of undefined constant HTTP_ACCEPT_LANGUAGE - assumed 'HTTP_ACCEPT_LANGUAGE' D:\APMServ5.2.6\www\htdocs\joyku\Core\Apps\admin\Action\indexAction.class.php 第 64 行.
+NOTIC: [8] Use of undefined constant DOCUMENT_ROOT - assumed 'DOCUMENT_ROOT' D:\APMServ5.2.6\www\htdocs\joyku\Core\Apps\admin\Action\indexAction.class.php 第 66 行.
+NOTIC: [8] Use of undefined constant HTTP_ACCEPT_ENCODING - assumed 'HTTP_ACCEPT_ENCODING' D:\APMServ5.2.6\www\htdocs\joyku\Core\Apps\admin\Action\indexAction.class.php 第 70 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.003442s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003571s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.099227s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.099377s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000553s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000409s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000325s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000424s ]
+INFO: Run content_replace Behavior [ RunTime:0.004242s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006565s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002436s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002553s ]
+
+[ 2013-06-19T23:24:55+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.005810s ]
+INFO: [ route_check ] --END-- [ RunTime:0.005953s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002140s ]
+INFO: Run load_lang Behavior [ RunTime:0.005016s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007367s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.005807s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.002235s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.003935s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004119s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.069432s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.069605s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001654s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001506s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001404s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.003484s ]
+INFO: Run content_replace Behavior [ RunTime:0.007283s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015775s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001459s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001569s ]
+
+[ 2013-06-19T23:24:56+08:00 ] 127.0.0.1 /joyku/index.php/admin/index/left?ik=apps
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000581s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000707s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000414s ]
+INFO: Run load_lang Behavior [ RunTime:0.003693s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004260s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004677s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.000621s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002168s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002274s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.017748s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017899s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000474s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000374s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000320s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000436s ]
+INFO: Run content_replace Behavior [ RunTime:0.004208s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006099s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002365s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002470s ]
+
+[ 2013-06-19T23:24:57+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=uninstall
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000475s ]
+INFO: Run load_lang Behavior [ RunTime:0.004050s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004806s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.005158s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001607s ]
+SQL: SELECT `app_name` FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000297s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002866s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003025s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Undefined variable: pageUrl D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 38 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.051652s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051792s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000512s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000377s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000316s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000422s ]
+INFO: Run content_replace Behavior [ RunTime:0.004677s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006641s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002289s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002390s ]
+
+[ 2013-06-19T23:24:58+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=installed
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000419s ]
+INFO: Run load_lang Behavior [ RunTime:0.003674s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004271s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.008070s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.000615s ]
+SQL: SELECT * FROM `ik_app` ORDER BY setuptime desc  [ RunTime:0.000357s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002295s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002401s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 27 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 29 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 31 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 35 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 36 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 38 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 40 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 42 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 43 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 27 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 29 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 31 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 35 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 36 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 38 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 40 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 42 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 43 行.
+NOTIC: [8] Undefined variable: pageUrl D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 47 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.073586s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073713s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000939s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000459s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000339s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000457s ]
+INFO: Run content_replace Behavior [ RunTime:0.004677s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007253s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002650s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002759s ]
+
+[ 2013-06-19T23:25:01+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=uninstall
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000494s ]
+INFO: Run load_lang Behavior [ RunTime:0.004502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005215s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004553s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001633s ]
+SQL: SELECT `app_name` FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000284s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002179s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002303s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Undefined variable: pageUrl D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 38 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.020084s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020204s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000524s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000381s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000322s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000429s ]
+INFO: Run content_replace Behavior [ RunTime:0.004758s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006755s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002296s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002392s ]
+
+[ 2013-06-19T23:25:07+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=preinstall&app_name=mall&install=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000514s ]
+INFO: Run load_lang Behavior [ RunTime:0.004203s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004933s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.005987s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001838s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002531s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002647s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 21 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 22 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 23 行.
+NOTIC: [8] Undefined index:  app_id D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 23 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 27 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 31 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 38 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 39 行.
+NOTIC: [8] Use of undefined constant host_type - assumed 'host_type' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 40 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 46 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 47 行.
+NOTIC: [8] Use of undefined constant host_type - assumed 'host_type' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 48 行.
+NOTIC: [8] Use of undefined constant app_entry - assumed 'app_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 53 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 57 行.
+NOTIC: [8] Use of undefined constant large_icon_url - assumed 'large_icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 61 行.
+NOTIC: [8] Use of undefined constant admin_entry - assumed 'admin_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 65 行.
+NOTIC: [8] Use of undefined constant statistics_entry - assumed 'statistics_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 69 行.
+NOTIC: [8] Use of undefined constant display_order - assumed 'display_order' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 73 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 77 行.
+NOTIC: [8] Use of undefined constant api_key - assumed 'api_key' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 81 行.
+NOTIC: [8] Undefined index:  api_key D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 81 行.
+NOTIC: [8] Use of undefined constant secure_key - assumed 'secure_key' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 85 行.
+NOTIC: [8] Undefined index:  secure_key D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 85 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 89 行.
+NOTIC: [8] Use of undefined constant author_url - assumed 'author_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 93 行.
+NOTIC: [8] Use of undefined constant is_edit - assumed 'is_edit' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 97 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.022016s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022139s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000573s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000392s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000320s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000425s ]
+INFO: Run content_replace Behavior [ RunTime:0.004298s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006330s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002964s ]
+INFO: [ view_end ] --END-- [ RunTime:0.003080s ]
+
+[ 2013-06-19T23:25:11+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=saveapp
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000526s ]
+INFO: Run load_lang Behavior [ RunTime:0.005154s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005921s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.007634s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.000577s ]
+SQL: SELECT * FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000590s ]
+SQL: DROP TABLE IF EXISTS `ik_mall_item_site` [ RunTime:0.000785s ]
+SQL: CREATE TABLE `ik_mall_item_site` (
+
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+
+  `code` varchar(20) NOT NULL,
+
+  `name` varchar(100) NOT NULL,
+
+  `domain` varchar(255) NOT NULL,
+
+  `url` varchar(255) NOT NULL,
+
+  `desc` varchar(255) NOT NULL,
+
+  `config` text NOT NULL,
+
+  `author` varchar(50) NOT NULL,
+
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+
+  PRIMARY KEY (`id`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.125438s ]
+SQL: INSERT INTO `ik_mall_item_site` (`id`, `code`, `name`, `domain`, `url`, `desc`, `config`, `author`, `ordid`, `status`) VALUES
+
+(5, 'taobao', '淘宝', 'taobao.com,tianmao.com,tmall.com', 'http://www.taobao.com', '通过淘宝开放平台获取商品数据，可到 http://open.taobao.com/ 查看详细', 'a:3:{s:7:"app_key";s:8:"21509482";s:10:"app_secret";s:32:"9d99e5a73a30ce41e19c35a877e64005";s:9:"taoke_pid";s:8:"16185888";}', 'PinPHP TEAM', 255, 1) [ RunTime:0.004741s ]
+SQL: -- --------------------------------------------------------
+
+
+
+
+
+
+
+DROP TABLE IF EXISTS `ik_tag_mall_item_index` [ RunTime:0.000415s ]
+SQL: CREATE TABLE `ik_tag_group_index` (
+
+  `itemid` int(11) NOT NULL DEFAULT '0',
+
+  `tagid` int(11) NOT NULL DEFAULT '0',
+
+  UNIQUE KEY `groupid_2` (`groupid`,`tagid`),
+
+  KEY `groupid` (`groupid`),
+
+  KEY `tagid` (`tagid`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.000236s ]
+ERR: 1072:Key column 'groupid' doesn't exist in table
+ [ SQL语句 ] : CREATE TABLE `ik_tag_group_index` (
+
+  `itemid` int(11) NOT NULL DEFAULT '0',
+
+  `tagid` int(11) NOT NULL DEFAULT '0',
+
+  UNIQUE KEY `groupid_2` (`groupid`,`tagid`),
+
+  KEY `groupid` (`groupid`),
+
+  KEY `tagid` (`tagid`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8
+SQL: DROP TABLE IF EXISTS `ik_mall_album`; [ RunTime:0.000578s ]
+SQL: DROP TABLE IF EXISTS `ik_mall_album_cate`; [ RunTime:0.000461s ]
+
+[ 2013-06-19T23:26:03+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=uninstall
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000520s ]
+INFO: Run load_lang Behavior [ RunTime:0.004338s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005091s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004936s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001990s ]
+SQL: SELECT `app_name` FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000489s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002324s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002481s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Undefined variable: pageUrl D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 38 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.019261s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019419s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000525s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000408s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000327s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000426s ]
+INFO: Run content_replace Behavior [ RunTime:0.005060s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007092s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002430s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002547s ]
+
+[ 2013-06-19T23:26:05+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=preinstall&app_name=mall&install=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000471s ]
+INFO: Run load_lang Behavior [ RunTime:0.003918s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004587s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004515s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001578s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002500s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002630s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 21 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 22 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 23 行.
+NOTIC: [8] Undefined index:  app_id D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 23 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 27 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 31 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 38 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 39 行.
+NOTIC: [8] Use of undefined constant host_type - assumed 'host_type' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 40 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 46 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 47 行.
+NOTIC: [8] Use of undefined constant host_type - assumed 'host_type' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 48 行.
+NOTIC: [8] Use of undefined constant app_entry - assumed 'app_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 53 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 57 行.
+NOTIC: [8] Use of undefined constant large_icon_url - assumed 'large_icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 61 行.
+NOTIC: [8] Use of undefined constant admin_entry - assumed 'admin_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 65 行.
+NOTIC: [8] Use of undefined constant statistics_entry - assumed 'statistics_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 69 行.
+NOTIC: [8] Use of undefined constant display_order - assumed 'display_order' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 73 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 77 行.
+NOTIC: [8] Use of undefined constant api_key - assumed 'api_key' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 81 行.
+NOTIC: [8] Undefined index:  api_key D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 81 行.
+NOTIC: [8] Use of undefined constant secure_key - assumed 'secure_key' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 85 行.
+NOTIC: [8] Undefined index:  secure_key D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 85 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 89 行.
+NOTIC: [8] Use of undefined constant author_url - assumed 'author_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 93 行.
+NOTIC: [8] Use of undefined constant is_edit - assumed 'is_edit' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 97 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.023098s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023220s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000518s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000375s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000315s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000719s ]
+INFO: Run content_replace Behavior [ RunTime:0.004225s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006468s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002248s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002346s ]
+
+[ 2013-06-19T23:26:07+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=saveapp
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000417s ]
+INFO: Run load_lang Behavior [ RunTime:0.003856s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004483s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004742s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001497s ]
+SQL: SELECT * FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000473s ]
+SQL: DROP TABLE IF EXISTS `ik_mall_item_site` [ RunTime:0.044477s ]
+SQL: CREATE TABLE `ik_mall_item_site` (
+
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+
+  `code` varchar(20) NOT NULL,
+
+  `name` varchar(100) NOT NULL,
+
+  `domain` varchar(255) NOT NULL,
+
+  `url` varchar(255) NOT NULL,
+
+  `desc` varchar(255) NOT NULL,
+
+  `config` text NOT NULL,
+
+  `author` varchar(50) NOT NULL,
+
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+
+  PRIMARY KEY (`id`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.059182s ]
+SQL: INSERT INTO `ik_mall_item_site` (`id`, `code`, `name`, `domain`, `url`, `desc`, `config`, `author`, `ordid`, `status`) VALUES
+
+(5, 'taobao', '淘宝', 'taobao.com,tianmao.com,tmall.com', 'http://www.taobao.com', '通过淘宝开放平台获取商品数据，可到 http://open.taobao.com/ 查看详细', 'a:3:{s:7:"app_key";s:8:"21509482";s:10:"app_secret";s:32:"9d99e5a73a30ce41e19c35a877e64005";s:9:"taoke_pid";s:8:"16185888";}', 'PinPHP TEAM', 255, 1) [ RunTime:0.001325s ]
+SQL: -- --------------------------------------------------------
+
+
+
+
+
+
+
+DROP TABLE IF EXISTS `ik_tag_mall_item_index` [ RunTime:0.000557s ]
+SQL: CREATE TABLE `ik_tag_group_index` (
+
+  `itemid` int(11) NOT NULL DEFAULT '0',
+
+  `tagid` int(11) NOT NULL DEFAULT '0',
+
+  UNIQUE KEY `itemid_2` (`itemid`,`tagid`),
+
+  KEY `itemid` (`itemid`),
+
+  KEY `tagid` (`tagid`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.000421s ]
+ERR: 1050:Table 'ik_tag_group_index' already exists
+ [ SQL语句 ] : CREATE TABLE `ik_tag_group_index` (
+
+  `itemid` int(11) NOT NULL DEFAULT '0',
+
+  `tagid` int(11) NOT NULL DEFAULT '0',
+
+  UNIQUE KEY `itemid_2` (`itemid`,`tagid`),
+
+  KEY `itemid` (`itemid`),
+
+  KEY `tagid` (`tagid`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8
+SQL: DROP TABLE IF EXISTS `ik_mall_album`; [ RunTime:0.000431s ]
+SQL: DROP TABLE IF EXISTS `ik_mall_album_cate`; [ RunTime:0.000335s ]
+
+[ 2013-06-19T23:26:31+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=uninstall
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000466s ]
+INFO: Run load_lang Behavior [ RunTime:0.003797s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004478s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.007938s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.000844s ]
+SQL: SELECT `app_name` FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000276s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002338s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002474s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Undefined variable: pageUrl D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 38 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.019425s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019548s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000528s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000436s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000377s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000517s ]
+INFO: Run content_replace Behavior [ RunTime:0.004655s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006963s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002767s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002889s ]
+
+[ 2013-06-19T23:26:33+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=preinstall&app_name=mall&install=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000438s ]
+INFO: Run load_lang Behavior [ RunTime:0.004037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004682s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.006142s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.000849s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002764s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002921s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 21 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 22 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 23 行.
+NOTIC: [8] Undefined index:  app_id D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 23 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 27 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 31 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 38 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 39 行.
+NOTIC: [8] Use of undefined constant host_type - assumed 'host_type' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 40 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 46 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 47 行.
+NOTIC: [8] Use of undefined constant host_type - assumed 'host_type' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 48 行.
+NOTIC: [8] Use of undefined constant app_entry - assumed 'app_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 53 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 57 行.
+NOTIC: [8] Use of undefined constant large_icon_url - assumed 'large_icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 61 行.
+NOTIC: [8] Use of undefined constant admin_entry - assumed 'admin_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 65 行.
+NOTIC: [8] Use of undefined constant statistics_entry - assumed 'statistics_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 69 行.
+NOTIC: [8] Use of undefined constant display_order - assumed 'display_order' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 73 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 77 行.
+NOTIC: [8] Use of undefined constant api_key - assumed 'api_key' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 81 行.
+NOTIC: [8] Undefined index:  api_key D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 81 行.
+NOTIC: [8] Use of undefined constant secure_key - assumed 'secure_key' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 85 行.
+NOTIC: [8] Undefined index:  secure_key D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 85 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 89 行.
+NOTIC: [8] Use of undefined constant author_url - assumed 'author_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 93 行.
+NOTIC: [8] Use of undefined constant is_edit - assumed 'is_edit' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 97 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.022919s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023043s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001017s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000482s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000328s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000424s ]
+INFO: Run content_replace Behavior [ RunTime:0.004460s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007067s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002650s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002771s ]
+
+[ 2013-06-19T23:26:34+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=preinstall&app_name=mall&install=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000543s ]
+INFO: Run load_lang Behavior [ RunTime:0.004080s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004892s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.005000s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001566s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002478s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002600s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 21 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 22 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 23 行.
+NOTIC: [8] Undefined index:  app_id D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 23 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 27 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 31 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 38 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 39 行.
+NOTIC: [8] Use of undefined constant host_type - assumed 'host_type' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 40 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 46 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 47 行.
+NOTIC: [8] Use of undefined constant host_type - assumed 'host_type' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 48 行.
+NOTIC: [8] Use of undefined constant app_entry - assumed 'app_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 53 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 57 行.
+NOTIC: [8] Use of undefined constant large_icon_url - assumed 'large_icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 61 行.
+NOTIC: [8] Use of undefined constant admin_entry - assumed 'admin_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 65 行.
+NOTIC: [8] Use of undefined constant statistics_entry - assumed 'statistics_entry' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 69 行.
+NOTIC: [8] Use of undefined constant display_order - assumed 'display_order' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 73 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 77 行.
+NOTIC: [8] Use of undefined constant api_key - assumed 'api_key' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 81 行.
+NOTIC: [8] Undefined index:  api_key D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 81 行.
+NOTIC: [8] Use of undefined constant secure_key - assumed 'secure_key' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 85 行.
+NOTIC: [8] Undefined index:  secure_key D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 85 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 89 行.
+NOTIC: [8] Use of undefined constant author_url - assumed 'author_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 93 行.
+NOTIC: [8] Use of undefined constant is_edit - assumed 'is_edit' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\ba0845a3552a5a5e669f8d04984c5b6f.php 第 97 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.022727s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022846s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000533s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000379s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000315s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000419s ]
+INFO: Run content_replace Behavior [ RunTime:0.004649s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006641s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002496s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002597s ]
+
+[ 2013-06-19T23:26:41+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=saveapp
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001385s ]
+INFO: Run load_lang Behavior [ RunTime:0.004120s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005710s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004459s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001689s ]
+SQL: SELECT * FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000557s ]
+SQL: DROP TABLE IF EXISTS `ik_mall_item_site` [ RunTime:0.002732s ]
+SQL: CREATE TABLE `ik_mall_item_site` (
+
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+
+  `code` varchar(20) NOT NULL,
+
+  `name` varchar(100) NOT NULL,
+
+  `domain` varchar(255) NOT NULL,
+
+  `url` varchar(255) NOT NULL,
+
+  `desc` varchar(255) NOT NULL,
+
+  `config` text NOT NULL,
+
+  `author` varchar(50) NOT NULL,
+
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+
+  PRIMARY KEY (`id`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.078776s ]
+SQL: INSERT INTO `ik_mall_item_site` (`id`, `code`, `name`, `domain`, `url`, `desc`, `config`, `author`, `ordid`, `status`) VALUES
+
+(5, 'taobao', '淘宝', 'taobao.com,tianmao.com,tmall.com', 'http://www.taobao.com', '通过淘宝开放平台获取商品数据，可到 http://open.taobao.com/ 查看详细', 'a:3:{s:7:"app_key";s:8:"21509482";s:10:"app_secret";s:32:"9d99e5a73a30ce41e19c35a877e64005";s:9:"taoke_pid";s:8:"16185888";}', 'PinPHP TEAM', 255, 1) [ RunTime:0.001322s ]
+SQL: -- --------------------------------------------------------
+
+
+
+
+
+
+
+DROP TABLE IF EXISTS `ik_tag_mall_item_index` [ RunTime:0.000412s ]
+SQL: CREATE TABLE `ik_tag_group_index` (
+
+  `itemid` int(11) NOT NULL DEFAULT '0',
+
+  `tagid` int(11) NOT NULL DEFAULT '0',
+
+  UNIQUE KEY `itemid_2` (`itemid`,`tagid`),
+
+  KEY `itemid` (`itemid`),
+
+  KEY `tagid` (`tagid`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.000287s ]
+ERR: 1050:Table 'ik_tag_group_index' already exists
+ [ SQL语句 ] : CREATE TABLE `ik_tag_group_index` (
+
+  `itemid` int(11) NOT NULL DEFAULT '0',
+
+  `tagid` int(11) NOT NULL DEFAULT '0',
+
+  UNIQUE KEY `itemid_2` (`itemid`,`tagid`),
+
+  KEY `itemid` (`itemid`),
+
+  KEY `tagid` (`tagid`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8
+SQL: DROP TABLE IF EXISTS `ik_mall_album`; [ RunTime:0.000417s ]
+SQL: DROP TABLE IF EXISTS `ik_mall_album_cate`; [ RunTime:0.000333s ]
+
+[ 2013-06-19T23:26:57+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=saveapp
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000438s ]
+INFO: Run load_lang Behavior [ RunTime:0.002569s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003198s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004515s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001481s ]
+SQL: SELECT * FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000377s ]
+SQL: DROP TABLE IF EXISTS `ik_mall_item_site` [ RunTime:0.002727s ]
+SQL: CREATE TABLE `ik_mall_item_site` (
+
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+
+  `code` varchar(20) NOT NULL,
+
+  `name` varchar(100) NOT NULL,
+
+  `domain` varchar(255) NOT NULL,
+
+  `url` varchar(255) NOT NULL,
+
+  `desc` varchar(255) NOT NULL,
+
+  `config` text NOT NULL,
+
+  `author` varchar(50) NOT NULL,
+
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+
+  PRIMARY KEY (`id`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.076336s ]
+SQL: INSERT INTO `ik_mall_item_site` (`id`, `code`, `name`, `domain`, `url`, `desc`, `config`, `author`, `ordid`, `status`) VALUES
+
+(5, 'taobao', '淘宝', 'taobao.com,tianmao.com,tmall.com', 'http://www.taobao.com', '通过淘宝开放平台获取商品数据，可到 http://open.taobao.com/ 查看详细', 'a:3:{s:7:"app_key";s:8:"21509482";s:10:"app_secret";s:32:"9d99e5a73a30ce41e19c35a877e64005";s:9:"taoke_pid";s:8:"16185888";}', 'PinPHP TEAM', 255, 1) [ RunTime:0.001369s ]
+SQL: -- --------------------------------------------------------
+
+
+
+
+
+
+
+DROP TABLE IF EXISTS `ik_tag_mall_item_index` [ RunTime:0.000412s ]
+SQL: CREATE TABLE `ik_tag_mall_item_index` (
+
+  `itemid` int(11) NOT NULL DEFAULT '0',
+
+  `tagid` int(11) NOT NULL DEFAULT '0',
+
+  UNIQUE KEY `itemid_2` (`itemid`,`tagid`),
+
+  KEY `itemid` (`itemid`),
+
+  KEY `tagid` (`tagid`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.043731s ]
+SQL: DROP TABLE IF EXISTS `ik_mall_item_orig` [ RunTime:0.000421s ]
+SQL: CREATE TABLE `ik_mall_item_orig` (
+
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+
+  `img` varchar(255) NOT NULL,
+
+  `name` varchar(255) NOT NULL,
+
+  `url` varchar(255) NOT NULL,
+
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+
+  PRIMARY KEY (`id`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.054474s ]
+SQL: INSERT INTO `ik_mall_item_orig` (`id`, `img`, `name`, `url`, `ordid`) VALUES
+
+(1, '50b2e721a6c1e_thumb.jpg', '淘宝', 'taobao.com', 0),
+
+(2, '50b2e726d4ade_thumb.jpg', '天猫', 'tmall.com', 0) [ RunTime:0.001359s ]
+SQL: -- --------------------------------------------------------
+
+
+
+--
+
+-- 表的结构 `ik_mall_item_img`
+
+--
+
+
+
+DROP TABLE IF EXISTS `ik_mall_item_img` [ RunTime:0.000372s ]
+SQL: CREATE TABLE `ik_mall_item_img` (
+
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+
+  `item_id` int(11) NOT NULL,
+
+  `url` varchar(255) NOT NULL,
+
+  `add_time` int(10) NOT NULL DEFAULT '0',
+
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+
+  PRIMARY KEY (`id`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.087752s ]
+SQL: -- --------------------------------------------------------
+
+
+
+--
+
+-- 表的结构 `ik_mall_item`
+
+--
+
+
+
+DROP TABLE IF EXISTS `ik_mall_item` [ RunTime:0.000403s ]
+SQL: CREATE TABLE `ik_mall_item` (
+
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+
+  `cate_id` smallint(4) unsigned DEFAULT NULL,
+
+  `orig_id` smallint(6) NOT NULL,
+
+  `userid` int(10) unsigned NOT NULL DEFAULT '0',
+
+  `key_id` varchar(50) DEFAULT NULL,
+
+  `title` varchar(255) DEFAULT NULL,
+
+  `intro` varchar(255) NOT NULL,
+
+  `img` varchar(255) DEFAULT NULL,
+
+  `price` decimal(10,2) DEFAULT NULL,
+
+  `rates` float(8,2) NOT NULL COMMENT '佣金比率xxx.xx%',
+
+  `url` text,
+
+  `type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1:商品,2:图片',
+
+  `hits` int(10) unsigned NOT NULL DEFAULT '0',
+
+  `likes` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '喜欢数',
+
+  `comments` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '评论数',
+
+  `cmt_taobao_time` int(10) unsigned NOT NULL DEFAULT '0',
+
+  `add_time` int(10) NOT NULL,
+
+  `tag_cache` text NOT NULL,
+
+  `comments_cache` text NOT NULL,
+
+  `seo_title` varchar(255) DEFAULT NULL,
+
+  `seo_keys` varchar(255) DEFAULT NULL,
+
+  `seo_desc` text,
+
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '1',
+
+  PRIMARY KEY (`id`),
+
+  UNIQUE KEY `key_id` (`key_id`),
+
+  KEY `cid` (`cate_id`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.043605s ]
+SQL: -- --------------------------------------------------------
+
+
+
+DROP TABLE IF EXISTS `ik_mall_item_cate` [ RunTime:0.000415s ]
+SQL: CREATE TABLE `ik_mall_item_cate` (
+
+  `id` smallint(4) unsigned NOT NULL AUTO_INCREMENT,
+
+  `name` varchar(50) NOT NULL,
+
+  `tags` varchar(50) NOT NULL,
+
+  `pid` smallint(4) unsigned NOT NULL,
+
+  `spid` varchar(50) NOT NULL,
+
+  `img` varchar(255) NOT NULL,
+
+  `fcolor` varchar(10) NOT NULL,
+
+  `remark` text NOT NULL,
+
+  `add_time` int(10) NOT NULL,
+
+  `items` int(10) unsigned NOT NULL DEFAULT '0',
+
+  `likes` int(10) NOT NULL,
+
+  `type` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '0:商品分类 1:标签分类',
+
+  `ordid` tinyint(3) unsigned NOT NULL DEFAULT '255',
+
+  `status` tinyint(1) NOT NULL,
+
+  `is_index` tinyint(1) NOT NULL DEFAULT '0',
+
+  `is_default` tinyint(1) unsigned NOT NULL DEFAULT '0',
+
+  `seo_title` varchar(255) NOT NULL,
+
+  `seo_keys` varchar(255) NOT NULL,
+
+  `seo_desc` text NOT NULL,
+
+  PRIMARY KEY (`id`)
+
+) ENGINE=MYISAM DEFAULT CHARSET=utf8 [ RunTime:0.042760s ]
+NOTIC: [8] Undefined variable: error D:\APMServ5.2.6\www\htdocs\joyku\ThinkPHP\Lib\Core\Model.class.php 第 1185 行.
+SQL: INSERT INTO `ik_app` (`app_name`,`app_alias`,`description`,`status`,`host_type`,`is_nav`,`app_entry`,`icon_url`,`large_icon_url`,`admin_entry`,`statistics_entry`,`version`,`api_key`,`secure_key`,`author_name`,`author_url`,`child_menu`,`setuptime`) VALUES ('mall','爱客商城','爱客商城是一个采集淘宝客的程序，这里方便大家来淘到最好的商品！',1,0,1,'index/index','./Core/Apps/mall/Appinfo/icon_app.png','./Core/Apps/mall/Appinfo/icon_app_large.png','mall/admin/index','statistics/statistics','1.5','','','爱客开源','http://www.ikphp.com','a:0:{}',1371655617) [ RunTime:0.000547s ]
+SQL: UPDATE `ik_app` SET `display_order`=3 [ RunTime:0.000378s ]
+NOTIC: [2] unlink(D:\APMServ5.2.6\www\htdocs\joyku\Core/Runtime/~runtime.php) [<a href='function.unlink'>function.unlink</a>]: No such file or directory D:\APMServ5.2.6\www\htdocs\joyku\Core\Lib\Action\backendAction.class.php 第 50 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002937s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003053s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.025998s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026156s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001518s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001302s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.001301s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001341s ]
+INFO: Run content_replace Behavior [ RunTime:0.005310s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.011124s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001344s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001437s ]
+
+[ 2013-06-19T23:26:59+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=uninstall
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000422s ]
+INFO: Run load_lang Behavior [ RunTime:0.002653s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003279s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.006707s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001003s ]
+SQL: SELECT `app_name` FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000434s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002215s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002339s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Undefined variable: pageUrl D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 38 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.018733s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018866s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000547s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000379s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000319s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001061s ]
+INFO: Run content_replace Behavior [ RunTime:0.004033s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006727s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000480s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000608s ]
+
+[ 2013-06-19T23:27:02+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=installed
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000810s ]
+INFO: Run load_lang Behavior [ RunTime:0.003140s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004231s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004659s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.001445s ]
+SQL: SELECT * FROM `ik_app` ORDER BY setuptime desc  [ RunTime:0.000540s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002318s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002451s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 27 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 29 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 31 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 35 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 36 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 38 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 40 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 42 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 43 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 27 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 29 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 31 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 35 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 36 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 38 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 40 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 42 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 43 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 27 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 29 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 31 行.
+NOTIC: [8] Use of undefined constant is_nav - assumed 'is_nav' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 35 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 36 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 38 行.
+NOTIC: [8] Use of undefined constant status - assumed 'status' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 40 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 42 行.
+NOTIC: [8] Use of undefined constant app_id - assumed 'app_id' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 43 行.
+NOTIC: [8] Undefined variable: pageUrl D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\cf2a45e043c31c422d7e6a6db935f4aa.php 第 47 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.021155s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021281s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000514s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000379s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000320s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000424s ]
+INFO: Run content_replace Behavior [ RunTime:0.003484s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.005473s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000515s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000619s ]
+
+[ 2013-06-19T23:27:06+08:00 ] 127.0.0.1 /joyku/index.php
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000633s ]
+INFO: Run load_lang Behavior [ RunTime:0.004099s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004968s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.007355s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.000714s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371654726 [ RunTime:0.000656s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.005385s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001874s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000335s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'public' ) LIMIT 1   [ RunTime:0.000509s ]
+SQL: SHOW COLUMNS FROM `ik_group` [ RunTime:0.004962s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.006957s ]
+SQL: SHOW COLUMNS FROM `ik_group_topics` [ RunTime:0.005599s ]
+SQL: SHOW COLUMNS FROM `ik_article` [ RunTime:0.004676s ]
+SQL: SHOW COLUMNS FROM `ik_develop` [ RunTime:0.006650s ]
+SQL: SELECT `groupid` FROM `ik_group` WHERE ( `isshow` = 0 ) ORDER BY addtime desc LIMIT 10   [ RunTime:0.001454s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000392s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000354s ]
+SQL: SELECT `userid`,`topicid`,`groupid`,`content`,`title` FROM `ik_group_topics` WHERE ( `groupid` > 0 ) AND ( `isaudit` = 0 ) ORDER BY istop desc,addtime desc LIMIT 15   [ RunTime:0.000528s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000256s ]
+SQL: SELECT * FROM `ik_group_topics` WHERE ( `topicid` = 1 ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000499s ]
+SQL: SHOW COLUMNS FROM `ik_user_online` [ RunTime:0.004577s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 1 ) AND ( `ctime` > 1371654726 ) LIMIT 1   [ RunTime:0.001565s ]
+SQL: SELECT `userid` FROM `ik_user` WHERE ( `isenable` = 0 ) ORDER BY uptime desc LIMIT 12   [ RunTime:0.000350s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000297s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 1 ) AND ( `ctime` > 1371654726 ) LIMIT 1   [ RunTime:0.000426s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 2 ) LIMIT 1   [ RunTime:0.000304s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 2 ) AND ( `ctime` > 1371654726 ) LIMIT 1   [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `ik_article_item` [ RunTime:0.006065s ]
+SQL: SELECT * FROM `ik_article_item` WHERE ( `isaudit` = 0 ) ORDER BY addtime desc LIMIT 8   [ RunTime:0.001592s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `isrecommend` = 1 ) ORDER BY groupid asc LIMIT 10   [ RunTime:0.000344s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000246s ]
+SQL: SELECT * FROM `ik_group` WHERE ( `groupid` = 1 ) LIMIT 1   [ RunTime:0.000363s ]
+SQL: SELECT `appid`,`cateid` FROM `ik_develop` ORDER BY count_down desc LIMIT 10   [ RunTime:0.000501s ]
+SQL: SELECT * FROM `ik_develop` WHERE ( `appid` = 1 ) LIMIT 1   [ RunTime:0.000322s ]
+SQL: SELECT * FROM `ik_user` WHERE ( `userid` = 1 ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user_online` WHERE ( `userid` = 1 ) AND ( `ctime` > 1371654726 ) LIMIT 1   [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `ik_develop_cate` [ RunTime:0.003996s ]
+ERR: 1146:Table 'ikphp5.ik_develop_cate' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `ik_develop_cate`
+SQL: SELECT * FROM `ik_develop_cate` WHERE ( `cateid` = '1' ) LIMIT 1   [ RunTime:0.001516s ]
+ERR: 1146:Table 'ikphp5.ik_develop_cate' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `ik_develop_cate` WHERE ( `cateid` = '1' ) LIMIT 1  
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_user` LIMIT 1   [ RunTime:0.000225s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002357s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002474s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant userid - assumed 'userid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 104 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 157 行.
+NOTIC: [8] Use of undefined constant icon_48 - assumed 'icon_48' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 158 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant count_topic - assumed 'count_topic' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 162 行.
+NOTIC: [8] Use of undefined constant groupdesc - assumed 'groupdesc' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 163 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 173 行.
+NOTIC: [8] Use of undefined constant topicid - assumed 'topicid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Undefined variable: time D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 175 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant user - assumed 'user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant addtime - assumed 'addtime' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant count_view - assumed 'count_view' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant count_comment - assumed 'count_comment' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 176 行.
+NOTIC: [8] Use of undefined constant video - assumed 'video' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 178 行.
+NOTIC: [8] Use of undefined constant img - assumed 'img' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 179 行.
+NOTIC: [8] Use of undefined constant content - assumed 'content' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 181 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 195 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant isonline - assumed 'isonline' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 198 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 195 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant face - assumed 'face' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 196 行.
+NOTIC: [8] Use of undefined constant isonline - assumed 'isonline' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 198 行.
+NOTIC: [8] Use of undefined constant doname - assumed 'doname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant username - assumed 'username' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 201 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 216 行.
+NOTIC: [8] Use of undefined constant icon_100 - assumed 'icon_100' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 216 行.
+NOTIC: [8] Use of undefined constant appid - assumed 'appid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 220 行.
+NOTIC: [8] Use of undefined constant title - assumed 'title' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 220 行.
+NOTIC: [8] Use of undefined constant count_down - assumed 'count_down' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 222 行.
+NOTIC: [8] Use of undefined constant cate - assumed 'cate' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 222 行.
+NOTIC: [8] Use of undefined constant catename - assumed 'catename' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 222 行.
+NOTIC: [8] Use of undefined constant groupid - assumed 'groupid' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+NOTIC: [8] Use of undefined constant groupname - assumed 'groupname' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+NOTIC: [8] Use of undefined constant count_user - assumed 'count_user' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+NOTIC: [8] Use of undefined constant uptime - assumed 'uptime' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\public\fee3622c9b8f266e95236fa7dbcf5c6f.php 第 231 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.062035s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.062154s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000619s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000403s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000328s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000429s ]
+INFO: Run content_replace Behavior [ RunTime:0.003944s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006040s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000545s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000760s ]
+
+[ 2013-06-19T23:27:08+08:00 ] 127.0.0.1 /joyku/index.php/mall/index/index
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.006615s ]
+INFO: [ route_check ] --END-- [ RunTime:0.006756s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000464s ]
+INFO: Run load_lang Behavior [ RunTime:0.003115s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003757s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004286s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001761s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371654728 [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.006151s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.000551s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000334s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) LIMIT 1   [ RunTime:0.000355s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.005147s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item` [ RunTime:0.006243s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_orig` [ RunTime:0.004957s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_img` [ RunTime:0.006005s ]
+
+[ 2013-06-19T23:27:08+08:00 ] 127.0.0.1 /joyku/index.php/mall/index/explore_goods
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002761s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002902s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000409s ]
+INFO: Run load_lang Behavior [ RunTime:0.003190s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003774s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004860s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001651s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371654728 [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004823s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.002017s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000526s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) LIMIT 1   [ RunTime:0.000437s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.005384s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item` [ RunTime:0.005789s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_orig` [ RunTime:0.004634s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_img` [ RunTime:0.006967s ]
+SQL: SELECT * FROM `ik_mall_item` WHERE ( `status` = 1 ) ORDER BY add_time desc  [ RunTime:0.000608s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002634s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002790s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 110 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.138775s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.138908s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000919s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000420s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000326s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000427s ]
+INFO: Run content_replace Behavior [ RunTime:0.004317s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.006762s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000438s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000531s ]
+
+[ 2013-06-19T23:28:41+08:00 ] 127.0.0.1 /joyku/index.php/mall/index/explore_goods
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002396s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002518s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000526s ]
+INFO: Run load_lang Behavior [ RunTime:0.002992s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003732s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004405s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001434s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371654821 [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004437s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001982s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000610s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) LIMIT 1   [ RunTime:0.000577s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004951s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item` [ RunTime:0.004620s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_orig` [ RunTime:0.003927s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_img` [ RunTime:0.003960s ]
+SQL: SELECT * FROM `ik_mall_item` WHERE ( `status` = 1 ) ORDER BY add_time desc  [ RunTime:0.002137s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002634s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002757s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 110 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.064890s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.065008s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001041s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000467s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000333s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000496s ]
+INFO: Run content_replace Behavior [ RunTime:0.005050s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.007759s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000601s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000762s ]
+
+[ 2013-06-19T23:32:20+08:00 ] 127.0.0.1 /joyku/index.php/mall/index/explore_goods
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001508s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001646s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001346s ]
+INFO: Run load_lang Behavior [ RunTime:0.003862s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005373s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004312s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001426s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371655040 [ RunTime:0.000291s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004646s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.002084s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000359s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) LIMIT 1   [ RunTime:0.000344s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004878s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item` [ RunTime:0.004878s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_orig` [ RunTime:0.004255s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_img` [ RunTime:0.004507s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SHOW COLUMNS FROM `ik_item` [ RunTime:0.004780s ]
+ERR: 1146:Table 'ikphp5.ik_item' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `ik_item`
+SQL: SELECT COUNT(id) AS tp_count FROM `ik_item` WHERE ( `status` = '1' ) LIMIT 1   [ RunTime:0.001627s ]
+ERR: 1146:Table 'ikphp5.ik_item' doesn't exist
+ [ SQL语句 ] : SELECT COUNT(id) AS tp_count FROM `ik_item` WHERE ( `status` = '1' ) LIMIT 1  
+SQL: SELECT `id`,`userid`,`title`,`intro`,`img`,`price`,`likes`,`comments` FROM `ik_item` WHERE ( `status` = '1' ) ORDER BY hits DESC,id DESC LIMIT 0,10   [ RunTime:0.000450s ]
+ERR: 1146:Table 'ikphp5.ik_item' doesn't exist
+ [ SQL语句 ] : SELECT `id`,`userid`,`title`,`intro`,`img`,`price`,`likes`,`comments` FROM `ik_item` WHERE ( `status` = '1' ) ORDER BY hits DESC,id DESC LIMIT 0,10  
+NOTIC: [2] Invalid argument supplied for foreach() D:\APMServ5.2.6\www\htdocs\joyku\Core\Apps\mall\Action\indexAction.class.php 第 115 行.
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.003209s ]
+INFO: [ view_template ] --END-- [ RunTime:0.003317s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 110 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Undefined variable: list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 147 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.055504s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.055632s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001623s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001353s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.002211s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.001733s ]
+INFO: Run content_replace Behavior [ RunTime:0.006567s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014222s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002263s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002371s ]
+
+[ 2013-06-19T23:37:38+08:00 ] 127.0.0.1 /joyku/index.php/mall/index/explore_goods
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.005555s ]
+INFO: [ route_check ] --END-- [ RunTime:0.005698s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002413s ]
+INFO: Run load_lang Behavior [ RunTime:0.004574s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007166s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004349s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001432s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371655358 [ RunTime:0.000285s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004838s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001265s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000374s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) LIMIT 1   [ RunTime:0.000353s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004844s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item` [ RunTime:0.007455s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_orig` [ RunTime:0.007287s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_img` [ RunTime:0.004411s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SELECT COUNT(id) AS tp_count FROM `ik_mall_item` WHERE ( `status` = 1 ) LIMIT 1   [ RunTime:0.001059s ]
+SQL: SELECT `id`,`userid`,`title`,`intro`,`img`,`price`,`likes`,`comments` FROM `ik_mall_item` WHERE ( `status` = 1 ) ORDER BY hits DESC,id DESC LIMIT 0,10   [ RunTime:0.000484s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.004399s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004524s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 110 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.075592s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075717s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.002767s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.002240s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.002316s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.002476s ]
+INFO: Run content_replace Behavior [ RunTime:0.006882s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.017086s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002807s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002934s ]
+
+[ 2013-06-19T23:38:10+08:00 ] 127.0.0.1 /joyku/index.php/mall/index/explore_goods
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001235s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001392s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002271s ]
+INFO: Run load_lang Behavior [ RunTime:0.004796s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007261s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.005042s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.000464s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371655390 [ RunTime:0.000279s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.005460s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001493s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000355s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) LIMIT 1   [ RunTime:0.000568s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.005260s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item` [ RunTime:0.004891s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_orig` [ RunTime:0.004500s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_img` [ RunTime:0.004682s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SELECT COUNT(id) AS tp_count FROM `ik_mall_item` WHERE ( `status` = 1 ) LIMIT 1   [ RunTime:0.001541s ]
+SQL: SELECT `id`,`userid`,`title`,`intro`,`img`,`price`,`likes`,`comments` FROM `ik_mall_item` WHERE ( `status` = 1 ) ORDER BY hits DESC,id DESC LIMIT 0,1   [ RunTime:0.000670s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.004247s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004373s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 110 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.060451s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.060579s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.002960s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.002356s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.002185s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.002321s ]
+INFO: Run content_replace Behavior [ RunTime:0.006665s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.016880s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002852s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002982s ]
+
+[ 2013-06-19T23:38:16+08:00 ] 127.0.0.1 /joyku/index.php/mall/index/explore_goods
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.005641s ]
+INFO: [ route_check ] --END-- [ RunTime:0.005797s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001350s ]
+INFO: Run load_lang Behavior [ RunTime:0.003911s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005440s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004154s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = null ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001148s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1371655396 [ RunTime:0.000458s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004660s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.001621s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.000349s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'mall' ) LIMIT 1   [ RunTime:0.000436s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.004878s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item` [ RunTime:0.004971s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_orig` [ RunTime:0.004152s ]
+SQL: SHOW COLUMNS FROM `ik_mall_item_img` [ RunTime:0.004121s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+SQL: SELECT COUNT(id) AS tp_count FROM `ik_mall_item` WHERE ( `status` = 1 ) LIMIT 1   [ RunTime:0.001285s ]
+SQL: SELECT `id`,`userid`,`title`,`intro`,`img`,`price`,`likes`,`comments` FROM `ik_mall_item` WHERE ( `status` = 1 ) ORDER BY hits DESC,id DESC LIMIT 0,3   [ RunTime:0.000398s ]
+NOTIC: 建议使用I方法替代_get
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.002793s ]
+INFO: [ view_template ] --END-- [ RunTime:0.002917s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 70 行.
+NOTIC: [8] Use of undefined constant style - assumed 'style' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 110 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 111 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 117 行.
+NOTIC: [8] Use of undefined constant url - assumed 'url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 115 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined variable: album D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 154 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 179 行.
+NOTIC: [8] Undefined index:  uid D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 181 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 192 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 193 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+NOTIC: [8] Undefined index:  comment_list D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\mall\32a41ff2f25374248136292df614bbf3.php 第 195 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.064543s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.064671s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.001792s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.001435s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.002176s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.002282s ]
+INFO: Run content_replace Behavior [ RunTime:0.006563s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.014624s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002599s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002736s ]
+
+[ 2013-06-19T23:54:30+08:00 ] 127.0.0.1 /joyku/index.php?app=admin&m=apps&a=uninstall
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002286s ]
+INFO: Run load_lang Behavior [ RunTime:0.005801s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008275s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.005472s ]
+SQL: SELECT `app_name`,`app_alias`,`admin_entry` FROM `ik_app` ORDER BY display_order asc  [ RunTime:0.002480s ]
+SQL: SELECT `app_name` FROM `ik_app` ORDER BY app_id DESC  [ RunTime:0.000459s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.004299s ]
+INFO: [ view_template ] --END-- [ RunTime:0.004452s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Use of undefined constant icon_url - assumed 'icon_url' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 28 行.
+NOTIC: [8] Use of undefined constant app_name - assumed 'app_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 29 行.
+NOTIC: [8] Use of undefined constant app_alias - assumed 'app_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 30 行.
+NOTIC: [8] Use of undefined constant description - assumed 'description' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 31 行.
+NOTIC: [8] Use of undefined constant version - assumed 'version' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 32 行.
+NOTIC: [8] Use of undefined constant host_type_alias - assumed 'host_type_alias' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 33 行.
+NOTIC: [8] Use of undefined constant author_name - assumed 'author_name' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 34 行.
+NOTIC: [8] Use of undefined constant doaction - assumed 'doaction' D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 35 行.
+NOTIC: [8] Undefined variable: pageUrl D:\APMServ5.2.6\www\htdocs\joyku\Core\Runtime\Cache\admin\47398263fcaa4adfc104b93d7b109621.php 第 38 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.027367s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027498s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.002655s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.002429s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.002247s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.002001s ]
+INFO: Run content_replace Behavior [ RunTime:0.006792s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.016567s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.002502s ]
+INFO: [ view_end ] --END-- [ RunTime:0.002634s ]
+

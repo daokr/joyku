@@ -2,6 +2,7 @@
 <html>
 <head>
 <include file="public:head" />
+
 </head>
 
 <body>
@@ -10,7 +11,7 @@
 	<div class="mc">
        	 <h1>发现宝贝 </h1>
     <div class="wall_wrap clearfix">
-        <div id="J_waterfall" class="wall_container clearfix" data-uri="">
+        <div id="J_waterfall" class="wall_container clearfix"  data-uri="{:U('mall/index/index_ajax',array('tag'=>$tag,'sort'=>$sort,'p'=>$p))}">
             <div class="J_item wall_tag">
                 <h3>热门标签：</h3>
                 <div class="atags clearfix">
@@ -22,8 +23,18 @@
                         <a href="{:U('mall/index/album',array('cid'=>1))}" title="">个性</a>
                 </div>
             </div>
-            <include file="waterfall" />
+            <include file="public:waterfall" />
         </div>
+        
+        <present name="show_load">
+        	<div id="J_wall_loading" class="wall_loading tc gray"><span>加载中。。。</span></div>
+        </present>
+        <present name="page_bar">
+            <div id="J_wall_page" class="wall_page" <present name="show_page">style="display:block;"</present>>
+                <div class="page_bar">{$page_bar}</div>
+            </div>
+        </present>
+        
     </div>
 		
         
@@ -32,6 +43,11 @@
         
     </div>
 </div>
+
+
+<js href="__PUBLIC__/js/masonry/jquery.masonry.js" />
+<js href="__STATIC_JS__/wall.js" />
+
 <include file="public:footer" />
 </body>
 </html>

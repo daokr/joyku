@@ -206,7 +206,9 @@ border-top: none;color: #111111;height: 34px;line-height: 33px;overflow: hidden;
 .wall_item .rep_list .avt {height:20px;width:20px;margin-right:3px;}
 .wall_item .rep_list .rep_content {color:#AAAAAA;line-height:20px;max-height:40px;overflow:hidden;width:175px;}
 .wall_item .del_item { background: url(../images/del_icon.png) no-repeat scroll 0 0 transparent; display: none; position: absolute; height: 19px; width: 19px; left: 15px; top: 15px; z-index: 9999;}
-
+.wall_container {min-height:500px;position:relative; }
+.wall_loading {background: black;opacity:0.5;filter:alpha(opacity=50);color: white;border-radius: 16px 16px 16px 16px;text-align: center; width: 100px; display: none; bottom: 0px; position: absolute; left: 50%; margin-left: -50px;}
+.wall_loading span { background: url(../images/loading.gif) no-repeat scroll 0 center transparent; padding-left: 24px; color: white; height: 30px; line-height: 30px;}
 
 /**site-tags**/
 .site-tags{

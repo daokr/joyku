@@ -30,7 +30,7 @@ function addlink(frm,ajaxurl){
 	if(gurl !== ''){
 	 //url = /^http:\/\//.test(url)? url:"http://"+url;
 	  //执行ajax
-	  if(!ikUtil.isURl(gurl)) { 
+	  if(!$.ikphp.util.isURl(gurl)) { 
 		  $('#errtips').css({'color':'red','background-color':'#F8F8F8'}).html('不是一个有效的商品地址！'); 
 		  return false; 
 	  }
@@ -121,8 +121,11 @@ function createCheck(that)
 	
 	$(that).find('input[type=submit]').val('正在提交^_^').attr('disabled',true);
 
-}
-var ikUtil = {
+};		
+(function($){
+    $.ikphp = $.ikphp || {version: "v1.0.0"},
+    $.extend($.ikphp, {
+        util: {
             getStrLength: function(str) {
                 str = $.trim(str);
                 var length = str.replace(/[^\x00-\xff]/g, "**").length;
@@ -193,6 +196,14 @@ var ikUtil = {
                 } while (i < input.length);
                 return output;
             }
-		};
-		
-		
+        },
+		ui:{
+				decode_img: function(context) {
+					$('.J_decode_img', context).each(function(){
+						var uri = $(this).attr('data-uri')||"";
+						$(this).attr('src', $.ikphp.util.base64_decode(uri));  
+					});
+				}
+		}
+    });
+})(jQuery);		

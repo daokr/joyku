@@ -134,5 +134,6 @@ class frontendAction extends baseAction {
 			}
 		}
 	}
+
   
 }

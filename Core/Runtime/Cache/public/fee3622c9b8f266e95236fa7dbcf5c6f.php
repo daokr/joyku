@@ -176,7 +176,7 @@ __EXTENDS_JS__
                          <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <summary><?php echo getTime($item[addtime],time()) ?> 阅读 <?php echo ($item[count_view]); ?> 评论 <?php echo ($item[count_comment]); ?></summary>
                         <p>
                         <?php if($item[video]): ?><a href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><img src="<?php echo ($item[video][imgurl]); ?>" class="fr"></a>
-                        <?php else: ?>
+                        <?php elseif($item[img]): ?>
                         <a href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>" title="<?php echo ($time[title]); ?>"><img src="<?php echo ($item[img][simg]); ?>" class="fr"></a><?php endif; ?>
                         <?php echo ($item[content]); ?>
                         </p>

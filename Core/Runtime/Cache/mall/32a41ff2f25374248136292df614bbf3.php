@@ -25,6 +25,19 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
+<script>
+var IKPHPCONF = {
+    root: "__ROOT__",
+    uid: "<?php echo $visitor['id'];?>", 
+    async_sendmail: "<?php echo $async_sendmail;?>",
+    config: {
+        wall_distance: "9",
+        wall_spage_max: "3"
+    },
+    url: {}
+};
+</script>
+
 
 </head>
 
@@ -132,7 +145,7 @@ __EXTENDS_JS__
 	<div class="mc">
        	 <h1>发现宝贝 </h1>
     <div class="wall_wrap clearfix">
-        <div id="J_waterfall" class="wall_container clearfix" data-uri="">
+        <div id="J_waterfall" class="wall_container clearfix"  data-uri="<?php echo U('mall/index/index_ajax',array('tag'=>$tag,'sort'=>$sort,'p'=>$p));?>">
             <div class="J_item wall_tag">
                 <h3>热门标签：</h3>
                 <div class="atags clearfix">
@@ -144,8 +157,7 @@ __EXTENDS_JS__
                         <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">个性</a>
                 </div>
             </div>
-            
-    <div class="J_item wall_item">
+            <?php if(is_array($item_list)): $i = 0; $__LIST__ = $item_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?><div class="J_item wall_item">
 
 
         <a href="javascript:;" class="J_unlike del_item" title="<?php echo L('delete');?>" data-id="<?php echo ($item["id"]); ?>"></a>
@@ -158,10 +170,10 @@ __EXTENDS_JS__
         <!--图片-->
         <ul class="pic">
             <li>
-                <a href="<?php echo U('item/index', array('id'=>$item['id']));?>" title="<?php echo ($item["title"]); ?>" target="_blank">
-                <img alt="<?php echo ($item["title"]); ?>" class="J_img J_decode_img" data-uri="" src="http://s0.img.guang.com/p/4288444_1_1900313_210X210.jpg">
+                <a href="<?php echo U('mall/item/index', array('id'=>$item['id']));?>" title="<?php echo ($item["title"]); ?>" target="_blank">
+<img alt="<?php echo ($item["title"]); ?>" class="J_img J_decode_img" data-uri="<?php echo base64_encode(attach(get_thumb($item['img'], '_m'), 'item'));?>">
                 </a>
-                <span class="p">¥999</span>
+                <span class="p">¥<?php echo ($item["price"]); ?></span>
                 <a href="javascript:;" class="J_joinalbum addalbum_btn" data-id="<?php echo ($item["id"]); ?>"></a>
             </li>
         </ul>
@@ -198,10 +210,14 @@ __EXTENDS_JS__
 
         </ul>
 
-    </div>
-    
-
+    </div><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
+        
+        <?php if(isset($show_load)): ?><div id="J_wall_loading" class="wall_loading tc gray"><span>加载中。。。</span></div><?php endif; ?>
+        <?php if(isset($page_bar)): ?><div id="J_wall_page" class="wall_page" <?php if(isset($show_page)): ?>style="display:block;"<?php endif; ?>>
+                <div class="page_bar"><?php echo ($page_bar); ?></div>
+            </div><?php endif; ?>
+        
     </div>
 		
         
@@ -210,6 +226,11 @@ __EXTENDS_JS__
         
     </div>
 </div>
+
+
+<script type="text/javascript" src="__PUBLIC__/js/masonry/jquery.masonry.js"></script>
+<script type="text/javascript" src="__STATIC_JS__/wall.js"></script>
+
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
@@ -238,6 +259,7 @@ __EXTENDS_JS__
 </div>
 </footer>
 <div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
+
 
 </body>
 </html>
