@@ -10,7 +10,11 @@
 		<div class="appnav">
 			    <ul id="nav_bar">
                     <foreach name="arrNav" item="item" >
-                    <li><a href="{$item[url]}" class="a_{$key}">{$item[name]}</a></li>
+                    <if condition="$key eq 'share'">
+                    <li><a href="javascript:;" class="a_{$key}" data-url="{$item[url]}">{$item[name]}</a></li>
+                    <else/>
+                    <li><a href="{$item[url]}" class="a_{$key}" >{$item[name]}</a></li>
+                    </if>
                     </foreach>
 			    </ul>
 		   <form onsubmit="return searchForm(this);" method="post" action="{:U('public/search/index')}">

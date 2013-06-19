@@ -1,4 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit(); if($module_name == 'admin' ): ?><!--引入后台管理的头部模版文件 -->
+<!DOCTYPE HTML>
 <html>
 <head>
 <!--引入后前台公共public的模版文件 -->
@@ -26,6 +27,48 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
+</head>
+
+<body>
+<div style="margin:150px auto; width:350px;">
+  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
+  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
+    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
+    <li style="color:#666;line-height: 10px;">&nbsp;</li>
+
+    <li style="color:#666;"> 
+        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
+        <script type="text/javascript">
+            (function(){
+                var secs=3,si=setInterval(function(){
+                    if(--secs){
+                        document.getElementById('f3s').innerHTML = secs;
+                    }
+                    else{
+                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
+                    }
+            }, 1000)})();
+        </script>
+ 	</li>
+
+  </ul>
+</div>
+</body>
+</html>
+<?php else: ?>
+<!--引入后前台的头部模版文件 -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
+<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
+<link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
+<meta name="robots" content="all" />
+<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
+<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
+__SITE_THEME_CSS__
 </head>
 
 <body>
@@ -112,9 +155,7 @@ __EXTENDS_JS__
         </div>
 		<div class="appnav">
 			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): if($key == 'share'): ?><li><a href="javascript:;" class="a_<?php echo ($key); ?>" data-url="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li>
-                    <?php else: ?>
-                    <li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>" ><?php echo ($item[name]); ?></a></li><?php endif; endforeach; endif; ?>
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
 			    </ul>
 		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
                 <input type="hidden" value="all" name="type">
@@ -128,87 +169,28 @@ __EXTENDS_JS__
 	</div>
         
 </div>
-<div class="midder">
-	<div class="mc">
-       	 <h1>发现宝贝 </h1>
-    <div class="wall_wrap clearfix">
-        <div id="J_waterfall" class="wall_container clearfix" data-uri="">
-            <div class="J_item wall_tag">
-                <h3>热门标签：</h3>
-                <div class="atags clearfix">
-                    	<a href="<?php echo U('mall/index/album');?>" title="" class="on">全部</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">甜美</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">街拍</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">欧美</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">美女</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">个性</a>
-                </div>
-            </div>
-            
-    <div class="J_item wall_item">
+<div style="margin:150px auto; width:500px;">
+  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
+  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
+    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
+    <li style="color:#666;line-height: 10px;">&nbsp;</li>
 
+    <li style="color:#666;"> 
+        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
+        <script type="text/javascript">
+            (function(){
+                var secs=3,si=setInterval(function(){
+                    if(--secs){
+                        document.getElementById('f3s').innerHTML = secs;
+                    }
+                    else{
+                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
+                    }
+            }, 1000)})();
+        </script>
+ 	</li>
 
-        <a href="javascript:;" class="J_unlike del_item" title="<?php echo L('delete');?>" data-id="<?php echo ($item["id"]); ?>"></a>
-
-
-
-        <a href="javascript:;" class="J_delitem del_item" title="<?php echo L('delete');?>" data-id="<?php echo ($item["id"]); ?>" data-aid="<?php echo ($album["id"]); ?>"></a>
-
-
-        <!--图片-->
-        <ul class="pic">
-            <li>
-                <a href="<?php echo U('item/index', array('id'=>$item['id']));?>" title="<?php echo ($item["title"]); ?>" target="_blank">
-                <img alt="<?php echo ($item["title"]); ?>" class="J_img J_decode_img" data-uri="" src="http://s0.img.guang.com/p/4288444_1_1900313_210X210.jpg">
-                </a>
-                <span class="p">¥999</span>
-                <a href="javascript:;" class="J_joinalbum addalbum_btn" data-id="<?php echo ($item["id"]); ?>"></a>
-            </li>
-        </ul>
-        <!--操作-->
-        <div class="favorite"> 
-            <a href="javascript:;" class="J_likeitem like" data-id="<?php echo ($item["id"]); ?>" >12</a>
-            <div class="J_like_n like_n"><a href="" target="_blank">55</a><i></i></div>
-            
-            <?php if($item['comments'] > 0): ?><span class="creply_n">(<a href="<?php echo U('item/index', array('id'=>$item['id']));?>" target="_blank">2</a>)</span><?php endif; ?>
-            <a class="creply" href="<?php echo U('item/index', array('id'=>$item['id']));?>" target="_blank">777</a> 
-        </div>
-        <!--作者-->
-
-        <div class="author clearfix">
-            <a href="#" target="_blank">
-                <img class="J_card avt fl r3" src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368699000" data-uid="<?php echo ($item["uid"]); ?>" />
-            </a>
-             <a href="#" class="J_card clr6 bold" target="_blank" data-uid="<?php echo ($item["uid"]); ?>">小麦</a><br>
-        </div>
-
-        <!--说明-->
-        <p class="intro clr6">[满49包邮]南极人包芯丝加档连裤袜丝袜 露趾袜鱼嘴袜 T档连裤袜</p>
-        <!--评论-->
-
-        <ul class="rep_list">
-
-
-            <li class="rep_f">
-                <a href="<?php echo U('space/index', array('uid'=>$item['comment_list'][$i]['uid']));?>" target="_blank">
-                    <img src="http://s8.mogujie.cn/pic/130516/52957_kqyw6vklnjbg2stwgfjeg5sckzsew_272x275.jpg" class="J_card avt fl r3" alt="<?php echo ($item['comment_list'][$i]['uname']); ?>" data-uid="<?php echo ($item['comment_list'][$i]['uid']); ?>">
-                </a>
-                <p class="rep_content"><a href="<?php echo U('space/index', array('uid'=>$item['comment_list'][$i]['uid']));?>" class="J_card n" target="_blank" data-uid="<?php echo ($item['comment_list'][$i]['uid']); ?>">dfas</a>  你发的东西确实很好看哦</p>
-            </li>
-
-        </ul>
-
-    </div>
-    
-
-        </div>
-    </div>
-		
-        
-    	
-     
-        
-    </div>
+  </ul>
 </div>
 <!--引入后前台的模版文件 -->
 <!--footer-->
@@ -240,4 +222,4 @@ __EXTENDS_JS__
 <div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
 
 </body>
-</html>
+</html><?php endif; ?></if>

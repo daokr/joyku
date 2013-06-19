@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<div class="midder">
+
+	<div class="mc">
+
+		<h1>{$seo.title}</h1>    
+        <div class="mod item-subject">
+            <div class="pic">
+                <a href=""><img alt=" " src="{:attach($img_list[0]['url'], 'item')}"></a>
+            </div>
+            <div class="item_info">
+            <ul>
+                <li>
+                    <span class="attr-name">价格：</span>
+                    <span class="attr-value">
+                        ￥{$strItem.price}元
+                    </span>
+                </li>
+            </ul>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+<include file="public:footer" />
+</body>
+</html>

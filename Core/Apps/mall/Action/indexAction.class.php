@@ -14,7 +14,10 @@ class indexAction extends frontendAction {
 		} else {
 			$this->userid = $this->visitor->info ['userid'];
 		}
-		$this->user_mod = D ( 'user' );
+       $this->user_mod = D ( 'user' );
+       $this->item_mod = D ( 'mall_item' );
+       $this->item_orig = D( 'mall_item_orig' );
+       $this->item_img = D('mall_item_img');
 		
 		//生成导航
 		$this->assign('arrNav',$this->_nav());
@@ -44,8 +47,9 @@ class indexAction extends frontendAction {
 	}
 	
 	public function explore_goods() {
-
 		
+		$list = $this->item_mod->where(array('status'=>1))->order('add_time desc')->select();
+		$this->assign('list',$list);
 		$this->_config_seo (array('title'=>'发现宝贝','subtitle'=>'爱客商城'));
 		$this->display();
 	}	
