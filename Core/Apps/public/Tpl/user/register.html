@@ -147,7 +147,7 @@ obj.src = $(obj).attr('url') + '&nowtime=' + new Date().getTime();
 
 <tr><td class="label">验证码：</td><td class="field">
 <input name="authcode"  class="uinput" style="width:50px; float:left"/>
-<img src="{:U('public/user/captcha')}" url="{:U('public/user/captcha')}" onclick="javascript:newgdcode(this);" alt="点击刷新验证码" style="cursor:pointer; margin-left:5px; float:left;" align="absmiddle"/></td>
+<img src="{:U('public/user/captcha')}" url="index.php?app=public&m=user&a=captcha" onclick="javascript:newgdcode(this);" alt="点击刷新验证码" style="cursor:pointer; margin-left:5px; float:left;" align="absmiddle"/></td>
 <td class="status"></td></tr>
 
 <tr>
