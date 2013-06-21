@@ -109,7 +109,7 @@ class indexAction extends frontendAction {
      * 瀑布显示
      */
     public function waterfall($where = array(), $order = 'id DESC', $field = '', $page_max = '', $target = '') {
-        $spage_size = 6; //每次加载个数
+        $spage_size = 10; //每次加载个数
         $spage_max = 3; //每页加载次数
         $page_size = $spage_size * $spage_max; //每页显示个数
         
@@ -149,7 +149,7 @@ class indexAction extends frontendAction {
      * 瀑布加载
      */
     public function wall_ajax($where = array(), $order = 'id DESC', $field = '') {
-        $spage_size = 6; //每次加载个数
+        $spage_size = 10; //每次加载个数
         $spage_max = 3; //加载次数
         $p = $this->_get('p', 'intval', 1); //页码
         $sp = $this->_get('sp', 'intval', 1); //子页

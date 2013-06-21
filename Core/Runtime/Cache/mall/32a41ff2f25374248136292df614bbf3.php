@@ -146,17 +146,7 @@ var IKPHPCONF = {
        	 <h1>发现宝贝 </h1>
     <div class="wall_wrap clearfix">
         <div id="J_waterfall" class="wall_container clearfix"  data-uri="<?php echo U('mall/index/index_ajax',array('tag'=>$tag,'sort'=>$sort,'p'=>$p));?>">
-            <div class="J_item wall_tag">
-                <h3>热门标签：</h3>
-                <div class="atags clearfix">
-                    	<a href="<?php echo U('mall/index/album');?>" title="" class="on">全部</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">甜美</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">街拍</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">欧美</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">美女</a>
-                        <a href="<?php echo U('mall/index/album',array('cid'=>1));?>" title="">个性</a>
-                </div>
-            </div>
+           
             <?php if(is_array($item_list)): $i = 0; $__LIST__ = $item_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?><div class="J_item wall_item">
 
 
@@ -171,7 +161,7 @@ var IKPHPCONF = {
         <ul class="pic">
             <li>
                 <a href="<?php echo U('mall/item/index', array('id'=>$item['id']));?>" title="<?php echo ($item["title"]); ?>" target="_blank">
-<img alt="<?php echo ($item["title"]); ?>" class="J_img J_decode_img" data-uri="<?php echo base64_encode(attach(get_thumb($item['img'], '_m'), 'item'));?>">
+<img alt="<?php echo ($item["title"]); ?>" class="J_img J_decode_img" data-uri="<?php echo base64_encode(attach(get_thumb($item['img'], '_m'), 'item'));?>" src="<?php echo attach(get_thumb($item['img'], '_m'), 'item');?>">
                 </a>
                 <span class="p">¥<?php echo ($item["price"]); ?></span>
                 <a href="javascript:;" class="J_joinalbum addalbum_btn" data-id="<?php echo ($item["id"]); ?>"></a>
@@ -213,10 +203,10 @@ var IKPHPCONF = {
     </div><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         
-        <?php if(isset($show_load)): ?><div id="J_wall_loading" class="wall_loading tc gray"><span>加载中。。。</span></div><?php endif; ?>
+        <?php if(isset($show_load)): ?><div id="J_wall_loading" class="wall_loading tc gray"><span>加载中。。。。</span></div><?php endif; ?>
         <?php if(isset($page_bar)): ?><div id="J_wall_page" class="wall_page" <?php if(isset($show_page)): ?>style="display:block;"<?php endif; ?>>
-                <div class="page_bar"><?php echo ($page_bar); ?></div>
-            </div><?php endif; ?>
+            <div class="page_bar"><?php echo ($page_bar); ?></div>
+        </div><?php endif; ?>
         
     </div>
 		

@@ -3,7 +3,15 @@
  * @author QQ：160780470
  * @url http://www.ikphp.com
  */
-;(function(){
+ $(function(){
+	
+    $('#J_waterfall').masonry({
+      // options 设置选项
+      itemSelector : '.J_item',//class 选择器
+	  columnWidth: 226
+  });
+});
+/*(function(){
     $.ikphp.wall = {
         settings : {
             container: '#J_waterfall', //容器
@@ -23,11 +31,15 @@
             if(distance != void(0)){
                 s.distance = distance;
             }
-            //使用masonry插件
-            $(s.container)[0] && $(s.container).imagesLoaded( function(){
-                $(s.container).masonry({
+			 $.ikphp.ui.decode_img($(s.container));
+			  $(s.container).masonry({
                     itemSelector: s.item_unit
                 });
+            //使用masonry插件
+            $(s.container)[0] && $(s.container).imagesLoaded( function(){
+                //$(s.container).masonry({
+                  //  itemSelector: s.item_unit
+                //});
                 $(s.item_unit).animate({opacity: 1});
             });
             $.ikphp.wall.is_loading = !1;
@@ -79,3 +91,5 @@
     }
     $.ikphp.wall.init({distance:IKPHPCONF.config.wall_distance, max_spage:IKPHPCONF.config.wall_spage_max});
 })(jQuery);
+
+*/
