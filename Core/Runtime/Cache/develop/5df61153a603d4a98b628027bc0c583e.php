@@ -1,5 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); if($module_name == 'admin' ): ?><!--引入后台管理的头部模版文件 -->
-<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
 <!--引入后前台公共public的模版文件 -->
@@ -27,48 +26,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
-</head>
-
-<body>
-<div style="margin:150px auto; width:350px;">
-  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
-  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
-    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
-    <li style="color:#666;line-height: 10px;">&nbsp;</li>
-
-    <li style="color:#666;"> 
-        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
-        <script type="text/javascript">
-            (function(){
-                var secs=3,si=setInterval(function(){
-                    if(--secs){
-                        document.getElementById('f3s').innerHTML = secs;
-                    }
-                    else{
-                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
-                    }
-            }, 1000)})();
-        </script>
- 	</li>
-
-  </ul>
-</div>
-</body>
-</html>
-<?php else: ?>
-<!--引入后前台的头部模版文件 -->
-<!DOCTYPE HTML>
-<html>
-<head>
-<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
-<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
-<link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
-<meta name="robots" content="all" />
-<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-__SITE_THEME_CSS__
 </head>
 
 <body>
@@ -155,9 +112,7 @@ __SITE_THEME_CSS__
         </div>
 		<div class="appnav">
 			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): if($key == 'share'): ?><li><a href="javascript:;" class="a_<?php echo ($key); ?>" data-url="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li>
-                    <?php else: ?>
-                    <li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>" ><?php echo ($item[name]); ?></a></li><?php endif; endforeach; endif; ?>
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
 			    </ul>
 		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
                 <input type="hidden" value="all" name="type">
@@ -171,28 +126,45 @@ __SITE_THEME_CSS__
 	</div>
         
 </div>
-<div style="margin:150px auto; width:500px;">
-  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
-  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
-    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
-    <li style="color:#666;line-height: 10px;">&nbsp;</li>
+<div class="midder">
+	<div class="mc">
+    	
+	<div class="boxShadow">
+  	<div class="banner"><a class="btn-release" href="<?php echo U('develop/index/add');?>">发布新应用</a><a class="btn-manage" href="<?php echo U('develop/index/userapp',array('id'=>$visitor[userid]));?>">管理我的应用</a></div>
+		<div class="model clearfix">
+			<ul>
+				<li class=""><a href="#"><strong>开发者风采</strong><br><p>认证开发者的展示平台</p></a></li>			
+				<li class=""><a href="#"><strong>开发文档</strong><br><p>开发相关的文档</p></a></li>
+				<li class=""><a href="#"><strong>交流论坛</strong><br><p>站长与开发者的对话</p></a></li>
+				<li class=""><a href="#"><strong>需求市场</strong><br><p>开发者与需求方的沟通桥梁</p></a></li>
+			</ul>
+		</div>
+		<!-- 
+		<div class="clearfix pb20">
+			<div class="mod-list">
+				<div class="tit"><a href="" class="fr">更多动态>></a><h3>最新动态</h3></div>
+				<ul>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+				</ul>
+			</div>
+			<div class="mod-list">
+				<div class="tit"><a href="" class="fr">更多动态>></a><h3>帮助中心</h3></div>
+				<ul>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+				</ul>
+			</div>
+		</div> -->
+	</div>
 
-    <li style="color:#666;"> 
-        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
-        <script type="text/javascript">
-            (function(){
-                var secs=3,si=setInterval(function(){
-                    if(--secs){
-                        document.getElementById('f3s').innerHTML = secs;
-                    }
-                    else{
-                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
-                    }
-            }, 1000)})();
-        </script>
- 	</li>
-
-  </ul>
+    </div>
 </div>
 <!--引入后前台的模版文件 -->
 <!--footer-->
@@ -223,6 +195,5 @@ __SITE_THEME_CSS__
 </footer>
 <div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
 
-
 </body>
-</html><?php endif; ?></if>
+</html>

@@ -25,20 +25,8 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
-<script>
-var IKPHPCONF = {
-    root: "__ROOT__",
-    uid: "<?php echo $visitor['id'];?>", 
-    async_sendmail: "<?php echo $async_sendmail;?>",
-    config: {
-        wall_distance: "9",
-        wall_spage_max: "3"
-    },
-    url: {}
-};
-</script>
 
-
+<script type="text/javascript" src="__PUBLIC__/js/masonry/jquery.masonry.min.js"></script>
 </head>
 
 <body>
@@ -144,8 +132,8 @@ var IKPHPCONF = {
 <div class="midder">
 	<div class="mc">
        	 <h1>发现宝贝 </h1>
-    <div class="wall_wrap clearfix">
-        <div id="J_waterfall" class="wall_container clearfix"  data-uri="<?php echo U('mall/index/index_ajax',array('tag'=>$tag,'sort'=>$sort,'p'=>$p));?>">
+    <div class="">
+        <div id="J_waterfall" class="wall_container" data-uri="<?php echo U('mall/index/index_ajax',array('tag'=>$tag,'sort'=>$sort,'p'=>$p));?>">
             <div class="J_item wall_tag">
                 <h3>热门标签：</h3>
                 <div class="atags clearfix">
@@ -171,7 +159,7 @@ var IKPHPCONF = {
         <ul class="pic">
             <li>
                 <a href="<?php echo U('mall/item/index', array('id'=>$item['id']));?>" title="<?php echo ($item["title"]); ?>" target="_blank">
-<img alt="<?php echo ($item["title"]); ?>" class="J_img J_decode_img" data-uri="<?php echo base64_encode(attach(get_thumb($item['img'], '_m'), 'item'));?>">
+<img alt="<?php echo ($item["title"]); ?>" class="J_img J_decode_img" data-uri="<?php echo base64_encode(attach(get_thumb($item['img'], '_m'), 'item'));?>" >
                 </a>
                 <span class="p">¥<?php echo ($item["price"]); ?></span>
                 <a href="javascript:;" class="J_joinalbum addalbum_btn" data-id="<?php echo ($item["id"]); ?>"></a>
@@ -188,35 +176,35 @@ var IKPHPCONF = {
         <!--作者-->
 
         <div class="author clearfix">
-            <a href="#" target="_blank">
-                <img class="J_card avt fl r3" src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368699000" data-uid="<?php echo ($item["uid"]); ?>" />
+            <a href="<?php echo U('mall/mine/index',array('id'=>$item[user][doname]));?>" target="_blank">
+                <img class="J_card avt fl r3" src="<?php echo ($item[user][face]); ?>" data-uid="<?php echo ($item["uid"]); ?>" />
             </a>
-             <a href="#" class="J_card clr6 bold" target="_blank" data-uid="<?php echo ($item["uid"]); ?>">小麦</a><br>
+             <div class="user_info">
+ 				<a href="<?php echo U('mall/mine/index',array('id'=>$item[user][doname]));?>" class="J_card clr6 bold" target="_blank" data-uid="<?php echo ($item["userid"]); ?>"><?php echo ($item[user][username]); ?></a>
+                <p class="share_info">分享了<span class="clrff8"><?php echo ($item[sharenum]); ?></span>个搭配</p>
+             </div>
         </div>
 
         <!--说明-->
-        <p class="intro clr6">[满49包邮]南极人包芯丝加档连裤袜丝袜 露趾袜鱼嘴袜 T档连裤袜</p>
+        <p class="intro clr6"><?php echo ($item["intro"]); ?></p>
         <!--评论-->
-
-        <ul class="rep_list">
-
-
-            <li class="rep_f">
-                <a href="<?php echo U('space/index', array('uid'=>$item['comment_list'][$i]['uid']));?>" target="_blank">
-                    <img src="http://s8.mogujie.cn/pic/130516/52957_kqyw6vklnjbg2stwgfjeg5sckzsew_272x275.jpg" class="J_card avt fl r3" alt="<?php echo ($item['comment_list'][$i]['uname']); ?>" data-uid="<?php echo ($item['comment_list'][$i]['uid']); ?>">
+ 		<?php if(!empty($item['comment_list'])): ?><ul class="rep_list">
+            <?php $__FOR_START_25601__=0;$__FOR_END_25601__=C('pin_item_cover_comments');for($i=$__FOR_START_25601__;$i < $__FOR_END_25601__;$i+=1){ if(!empty($item['comment_list'][$i])): ?><li class="rep_f">
+                <a href="" target="_blank">
+                    <img src="" class="J_card avt fl r3" alt="<?php echo ($item['comment_list'][$i]['uname']); ?>" data-uid="">
                 </a>
-                <p class="rep_content"><a href="<?php echo U('space/index', array('uid'=>$item['comment_list'][$i]['uid']));?>" class="J_card n" target="_blank" data-uid="<?php echo ($item['comment_list'][$i]['uid']); ?>">dfas</a>  你发的东西确实很好看哦</p>
-            </li>
-
-        </ul>
-
+                <p class="rep_content"><a href="" class="J_card n" target="_blank" data-uid="">dfas</a>  你发的东西确实很好看哦</p>
+            </li><?php endif; } ?>
+        </ul><?php endif; ?>
     </div><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         
         <?php if(isset($show_load)): ?><div id="J_wall_loading" class="wall_loading tc gray"><span>加载中。。。</span></div><?php endif; ?>
+        
         <?php if(isset($page_bar)): ?><div id="J_wall_page" class="wall_page" <?php if(isset($show_page)): ?>style="display:block;"<?php endif; ?>>
                 <div class="page_bar"><?php echo ($page_bar); ?></div>
             </div><?php endif; ?>
+
         
     </div>
 		
@@ -228,9 +216,8 @@ var IKPHPCONF = {
 </div>
 
 
-<script type="text/javascript" src="__PUBLIC__/js/masonry/jquery.masonry.js"></script>
-<script type="text/javascript" src="__STATIC_JS__/wall.js"></script>
 
+<script type="text/javascript" src="__STATIC_JS__/wall.js"></script>
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>

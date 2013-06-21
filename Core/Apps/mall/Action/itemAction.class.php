@@ -1,13 +1,12 @@
 <?php
 
-class itemAction extends frontendAction {
+class itemAction extends mallbaseAction {
 
     public function _initialize() {
         parent::_initialize();
     		// 访问者控制
 		if (! $this->visitor->is_login && in_array ( ACTION_NAME, array (
-				'fetch_item',
-				'publish_item',
+				
 		) )) {
 			$this->redirect ( 'public/user/login' );
 		} else {
@@ -17,25 +16,14 @@ class itemAction extends frontendAction {
        $this->item_mod = D ( 'mall_item' );
        $this->item_orig = D( 'mall_item_orig' );
        $this->item_img = D('mall_item_img');
-       
-       //生成导航
-       $this->assign('arrNav',$this->_nav());
+
     }
-    protected  function _nav(){
-    	// 导航
-    	if($this->visitor->info['userid']){
-    		$arrNav['mine'] = array('name'=>'我的淘客', 'url'=>U('mall/index/mine'));
-    	}
-    	$arrNav['explore_goods'] = array('name'=>'发现宝贝', 'url'=>U('mall/index/explore_goods'));
-    	$arrNav['explore_album'] = array('name'=>'发现专辑', 'url'=>U('mall/index/explore_album'));
-    	$arrNav['share'] = array('name'=>'分享宝贝', 'url'=>U('mall/item/fetch_item'));
-    	return $arrNav;
-    }
+
     //获取商品信息
     public function fetch_item() {
     	
     	$url = $this->_post('url','trim','');
-    	empty($url) && $this->ajaxReturn();
+    	empty($url) && $this->ajaxReturn(array('r'=>1, 'html'=> '商品地址不能为空'));
     	
     	$itemcollect = new itemcollect();
     	!$itemcollect->url_parse($url) && $this->ajaxReturn(array('r'=>1, 'html'=> '请输入正确的商品地址！'));
@@ -56,9 +44,11 @@ class itemAction extends frontendAction {
     public function publish_item() {
     	$item = unserialize($this->_post('item', 'trim'));
     	!$item['key_id'] && $this->ajaxReturn(array('r'=>1, 'html'=> '发布商品失败！'));
-    	
-    	//单品发布
     	$userid = $this->visitor->info ['userid'];
+    	if(empty($userid)){
+    		$this->ajaxReturn(array('r'=>2, 'html'=> '还没有登录呢？请先登录吧 !'));
+    	}
+    	//单品发布
     	$item['userid'] = $userid;
     	$item['intro'] = $this->_post('intro', 'trim');
     	$item['title'] = $this->_post('title', 'trim');
@@ -68,7 +58,7 @@ class itemAction extends frontendAction {
     	$itemid = $this->item_mod->publish($item);
     	if ($itemid) {
     		//发布商品钩子
-    		$html = '分享商品成功！<a href="'.U('mall/item/index',array('id'=>$itemid)).'">查看我的分享</a>&nbsp;&nbsp;<a href="'.U('mall/index/mine',array('ik'=>'myshare')).'">去我的淘客</a>';
+    		$html = '分享商品成功！<a href="'.U('mall/item/index',array('id'=>$itemid)).'">查看我的分享</a>&nbsp;&nbsp;<a href="'.U('mall/mine/item',array('id'=>$this->visitor->info['doname'])).'">去我的淘客</a>';
     		$this->ajaxReturn(array('r'=>0, 'html'=> $html));
     	} else {
     		$this->ajaxReturn(array('r'=>1, 'html'=> $this->item_mod->getError()));

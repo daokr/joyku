@@ -14,7 +14,7 @@
         <ul class="pic">
             <li>
                 <a href="{:U('mall/item/index', array('id'=>$item['id']))}" title="{$item.title}" target="_blank">
-<img alt="{$item.title}" class="J_img J_decode_img" data-uri="{:base64_encode(attach(get_thumb($item['img'], '_m'), 'item'))}">
+<img alt="{$item.title}" class="J_img J_decode_img" data-uri="{:base64_encode(attach(get_thumb($item['img'], '_m'), 'item'))}" >
                 </a>
                 <span class="p">¥{$item.price}</span>
                 <a href="javascript:;" class="J_joinalbum addalbum_btn" data-id="{$item.id}"></a>
@@ -33,28 +33,32 @@
         <!--作者-->
 
         <div class="author clearfix">
-            <a href="#" target="_blank">
-                <img class="J_card avt fl r3" src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368699000" data-uid="{$item.uid}" />
+            <a href="{:U('mall/mine/index',array('id'=>$item[user][doname]))}" target="_blank">
+                <img class="J_card avt fl r3" src="{$item[user][face]}" data-uid="{$item.uid}" />
             </a>
-             <a href="#" class="J_card clr6 bold" target="_blank" data-uid="{$item.uid}">小麦</a><br>
+             <div class="user_info">
+ 				<a href="{:U('mall/mine/index',array('id'=>$item[user][doname]))}" class="J_card clr6 bold" target="_blank" data-uid="{$item.userid}">{$item[user][username]}</a>
+                <p class="share_info">分享了<span class="clrff8">{$item[sharenum]}</span>个搭配</p>
+             </div>
         </div>
 
         <!--说明-->
-        <p class="intro clr6">[满49包邮]南极人包芯丝加档连裤袜丝袜 露趾袜鱼嘴袜 T档连裤袜</p>
+        <p class="intro clr6">{$item.intro}</p>
         <!--评论-->
-
+ 		<notempty name="item['comment_list']">
         <ul class="rep_list">
-
-
+            <for start="0" end=":C('pin_item_cover_comments')">
+            <notempty name="item['comment_list'][$i]">
             <li class="rep_f">
-                <a href="{:U('space/index', array('uid'=>$item['comment_list'][$i]['uid']))}" target="_blank">
-                    <img src="http://s8.mogujie.cn/pic/130516/52957_kqyw6vklnjbg2stwgfjeg5sckzsew_272x275.jpg" class="J_card avt fl r3" alt="{$item['comment_list'][$i]['uname']}" data-uid="{$item['comment_list'][$i]['uid']}">
+                <a href="" target="_blank">
+                    <img src="" class="J_card avt fl r3" alt="{$item['comment_list'][$i]['uname']}" data-uid="">
                 </a>
-                <p class="rep_content"><a href="{:U('space/index', array('uid'=>$item['comment_list'][$i]['uid']))}" class="J_card n" target="_blank" data-uid="{$item['comment_list'][$i]['uid']}">dfas</a>  你发的东西确实很好看哦</p>
+                <p class="rep_content"><a href="" class="J_card n" target="_blank" data-uid="">dfas</a>  你发的东西确实很好看哦</p>
             </li>
-
+            </notempty>
+            </for>
         </ul>
-
+		</notempty>
     </div>
     
 </volist>
