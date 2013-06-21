@@ -27,8 +27,9 @@ return array (
     '/^event\/(\w+)-(\w+)$/' => 'event/index/lists?time=:1&type=:2',
     '/^event\/(\d+)$/' => 'event/index/show?id=:1',
     '/^develop\/(\d+)$/' => 'develop/index/show?id=:1',
-
-  	'/^mall\/item\/(\d+)$/' => 'mall/item/index?id=:1',
+  		
+    '/^mall\/item\/(\d+)$/' => 'mall/item/index?id=:1',
+    '/^mall\/mine\/(\w+)$/' => 'mall/mine/index?id=:1',
   ),
   'URL_IKPHP_RULES' => 
   array (

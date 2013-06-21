@@ -1,5 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); if($module_name == 'admin' ): ?><!--引入后台管理的头部模版文件 -->
-<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
 <!--引入后前台公共public的模版文件 -->
@@ -27,48 +26,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
-</head>
-
-<body>
-<div style="margin:150px auto; width:350px;">
-  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
-  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
-    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
-    <li style="color:#666;line-height: 10px;">&nbsp;</li>
-
-    <li style="color:#666;"> 
-        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
-        <script type="text/javascript">
-            (function(){
-                var secs=3,si=setInterval(function(){
-                    if(--secs){
-                        document.getElementById('f3s').innerHTML = secs;
-                    }
-                    else{
-                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
-                    }
-            }, 1000)})();
-        </script>
- 	</li>
-
-  </ul>
-</div>
-</body>
-</html>
-<?php else: ?>
-<!--引入后前台的头部模版文件 -->
-<!DOCTYPE HTML>
-<html>
-<head>
-<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
-<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
-<link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
-<meta name="robots" content="all" />
-<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-__SITE_THEME_CSS__
 </head>
 
 <body>
@@ -171,28 +128,45 @@ __SITE_THEME_CSS__
 	</div>
         
 </div>
-<div style="margin:150px auto; width:500px;">
-  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
-  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
-    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
-    <li style="color:#666;line-height: 10px;">&nbsp;</li>
+<div class="midder">
+	<div class="mc">
+    	
+    <div id="db-usr-profile" class="user-profile-nav">
+    	<a href="#" class="setting-btn">DIY装扮空间</a>
+        <div class="db-bar">
+            <div class="pic">
+                <a href="#">
+                  <img width="160" height="160" src="<?php echo ($strUser[face_160]); ?>" alt="<?php echo ($strUser[username]); ?>">
+                </a>
+            </div>
+            <div class="info">
+              <h1><?php echo ($strUser[username]); ?>的个人主页</h1>
+              <p>北京 朝阳区</p>
+              <p>标签：摄影 美妆 搭配</p>
+              <p><a href="#"><font color="red">10</font></a>关注 &nbsp;|&nbsp; <a href="#">90</a>粉丝 &nbsp;|&nbsp; <a href="#">100</a>喜欢</p>
+              <p><a href="#" class="follow">+关注</a> <a href="#" class="sedmsg">@发短信</a></p>
+            </div>
+		</div>
+  </div>
+	<ul class="nav-list">
 
-    <li style="color:#666;"> 
-        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
-        <script type="text/javascript">
-            (function(){
-                var secs=3,si=setInterval(function(){
-                    if(--secs){
-                        document.getElementById('f3s').innerHTML = secs;
-                    }
-                    else{
-                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
-                    }
-            }, 1000)})();
-        </script>
- 	</li>
+    <li><a href="/people/charm_888/">我的专辑</a></li>
+    
+    <li><a href="/people/charm_888/reviews">我的动态</a></li>
+    
+    <li><a href="/people/charm_888/reviews">摄影相册</a></li>
+    
+    <li class="on"><a href="/people/charm_888/reviews">我的分享</a></li>
 
-  </ul>
+</ul>    	
+   <div class="mine-content">
+   		<ul>
+        	<li><img src="http://pic1.guangjiela.com/i/avatars/thumbs_200/201208/1346226561383250.jpg" width="200" height="200"/></li>
+        </ul>
+   </div>
+		        
+        
+    </div>
 </div>
 <!--引入后前台的模版文件 -->
 <!--footer-->
@@ -225,4 +199,4 @@ __SITE_THEME_CSS__
 
 
 </body>
-</html><?php endif; ?></if>
+</html>

@@ -68,7 +68,7 @@ function buildHtml(data){
 	'<div class="rectitle"><span class="m">嗯~ 就是它吧</span></div>',
 	'<div class="panel propanel"><div class="frm-fetch" id="frm-fetch">',
 	'<div class="item"><label>宝贝名称：</label><input name="title" type="text" value="'+data.title+'" maxlength="100"></div>',
-	'<div class="item"><label>评论一下：</label><textarea name="intro" placeholder="喜欢它什么呢？" maxlength="150">很喜欢这个宝贝！</textarea></div>',
+	'<div class="item"><label>评论一下：</label><textarea name="intro" id="intro" placeholder="喜欢它什么呢？" maxlength="150">很喜欢这个宝贝！</textarea></div>',
 	'<div class="item"><label>宝贝标签：</label><input name="tags" type="text" value="'+data.tags+'"></div>',
 	'<div class="item"><label>宝贝图片：</label><div class="proList">'+plist+'</div></div>',
 	'</div></div>',
@@ -81,7 +81,7 @@ function buildHtml(data){
 }
 function fetch_item(obj,item){
 		var form = obj;
-		var	intro = form.find('input[name=intro]').val(),
+		var	intro = form.find('#intro').val(),
 			title = form.find('input[name=title]').val(),
 			tags = form.find('input[name=tags]').val();
 		//安全检查
@@ -97,11 +97,15 @@ function fetch_item(obj,item){
 			},
 			dataType: 'json',
 			success: function(res){
-					pop_win([
-					'<div class="rectitle"><span class="m">提示：</span></div>',
-					'<div class="panel propanel">',
-					'<div class="result_bar"><p>'+res.html+'</p></div>',
-					'</div>'].join('') );
+					if(res.r==2){
+						window.location.href=siteUrl+"/public/user/login/";
+					}else{
+						pop_win([
+						'<div class="rectitle"><span class="m">提示：</span></div>',
+						'<div class="panel propanel">',
+						'<div class="result_bar"><p>'+res.html+'</p></div>',
+						'</div>'].join('') );						
+					}
 					
 			}
 		});

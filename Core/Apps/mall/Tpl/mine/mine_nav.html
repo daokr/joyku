@@ -1,0 +1,9 @@
+<ul class="nav-list">
+	<foreach name="mine_nav" item="item">
+    	<if condition="$key eq $action_name">
+    		<li class="on"><a href="{$item[url]}" title="{$item[name]}">{$item[name]}</a></li>
+        <else/>
+        	<li><a href="{$item[url]}" title="{$item[name]}">{$item[name]}</a></li>
+        </if>
+    </foreach>
+</ul>

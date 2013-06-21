@@ -136,11 +136,11 @@ __EXTENDS_JS__
         <div class="db-bar">
             <div class="pic">
                 <a href="#">
-                  <img width="160" height="160" src="http://pic1.guangjiela.com/i/avatars/thumbs_200/201208/1346226561383250.jpg" alt="小麦狼">
+                  <img width="160" height="160" src="<?php echo ($strUser[face_160]); ?>" alt="<?php echo ($strUser[username]); ?>">
                 </a>
             </div>
             <div class="info">
-              <h1>小猫女的个人主页</h1>
+              <h1><?php echo ($strUser[username]); ?>的个人主页</h1>
               <p>北京 朝阳区</p>
               <p>标签：摄影 美妆 搭配</p>
               <p><a href="#"><font color="red">10</font></a>关注 &nbsp;|&nbsp; <a href="#">90</a>粉丝 &nbsp;|&nbsp; <a href="#">100</a>喜欢</p>
@@ -198,6 +198,7 @@ __EXTENDS_JS__
 </div>
 </footer>
 <div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
+
 
 </body>
 </html>

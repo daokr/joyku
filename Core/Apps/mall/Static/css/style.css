@@ -101,7 +101,6 @@ a:active {
 
 .mine-content{ padding:10px 0px; overflow:hidden}
 
-.mine-content li{ float:left; display:inline-block; margin:10px}
 /*弹窗*/
 .rectitle {
     background: none repeat scroll 0 0 #f3f3f3;
@@ -198,7 +197,9 @@ border-top: none;color: #111111;height: 34px;line-height: 33px;overflow: hidden;
 .wall_item .favorite .creply_n a {color: #888888;text-decoration: underline;}
 .wall_item .favorite .creply {color:#888888;float:right;line-height:23px;margin-right:2px;}
 .wall_item .author {padding:7px 13px 5px 12px;}
-.wall_item .author .avt {margin:3px 7px 0 0;}
+.wall_item .author .avt {margin:3px 7px 0 0; width:48px; height:48px}
+.wall_item .author .user_info {float: right; margin: 0px;overflow: hidden;width: 145px; padding-top:4px}
+.wall_item .author .share_info {clear: both;color: #999999; margin-top:5px}
 .wall_item .author .name {color:#666666;font-weight:bold;}
 .wall_item .intro {padding:0 13px 10px 12px;}
 .wall_item .rep_list {background:none repeat scroll 0 0 #F7F7F7;border-top:1px solid #F0F0F0;padding:7px 13px;}
@@ -238,8 +239,8 @@ border-top: none;color: #111111;height: 34px;line-height: 33px;overflow: hidden;
 .propanel .item  input,.propanel .item  textarea {padding:3px;border:1px solid #ccc;font-size:13px;}
 .propanel .item  input:focus,.propanel .item  textarea {border-color:gray}
 .propanel .proList{ display:block; float:left; width:360px}
-.propanel .proList li{ float:left; margin:0px 5px 0px 0px;}
-.propanel .proList li img{ padding:2px; border:#DEDEDE solid 1px; opacity:0.7;filter:alpha(opacity=70);}
+.propanel .proList li{ float:left; margin:0px 5px 0px 0px; height:110px; display:block; width:110px}
+.propanel .proList li img{ padding:2px; border:#DEDEDE solid 1px; opacity:0.7;filter:alpha(opacity=70); width:100px; height:100px}
 .propanel .proList li a:hover{ background:none;}
 .propanel .proList li a:hover img{opacity:1;filter:alpha(opacity=100);}
 .propanel .result_bar{ padding:40px 10px; text-align:center; font-size:14px;}

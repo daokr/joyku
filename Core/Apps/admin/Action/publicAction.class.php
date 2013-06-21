@@ -30,14 +30,14 @@ class publicAction extends Action {
 		//生成认证条件
 		$map            =   array();
 		// 支持使用绑定帐号登录
-		$map['admin_email']	= $_POST['admin_email'];
+		$map['email']	= $_POST['admin_email'];
 		$map["status"]	=	array('gt',0);
 		$authInfo = M('admin')->where($map)->find();
 		//使用用户名、密码和状态的方式进行认证
 		if(false === $authInfo) {
 			$this->error('帐号不存在或已禁用！');
 		}else {
-			if($authInfo['password'] != md5($_POST['admin_password'])) {
+			if($authInfo['password'] != md5($_POST['admin_password'].md5($map['email']))) {
 				$this->error('密码错误！');
 			}
 			$_SESSION[C('USER_AUTH_KEY')]	=	$authInfo['userid'];

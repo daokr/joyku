@@ -2,6 +2,7 @@
 <html>
 <head>
 <include file="public:head" />
+<js href="__PUBLIC__/js/masonry/jquery.masonry.min.js" />
 </head>
 
 <body>
@@ -14,11 +15,11 @@
         <div class="db-bar">
             <div class="pic">
                 <a href="#">
-                  <img width="160" height="160" src="http://pic1.guangjiela.com/i/avatars/thumbs_200/201208/1346226561383250.jpg" alt="小麦狼">
+                  <img width="160" height="160" src="{$strUser[face_160]}" alt="{$strUser[username]}">
                 </a>
             </div>
             <div class="info">
-              <h1>小猫女的个人主页</h1>
+              <h1>{$strUser[username]}的个人主页</h1>
               <p>北京 朝阳区</p>
               <p>标签：摄影 美妆 搭配</p>
               <p><a href="#"><font color="red">10</font></a>关注 &nbsp;|&nbsp; <a href="#">90</a>粉丝 &nbsp;|&nbsp; <a href="#">100</a>喜欢</p>
@@ -26,28 +27,29 @@
             </div>
 		</div>
   </div>
-    <ul class="nav-list">
-    
-        <li><a href="/people/charm_888/">我的专辑</a></li>
-        
-        <li><a href="/people/charm_888/reviews">我的动态</a></li>
-        
-        <li><a href="/people/charm_888/reviews">摄影相册</a></li>
-        
-        <li class="on"><a href="/people/charm_888/reviews">我的分享</a></li>
-    
-    </ul>
+	<include file="mine_nav"/> 
     	
    <div class="mine-content">
-   		<ul>
-        	<li><img src="http://pic1.guangjiela.com/i/avatars/thumbs_200/201208/1346226561383250.jpg" width="200" height="200"/></li>
-            <li><img src="http://img.taobaocdn.com/bao/uploaded/T1aCKxXwXcXXb1upjX.jpg" width="200" height="200"/></li>
-        </ul>
+        <div id="J_waterfall" class="wall_container" data-uri="{:U('mall/index/index_ajax',array('tag'=>$tag,'sort'=>$sort,'p'=>$p))}">
+            <include file="public:waterfall" />
+        </div>
+        
+        <present name="show_load">
+        <div id="J_wall_loading" class="wall_loading tc gray"><span>加载中。。。</span></div>
+        </present>
+        
+        <present name="page_bar">
+            <div id="J_wall_page" class="wall_page" <present name="show_page">style="display:block;"</present>>
+                <div class="page_bar">{$page_bar}</div>
+            </div>
+        </present>
+        
    </div>
 		        
         
     </div>
 </div>
+<js href="__STATIC_JS__/wall.js" />
 <include file="public:footer" />
 </body>
 </html>
