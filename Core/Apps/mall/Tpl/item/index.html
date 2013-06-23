@@ -2,34 +2,48 @@
 <html>
 <head>
 <include file="public:head" />
+
 </head>
 
 <body>
 <include file="public:header" />
 <div class="midder">
-
-	<div class="mc">
-
-		<h1>{$seo.title}</h1>    
-        <div class="mod item-subject">
-            <div class="pic">
-                <a href=""><img alt=" " src="{:attach($img_list[0]['url'], 'item')}"></a>
+	<div class="mc">  
+		
+        <div class="cleft">
+            <div class="mod item-subject">
+                <h1>{$seo.title}</h1> 
+                <div class="btn-bar">
+                    <a href="#" class="btn btn-icon"><span class="price-tag">{$strItem.price}元</span><i class="icon-splitter"></i><i class="icon-buy"></i>购买</a>&nbsp;&nbsp;<a href="#" target="_blank" class="btn btn-icon btn-like"><i class="icon-like"></i>喜欢 213</a>
+                    <p>(<a class="rating-amount" target="_blank" href="#">1303人评价</a>) </p>
+                </div> 
             </div>
-            <div class="item_info">
-            <ul>
-                <li>
-                    <span class="attr-name">价格：</span>
-                    <span class="attr-value">
-                        ￥{$strItem.price}元
-                    </span>
-                </li>
-            </ul>
+            
+            <div class="item-info">
+            	 <volist name="img_list" id="img">
+                 	<div class="img-item"><a href="#" target="_blank" title="{$strItem.title}"><img src="{:attach(get_thumb($img['url'], '_b'), 'item')}" alt="{$strItem.title}"></a></div>
+                 </volist>
             </div>
+            
         </div>
         
+        <div class="cright">
+			<section>
+				<div class="hd"><h3>宝贝标签</h3></div>
+                <div class="bd">
+                <ul class="tags">
+                	<li><a href="#"><span class="works-category">随笔</span><span class="works-total">345</span></a></li>
+                </ul>
+                </div>
+
+			</section>
+        </div>
+
         
     </div>
 </div>
+<js href="__PUBLIC__/js/masonry/jquery.masonry.min.js" />
+<js href="__STATIC_JS__/item.js"/>
 <include file="public:footer" />
 </body>
 </html>

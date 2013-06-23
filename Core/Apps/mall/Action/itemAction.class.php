@@ -78,6 +78,7 @@ class itemAction extends mallbaseAction {
     	//商品相册
     	$img_list = $this->item_img->field('url')->where(array('item_id' => $id))->order('ordid')->select();
     	
+    	
     	$this->assign('strItem', $item);
     	$this->assign('orig', $orig);
     	$this->assign('img_list', $img_list);

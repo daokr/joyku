@@ -1,7 +1,7 @@
 <?php 
 return array (
   'APP_AUTOLOAD_PATH' => 'COM.iklib',
-  'APP_GROUP_LIST' => 'public,admin,group,article,develop,radio,space,mall,mall,mall',
+  'APP_GROUP_LIST' => 'public,admin,group,article,develop,radio,space,mall,mall,mall,radio',
   'DEFAULT_MODULE' => 'index',
   'APP_GROUP_MODE' => 1,
   'SHOW_PAGE_TRACE' => 0,

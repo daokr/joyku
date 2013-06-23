@@ -25,18 +25,7 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
-<script>
-var IKPHPCONF = {
-    root: "__ROOT__",
-    uid: "<?php echo $visitor['id'];?>", 
-    async_sendmail: "<?php echo $async_sendmail;?>",
-    config: {
-        wall_distance: "500",
-        wall_spage_max: "3"
-    },
-    url: {}
-};
-</script>
+
 
 </head>
 
@@ -141,29 +130,41 @@ var IKPHPCONF = {
         
 </div>
 <div class="midder">
-
-	<div class="mc">
-
-		<h1><?php echo ($seo["title"]); ?></h1>    
-        <div class="mod item-subject">
-            <div class="pic">
-                <a href=""><img alt=" " src="<?php echo attach($img_list[0]['url'], 'item');?>"></a>
+	<div class="mc">  
+		
+        <div class="cleft">
+            <div class="mod item-subject">
+                <h1><?php echo ($seo["title"]); ?></h1> 
+                <div class="btn-bar">
+                    <a href="#" class="btn btn-icon"><span class="price-tag"><?php echo ($strItem["price"]); ?>元</span><i class="icon-splitter"></i><i class="icon-buy"></i>购买</a>&nbsp;&nbsp;<a href="#" target="_blank" class="btn btn-icon btn-like"><i class="icon-like"></i>喜欢 213</a>
+                    <p>(<a class="rating-amount" target="_blank" href="#">1303人评价</a>) </p>
+                </div> 
             </div>
-            <div class="item_info">
-            <ul>
-                <li>
-                    <span class="attr-name">价格：</span>
-                    <span class="attr-value">
-                        ￥<?php echo ($strItem["price"]); ?>元
-                    </span>
-                </li>
-            </ul>
+            
+            <div class="item-info">
+            	 <?php if(is_array($img_list)): $i = 0; $__LIST__ = $img_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$img): $mod = ($i % 2 );++$i;?><div class="img-item"><a href="#" target="_blank" title="<?php echo ($strItem["title"]); ?>"><img src="<?php echo attach(get_thumb($img['url'], '_b'), 'item');?>" alt="<?php echo ($strItem["title"]); ?>"></a></div><?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
+            
         </div>
         
+        <div class="cright">
+			<section>
+				<div class="hd"><h3>宝贝标签</h3></div>
+                <div class="bd">
+                <ul class="tags">
+                <li>
+                	<a href="#"><span class="works-category">随笔</span><span class="works-total">345</span></a></li>
+                </ul>
+                </div>
+
+			</section>
+        </div>
+
         
     </div>
 </div>
+<script type="text/javascript" src="__PUBLIC__/js/masonry/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="__STATIC_JS__/item.js"></script>
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
