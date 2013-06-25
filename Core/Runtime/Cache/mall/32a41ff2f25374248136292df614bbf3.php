@@ -5,7 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
-<meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
+<meta name="description" content="<?php echo ($seo["description"]); ?>" />
+<meta property="qc:admins" content="12472730776130006375" />
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
 __SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
@@ -189,7 +190,7 @@ __EXTENDS_JS__
         <p class="intro clr6"><?php echo ($item["intro"]); ?></p>
         <!--评论-->
  		<?php if(!empty($item['comment_list'])): ?><ul class="rep_list">
-            <?php $__FOR_START_6605__=0;$__FOR_END_6605__=C('pin_item_cover_comments');for($i=$__FOR_START_6605__;$i < $__FOR_END_6605__;$i+=1){ if(!empty($item['comment_list'][$i])): ?><li class="rep_f">
+            <?php $__FOR_START_1159__=0;$__FOR_END_1159__=C('pin_item_cover_comments');for($i=$__FOR_START_1159__;$i < $__FOR_END_1159__;$i+=1){ if(!empty($item['comment_list'][$i])): ?><li class="rep_f">
                 <a href="" target="_blank">
                     <img src="" class="J_card avt fl r3" alt="<?php echo ($item['comment_list'][$i]['uname']); ?>" data-uid="">
                 </a>

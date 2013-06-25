@@ -25,7 +25,6 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
-<link rel="stylesheet" type="text/css" href="__STATIC_CSS__/validate.css" />
 </head>
 
 <body>
@@ -105,43 +104,69 @@ __EXTENDS_JS__
 <!--main-->
 <div class="midder">
 <div class="mc">
-<h1 class="user_tit">用户登录</h1>
 
-<div class="user_left">
-<form method="POST" action="<?php echo U('public/user/login');?>" id="signupform">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<tr><td class="label">Email：</td><td class="field"><input class="uinput" type="email" name="email" autofocus/></td></tr>
-<tr><td class="label">密码：</td><td class="field"><input class="uinput" type="password" name="password" /></td></tr>
-
-<tr>
-<td>&nbsp;</td>
-<td class="field">
-<input type="hidden" name="ret_url" value="<?php echo ($ret_url); ?>" />
-<input type="hidden" name="cktime" value="2592000">
-<input class="submit" type="submit" value="登录" style="margin-top:8px"/> 
-&nbsp;&nbsp;<a href="<?php echo U('public/user/register');?>">还没有帐号？</a> | <a href="<?php echo U('public/user/forgetpwd');?>">忘记密码</a>
-</td>
-</tr>
-</table>
-</form>
-	
-<div class="item item-3rd">
-<label>第三方登录：</label>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'qq'));?>" target="_top"><img title="QQ" src="__PUBLIC__/images/connect_qq.png"></a>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'sina'));?>" target="_top"><img title="新浪微博" src="__PUBLIC__/images/connect_sina_weibo.png"></a>
-</div>
-  
-
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
 </div>
 
-
-<div class="aside"></div>
-
-<div class="cl"></div>
-
+    <div class="utable">
+        <form method="POST" action="<?php echo U('public/user/setbase');?>">
+        <table cellpadding="0" cellspacing="0" width="100%" class="table_1">
+        <tr>
+        <th>登陆Email：</th><td><input class="txt" value="<?php echo ($info["email"]); ?>" disabled="true" /></td>
+        </tr>
+        <tr><th>名 号：</th><td><input class="txt" name="username" value="<?php echo ($info["username"]); ?>"  /></td></tr>
+        
+        <tr><th>性 别：</th><td>
+        
+        <?php if($info["sex"] == '0'): ?><input checked="select" name="sex" type="radio" value="0" />保密 
+        <?php else: ?>
+        <input  name="sex" type="radio" value="0" />保密<?php endif; ?>
+        <?php if($info["sex"] == '1'): ?><input checked="select" name="sex" type="radio" value="1" />男  
+        <?php else: ?>
+        <input  name="sex" type="radio" value="1" />男<?php endif; ?>
+        <?php if($info["sex"] == '2'): ?><input checked="select" name="sex" type="radio" value="2" />女 
+        <?php else: ?>
+        <input name="sex" type="radio" value="2" />女<?php endif; ?>
+        
+        
+        </td></tr>
+        
+        <tr><th>常居地：</th>
+        <td>
+        <?php if(!empty($strarea)): echo ($strarea[one][areaname]); ?> 
+        <?php echo ($strarea[two][areaname]); ?> 
+        <?php echo ($strarea[three][areaname]); endif; ?>
+        </td>
+        </tr>
+        
+        <tr><th>当前所在地：</th><td><input class="txt" name="address" value="<?php echo ($info["address"]); ?>" /></td></tr>
+        
+        <tr><th>登陆IP：</th><td><input class="txt" name="ip" value="<?php echo ($info["ip"]); ?>" disabled="true" /></td></tr>
+        
+        <tr><th>手 机：</th><td><input class="txt" name="phone" value="<?php echo ($info["phone"]); ?>"  /></td></tr>
+        
+        <tr><th>Blog地址：</th><td><input class="txt" name="blog" value="<?php echo ($info["blog"]); ?>"  /></td></tr>
+        
+        <tr><th>自我介绍：</th><td><textarea class="utext" name="about" style="height:70px; width:480px"><?php echo ($info["about"]); ?></textarea></td></tr>
+        
+        <tr><th>签 名：</th><td>
+        <textarea class="utext" name="signed" style="height:70px; width:480px"><?php echo t($info['signed']); ?></textarea>
+        (支持url链接，只需要输入http://www.******.com即可)
+        </td></tr>
+        
+        <tr><th></th><td><input class="submit" type="submit" value="更新个人资料"  /></td></tr>
+        
+        </table>
+        </form>
+    </div>
 </div>
 </div>
-
 <!--footer-->
 <footer>
 <div id="footer">

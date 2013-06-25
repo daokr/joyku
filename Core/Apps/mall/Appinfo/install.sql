@@ -123,3 +123,13 @@ CREATE TABLE `ik_mall_item_cate` (
   `seo_desc` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `ik_mall_item_collects`;
+CREATE TABLE `ik_mall_item_collects` (
+  `userid` int(11) NOT NULL DEFAULT '0',
+  `itemid` int(11) NOT NULL DEFAULT '0',
+  `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '收藏时间',
+  UNIQUE KEY `userid_2` (`userid`,`itemid`),
+  KEY `userid` (`userid`),
+  KEY `itemid` (`itemid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='喜欢的商品/收藏';

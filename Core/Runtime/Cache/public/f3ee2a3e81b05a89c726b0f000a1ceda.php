@@ -25,7 +25,6 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
-<link rel="stylesheet" type="text/css" href="__STATIC_CSS__/validate.css" />
 </head>
 
 <body>
@@ -102,46 +101,104 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
+<script>
+$(document).ready(function() {
+//选择一级区域
+$('#oneid').change(function(){
+	$("#stwoid").html('<img src="'+siteUrl+'static/public/images/loading.gif" />');
+	var oneid = $(this).children('option:selected').val();  //弹出select的值
+	
+	if(oneid==0){
+		$("#stwoid").html('');
+		$("#sthreeid").html('');
+	}else{
+		$("#sthreeid").html('');
+		$.ajax({
+			type: "GET",
+			url:  "<?php echo U('public/user/area',array('ik'=>'two'));?>",
+			data: "oneid="+oneid,
+			success: function(msg){
+				$("#stwoid").html(msg);
+				
+				//选择二级区域
+				$('#twoid').change(function(){
+					$("#sthreeid").html('<img src="'+siteUrl+'static/public/images/loading.gif" />');
+					var twoid = $(this).children('option:selected').val();  //弹出select的值
+					
+					if(twoid == 0){
+						$("#sthreeid").html('');
+					}else{
+					
+						//ajax
+						$.ajax({
+							type: "GET",
+							url:  "<?php echo U('public/user/area',array('ik'=>'three'));?>",
+							data: "twoid="+twoid,
+							success: function(msg){
+								$('#sthreeid').html(msg);
+							}
+						});
+					
+					}
+
+				});
+				
+			}
+		});
+	
+	}
+	
+});
+
+});
+</script>
+
 <!--main-->
 <div class="midder">
 <div class="mc">
-<h1 class="user_tit">用户登录</h1>
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
+</div>
 
-<div class="user_left">
-<form method="POST" action="<?php echo U('public/user/login');?>" id="signupform">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<tr><td class="label">Email：</td><td class="field"><input class="uinput" type="email" name="email" autofocus/></td></tr>
-<tr><td class="label">密码：</td><td class="field"><input class="uinput" type="password" name="password" /></td></tr>
+<div class="utable">
+<form method="POST" action="<?php echo U('public/user/setcity');?>">
+<table cellpadding="0" cellspacing="0" width="100%" class="table_1">
+<tr>
+<th>常居地：</th>
+<td>
+<?php if(!empty($strarea)): echo ($strarea[one][areaname]); ?> 
+<?php echo ($strarea[two][areaname]); ?> 
+<?php echo ($strarea[three][areaname]); endif; ?>
+</td>
+</tr>
 
 <tr>
-<td>&nbsp;</td>
-<td class="field">
-<input type="hidden" name="ret_url" value="<?php echo ($ret_url); ?>" />
-<input type="hidden" name="cktime" value="2592000">
-<input class="submit" type="submit" value="登录" style="margin-top:8px"/> 
-&nbsp;&nbsp;<a href="<?php echo U('public/user/register');?>">还没有帐号？</a> | <a href="<?php echo U('public/user/forgetpwd');?>">忘记密码</a>
+<th>修改常居地：</th>
+<td>
+<select id="oneid" name="oneid" class="txt">
+<option value="0">请选择</option>
+<?php if(is_array($arrOne)): $i = 0; $__LIST__ = $arrOne;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo[areaid]); ?>"><?php echo ($vo[areaname]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+</select>
+<span id="stwoid"></span>
+<span id="sthreeid"></span>
 </td>
+</tr>
+<tr>
+	<th></th>
+    <td><input class="submit" type="submit" value="修改"  /></td>
 </tr>
 </table>
 </form>
-	
-<div class="item item-3rd">
-<label>第三方登录：</label>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'qq'));?>" target="_top"><img title="QQ" src="__PUBLIC__/images/connect_qq.png"></a>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'sina'));?>" target="_top"><img title="新浪微博" src="__PUBLIC__/images/connect_sina_weibo.png"></a>
-</div>
-  
 
-</div>
-
-
-<div class="aside"></div>
-
-<div class="cl"></div>
 
 </div>
 </div>
-
+</div>
 <!--footer-->
 <footer>
 <div id="footer">

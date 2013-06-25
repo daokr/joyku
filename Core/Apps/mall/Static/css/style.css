@@ -340,3 +340,35 @@ a.btn-like:hover{ background-color:#2fa817;border-color:#2fa817}
 #g-user-profile .uname a:hover {
 	color:#fff
 }
+.obu {
+    display: inline;
+    float: left;
+    margin: 0 0 10px;
+    width: 76px;
+}
+.obu dt {
+    height: 50px;
+    line-height: 16px;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+}
+.obu dd {
+    height: 55px;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+}
+.pl {
+    color: #666666;
+    font: 12px/150% Arial;
+	padding:10px 0;
+}
+
+.pl2 {
+    color: #666666;
+	font-size:14px;
+	line-height:35px;
+}
+.fav-cancel, .fav-cancel:link, .fav-cancel:hover{ background:none}
+.fav-add, .fav-add:link, .fav-add:hover{ background:none}

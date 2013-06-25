@@ -78,7 +78,8 @@ class taobao_itemcollect {
             }
         }
         import("ORG.Util.Url");
-        $result['item']['url'] = Url::replace($result['item']['url'], array('spm' => '2014.21069764.' . $api_config['app_key'] . '.0'));
+        //$result['item']['url'] = Url::replace($result['item']['url'], array('spm' => '2014.21069764.' . $api_config['app_key'] . '.0'));
+        $result['item']['url'] = Url::replace($result['item']['url'], array('spm' => '2014.' . $api_config['app_key'] . '.0'));
         return $result;
     }
 

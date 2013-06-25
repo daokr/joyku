@@ -25,7 +25,6 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
-<link rel="stylesheet" type="text/css" href="__STATIC_CSS__/validate.css" />
 </head>
 
 <body>
@@ -105,43 +104,28 @@ __EXTENDS_JS__
 <!--main-->
 <div class="midder">
 <div class="mc">
-<h1 class="user_tit">用户登录</h1>
 
-<div class="user_left">
-<form method="POST" action="<?php echo U('public/user/login');?>" id="signupform">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<tr><td class="label">Email：</td><td class="field"><input class="uinput" type="email" name="email" autofocus/></td></tr>
-<tr><td class="label">密码：</td><td class="field"><input class="uinput" type="password" name="password" /></td></tr>
-
-<tr>
-<td>&nbsp;</td>
-<td class="field">
-<input type="hidden" name="ret_url" value="<?php echo ($ret_url); ?>" />
-<input type="hidden" name="cktime" value="2592000">
-<input class="submit" type="submit" value="登录" style="margin-top:8px"/> 
-&nbsp;&nbsp;<a href="<?php echo U('public/user/register');?>">还没有帐号？</a> | <a href="<?php echo U('public/user/forgetpwd');?>">忘记密码</a>
-</td>
-</tr>
-</table>
-</form>
-	
-<div class="item item-3rd">
-<label>第三方登录：</label>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'qq'));?>" target="_top"><img title="QQ" src="__PUBLIC__/images/connect_qq.png"></a>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'sina'));?>" target="_top"><img title="新浪微博" src="__PUBLIC__/images/connect_sina_weibo.png"></a>
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
 </div>
-  
-
-</div>
-
-
-<div class="aside"></div>
-
-<div class="cl"></div>
-
+    <?php if($info["face"] == ''): ?><div style="font-size:14px; line-height:30px">请上传头像后才可以正常使用浏览网站^_^</div><?php endif; ?>
+    <div class="face_form">
+    <form method="POST" action="<?php echo U('public/user/setface');?>" enctype="multipart/form-data" >
+        <img alt="<?php echo ($info["username"]); ?>" valign="middle" src="<?php echo avatar($info['userid'], 48);?>" class="pil" />
+        <div class="file_info">
+            <p>从你的电脑上选择图像文件：(仅支持jpg，jpeg，gif，png格式的图片)  大小不超过 <?php echo C('ik_attr_allow_size');?> KB</p>
+            <p><input type="file" name="picfile" style="height:25px; "/>&nbsp;&nbsp;<input class="submit" type="submit" value="上传照片" /></p>
+        </div>    
+    </form>
+    </div>
+    
 </div>
 </div>
-
 <!--footer-->
 <footer>
 <div id="footer">

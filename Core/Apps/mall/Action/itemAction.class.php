@@ -16,6 +16,7 @@ class itemAction extends mallbaseAction {
        $this->item_mod = D ( 'mall_item' );
        $this->item_orig = D( 'mall_item_orig' );
        $this->item_img = D('mall_item_img');
+       $this->item_col = D('mall_item_collects');
 
     }
 
@@ -72,21 +73,50 @@ class itemAction extends mallbaseAction {
     	$item_mod = $this->item_mod;
     	$item = $item_mod->field('id,title,userid,intro,price,url,likes,comments,tag_cache,seo_title,seo_keys,seo_desc,add_time')->where(array('id' => $id, 'status' => 1))->find();
     	!$item && $this->_404();
+    	$user = $this->visitor->get ();
     	//来源
     	$orig = $this->item_orig->field('name,img')->find($item['orig_id']);
     	$item['user'] = $this->user_mod->getOneUser($item['userid']);
     	$item['user']['isfollow'] = $this->user_mod->isFollow($this->userid, $item['userid']);//是否关注
+
+		// 喜欢收藏的人数
+		$likenum = $this->item_col->countLike ( $id );
+		$is_Like = $this->item_col->isLike ( $user ['userid'], $id );
+		$item ['islike'] = $is_Like;
+		$item ['likenum'] = $likenum;
+		
+
+		
+		
     	//商品相册
     	$img_list = $this->item_img->field('url')->where(array('item_id' => $id))->order('ordid')->select();
-
+		// 喜欢该商品的用户
+		$arrCollectUser = $this->item_col->likeItemUser ( $id );
     	
 
     	$this->assign('strItem', $item);
     	$this->assign('orig', $orig);
     	$this->assign('img_list', $img_list);
-
+		$this->assign ( 'arrCollectUser', $arrCollectUser );
+		
     	$this->_config_seo (array('title'=>$item['title'],'subtitle'=>'爱客商城'));
     	$this->display();
+    }
+    //喜欢该商品
+    public function like(){
+		$itemid = $this->_post ( 'tid' );
+		if (empty ( $itemid )) {
+			$this->error ( "非法操作！" );
+		}
+		$arrJson = $this->item_col->collectItem ( $this->userid, $itemid );
+		$this->ajaxReturn($arrJson);
+    }
+    /**
+     * 点击去购买
+     */
+    public function buy() {
+        $url = $this->_get('url', 'base64_decode');
+        redirect($url);
     }
 
 }

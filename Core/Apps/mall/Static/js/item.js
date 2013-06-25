@@ -21,5 +21,5 @@
             });
         }
     };
-    $.ikphp.item.init();
+    //$.ikphp.item.init();
 })(jQuery);

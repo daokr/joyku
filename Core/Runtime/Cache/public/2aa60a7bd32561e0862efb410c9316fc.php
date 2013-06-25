@@ -1,31 +1,15 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
-<meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
-<meta name="description" content="<?php echo ($seo["description"]); ?>" />
-<meta property="qc:admins" content="12472730776130006375" />
+<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
+<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
+<meta name="robots" content="all" />
+<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
+<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
 __SITE_THEME_CSS__
-<!--[if gte IE 7]><!-->
-    <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
-<!--<![endif]-->
-<!--[if lt IE 7]>
-    <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
-<![endif]-->
-<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
-<script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
-<script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
-<script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
-<script src="__PUBLIC__/js/all.js" type="text/javascript"></script>
-<!--[if lt IE 9]>
-<script src="__PUBLIC__/js/html5.js"></script>
-<![endif]-->
-<script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
-__EXTENDS_JS__
-<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
-<link rel="stylesheet" type="text/css" href="__STATIC_CSS__/validate.css" />
 </head>
 
 <body>
@@ -102,46 +86,29 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
-<!--main-->
-<div class="midder">
-<div class="mc">
-<h1 class="user_tit">用户登录</h1>
+<div style="margin:150px auto; width:350px;">
+  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
+  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
+    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($message); ?></li>
+    <li style="color:#666;line-height: 10px;">&nbsp;</li>
 
-<div class="user_left">
-<form method="POST" action="<?php echo U('public/user/login');?>" id="signupform">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<tr><td class="label">Email：</td><td class="field"><input class="uinput" type="email" name="email" autofocus/></td></tr>
-<tr><td class="label">密码：</td><td class="field"><input class="uinput" type="password" name="password" /></td></tr>
+    <li style="color:#666;"> 
+        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
+        <script type="text/javascript">
+            (function(){
+                var secs=3,si=setInterval(function(){
+                    if(--secs){
+                        document.getElementById('f3s').innerHTML = secs;
+                    }
+                    else{
+                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
+                    }
+            }, 1000)})();
+        </script>
+ 	</li>
 
-<tr>
-<td>&nbsp;</td>
-<td class="field">
-<input type="hidden" name="ret_url" value="<?php echo ($ret_url); ?>" />
-<input type="hidden" name="cktime" value="2592000">
-<input class="submit" type="submit" value="登录" style="margin-top:8px"/> 
-&nbsp;&nbsp;<a href="<?php echo U('public/user/register');?>">还没有帐号？</a> | <a href="<?php echo U('public/user/forgetpwd');?>">忘记密码</a>
-</td>
-</tr>
-</table>
-</form>
-	
-<div class="item item-3rd">
-<label>第三方登录：</label>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'qq'));?>" target="_top"><img title="QQ" src="__PUBLIC__/images/connect_qq.png"></a>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'sina'));?>" target="_top"><img title="新浪微博" src="__PUBLIC__/images/connect_sina_weibo.png"></a>
+  </ul>
 </div>
-  
-
-</div>
-
-
-<div class="aside"></div>
-
-<div class="cl"></div>
-
-</div>
-</div>
-
 <!--footer-->
 <footer>
 <div id="footer">

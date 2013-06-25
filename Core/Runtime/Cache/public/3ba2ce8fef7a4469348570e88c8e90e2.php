@@ -25,7 +25,6 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
-<link rel="stylesheet" type="text/css" href="__STATIC_CSS__/validate.css" />
 </head>
 
 <body>
@@ -105,39 +104,36 @@ __EXTENDS_JS__
 <!--main-->
 <div class="midder">
 <div class="mc">
-<h1 class="user_tit">用户登录</h1>
-
-<div class="user_left">
-<form method="POST" action="<?php echo U('public/user/login');?>" id="signupform">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="Tabletext">
-<tr><td class="label">Email：</td><td class="field"><input class="uinput" type="email" name="email" autofocus/></td></tr>
-<tr><td class="label">密码：</td><td class="field"><input class="uinput" type="password" name="password" /></td></tr>
-
-<tr>
-<td>&nbsp;</td>
-<td class="field">
-<input type="hidden" name="ret_url" value="<?php echo ($ret_url); ?>" />
-<input type="hidden" name="cktime" value="2592000">
-<input class="submit" type="submit" value="登录" style="margin-top:8px"/> 
-&nbsp;&nbsp;<a href="<?php echo U('public/user/register');?>">还没有帐号？</a> | <a href="<?php echo U('public/user/forgetpwd');?>">忘记密码</a>
-</td>
-</tr>
-</table>
-</form>
-	
-<div class="item item-3rd">
-<label>第三方登录：</label>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'qq'));?>" target="_top"><img title="QQ" src="__PUBLIC__/images/connect_qq.png"></a>
-<a href="<?php echo U('public/oauth/index', array('mod'=>'sina'));?>" target="_top"><img title="新浪微博" src="__PUBLIC__/images/connect_sina_weibo.png"></a>
-</div>
-  
-
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
 </div>
 
-
-<div class="aside"></div>
-
-<div class="cl"></div>
+    <div class="utable">
+    <form method="POST" action="<?php echo U('public/user/setdoname');?>" onsubmit="return checkDoname(this);">
+    <table cellpadding="5" cellspacing="5">
+    <tr>
+    <th>个性域名：</th>
+    <td>
+    <?php echo C('ik_site_url');?>/space/ <input class="txt" name="doname" value="<?php echo ($strUser[doname]); ?>" type="text" />
+    </td>
+    </tr>
+    <tr>
+    <th>&nbsp;</th>
+    <td>
+	<div class="tips">域名最长15个字符，可输入英文字母 数字 和 符号( - _ )，首字符必须是英文字母</div>
+    </td>
+    </tr>    
+    
+    <tr><th></th><td><input class="submit" type="submit" value="好了，保存"  /></td></tr>
+    
+    </table>
+    </form>
+    </div>
 
 </div>
 </div>

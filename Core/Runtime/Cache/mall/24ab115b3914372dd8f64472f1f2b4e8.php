@@ -5,7 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
-<meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
+<meta name="description" content="<?php echo ($seo["description"]); ?>" />
+<meta property="qc:admins" content="12472730776130006375" />
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
 __SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
@@ -136,13 +137,18 @@ __EXTENDS_JS__
             <div class="mod item-subject">
                 <h1><?php echo ($seo["title"]); ?></h1> 
                 <div class="btn-bar">
-                    <a href="#" class="btn btn-icon"><span class="price-tag"><?php echo ($strItem["price"]); ?>元</span><i class="icon-splitter"></i><i class="icon-buy"></i>购买</a>&nbsp;&nbsp;<a href="#" target="_blank" class="btn btn-icon btn-like"><i class="icon-like"></i>喜欢 213</a>
-                    <p>(<a class="rating-amount" target="_blank" href="#">1303人评价</a>) </p>
+                    <a href="<?php echo U('mall/item/buy');?>?url=<?php echo base64_encode($strItem['url']);?>"  target="_blank" class="btn btn-icon"><span class="price-tag"><?php echo ($strItem["price"]); ?>元</span><i class="icon-splitter"></i><i class="icon-buy"></i>购买</a>&nbsp;&nbsp;
+                
+                <?php if($strItem[islike]): ?><a href="<?php echo U('mall/item/like');?>" title="取消喜欢" data-tkind="<?php echo ($strItem[id]); ?>" data-tid="<?php echo ($strItem[id]); ?>" data-tuid="<?php echo ($visitor['userid']); ?>"  class="btn btn-icon btn-like i a_like_btn"><i class="icon-like"></i>喜欢 <span id="like-num"><?php echo ($strItem[likes]); ?>人</span></a> 
+				<?php else: ?>
+                <a href="<?php echo U('mall/item/like');?>" title="标为喜欢" data-tkind="<?php echo ($strItem[id]); ?>" data-tid="<?php echo ($strItem[id]); ?>" data-tuid="<?php echo ($visitor['userid']); ?>"  class="btn btn-icon btn-like i a_like_btn"><i class="icon-like"></i>喜欢 <span id="like-num"><?php echo ($strItem[likes]); ?>人</span></a><?php endif; ?>
+
+                    <p>（<a class="rating-amount" target="_blank" href="#"><?php echo ($strItem[comments]); ?>人评价</a>）</p>
                 </div> 
             </div>
             
             <div class="item-info">
-            	 <?php if(is_array($img_list)): $i = 0; $__LIST__ = $img_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$img): $mod = ($i % 2 );++$i;?><div class="img-item"><a href="#" target="_blank" title="<?php echo ($strItem["title"]); ?>"><img src="<?php echo attach(get_thumb($img['url'], '_b'), 'item');?>" alt="<?php echo ($strItem["title"]); ?>"></a></div><?php endforeach; endif; else: echo "" ;endif; ?>
+            	 <?php if(is_array($img_list)): $i = 0; $__LIST__ = $img_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$img): $mod = ($i % 2 );++$i;?><div class="img-item"><a href="<?php echo U('mall/item/buy');?>?url=<?php echo base64_encode($strItem['url']);?>"  target="_blank"  title="<?php echo ($strItem["title"]); ?>"><img src="<?php echo attach(get_thumb($img['url'], '_b'), 'item');?>" alt="<?php echo ($strItem["title"]); ?>"></a></div><?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
             
         </div>
@@ -170,15 +176,28 @@ __EXTENDS_JS__
 				<div class="hd"><h3>标签</h3></div>
                 <div class="bd">
                 <ul class="tags">
-                	<li><a href="#"><span class="works-category">随笔</span><span class="works-total">345</span></a></li>
+                	<li><a href="#"><span class="works-category">甜美</span><span class="works-total">345</span></a></li>
+                    <li><a href="#"><span class="works-category">可爱女郎</span><span class="works-total">345</span></a></li>
                 </ul>
                 </div>
 			</div>
             
 			<div class="mod">
-				<div class="hd"><h3>最被喜欢的</h3></div>
+				<div class="hd"><h3>喜欢该宝贝的人</h3></div>
                 <div class="bd">
-
+                    <?php if(isset($arrCollectUser)): if(is_array($arrCollectUser)): foreach($arrCollectUser as $key=>$item): ?><dl class="obu">
+                            <dt>
+                                <a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>" title="<?php echo ($item[username]); ?>">
+                                    <img  alt="<?php echo ($item[username]); ?>"  src="<?php echo avatar($item['userid'], 48);?>"class="m_sub_img"  >
+                                </a>
+                            </dt>
+                            <dd>
+                                 <?php echo ($item[username]); ?><br>
+                                <span class="pl">(<a href="<?php echo U('location/area',array('areaid'=>$item[area][areaid]));?>"><?php echo ($item[area][areaname]); ?></a>)</span>
+                            </dd>
+                    </dl><?php endforeach; endif; ?>
+                    <?php else: ?>
+                    <div style="color: #999999;padding: 20px 0">还没有人喜欢该宝贝呢，赶快来抢个沙发吧^_^</div><?php endif; ?>
                 </div>
 			</div>            
             
