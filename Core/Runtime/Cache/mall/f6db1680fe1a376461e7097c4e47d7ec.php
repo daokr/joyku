@@ -188,28 +188,26 @@ __EXTENDS_JS__
         <!--作者-->
 
         <div class="author clearfix">
-            <a href="#" target="_blank">
-                <img class="J_card avt fl r3" src="http://www.ikphp.com/data/upload/face/000/00/00/c81e728d9d4c2f636f067f89cc14862c_48_48.jpg?v=1368699000" data-uid="<?php echo ($item["uid"]); ?>" />
+            <a href="<?php echo U('mall/mine/index',array('id'=>$item[user][doname]));?>" target="_blank">
+                <img class="J_card avt fl r3" src="<?php echo ($item[user][face]); ?>" data-uid="<?php echo ($item["uid"]); ?>" />
             </a>
-             <a href="#" class="J_card clr6 bold" target="_blank" data-uid="<?php echo ($item["uid"]); ?>">小麦</a><br>
+             <div class="user_info">
+ 				<a href="<?php echo U('mall/mine/index',array('id'=>$item[user][doname]));?>" class="J_card clr6 bold" target="_blank" data-uid="<?php echo ($item["userid"]); ?>"><?php echo ($item[user][username]); ?></a>
+                <p class="share_info">分享了<span class="clrff8"><?php echo ($item[sharenum]); ?></span>个搭配</p>
+             </div>
         </div>
 
         <!--说明-->
-        <p class="intro clr6">[满49包邮]南极人包芯丝加档连裤袜丝袜 露趾袜鱼嘴袜 T档连裤袜</p>
+        <p class="intro clr6"><?php echo ($item["intro"]); ?></p>
         <!--评论-->
-
-        <ul class="rep_list">
-
-
-            <li class="rep_f">
-                <a href="<?php echo U('space/index', array('uid'=>$item['comment_list'][$i]['uid']));?>" target="_blank">
-                    <img src="http://s8.mogujie.cn/pic/130516/52957_kqyw6vklnjbg2stwgfjeg5sckzsew_272x275.jpg" class="J_card avt fl r3" alt="<?php echo ($item['comment_list'][$i]['uname']); ?>" data-uid="<?php echo ($item['comment_list'][$i]['uid']); ?>">
+ 		<?php if(!empty($item['comment_list'])): ?><ul class="rep_list">
+            <?php $__FOR_START_20606__=0;$__FOR_END_20606__=C('pin_item_cover_comments');for($i=$__FOR_START_20606__;$i < $__FOR_END_20606__;$i+=1){ if(!empty($item['comment_list'][$i])): ?><li class="rep_f">
+                <a href="" target="_blank">
+                    <img src="" class="J_card avt fl r3" alt="<?php echo ($item['comment_list'][$i]['uname']); ?>" data-uid="">
                 </a>
-                <p class="rep_content"><a href="<?php echo U('space/index', array('uid'=>$item['comment_list'][$i]['uid']));?>" class="J_card n" target="_blank" data-uid="<?php echo ($item['comment_list'][$i]['uid']); ?>">dfas</a>  你发的东西确实很好看哦</p>
-            </li>
-
-        </ul>
-
+                <p class="rep_content"><a href="" class="J_card n" target="_blank" data-uid="">dfas</a>  你发的东西确实很好看哦</p>
+            </li><?php endif; } ?>
+        </ul><?php endif; ?>
     </div><?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         
@@ -253,6 +251,13 @@ __EXTENDS_JS__
 </div>
 </footer>
 <div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1&amp;pos=right&amp;uid=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
 
 
 </body>

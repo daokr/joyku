@@ -407,7 +407,12 @@ class userAction extends userbaseAction {
 			//发送消息
 			
 			$doname = $this->user_mod->where(array('userid'=>$userid_follow))->getField('doname');
-			$this->redirect ( 'space/index/index', array('id'=>$doname));
+			// 来路
+			if(isset ( $_SERVER ['HTTP_REFERER'] )) {
+				$this->redirect($_SERVER ['HTTP_REFERER']);
+			}else{
+				$this->redirect ( 'space/index/index', array('id'=>$doname));
+			}
 		}
 	}
 	// 取消关注某人

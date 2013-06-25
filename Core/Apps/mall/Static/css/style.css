@@ -281,15 +281,11 @@ a.btn-like:hover{ background-color:#2fa817;border-color:#2fa817}
 .item-info{ background-color:#efefef; padding:20px; text-align:center}
 .item-info .img-item{ position:relative; margin:10px auto;}
 
-.cright  section {
-    margin-bottom: 30px;
+.cright  .section {margin-bottom: 30px;
 }
-.cright  .hd{
-    margin-bottom: 10px;
+.cright  .hd{margin-bottom: 10px;
 }
-.cright  .hd h3{
-	font-size:16px; font-weight:bold
-}
+.cright  .hd h3{font-size:16px; font-weight:bold}
 .cright .tags{}
 .cright .tags li {display: inline;}
 
@@ -303,7 +299,44 @@ a.btn-like:hover{ background-color:#2fa817;border-color:#2fa817}
     word-wrap: break-word;
 }
 .tags a:hover{ color:#999; background-color:#dbdbd4}
-.works-total {
-    color: #999999;
-    margin-left: 3px;
+.works-total {color: #999999;margin-left: 3px;}
+
+#g-user-profile .usercard {
+	overflow:hidden;
+	zoom:1;
+	padding-bottom:14px;
+	margin-bottom:3px;
+	border-bottom:1px solid #dcdcdc
+}
+#g-user-profile .pic {
+	float:left;
+	margin-right:16px
+}
+#g-user-profile .pic img {
+	width:48px;
+	height:48px
+}
+#g-user-profile .info {
+	overflow:hidden;
+	zoom:1;
+	color:#666
+}
+#g-user-profile .info .namebar {
+	margin-bottom:4px;
+	font-size:14px
+}
+#g-user-profile .followed,
+#g-user-profile .unfollow,
+#g-user-profile .follow {font-size:12px}
+
+#g-user-profile .follow-btn, 
+#g-user-profile a.follow-btn,
+#g-user-profile a.follow-btn:link,
+#g-user-profile a.follow-btn:visited{background-color:#c4663c; padding:2px 10px; color:#fff; border-radius:3px;}
+#g-user-profile a.follow-btn:hover{ background-color:#da6e3e}
+#g-user-profile .uname a:link, #g-user-profile .uname a:visited {
+	color:#333
+}
+#g-user-profile .uname a:hover {
+	color:#fff
 }

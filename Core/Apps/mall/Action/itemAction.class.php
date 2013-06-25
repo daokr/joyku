@@ -72,13 +72,15 @@ class itemAction extends mallbaseAction {
     	$item_mod = $this->item_mod;
     	$item = $item_mod->field('id,title,userid,intro,price,url,likes,comments,tag_cache,seo_title,seo_keys,seo_desc,add_time')->where(array('id' => $id, 'status' => 1))->find();
     	!$item && $this->_404();
-    	
     	//来源
     	$orig = $this->item_orig->field('name,img')->find($item['orig_id']);
+    	$item['user'] = $this->user_mod->getOneUser($item['userid']);
+    	$item['user']['isfollow'] = $this->user_mod->isFollow($this->userid, $item['userid']);//是否关注
     	//商品相册
     	$img_list = $this->item_img->field('url')->where(array('item_id' => $id))->order('ordid')->select();
+
     	
-    	
+
     	$this->assign('strItem', $item);
     	$this->assign('orig', $orig);
     	$this->assign('img_list', $img_list);

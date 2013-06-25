@@ -148,16 +148,40 @@ __EXTENDS_JS__
         </div>
         
         <div class="cright">
-			<section>
-				<div class="hd"><h3>宝贝标签</h3></div>
+        
+            <div class="mod" id="g-user-profile">
+                <div class="usercard">
+                  <div class="pic">
+                        <a href="<?php echo U('mall/mine/index',array('id'=>$strItem[user][doname]));?>"><img alt="<?php echo ($strItem[user][username]); ?>" src="<?php echo ($strItem[user][face]); ?>"></a>
+                  </div>
+                  <div class="info">
+                       <div class="namebar">
+                           <a href="<?php echo U('mall/mine/index',array('id'=>$strItem[user][doname]));?>" class="uname"><?php echo ($strItem[user][username]); ?></a>
+                            <?php if($strItem[user][userid] != $visitor[userid]): if($strItem[user][isfollow]): ?><span class="followed">√已关注</span>
+                                <?php else: ?>
+                                <a class="follow follow-btn" href="<?php echo U('public/user/userfollow',array('userid'=>$strItem[user][userid]));?>">+关注</a><?php endif; endif; ?>
+                       </div>
+                         <p><?php echo ($strItem[intro]); ?></p>                    
+                   </div>
+                </div>
+            </div> 
+                    
+			<div class="mod">
+				<div class="hd"><h3>标签</h3></div>
                 <div class="bd">
                 <ul class="tags">
-                <li>
-                	<a href="#"><span class="works-category">随笔</span><span class="works-total">345</span></a></li>
+                	<li><a href="#"><span class="works-category">随笔</span><span class="works-total">345</span></a></li>
                 </ul>
                 </div>
+			</div>
+            
+			<div class="mod">
+				<div class="hd"><h3>最被喜欢的</h3></div>
+                <div class="bd">
 
-			</section>
+                </div>
+			</div>            
+            
         </div>
 
         
@@ -193,6 +217,13 @@ __EXTENDS_JS__
 </div>
 </footer>
 <div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1&amp;pos=right&amp;uid=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
 
 
 </body>

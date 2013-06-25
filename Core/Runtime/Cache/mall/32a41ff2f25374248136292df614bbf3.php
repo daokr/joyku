@@ -189,7 +189,7 @@ __EXTENDS_JS__
         <p class="intro clr6"><?php echo ($item["intro"]); ?></p>
         <!--评论-->
  		<?php if(!empty($item['comment_list'])): ?><ul class="rep_list">
-            <?php $__FOR_START_10079__=0;$__FOR_END_10079__=C('pin_item_cover_comments');for($i=$__FOR_START_10079__;$i < $__FOR_END_10079__;$i+=1){ if(!empty($item['comment_list'][$i])): ?><li class="rep_f">
+            <?php $__FOR_START_6605__=0;$__FOR_END_6605__=C('pin_item_cover_comments');for($i=$__FOR_START_6605__;$i < $__FOR_END_6605__;$i+=1){ if(!empty($item['comment_list'][$i])): ?><li class="rep_f">
                 <a href="" target="_blank">
                     <img src="" class="J_card avt fl r3" alt="<?php echo ($item['comment_list'][$i]['uname']); ?>" data-uid="">
                 </a>
@@ -246,6 +246,13 @@ __EXTENDS_JS__
 </div>
 </footer>
 <div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1&amp;pos=right&amp;uid=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
 
 
 </body>

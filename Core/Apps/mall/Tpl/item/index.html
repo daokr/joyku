@@ -28,15 +28,44 @@
         </div>
         
         <div class="cright">
-			<section>
-				<div class="hd"><h3>宝贝标签</h3></div>
+        
+            <div class="mod" id="g-user-profile">
+                <div class="usercard">
+                  <div class="pic">
+                        <a href="{:U('mall/mine/index',array('id'=>$strItem[user][doname]))}"><img alt="{$strItem[user][username]}" src="{$strItem[user][face]}"></a>
+                  </div>
+                  <div class="info">
+                       <div class="namebar">
+                           <a href="{:U('mall/mine/index',array('id'=>$strItem[user][doname]))}" class="uname">{$strItem[user][username]}</a>
+                            <if condition="$strItem[user][userid] neq $visitor[userid]">                           
+                                <if condition="$strItem[user][isfollow]">
+                                    <span class="followed">√已关注</span>
+                                <else/>
+                                <a class="follow follow-btn" href="{:U('public/user/userfollow',array('userid'=>$strItem[user][userid]))}">+关注</a>
+                                </if>
+                            </if>
+                       </div>
+                         <p>{$strItem[intro]}</p>                    
+                   </div>
+                </div>
+            </div> 
+                    
+			<div class="mod">
+				<div class="hd"><h3>标签</h3></div>
                 <div class="bd">
                 <ul class="tags">
                 	<li><a href="#"><span class="works-category">随笔</span><span class="works-total">345</span></a></li>
                 </ul>
                 </div>
+			</div>
+            
+			<div class="mod">
+				<div class="hd"><h3>最被喜欢的</h3></div>
+                <div class="bd">
 
-			</section>
+                </div>
+			</div>            
+            
         </div>
 
         
