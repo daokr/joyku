@@ -248,5 +248,62 @@ border-top: none;color: #111111;height: 34px;line-height: 33px;overflow: hidden;
 .propanel .result_bar a:hover{ color:#007722; background-color:#fff}
 
 /**单品页**/
-.item-subject .pic { min-height:0; _height:auto; }
-.item-subject .pic img { max-width:310px; max-height:310px; }
+.item-subject{ overflow:hidden}
+.item-subject h1{ display:block; float:left; width:350px; font-size:18px; font-weight:normal}
+.item-subject .btn-bar{ float:right}
+.item-subject .btn-bar p{ display:block; text-align:right; font-size:12px; margin-top:5px}
+
+.btn,a.btn:link,a.btn{
+    background-color: #c44444;
+    border: 1px solid #c44444;
+    border-radius: 2px 2px 2px 2px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.1;
+    margin-bottom: 0;
+    padding: 4px 12px;
+    text-decoration: none;
+    vertical-align: middle;
+    height: 22px;
+	line-height:22px
+}
+.btn-icon:hover,a.btn-icon:hover{border-color:#ca2500;background-color:#ca2500}
+.btn-icon i{display:inline-block;*display:inline;*zoom:1;width:22px;height:22px;vertical-align:-6px;_vertical-align:0;background:url("../images/icon_btn.png") no-repeat;}
+.btn-icon i.icon-buy{background-position:0 3px;padding-right:4px}
+.btn-icon i.icon-like{background-position:0 -27px;padding-right:4px;}
+.btn-icon i.icon-splitter{width:1px;background:#e58472;margin:0 10px 0 10px}
+.btn-icon .price-tag {color: #FFFFFF;font-weight: normal;vertical-align: baseline;}
+a.btn-like:link,a.btn-like{background-color:#57bf0b;border-color:#57bf0b}
+a.btn-like:hover{ background-color:#2fa817;border-color:#2fa817}
+
+.item-info{ background-color:#efefef; padding:20px; text-align:center}
+.item-info .img-item{ position:relative; margin:10px auto;}
+
+.cright  section {
+    margin-bottom: 30px;
+}
+.cright  .hd{
+    margin-bottom: 10px;
+}
+.cright  .hd h3{
+	font-size:16px; font-weight:bold
+}
+.cright .tags{}
+.cright .tags li {display: inline;}
+
+.tags a {
+    background-color: #EBEBE4;
+    display: inline-block;
+    line-height: 1;
+    margin: 0 7px 6px 0;
+    overflow: hidden;
+    padding: 6px 10px;
+    word-wrap: break-word;
+}
+.tags a:hover{ color:#999; background-color:#dbdbd4}
+.works-total {
+    color: #999999;
+    margin-left: 3px;
+}

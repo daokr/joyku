@@ -98,7 +98,7 @@ function fetch_item(obj,item){
 			dataType: 'json',
 			success: function(res){
 					if(res.r==2){
-						window.location.href=siteUrl+"/public/user/login/";
+						return pop_win.load(show_login_url);
 					}else{
 						pop_win([
 						'<div class="rectitle"><span class="m">提示：</span></div>',

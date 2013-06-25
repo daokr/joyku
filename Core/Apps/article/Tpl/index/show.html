@@ -13,7 +13,7 @@
         <div class="art-body">
             <h1 class="title">{$strArticle[title]}</h1>
             <div class="art-info">
-            作者：<a href="{:U('space/index/index',array('id'=>$strArticle[user][doname]))}">{$strArticle[newsauthor]}</a>&nbsp;&nbsp;<php>echo date('Y-m-d H:i',$strArticle[addtime])</php>&nbsp;&nbsp;<a href="#comments">{$strArticle[count_comment]}条回复</a>&nbsp;&nbsp;浏览{$strArticle[count_view]}次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
+            作者：<a href="{:U('space/index/index',array('id'=>$strArticle[user][doname]))}">{$strArticle[newsauthor]}</a>&nbsp;&nbsp;<php>echo date('Y-m-d H:i',$strArticle[addtime])</php>&nbsp;&nbsp;<a href="#comment">{$strArticle[count_comment]}条回复</a>&nbsp;&nbsp;浏览{$strArticle[count_view]}次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
             </div>
         
             <div class="art-text">
