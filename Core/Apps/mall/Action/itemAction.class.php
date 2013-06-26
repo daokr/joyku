@@ -22,7 +22,6 @@ class itemAction extends mallbaseAction {
 
     //获取商品信息
     public function fetch_item() {
-    	
     	$url = $this->_post('url','trim','');
     	empty($url) && $this->ajaxReturn(array('r'=>1, 'html'=> '商品地址不能为空'));
     	
@@ -45,10 +44,11 @@ class itemAction extends mallbaseAction {
     public function publish_item() {
     	$item = unserialize($this->_post('item', 'trim'));
     	!$item['key_id'] && $this->ajaxReturn(array('r'=>1, 'html'=> '发布商品失败！'));
-    	$userid = $this->visitor->info ['userid'];
+    	$userid = $this->userid; 
     	if(empty($userid)){
     		$this->ajaxReturn(array('r'=>2, 'html'=> '还没有登录呢？请先登录吧 !'));
     	}
+    	 
     	//单品发布
     	$item['userid'] = $userid;
     	$item['intro'] = $this->_post('intro', 'trim');
@@ -57,6 +57,7 @@ class itemAction extends mallbaseAction {
     	$item['status'] = C('ik_mall_item_check') ? 0 : 1;
     	
     	$itemid = $this->item_mod->publish($item);
+    	
     	if ($itemid) {
     		//发布商品钩子
     		$html = '分享商品成功！<a href="'.U('mall/item/index',array('id'=>$itemid)).'">查看我的分享</a>&nbsp;&nbsp;<a href="'.U('mall/mine/item',array('id'=>$this->visitor->info['doname'])).'">去我的淘客</a>';

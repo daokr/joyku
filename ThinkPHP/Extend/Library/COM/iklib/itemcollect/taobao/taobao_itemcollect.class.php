@@ -67,14 +67,16 @@ class taobao_itemcollect {
         
         //淘客信息
         vendor('Taobaotop.request.TaobaokeItemsDetailGetRequest');
-        $req = new TaobaokeItemsDetailGetRequest;
+        $req = new TaobaokeItemsDetailGetRequest;    
         $req->setFields("click_url");
         $req->setNumIids($id);
+        $req->setNick('charm_888');
+        $req->setPid('11053146');//淘宝联盟的PID，也就是你用淘宝账号登陆阿里妈妈以后
         $resp = $tb_top->execute($req);
         if (isset($resp->taobaoke_item_details)) {
             $taoke = (array) $resp->taobaoke_item_details->taobaoke_item_detail;
             if ($taoke['click_url']) {
-                $result['item']['url'] = $taoke['click_url'];
+                $result['item']['url'] = $taoke['click_url']; 
             }
         }
         import("ORG.Util.Url");

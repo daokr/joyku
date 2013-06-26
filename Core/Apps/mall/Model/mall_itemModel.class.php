@@ -25,6 +25,7 @@ class mall_itemModel extends Model
         //来源
         !$item['orig_id'] && $item['orig_id'] = D('mall_item_orig')->get_id_by_url($item['url']);
         $this->create($item);
+      
         $item_id = $this->add();
         if ($item_id) {
         	//商品相册处理
