@@ -127,6 +127,8 @@ IKCOM.init_like_btn = function(o){
 					self.attr('title','取消喜欢');
 					self.removeClass('fav-add');
 					self.addClass('fav-cancel');
+				}else if(res.r=2){
+					pop_win.load(show_login_url);
 				}
 			}
 		);	

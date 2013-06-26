@@ -19,6 +19,7 @@ return array (
     '/^group\/(\d+)$/' => 'group/index/show?id=:1',
     '/^article\/(\d+)$/' => 'article/index/show?id=:1',
     '/^article\/category\/cateid\/(\d+)$/' => 'article/index/category?cateid=:1',
+  	'/^article\/category\/cateid\/(\d+)\/p\/(\d+)$/' => 'article/index/category?cateid=:1&p=:2',  		
     '/^article\/(\d+)\/sc\/(\w+)$/' => 'article/index/show?id=:1&sc=:2',
     '/^article\/(\d+)\/sc\/(\w+)\/p\/(\d+)$/' => 'article/index/show?id=:1&sc=:2&p=:3',
     '/^article\/(\d+)\/p\/(\d+)$/' => 'article/index/show?id=:1&p=:2',

@@ -37,6 +37,10 @@ class mall_itemModel extends Model
         		}
         	}
         	//商品标签处理
+        	if($item['tags']){
+        		$tags = str_replace ( ' ', ' ', $item ['tags'] );
+        		D('tag')->addTag('mall_item','itemid',$item_id,$tags);
+        	}
         	
         	return $item_id;
         } else {

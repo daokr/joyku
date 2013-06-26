@@ -33,7 +33,7 @@ class itemAction extends mallbaseAction {
     	if (!$info = $itemcollect->fetch()) {
     		$this->ajaxReturn(array('r'=>1, 'html'=> '获取商品数据失败！'));
     	}else{
-    		$tag_list = D('tag')->get_tags_by_title($info['item']['title'],6);
+    		$tag_list = D('tag')->get_tags_by_title($info['item']['title'],10);
     		$tags = implode(' ', $tag_list);
     		$info['item']['tags'] = $tags;
     		$info['item']['itemobj'] = serialize($info['item']);
@@ -86,8 +86,8 @@ class itemAction extends mallbaseAction {
 		$item ['likenum'] = $likenum;
 		
 
-		
-		
+		//获取Tags
+		$item['tags'] = D('tag')->getObjTagByObjid('mall_item','itemid',$id);
     	//商品相册
     	$img_list = $this->item_img->field('url')->where(array('item_id' => $id))->order('ordid')->select();
 		// 喜欢该商品的用户
@@ -105,10 +105,13 @@ class itemAction extends mallbaseAction {
     //喜欢该商品
     public function like(){
 		$itemid = $this->_post ( 'tid' );
-		if (empty ( $itemid )) {
-			$this->error ( "非法操作！" );
+		if (empty($this->userid)) {
+			$arrJson = array('r'=>2,'html'=>'您还未登录本站');
+		}elseif(empty ( $itemid )){
+			$arrJson = array('r'=>3,'html'=>'非法操作！');
+		}else{
+			$arrJson = $this->item_col->collectItem ( $this->userid, $itemid );
 		}
-		$arrJson = $this->item_col->collectItem ( $this->userid, $itemid );
 		$this->ajaxReturn($arrJson);
     }
     /**

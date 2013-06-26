@@ -61,8 +61,9 @@
 				<div class="hd"><h3>标签</h3></div>
                 <div class="bd">
                 <ul class="tags">
-                	<li><a href="#"><span class="works-category">甜美</span><span class="works-total">345</span></a></li>
-                    <li><a href="#"><span class="works-category">可爱女郎</span><span class="works-total">345</span></a></li>
+                	<foreach name="strItem[tags]" item="item">
+                		<li><a href="{:U('mall/index/explore_goods',array('tag'=>$item[tagname]))}"><span class="works-category">{$item[tagname]}</span></a></li>
+                    </foreach>
                 </ul>
                 </div>
 			</div>

@@ -15,12 +15,26 @@
             <div class="J_item wall_tag">
                 <h3>热门标签：</h3>
                 <div class="atags clearfix">
-                    	<a href="{:U('mall/index/album')}" title="" class="on">全部</a>
-                        <a href="{:U('mall/index/album',array('cid'=>1))}" title="">甜美</a>
-                        <a href="{:U('mall/index/album',array('cid'=>1))}" title="">街拍</a>
-                        <a href="{:U('mall/index/album',array('cid'=>1))}" title="">欧美</a>
-                        <a href="{:U('mall/index/album',array('cid'=>1))}" title="">美女</a>
-                        <a href="{:U('mall/index/album',array('cid'=>1))}" title="">个性</a>
+                    	<a href="{:U('mall/index/explore_goods')}" title="全部" class="on">全部</a>
+                        <!--<foreach name="arrTag" item="item">
+                        	<a href="{:U('mall/index/explore_goods',array('tag'=>$item[tagname]))}" title="{$item[tagname]}">{$item[tagname]}</a>
+                        </foreach>    -->
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'包邮'))}" title="{$item[tagname]}">包邮</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'复古'))}" title="{$item[tagname]}">复古</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'性感'))}" title="{$item[tagname]}">性感</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'可爱'))}" title="{$item[tagname]}">可爱</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'欧美'))}" title="{$item[tagname]}">欧美</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'日系'))}" title="{$item[tagname]}">日系</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'韩系'))}" title="{$item[tagname]}">韩系</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'中性'))}" title="{$item[tagname]}">中性</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'清新'))}" title="{$item[tagname]}">清新</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'优雅'))}" title="{$item[tagname]}">优雅</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'条纹'))}" title="{$item[tagname]}">条纹</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'黑白'))}" title="{$item[tagname]}">黑白</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'妹妹'))}" title="{$item[tagname]}">妹妹</a>      
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'学生'))}" title="{$item[tagname]}">学生</a>      
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'短袖'))}" title="{$item[tagname]}">短袖</a>
+                        <a href="{:U('mall/index/explore_goods',array('tag'=>'连衣裙'))}" title="{$item[tagname]}">连衣裙</a>             
                 </div>
             </div>
             <include file="public:waterfall" />

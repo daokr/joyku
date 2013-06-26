@@ -32,7 +32,7 @@ class indexAction extends mallbaseAction {
 		$page_max = 100; //发现页面最多显示页数
 		 
 		$where = array();
-	    $tag && $where['intro'] = array('like', '%' . $tag . '%');
+	    $tag && $where['intro|title'] = array('like', '%' . $tag . '%');
         //排序：最热(hot)，最新(new)
         switch ($sort) {
             case 'hot':
@@ -44,8 +44,13 @@ class indexAction extends mallbaseAction {
         } 
 		$this->waterfall($where, $order, '', $page_max);
 		
+		//$hot_tags = explode(',', C('ik_mall_item_hot_tags')); //热门标签
+		//$hot_tags = explode(',', C('ik_mall_item_hot_tags')); //热门标签
+		
+		$this->assign('hot_tags', $hot_tags);
 		$this->assign('tag', $tag);
         $this->assign('sort', $sort);
+        
 
 		$this->_config_seo (array('title'=>'发现宝贝','subtitle'=>'爱客商城'));
 		$this->display();
@@ -62,7 +67,7 @@ class indexAction extends mallbaseAction {
                 break;
         }
         $where = array();
-        $tag && $where['intro'] = array('like', '%' . $tag . '%');
+        $tag && $where['intro|title'] = array('like', '%' . $tag . '%');
         $this->wall_ajax($where, $order);
     }
 	public function explore_album() {

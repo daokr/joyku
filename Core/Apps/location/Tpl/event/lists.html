@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+<div class="midder">
+    <div class="mc">
+        <div class="cleft">
+		<h1>北京最近一周同城活动</h1>
+
+<div class="mod event-mod" id="db-events-list">
+  <div class="hd">
+        <div class="events-nav">
+            <div class="events-nav-item">
+                <label class="events-nav-title">类型：</label>
+                <ul>
+                <foreach name="parentCate" item="item">
+                	<li><a href="{:U('location/event/lists',array('type'=>'week-'.$item[enname]))}">{$item[catename]}</a></li>
+                </foreach>
+                </ul>
+            </div>
+            <div class="events-nav-item">
+                <label class="events-nav-title">时间：</label>
+                <ul>
+                <foreach name="timelist" item="item">
+                	<li><a href="{$item[url]}">{$item[name]}</a></li>
+                </foreach>
+                </ul>
+            </div>            
+        </div>
+  </div>
+      
+      
+  <ul class="events-list">
+  <foreach name="list" item="item">
+      <li itemtype="http://data-vocabulary.org/Event" itemscope="" class="list-entry">
+      <div class="pic">
+        <a href="{:U('location/event/show',array('id'=>$item[eventid]))}">
+          <img width="110" itemprop="photo" src="{$item[midimg]}" data-lazy="">
+        </a>
+      </div>
+      <div class="info">
+        <div class="title">
+          <a itemprop="url" title="{$item[title]}" href="{:U('location/event/show',array('id'=>$item[eventid]))}">
+            <span itemprop="summary">{$item[title]}</span>
+          </a>
+        </div>
+        
+          <p class="event-cate-tag">
+            <a href="#">音乐会</a>&nbsp;
+            <a href="#">音乐节</a>&nbsp;
+          </p>
+        <ul>
+          <li class="event-time">
+            <span>时间：</span>
+            
+            <php>echo date('m月d日',$item[begin_date]);</php> {$item[begin_week_day]} {$item[begin_time]}-{$item[end_time]}
+            
+            <time datetime="2013-04-06T08:00:00" itemprop="startDate"></time>
+            <time datetime="2013-04-29T23:30:00" itemprop="endDate"></time>
+          </li>
+          <li title="北京 平谷区 北京">
+            <span>地点：</span>{$item[district]}&nbsp;{$item[street_address]}
+             <meta content="北京 平谷区 北京" itemprop="location" itemscope="">
+               
+               <span itemtype="http://data-vocabulary.org/&#8203;Geo" itemscope="" itemprop="geo">
+                  <meta content="40.140701" itemprop="latitude">
+                  <meta content="117.121384" itemprop="longitude">
+               </span>
+          </li>
+          <li class="fee">
+              <span>费用：</span>
+              <strong>{$item[fee_detail]}</strong>
+          </li>
+          <li>
+            <span>发起：</span>
+            <a href="{:U('space/index/index',array('id'=>$item[user][doname]))}" target="db-event-owner">{$item[user][username]}</a>
+          </li>
+        </ul>
+        <p class="counts">
+            <span>24人参加</span> <span class="pipe"></span> <span>30人感兴趣</span>
+        </p>
+      </div>
+      </li>
+  	</foreach>
+  </ul>
+    <div class="clear"></div>
+    <div class="page">{$pageUrl}</div>
+  
+</div> 
+
+
+
+        </div><!--//left-->
+    
+        <div class="cright">
+            <div class="mod">  
+            <a href="{:U('location/event/create',array('loc'=>'beijing'))}" rel="nofollow" class="bn-big-action">
+              ＋发起同城活动     
+            </a>     
+            </div>
+
+        </div><!--//right-->
+    
+    </div><!--//mc-->
+</div><!--//midder-->
+<include file="public:footer" />
+</body>
+</html>
