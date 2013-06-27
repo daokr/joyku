@@ -102,7 +102,7 @@ a.gloomy:hover {
 	width:19px;
 	height:19px;
 	cursor:pointer;
-	background-image:url(slide_control.png);
+	background-image:url(../images/slide_control.png);
 	background-color:#fff;
 	background-repeat:no-repeat
 }

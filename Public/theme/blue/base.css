@@ -698,7 +698,8 @@ a.lnk-flat:active {
 }
 .hd-wrap {
 	overflow:hidden;
-	zoom:1
+	zoom:1;
+	margin-bottom:15px
 }
 .hd-wrap .hd {
 	height:64px

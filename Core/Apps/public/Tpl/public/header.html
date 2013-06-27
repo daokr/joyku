@@ -2,10 +2,17 @@
 <header>
 <if condition="$app_name eq 'public' && empty($visitor) && $module_name eq 'index'">
 <div class="hd-wrap">
-            <div class="hd">
+            <div class="hd" id="anony-nav">
                 <div class="logo">
                     <h1><a href="__SITE_URL__" title="爱客开源">爱客开源</a></h1>
                 </div>
+                <div class="anony-srh">
+                <form onsubmit="return searchForm(this);" method="post" action="{:U('public/search/index')}">
+                <span class="inp"><input type="text" autocomplete="off" placeholder="书籍、电影、音乐、小组、小站、成员" size="12" maxlength="60" class="key" name="q"></span>
+                <span class="bn"><input type="submit" value="搜索"></span>
+                </form>
+                </div>
+                
                 <div class="top-nav-items">
                 <ul>
                 <li><a href="__SITE_URL__" class="lnk-home" target="_blank">爱客首页</a></li>

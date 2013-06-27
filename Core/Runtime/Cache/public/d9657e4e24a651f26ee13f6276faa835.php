@@ -109,27 +109,60 @@ __EXTENDS_JS__
         
 </div><?php endif; ?>
 <div class="midder">
-   	<div class="mc">
-    	<h1><?php echo ($seo["title"]); ?></h1>
-        <div class="themelist">
-        	<ul>
-            	<?php if(is_array($arrTheme)): foreach($arrTheme as $key=>$item): if($ikTheme == $item): ?><li class="on" onclick="selectTheme(this,'<?php echo ($item); ?>')"><a href="javascript:;"  >
-                        <label>
-                            <img src="__PUBLIC__/theme/<?php echo ($item); ?>/preview.jpg"><br /> <?php echo ($item); ?>
-                        </label>
-                        </a>
-                    </li>
-                    <?php else: ?>
-                    <li onclick="selectTheme(this,'<?php echo ($item); ?>')"><a href="javascript:;" onclick="selectTheme(this,'<?php echo ($item); ?>')" >
-                        <label>
-                            <img src="__PUBLIC__/theme/<?php echo ($item); ?>/preview.jpg"><br /> <?php echo ($item); ?>
-                        </label>
-                        </a>
-                    </li><?php endif; endforeach; endif; ?>
-            </ul>
+	<div class="mc">
+		<div id="search_menubar">
+        	<div class="s_menu">
+    <?php if(is_array($menu)): foreach($menu as $key=>$item): if($type == $key): ?><a class="s_select" href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a>
+        <?php else: ?>
+        <a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a><?php endif; endforeach; endif; ?>
+</div>
+
+<div class="mod-search">
+  <form method="POST" action="<?php echo U('public/search/index',array('type'=>$type));?>">
+    <fieldset>
+      <legend>搜索：</legend>
+      <div class="inp"><input name="q" value="<?php echo ($kw); ?>" maxlength="60" size="22" ></div>
+      <div class="inp-btn"><input type="submit" value="搜索"></div>
+    </fieldset>
+  </form>
+</div>
         </div>
-    </div><!--//mc-->
-</div><!--//midder-->
+ 		<div class="s_top">获得约 <?php echo ($total); ?> 条结果</div>
+
+<?php if(is_array($arrGroup)): foreach($arrGroup as $key=>$item): ?><div class="result">
+    <div class="pic">
+    <a title="<?php echo ($item[groupname]); ?>" href="<?php echo U('group/index/show',array('id'=>$item[groupid]));?>" class="nbg"><img alt="<?php echo ($item[groupname]); ?>" src="<?php echo ($item[icon_48]); ?>" width="48" /></a>
+    </div>
+    <div class="content">
+    <h3><span>[小组] </span>&nbsp;<a  href="<?php echo U('group/index/show',array('id'=>$item[groupid]));?>"><?php echo ($item[groupname]); ?></a></h3>
+    <div class="info">创建于 <?php echo date('Y-m-d',$item[addtime]) ?> &nbsp; <?php echo ($item[count_user]); ?> 成员</div>
+    <p><?php echo ($item[groupdesc]); ?></p>
+    </div>
+    </div><?php endforeach; endif; ?>  
+<?php if(is_array($arrTopic)): foreach($arrTopic as $key=>$item): ?><div class="result">
+    <div class="pic">
+    <a title="<?php echo ($item[user][username]); ?>" href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>" class="nbg"><img alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>" width="48" /></a>
+    </div>
+    <div class="content">
+    <h3><span>[话题] </span>&nbsp;<a  href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>"><?php echo ($item[title]); ?></a></h3>
+    <div class="info">小组：<a href="<?php echo U('group/index/show',array('id'=>$item[group][groupid]));?>"><?php echo ($item[group][groupname]); ?></a> 发表于 <?php echo date('Y-m-d',$item[addtime]); ?> &nbsp; <a href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>#comment"><?php echo ($item[count_comment]); ?> 回复</a></div>
+    <p><?php echo ($item[content]); ?></p>
+    </div>
+    </div><?php endforeach; endif; ?> 
+<?php if(is_array($arrUser)): foreach($arrUser as $key=>$item): ?><div class="result">
+    <div class="pic">
+    <a title="<?php echo ($item[username]); ?>" href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>" class="nbg"><img alt="<?php echo ($item[username]); ?>" src="<?php echo ($item[face]); ?>" width="48" /></a>
+    </div>
+    <div class="content">
+    <h3><span>[用户] </span>&nbsp;<a  href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><?php echo ($item[username]); ?></a></h3>
+    <div class="info"><?php echo date('Y-m-d',$item[addtime]); ?> 加入&nbsp; <a href="<?php echo U('public/user/followed',array('userid'=>$item[userid]));?>"><?php echo ($item[count_followed]); ?> 人关注</a></div>
+    <p><?php echo ($item[signed]); ?></p>
+    </div>
+    </div><?php endforeach; endif; ?> 
+      
+		<div class="page"><?php echo ($pageUrl); ?></div>		
+	</div>
+</div>
 <!--footer-->
 <footer>
 <div id="footer">

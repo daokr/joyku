@@ -1,3 +1,181 @@
+*::-moz-placeholder {
+    color: #CCCCCC;
+}
+#anony-nav .anony-srh {
+	position:relative;
+	display:inline-block;
+*display:inline;
+	zoom:1;
+	vertical-align:middle;
+	width:310px;
+	height:30px;
+	border:1px solid #c3c3c3;
+	float:left;
+	margin-top:28px;
+	margin-left:20px;
+}
+#anony-nav .anony-srh .inp {
+	display:block;
+	height:30px;
+	overflow:hidden
+}
+#anony-nav .anony-srh .inp input {
+	width:280px;
+	border:0;
+	font-size:13px;
+	height:20px;
+	padding:5px
+}
+#anony-nav .anony-srh .bn {
+	position:absolute;
+	right:0;
+	top:0;
+	width:30px;
+	height:30px;
+	overflow:hidden;
+	cursor:pointer;
+	background:url(../images/bn_srh_1.png) 50% 50% no-repeat
+}
+#anony-nav .anony-srh .bn input {
+	border:0;
+	background:transparent;
+*padding-left:30px;
+	overflow:hidden;
+	width:30px;
+	height:30px;
+	font-size:0;
+	color:transparent;
+	cursor:pointer
+}
+#anony-nav .anony-srh .label {
+	font-size:13px;
+	color:#ccc;
+	line-height:28px;
+	padding-left:5px;
+	cursor:text
+}
+/**二次改版**/
+#anony-reg {
+	margin-bottom:25px;
+	background:#e8edf1
+}
+#anony-reg .lnk-reg {
+	display:inline-block;
+*display:inline;
+	zoom:1;
+	padding:7px 18px;
+	vertical-align:top;
+	margin-right:15px;
+	border-radius:2px
+}
+#anony-reg .lnk-reg:active, #anony-reg .lnk-reg:hover, #anony-reg .lnk-reg:link, #anony-reg .lnk-reg:visited {
+	font-size:14px;
+	color:#fff;
+	background:#ef7360
+}
+#anony-reg .lnk-reg:active, #anony-reg .lnk-reg:hover {
+	font-size:14px;
+	color:#fff;
+	background:#ed6752
+}
+#anony-reg .lnk-reg i {
+	font-size:12px
+}
+#anony-reg .nb-info {
+	display:inline-block;
+*display:inline;
+	zoom:1;
+	color:#666;
+	vertical-align:middle;
+	margin-top:-5px;
+}
+#anony-reg .nb-info b {
+	font-size:16px;
+	line-height:2;
+	font-weight:normal
+}
+#anony-reg .wrapper {
+	padding:20px 0 10px;
+	overflow:hidden;
+	zoom:1;
+	width:980px;
+	margin:0 auto;
+}
+#anony-reg .login {
+	float:right;
+	text-align:right;
+	font-size:0;
+	letter-spacing:-.31em;
+*letter-spacing:normal;
+*word-spacing:-.43em
+}
+#anony-reg .login legend {
+	display:none
+}
+#anony-reg .login fieldset {
+*display:inline;
+	margin:0;
+	padding:0;
+	border:0
+}
+#anony-reg .login .label {
+	position:absolute;
+	z-index:1;
+	top:7px;
+	left:8px;
+	color:#ccc;
+	font-size:13px;
+	cursor:text
+}
+#anony-reg .login .item {
+	position:relative;
+	margin-right:4px
+}
+#anony-reg .login .item .opt {
+	font-size:12px
+}
+#anony-reg .login .item, #anony-reg .login .item-submit {
+	display:inline-block;
+*display:inline;
+	zoom:1;
+	vertical-align:top;
+	text-align:left;
+	font-size:0;
+	letter-spacing:normal;
+	word-spacing:normal
+}
+#anony-reg .login .item .inp {
+	border:0;
+	width:142px;
+	margin-bottom:5px;
+	margin-right:0;
+	padding:0 8px;
+	height:33px;
+	font-size:13px;
+*position:relative;
+*top:-2px;
+*padding-top:8px;
+*height:25px
+}
+#anony-reg .login .bn-submit {
+	-webkit-appearance:none;
+	padding:0 24px;
+	height:33px;
+	font-size:13px;
+	border:0;
+	border-radius:2px;
+	cursor:pointer;
+	background:#3ba354;
+	color:#fff
+}
+#anony-reg .login .bn-submit:hover {
+	background-color:#1c9439
+}
+#anony-reg .login .item-captcha img {
+	width:158px;
+	height:28px
+}
+/**第一版**/
 /*flinks*/
 .flinks{ display:block}
 /*index*/
@@ -52,7 +230,6 @@ a.lnk-reg:link,a.lnk-reg:visited,a.lnk-reg:hover,a.lnk-reg:active {
 	height: 27px;
 	line-height: 28px;
 	text-align: left;
-	width: 130px;
 }
 
 .anony-nav .reg em {

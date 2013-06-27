@@ -5,7 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
-<meta name="description" content="<?php echo ($seo["description"]); ?>" /> 
+<meta name="description" content="<?php echo ($seo["description"]); ?>" />
+<meta property="qc:admins" content="12472730776130006375" />
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
 __SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
@@ -24,7 +25,7 @@ __SITE_THEME_CSS__
 <![endif]-->
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
+<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
 </head>
 
@@ -33,10 +34,17 @@ __EXTENDS_JS__
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
-            <div class="hd">
+            <div class="hd" id="anony-nav">
                 <div class="logo">
                     <h1><a href="__SITE_URL__" title="爱客开源">爱客开源</a></h1>
                 </div>
+                <div class="anony-srh">
+                <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <span class="inp"><input type="text" autocomplete="off" placeholder="书籍、电影、音乐、小组、小站、成员" size="12" maxlength="60" class="key" name="q"></span>
+                <span class="bn"><input type="submit" value="搜索"></span>
+                </form>
+                </div>
+                
                 <div class="top-nav-items">
                 <ul>
                 <li><a href="__SITE_URL__" class="lnk-home" target="_blank">爱客首页</a></li>
@@ -133,7 +141,7 @@ __EXTENDS_JS__
         <div class="art-body">
             <h1 class="title"><?php echo ($strArticle[title]); ?></h1>
             <div class="art-info">
-            作者：<a href="<?php echo U('space/index/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[newsauthor]); ?></a>&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$strArticle[addtime]) ?>&nbsp;&nbsp;<a href="#comments"><?php echo ($strArticle[count_comment]); ?>条回复</a>&nbsp;&nbsp;浏览<?php echo ($strArticle[count_view]); ?>次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
+            作者：<a href="<?php echo U('space/index/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[newsauthor]); ?></a>&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$strArticle[addtime]) ?>&nbsp;&nbsp;<a href="#comment"><?php echo ($strArticle[count_comment]); ?>条回复</a>&nbsp;&nbsp;浏览<?php echo ($strArticle[count_view]); ?>次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
             </div>
         
             <div class="art-text">
@@ -266,7 +274,8 @@ __EXTENDS_JS__
         </span>
         <div class="cl"></div>
         <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  
-        <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线 <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />
+        <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线 
+        <!-- <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script> --><br />
         <span style="font-size:0.83em;">{__RUNTIME__}          </span>
 
         
@@ -276,6 +285,13 @@ __EXTENDS_JS__
 </div>
 </footer>
 <div id="styleBox"><a href="<?php echo U('public/index/style');?>">风格设置</a></div>
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1&amp;pos=right&amp;uid=0" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+</script>
+<!-- Baidu Button END -->
 
 </body>
 </html>

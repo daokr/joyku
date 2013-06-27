@@ -74,11 +74,15 @@ class articleModel extends Model {
 		}		
 	}
 	// 获取点击最多的文章
-	public function getArticleItemByMap($order,$limit='10'){
+	public function getArticleItemByMap($order,$limit='10',$where=''){
 		$where['isaudit'] = '0';
-		$strItem = M('article_item')->where($where)->order($order)->limit($limit)->select();
-		if(!empty($strItem)){
-			return $strItem;
+		$arrItemid = M('article_item')->field('itemid')->where($where)->order($order)->limit($limit)->select();
+		if(!empty($arrItemid)){
+			
+			foreach($arrItemid as $key=>$item){
+				$arrArticle [] = $this->getOneArticle($item['itemid']);
+			}
+			return $arrArticle;
 		}else{
 			return false;
 		}
