@@ -32,8 +32,17 @@ class indexAction extends frontendAction {
 		$arrpopApp = $this->dev_mod->getPopApp(10);
 		
 		//获取最多点击的的 8文章
-		$arrHotArticle = $this->article_mod->getArticleItemByMap('count_view desc','4',array('isphoto'=>'1'));
+		$arrHotArticle = $this->article_mod->getArticleItemByMap('count_view desc','6',array('isphoto'=>'1'));
 		$this->assign ( 'arrHotArticle', $arrHotArticle );
+		
+		//获取头条
+		$arrdigArticle = $this->article_mod->getArticleItemByMap('orderid desc','8',array('isdigest'=>'1','isphoto'=>1));
+		$this->assign ( 'arrdigArticle', $arrdigArticle );
+		//dump($arrdigArticle);
+		//视觉
+		$arrfunArticle = $this->article_mod->getArticleItemByMap('orderid desc','4',array('cateid'=>array('exp',' IN (18,19) ','isphoto'=>1)));
+		$this->assign ( 'arrfunArticle', $arrfunArticle );
+
 		
 		//统计用户数
 		$count_user = $this->user_mod->count('*'); 

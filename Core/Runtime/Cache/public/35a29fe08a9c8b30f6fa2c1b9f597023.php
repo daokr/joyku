@@ -16,10 +16,17 @@ __SITE_THEME_CSS__
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
-            <div class="hd">
+            <div class="hd" id="anony-nav">
                 <div class="logo">
                     <h1><a href="__SITE_URL__" title="爱客开源">爱客开源</a></h1>
                 </div>
+                <div class="anony-srh">
+                <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <span class="inp"><input type="text" autocomplete="off" placeholder="书籍、电影、音乐、小组、小站、成员" size="12" maxlength="60" class="key" name="q"></span>
+                <span class="bn"><input type="submit" value="搜索"></span>
+                </form>
+                </div>
+                
                 <div class="top-nav-items">
                 <ul>
                 <li><a href="__SITE_URL__" class="lnk-home" target="_blank">爱客首页</a></li>

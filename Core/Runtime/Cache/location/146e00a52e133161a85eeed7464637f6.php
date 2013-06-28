@@ -34,10 +34,17 @@ __EXTENDS_JS__
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
-            <div class="hd">
+            <div class="hd" id="anony-nav">
                 <div class="logo">
                     <h1><a href="__SITE_URL__" title="爱客开源">爱客开源</a></h1>
                 </div>
+                <div class="anony-srh">
+                <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <span class="inp"><input type="text" autocomplete="off" placeholder="书籍、电影、音乐、小组、小站、成员" size="12" maxlength="60" class="key" name="q"></span>
+                <span class="bn"><input type="submit" value="搜索"></span>
+                </form>
+                </div>
+                
                 <div class="top-nav-items">
                 <ul>
                 <li><a href="__SITE_URL__" class="lnk-home" target="_blank">爱客首页</a></li>
@@ -146,12 +153,12 @@ __EXTENDS_JS__
     <ul class="ui-slide-contents gallery" id="ui-ul">  
 		<?php if(is_array($hotEvent)): foreach($hotEvent as $key=>$item): ?><li>
           <div class="pic">
-            <a tabindex="-1"  href="<?php echo U('event/show',array('id'=>$item[eventid]));?>">
+            <a tabindex="-1"  href="<?php echo U('location/event/show',array('id'=>$item[eventid]));?>">
             <img alt="<?php echo ($item[title]); ?>" src="<?php echo ($item[midimg]); ?>" height="165" width="120">
             </a>
           </div>
           <div class="title">
-              <a href="<?php echo U('event/show',array('id'=>$item[eventid]));?>" title="<?php echo ($item[title]); ?>"><?php echo ($item[title]); ?></a>
+              <a href="<?php echo U('location/event/show',array('id'=>$item[eventid]));?>" title="<?php echo ($item[title]); ?>"><?php echo ($item[title]); ?></a>
           </div>
         </li><?php endforeach; endif; ?> 
      
@@ -164,11 +171,11 @@ __EXTENDS_JS__
   <ul>
       <?php if(is_array($arrCateList)): foreach($arrCateList as $key=>$item): if($item[childCate]): ?><li class="entry">
         <h5>
-          <a href="<?php echo U('event/lists',array('type'=>'week-'.$item[parentCate][enname]));?>"><?php echo ($item[parentCate][catename]); ?>&gt;&gt;</a>
+          <a href="<?php echo U('location/event/lists',array('type'=>'week-'.$item[parentCate][enname]));?>"><?php echo ($item[parentCate][catename]); ?>&gt;&gt;</a>
         </h5>
         <ul>
             <?php if(is_array($item[childCate])): foreach($item[childCate] as $ckey=>$citem): ?><li>
-                <a href="<?php echo U('event/lists',array('type'=>'week-'.$citem[cateid]));?>"><?php echo ($citem[catename]); ?></a>
+                <a href="<?php echo U('location/event/lists',array('type'=>'week-'.$citem[cateid]));?>"><?php echo ($citem[catename]); ?></a>
                 </li><?php endforeach; endif; ?>
         </ul>
       </li><?php endif; endforeach; endif; ?>
@@ -202,13 +209,13 @@ __EXTENDS_JS__
      
 <?php if(is_array($hotEvent)): foreach($hotEvent as $key=>$item): ?><li class="list-entry">
       <div class="pic">
-        <a tabindex="-1" href="<?php echo U('event/show',array('id'=>$item[eventid]));?>">
+        <a tabindex="-1" href="<?php echo U('location/event/show',array('id'=>$item[eventid]));?>">
           <img alt="<?php echo ($item[title]); ?>" data-lazy="<?php echo ($item[smallimg]); ?>" src="__PUBLIC__/images/blank.gif" width="70">
         </a>
       </div>
       <div class="info">
         <div class="title">
-          <a href="<?php echo U('event/show',array('id'=>$item[eventid]));?>" title="<?php echo ($item[title]); ?>">
+          <a href="<?php echo U('location/location/event/show',array('id'=>$item[eventid]));?>" title="<?php echo ($item[title]); ?>">
           <?php echo ($item[title]); ?>
           </a>
         </div>
@@ -253,7 +260,7 @@ __EXTENDS_JS__
 </div>
 
 <div class="mod">  
-<a href="<?php echo U('event/create',array('loc'=>'beijing'));?>" rel="nofollow" class="bn-big-action">
+<a href="<?php echo U('location/event/create',array('loc'=>'beijing'));?>" rel="nofollow" class="bn-big-action">
   ＋发起同城活动     
 </a>     
 </div>

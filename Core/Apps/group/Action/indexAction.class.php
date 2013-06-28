@@ -361,6 +361,17 @@ class indexAction extends frontendAction {
 			$content =  $this->_post ( 'content');
 			$iscomment = $this->_post ( 'iscomment'); // 是否允许评论
 			
+			// 是否加入 修改bug漏洞表单提交 2013-6-28
+			$isGroupUser = $this->_mod->isGroupUser ( $this->userid, $groupid );
+			if(!$isGroupUser){
+				$this->error('只有小组成员才能发言，请先加入小组!');
+			} 
+			//帖子ID
+			$strTopic = $this->group_topics_mod->field('topicid')->where(array('groupid'=>0,'userid'=>$userid))->find();
+			if($strTopic['topicid']!=$topic_id){
+				$this->error('非法操作；请不要搞怪!');
+			}
+				
 			if ($title == '') {
 				$this->error ( '不要这么偷懒嘛，多少请写一点内容哦^_^' );
 			} else if ($content == '') {
@@ -1099,60 +1110,65 @@ class indexAction extends frontendAction {
 		$type = $this->_get ( 'd', 'trim' );
 		$groupid = $this->_post( 'groupid', 'intval');
 		
-		switch ($type) {
-			case "base" :
-				$data ['groupname'] = $this->_post ( 'groupname', 'trim' );
-				$data ['groupdesc'] = $this->_post ( 'groupdesc', 'trim' );
-				if($data ['groupname']=='' || $data ['groupdesc']=='') $this->error('小组名称和介绍不能为空！');
-				$tags = $this->_post( 'tag', 'trim');
-				$tags = str_replace(' ',' ',$tags);
-				$arrtag = explode(' ',$tags);
-				if( mb_strlen($data ['groupname'],'utf8')>20)
-				{
-					$this->error('小组名称太长啦，最多20个字...^_^！');
-					
-				}else if( mb_strlen($data ['groupdesc'], 'utf8') > 10000)
-				{
-					$this->error('写这么多内容干啥，超出1万个字了都^_^');
-				}else if(count($arrtag)>5)
-				{
-					$this->error('最多 5 个标签，写的太多了...^_^！');
-				}
-				for($i=0; $i<count($arrtag); $i++)
-				{
+		if(IS_POST){
+			$strGroup = $this->_mod->getOneGroup($groupid);
+			if($userid != $strGroup['userid']){
+				$this->error('您没有权限编辑小组信息！');
+			}
+			switch ($type) {
+				case "base" :
+					$data ['groupname'] = $this->_post ( 'groupname', 'trim' );
+					$data ['groupdesc'] = $this->_post ( 'groupdesc', 'trim' );
+					if($data ['groupname']=='' || $data ['groupdesc']=='') $this->error('小组名称和介绍不能为空！');
+					$tags = $this->_post( 'tag', 'trim');
+					$tags = str_replace(' ',' ',$tags);
+					$arrtag = explode(' ',$tags);
+					if( mb_strlen($data ['groupname'],'utf8')>20)
+					{
+						$this->error('小组名称太长啦，最多20个字...^_^！');
+							
+					}else if( mb_strlen($data ['groupdesc'], 'utf8') > 10000)
+					{
+						$this->error('写这么多内容干啥，超出1万个字了都^_^');
+					}else if(count($arrtag)>5)
+					{
+						$this->error('最多 5 个标签，写的太多了...^_^！');
+					}
+					for($i=0; $i<count($arrtag); $i++)
+					{
 					if(mb_strlen($arrtag[$i], 'utf8') > 8)
 					{
-					  $this->error('小组标签太长啦，最多8个字...^_^！');
+					$this->error('小组标签太长啦，最多8个字...^_^！');
 					}
-				}
-				//更新tag
-				D('tag')->addTag('group','groupid',$groupid,$tags);
-				$this->_mod->where(array('groupid'=>$groupid))->save($data);
-				$this->success('基本信息修改成功！');
-				
-				break;
-					
-			case "icon" :
-				// 小组图标
-				$groupicon = $_FILES ['picfile'];
-				// 上传
-				if (! empty ( $groupicon )) {
+					}
+					//更新tag
+					D('tag')->addTag('group','groupid',$groupid,$tags);
+					$this->_mod->where(array('groupid'=>$groupid))->save($data);
+							$this->success('基本信息修改成功！');
+			
+							break;
+						
+					case "icon" :
+					// 小组图标
+					$groupicon = $_FILES ['picfile'];
+					// 上传
+					if (! empty ( $groupicon )) {
 					//上传头像
 					$result = savelocalfile($groupicon,'group/icon',
-							array('width'=>'48,60','height'=>'48,60'),
-							array('jpg','jpeg','png'),
-							md5($groupid));
+					array('width'=>'48,60','height'=>'48,60'),
+					array('jpg','jpeg','png'),
+					md5($groupid));
 					if (!$result ['error']) {
-						$data ['groupicon'] = $result['img_48_48'];
-						//更新小组头像
+					$data ['groupicon'] = $result['img_48_48'];
+					//更新小组头像
 						$this->_mod->where ( 'groupid=' . $groupid )->setField ( 'groupicon', $data ['groupicon'] );
 						$this->success('小组图标修改成功！');
 					}
-				}			
-				
-				break;
-		}		
-		
+					}
+			
+					break;
+					}			
+		}
 	}
 	// 浏览所有成员
 	public function group_user(){

@@ -176,6 +176,11 @@ class indexAction extends frontendAction {
 		$userid = $this->userid;
 		$appid = $this->_get('id','trim,intval','0');
 		if($appid>0){
+			$strApp = $this->dev_mod->getOneApp(array('appid'=>$appid));
+			//判断是否是创建者
+			if($strApp['userid'] != $this->userid){
+				$this->error('你没有权限访问这个页面');
+			}
 			if(IS_POST){
 				
 				// 更新应用数据操作

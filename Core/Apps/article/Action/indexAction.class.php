@@ -108,7 +108,7 @@ class indexAction extends frontendAction {
 			$data ['newsauthor'] = $this->visitor->get ( 'username' );
 			$data ['newsfrom'] = $this->_post ( 'newsfrom', 'trim', '' );
 			$data ['newsfromurl'] = $this->_post ( 'newsfromurl', 'trim', '' );	
-			
+
 			//安全性判断
 			if(empty($item ['title']) || empty($item ['cateid']) || empty($data ['content'])){
 				$this->error('标题、分类、内容都必须填写！');
@@ -159,9 +159,11 @@ class indexAction extends frontendAction {
 					}
 				}
 			} else {
-			
 				// 更新
 				$arrItemid = $this->mod->field('itemid')->where(array ('aid' => $id) )->find();
+				if($arrItemid['userid']!=$userid){
+					$this->error('非法操作！');
+				}
 				$this->mod->where ( array ('aid' => $id) )->save ( $data );
 				$this->item_mod->where ( array ('itemid' => $arrItemid['itemid']) )->save ( $item );
 				// 执行更新图片信息
