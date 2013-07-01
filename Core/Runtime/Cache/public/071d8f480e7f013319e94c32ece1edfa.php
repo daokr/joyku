@@ -1,8 +1,6 @@
-<?php if (!defined('THINK_PATH')) exit(); if($module_name == 'admin' ): ?><!--引入后台管理的头部模版文件 -->
-<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
@@ -27,53 +25,9 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
-
 </head>
 
 <body>
-<div style="margin:150px auto; width:350px;">
-  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
-  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
-    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
-    <li style="color:#666;line-height: 10px;">&nbsp;</li>
-
-    <li style="color:#666;"> 
-        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
-        <script type="text/javascript">
-            (function(){
-                var secs=3,si=setInterval(function(){
-                    if(--secs){
-                        document.getElementById('f3s').innerHTML = secs;
-                    }
-                    else{
-                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
-                    }
-            }, 1000)})();
-        </script>
- 	</li>
-
-  </ul>
-</div>
-</body>
-</html>
-<?php else: ?>
-<!--引入后前台的头部模版文件 -->
-<!DOCTYPE HTML>
-<html>
-<head>
-<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
-<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
-<link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
-<meta name="robots" content="all" />
-<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
-__SITE_THEME_CSS__
-</head>
-
-<body>
-<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -154,53 +108,77 @@ __SITE_THEME_CSS__
 	</div>
         
 </div><?php endif; ?>
-<!--header-->
-<div id="header">
-    
-	<div class="site_nav">
-        <div class="<?php echo ($logo[style]); ?>">
-            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
+<!--main-->
+<div class="midder">
+	<div class="mc">
+    	<h1>我的收件箱(<?php echo ($unreadnum); ?>封未拆)</h1>
+    	<div class="cleft">
+        	<div class="tabnav">
+<ul>
+    <?php if($ik == 'outbox'): ?><li class="select"><a href="<?php echo U('public/message/ikmail',array(d=>outbox));?>">发件箱</a></li>
+    <?php else: ?>
+    	<li><a href="<?php echo U('public/message/ikmail',array(d=>outbox));?>">发件箱</a></li><?php endif; ?>
+    <?php if($ik == 'inbox' OR $ik == 'spam' OR $ik == 'unread'): ?><li class="select"><a href="<?php echo U('public/message/ikmail',array(d=>inbox));?>">收件箱</a></li>
+    <?php else: ?>
+    	<li><a href="<?php echo U('public/message/ikmail',array(d=>inbox));?>">收件箱</a></li><?php endif; ?>    
+</ul>
+</div>
+
+ 
+            <div class="clear"></div>
+            <div id="db-timeline-hd">
+                <ul class="menu-list">
+                	<?php if(is_array($inmenu)): foreach($inmenu as $key=>$item): if($ik == $key): ?><li class="on"><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li>
+                        <?php else: ?>
+                        	<li><a href="<?php echo ($item[url]); ?>"><?php echo ($item[text]); ?></a></li><?php endif; endforeach; endif; ?>
+                </ul>
+            </div>  
+		 <form  method="post" onSubmit="return isConfirmed" action="<?php echo U('public/message/doing',array('d'=>'all'));?>">            
+            <table class="olt">
+              <tbody>
+                <tr>
+                  <td class="pl" style="width:112px;"><span class="doumail_from">来自</span></td>
+                  <td width="20"></td>
+                  <td class="pl">话题</td>
+                  <td class="pl" style="width:110px;">时间</td>
+                  <td class="pl" style="width:40px;" align="center">选择</td>
+                  <td class="pl" style="width:120px;visibility:hidden;border-bottom:none" align="center">mail_options</td>
+                </tr>
+               <?php if(is_array($arrMessage)): foreach($arrMessage as $key=>$item): ?><tr>
+                  <td>
+                  <?php if($item[userid] == 0): ?><span class="sys_doumail">系统邮件</span>
+                  <?php else: ?>
+                  	<span class="doumail_from"><?php echo ($item[user][username]); ?></span><?php endif; ?>
+                  </td>
+                  <td class="m" align="center">&gt;</td>
+                  <td><a href="<?php echo U('public/message/show',array('messageid'=>$item[messageid]));?>"><?php echo ($item[title]); ?></a></td>
+                  <td><?php echo ($item[addtime]); ?></td>
+                  <td align="center"><input name="messageid[]" value="<?php echo ($item[messageid]); ?>" type="checkbox"></td>
+                  <td style="display: none;" class="mail_options">
+                  <?php if($ik != 'spam'): ?><a rel="direct" class="post_link" href="<?php echo U('public/message/doing',array('d'=>'spam','messageid'=>$item[messageid]));?>">垃圾消息</a><?php endif; ?>
+                  <a onClick="return confirm('真的要删除消息吗？')" class="post_link" href="<?php echo U('public/message/doing',array('d'=>'del','type'=>'inbox','messageid'=>$item[messageid]));?>">删除</a>
+                  </td>
+                </tr><?php endforeach; endif; ?>
+                <tr>
+                  <td colspan="4" align="right">
+                    <input name="type" value="inbox" type="hidden">
+                   <?php if($ik == 'spam'): ?><input name="mc_submit" value="删除" data-confirm="真的要删除短消息吗?" type="submit"><?php endif; ?>
+                   <?php if($ik == 'unread' OR $ik == 'inbox'): ?><input name="mc_submit" value="删除" data-confirm="真的要删除短消息吗?" type="submit">
+                    <input name="mc_submit" value="垃圾消息" 	type="submit">
+                    <input name="mc_submit" value="标记为已读"  type="submit"><?php endif; ?>                                                         
+                  </td>
+                  <td align="center"><input name="checkAll" value="checkAll" onclick="ToggleCheck(this);" type="checkbox"></td>
+                </tr>
+              </tbody>
+            </table>
+        </form>    
         </div>
-		<div class="appnav">
-			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
-			    </ul>
-		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
-                <input type="hidden" value="all" name="type">
-                <div id="search_bar">
-                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
-                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
-                </div>
-		    </form>
-		</div>
-        <div class="cl"></div>
-	</div>
-        
+        <div class="cright">
+			<p class="pl2">&gt; <a href="<?php echo U('public/message/ikmail',array('d'=>'choose'));?>">给我关注的人写信</a></p>
+<p class="pl2">&gt; <a href="<?php echo U('public/user/follow',array('userid'=>$userid));?>">去我关注的人列表</a></p>   
+        </div>
+    </div>
 </div>
-<div style="margin:150px auto; width:500px;">
-  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
-  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
-    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
-    <li style="color:#666;line-height: 10px;">&nbsp;</li>
-
-    <li style="color:#666;"> 
-        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
-        <script type="text/javascript">
-            (function(){
-                var secs=3,si=setInterval(function(){
-                    if(--secs){
-                        document.getElementById('f3s').innerHTML = secs;
-                    }
-                    else{
-                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
-                    }
-            }, 1000)})();
-        </script>
- 	</li>
-
-  </ul>
-</div>
-<!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
 <div id="footer">
@@ -235,6 +213,5 @@ __SITE_THEME_CSS__
 document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
 </script>
 <!-- Baidu Button END -->
-
 </body>
-</html><?php endif; ?></if>
+</html>

@@ -10,8 +10,10 @@
 </h1>
 
 <ul>
+    <li><a href="{:U('space/notes/index',array('id'=>$strUser[userid]))}">日记</a></li>
+    <li><a href="{:U('space/photos/index',array('id'=>$strUser[userid]))}">相册</a></li>
     <if condition="$strUser[userid] eq $visitor[userid]">
-    <li><a href="{:U('public/message/ikmail',array(d=>inbox))}">站内信</a></li>
+    <li><a href="{:U('public/message/ikmail',array('d'=>inbox))}">站内信</a></li>
     <li><a href="{:U('public/user/setbase')}">设置</a></li>
     </if>
 </ul>

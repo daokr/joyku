@@ -207,7 +207,7 @@ a.bn-post:hover span{background-color:#63AB1A; border: 1px solid #50950E;}
 /**导航样式**/
 #header {width:100%; margin:0px auto;margin-bottom:40px;  overflow:hidden;background-color: #F5F5F5;
 border-bottom: 1px solid #EEEEEE;box-shadow:0 1px 3px rgba(100,100,100,.3);-moz-box-shadow:0 1px 3px rgba(100,100,100,.3);-webkit-box-shadow:0 1px 3px rgba(100,100,100,.3);}
-#header .site_nav { width:980px; margin:0 auto; padding-top:18px; padding-bottom:10px}
+#header .site_nav { width:1000px; margin:0 auto; padding-top:18px; padding-bottom:10px}
 #header .site_nav .site_logo{ float:left; width:165px; height:40px; background:url(logo.png) no-repeat 0px 0px;}
 #header .site_nav .site_logo a{ display: block;height: 100%; line-height: 100em; overflow: hidden;width: 100%;}
 #header .site_nav .site_logo a:active, #header .site_nav .site_logo a:hover {
@@ -260,7 +260,7 @@ box-shadow:0 1px 3px rgba(100,100,100,.3);-moz-box-shadow:0 1px 3px rgba(100,100
 .tit-1{   border-bottom: 1px solid #DDDDDD;margin-bottom: 20px;padding-bottom: 5px; color:#333}
 /*底部*/
 #footer{height:162px; padding-top:43px;  margin-top:40px; }
-#footer .f_content{width:980px;  overflow:hidden; margin:0 auto;  border-top: 1px dashed #DDDDDD; padding-top:10px}
+#footer .f_content{width:1000px;  overflow:hidden; margin:0 auto;  border-top: 1px dashed #DDDDDD; padding-top:10px}
 
 
 /*tab切换导航*/

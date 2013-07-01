@@ -25,7 +25,7 @@ class imagesModel extends Model {
 			return $photoid;
 		}
 	}
-	//根据用户photoid 图片
+	//根据用户seqid 图片
 	public  function getImageByseqid($type, $typeid, $seqid){
 		$where = array('type'=>$type, 'typeid'=> $typeid,'seqid'=>$seqid);
 		$result = $this->where($where)->find();

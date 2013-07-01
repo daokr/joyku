@@ -10,7 +10,7 @@ class indexAction extends mallbaseAction {
 		if (! $this->visitor->is_login && in_array ( ACTION_NAME, array (
 				'create',
 		) )) {
-			$this->redirect ( 'user/login' );
+			$this->redirect ( 'public/user/login' );
 		} else {
 			$this->userid = $this->visitor->info ['userid'];
 		}

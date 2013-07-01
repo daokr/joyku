@@ -22,13 +22,13 @@
         </ul>
         <!--操作-->
         <div class="favorite"> 
-            <a href="javascript:;" class="J_likeitem like" data-id="{$item.id}" >12</a>
-            <div class="J_like_n like_n"><a href="" target="_blank">55</a><i></i></div>
+            <a href="javascript:;" class="J_likeitem like" data-id="{$item.id}" >喜欢</a>
+            <div class="J_like_n like_n"><a href="{:U('mall/item/index', array('id'=>$item['id']))}" target="_blank">{$item[likes]}</a><i></i></div>
             
             <if condition="$item['comments'] gt 0">
-            <span class="creply_n">(<a href="{:U('item/index', array('id'=>$item['id']))}" target="_blank">2</a>)</span>
+            <span class="creply_n">(<a href="{:U('item/index', array('id'=>$item['id']))}" target="_blank">{$item[comments]}</a>)</span>
             </if>
-            <a class="creply" href="{:U('item/index', array('id'=>$item['id']))}" target="_blank">777</a> 
+            <a class="creply" href="{:U('item/index', array('id'=>$item['id']))}" target="_blank">评论</a> 
         </div>
         <!--作者-->
 

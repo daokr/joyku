@@ -27,7 +27,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
-<script type="text/javascript" src="__PUBLIC__/js/masonry/jquery.masonry.min.js"></script>
 </head>
 
 <body>
@@ -121,9 +120,7 @@ __EXTENDS_JS__
         </div>
 		<div class="appnav">
 			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): if($key == 'share'): ?><li><a href="javascript:;" class="a_<?php echo ($key); ?>" data-url="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li>
-                    <?php else: ?>
-                    <li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>" ><?php echo ($item[name]); ?></a></li><?php endif; endforeach; endif; ?>
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
 			    </ul>
 		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
                 <input type="hidden" value="all" name="type">
@@ -137,107 +134,53 @@ __EXTENDS_JS__
 	</div>
         
 </div>
+
 <div class="midder">
-	<div class="mc">
-       	 <h1>发现宝贝 </h1>
-    <div class="">
-        <div id="J_waterfall" class="wall_container" data-uri="<?php echo U('mall/index/index_ajax',array('tag'=>$tag,'sort'=>$sort,'p'=>$p));?>">
-            <div class="J_item wall_tag">
-                <h3>热门标签：</h3>
-                <div class="atags clearfix">
-                    	<a href="<?php echo U('mall/index/explore_goods');?>" title="全部" class="on">全部</a>
-                        <!--<?php if(is_array($arrTag)): foreach($arrTag as $key=>$item): ?><a href="<?php echo U('mall/index/explore_goods',array('tag'=>$item[tagname]));?>" title="<?php echo ($item[tagname]); ?>"><?php echo ($item[tagname]); ?></a><?php endforeach; endif; ?>    -->
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'包邮'));?>" title="<?php echo ($item[tagname]); ?>">包邮</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'复古'));?>" title="<?php echo ($item[tagname]); ?>">复古</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'性感'));?>" title="<?php echo ($item[tagname]); ?>">性感</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'可爱'));?>" title="<?php echo ($item[tagname]); ?>">可爱</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'欧美'));?>" title="<?php echo ($item[tagname]); ?>">欧美</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'日系'));?>" title="<?php echo ($item[tagname]); ?>">日系</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'韩系'));?>" title="<?php echo ($item[tagname]); ?>">韩系</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'中性'));?>" title="<?php echo ($item[tagname]); ?>">中性</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'清新'));?>" title="<?php echo ($item[tagname]); ?>">清新</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'优雅'));?>" title="<?php echo ($item[tagname]); ?>">优雅</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'条纹'));?>" title="<?php echo ($item[tagname]); ?>">条纹</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'黑白'));?>" title="<?php echo ($item[tagname]); ?>">黑白</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'妹妹'));?>" title="<?php echo ($item[tagname]); ?>">妹妹</a>      
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'学生'));?>" title="<?php echo ($item[tagname]); ?>">学生</a>      
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'短袖'));?>" title="<?php echo ($item[tagname]); ?>">短袖</a>
-                        <a href="<?php echo U('mall/index/explore_goods',array('tag'=>'连衣裙'));?>" title="<?php echo ($item[tagname]); ?>">连衣裙</a>             
-                </div>
-            </div>
-            <?php if(is_array($item_list)): $i = 0; $__LIST__ = $item_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?><div class="J_item wall_item">
-
-
-        <a href="javascript:;" class="J_unlike del_item" title="<?php echo L('delete');?>" data-id="<?php echo ($item["id"]); ?>"></a>
-
-
-
-        <a href="javascript:;" class="J_delitem del_item" title="<?php echo L('delete');?>" data-id="<?php echo ($item["id"]); ?>" data-aid="<?php echo ($album["id"]); ?>"></a>
-
-
-        <!--图片-->
-        <ul class="pic">
-            <li>
-                <a href="<?php echo U('mall/item/index', array('id'=>$item['id']));?>" title="<?php echo ($item["title"]); ?>" target="_blank">
-<img alt="<?php echo ($item["title"]); ?>" class="J_img J_decode_img" data-uri="<?php echo base64_encode(attach(get_thumb($item['img'], '_m'), 'item'));?>" >
-                </a>
-                <span class="p">¥<?php echo ($item["price"]); ?></span>
-                <a href="javascript:;" class="J_joinalbum addalbum_btn" data-id="<?php echo ($item["id"]); ?>"></a>
-            </li>
-        </ul>
-        <!--操作-->
-        <div class="favorite"> 
-            <a href="javascript:;" class="J_likeitem like" data-id="<?php echo ($item["id"]); ?>" >喜欢</a>
-            <div class="J_like_n like_n"><a href="<?php echo U('mall/item/index', array('id'=>$item['id']));?>" target="_blank"><?php echo ($item[likes]); ?></a><i></i></div>
-            
-            <?php if($item['comments'] > 0): ?><span class="creply_n">(<a href="<?php echo U('item/index', array('id'=>$item['id']));?>" target="_blank"><?php echo ($item[comments]); ?></a>)</span><?php endif; ?>
-            <a class="creply" href="<?php echo U('item/index', array('id'=>$item['id']));?>" target="_blank">评论</a> 
-        </div>
-        <!--作者-->
-
-        <div class="author clearfix">
-            <a href="<?php echo U('mall/mine/index',array('id'=>$item[user][doname]));?>" target="_blank">
-                <img class="J_card avt fl r3" src="<?php echo ($item[user][face]); ?>" data-uid="<?php echo ($item["uid"]); ?>" />
-            </a>
-             <div class="user_info">
- 				<a href="<?php echo U('mall/mine/index',array('id'=>$item[user][doname]));?>" class="J_card clr6 bold" target="_blank" data-uid="<?php echo ($item["userid"]); ?>"><?php echo ($item[user][username]); ?></a>
-                <p class="share_info">分享了<span class="clrff8"><?php echo ($item[sharenum]); ?></span>个搭配</p>
-             </div>
+<div class="mc">
+	<div class="cleft">
+    
+    </div><!--//cleft-->
+    <div class="cright">
+        <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('d'=>'create'));?>" class="create-new-album" >创建新相册</a></p>
+        <div class="mod">       
+            <h2>最新回应 &nbsp; ·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2>
+            <ul class="photocom">
+                <li>
+                    <div class="pic"><a href="http://www.douban.com/people/HornGala/"><img src="http://img3.douban.com/icon/u43158322-78.jpg"></a></div>
+                    <div class="piccomment">
+                        <p><a href="#">清凉 : 好多个人照片个啊好多个人照片个啊好多个人照片个啊好多个人照片个啊</a></p>
+                        <span>2012-11-24 22:02</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic"><a href="http://www.douban.com/people/HornGala/"><img src="http://img3.douban.com/icon/u43158322-78.jpg"></a></div>
+                    <div class="piccomment">
+                        <p><a href="#">清凉 : 好多个人照片个啊好多个人照片个啊好多个人照片个啊好多个人照片个啊</a></p>
+                        <span>2012-11-24 22:02</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic"><a href="http://www.douban.com/people/HornGala/"><img src="http://img3.douban.com/icon/u43158322-78.jpg"></a></div>
+                    <div class="piccomment">
+                        <p><a href="#">清凉 : 好多个人照片个啊好多个人照片个啊好多个人照片个啊好多个人照片个啊</a></p>
+                        <span>2012-11-24 22:02</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="pic"><a href="http://www.douban.com/people/HornGala/"><img src="http://img3.douban.com/icon/u43158322-78.jpg"></a></div>
+                    <div class="piccomment">
+                        <p><a href="#">清凉 : 好多个人照片个啊好多个人照片个啊好多个人照片个啊好多个人照片个啊</a></p>
+                        <span>2012-11-24 22:02</span>
+                    </div>
+                </li>                                                
+            </ul>
         </div>
 
-        <!--说明-->
-        <p class="intro clr6"><?php echo ($item["intro"]); ?></p>
-        <!--评论-->
- 		<?php if(!empty($item['comment_list'])): ?><ul class="rep_list">
-            <?php $__FOR_START_28166__=0;$__FOR_END_28166__=C('pin_item_cover_comments');for($i=$__FOR_START_28166__;$i < $__FOR_END_28166__;$i+=1){ if(!empty($item['comment_list'][$i])): ?><li class="rep_f">
-                <a href="" target="_blank">
-                    <img src="" class="J_card avt fl r3" alt="<?php echo ($item['comment_list'][$i]['uname']); ?>" data-uid="">
-                </a>
-                <p class="rep_content"><a href="" class="J_card n" target="_blank" data-uid="">dfas</a>  你发的东西确实很好看哦</p>
-            </li><?php endif; } ?>
-        </ul><?php endif; ?>
-    </div><?php endforeach; endif; else: echo "" ;endif; ?>
-        </div>
         
-        <?php if(isset($show_load)): ?><div id="J_wall_loading" class="wall_loading tc gray"><span>加载中。。。</span></div><?php endif; ?>
-        
-        <?php if(isset($page_bar)): ?><div id="J_wall_page" class="wall_page" <?php if(isset($show_page)): ?>style="display:block;"<?php endif; ?>>
-                <div class="page_bar"><?php echo ($page_bar); ?></div>
-            </div><?php endif; ?>
-
-        
-    </div>
-		
-        
-    	
-     
-        
-    </div>
+    </div><!--//right-->
+</div>
 </div>
 
-
-
-<script type="text/javascript" src="__STATIC_JS__/wall.js"></script>
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <footer>
@@ -273,7 +216,6 @@ __EXTENDS_JS__
 document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
 </script>
 <!-- Baidu Button END -->
-
 
 </body>
 </html>

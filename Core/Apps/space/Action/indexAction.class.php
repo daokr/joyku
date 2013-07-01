@@ -3,7 +3,7 @@
  * IKPHP爱客网 安装程序 @copyright (c) 2012-3000 IKPHP All Rights Reserved @author 小麦
  * @Email:160780470@qq.com
  */
-class indexAction extends frontendAction {
+class indexAction extends spacebaseAction {
 	public function _initialize() {
 		parent::_initialize ();
 		if ($this->visitor->is_login) {
@@ -16,13 +16,6 @@ class indexAction extends frontendAction {
 		$this->group_topics_mod = D ( 'group/group_topics' );
 		$this->group_topics_collects = D ( 'group/group_topics_collects' );
 		$this->group_topics_comments = M ( 'group_topics_comments' );
-	}
-	protected  function _nav(){
-		$arrNav = array ();
-		$arrNav['index'] = array('name'=>'首页', 'url'=>C('ik_site_url'));
-		$arrNav['group'] = array('name'=>'小组', 'url'=>U('group/index/index'));
-		$arrNav['article'] = array('name'=>'阅读', 'url'=>U('article/index/index'));
-		return $arrNav;
 	}
 	public function index() {	
 		$doname = $this->_get ( 'id' );

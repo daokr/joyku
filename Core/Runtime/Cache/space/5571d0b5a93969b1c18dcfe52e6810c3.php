@@ -3,7 +3,7 @@
 <head>
 <!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?> - <?php echo C('ik_site_title');?></title>
+<title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
 <meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
 <meta name="description" content="<?php echo ($seo["description"]); ?>" />
 <meta property="qc:admins" content="12472730776130006375" />
@@ -34,10 +34,17 @@ __EXTENDS_JS__
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
-            <div class="hd">
+            <div class="hd" id="anony-nav">
                 <div class="logo">
                     <h1><a href="__SITE_URL__" title="爱客开源">爱客开源</a></h1>
                 </div>
+                <div class="anony-srh">
+                <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
+                <span class="inp"><input type="text" autocomplete="off" placeholder="书籍、电影、音乐、小组、小站、成员" size="12" maxlength="60" class="key" name="q"></span>
+                <span class="bn"><input type="submit" value="搜索"></span>
+                </form>
+                </div>
+                
                 <div class="top-nav-items">
                 <ul>
                 <li><a href="__SITE_URL__" class="lnk-home" target="_blank">爱客首页</a></li>
@@ -145,7 +152,9 @@ __EXTENDS_JS__
 </h1>
 
 <ul>
-    <?php if($strUser[userid] == $visitor[userid]): ?><li><a href="<?php echo U('public/message/ikmail',array(d=>inbox));?>">站内信</a></li>
+    <li><a href="<?php echo U('space/notes/index',array('id'=>$strUser[userid]));?>">日记</a></li>
+    <li><a href="<?php echo U('space/photos/index',array('id'=>$strUser[userid]));?>">相册</a></li>
+    <?php if($strUser[userid] == $visitor[userid]): ?><li><a href="<?php echo U('public/message/ikmail',array('d'=>inbox));?>">站内信</a></li>
     <li><a href="<?php echo U('public/user/setbase');?>">设置</a></li><?php endif; ?>
 </ul>
 

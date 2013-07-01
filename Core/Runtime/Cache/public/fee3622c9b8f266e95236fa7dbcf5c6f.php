@@ -144,7 +144,7 @@ __EXTENDS_JS__
   <div class="wrapper">
         <div id="head-slide-box" class="head-slide-box">
         	<ul class="head-slides">
-            	<li class="item">
+            	<li class="item" style="display:block">
                     <div class="mod1-left">
                     	<div class="dlitem">
                     	<dl>

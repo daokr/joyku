@@ -6,6 +6,10 @@ return array (
   'URL_ROUTE_RULES' => 
   array (
     '/^space\/(\w+)$/' => 'space/index/index?id=:1',
+  	'/^space\/photos\/(\d+)$/' => 'space/photos/index?id=:1',
+  	'/^space\/notes\/(\d+)$/' => 'space/notes/index?id=:1',
+  	'/^space\/neighborhood\/(\d+)$/' => 'space/neighborhood/index?id=:1',
+  		  		
     '/^people\/(\w+)$/' => 'space/index/index?id=:1',
     '/^group\/explore_topic$/' => 'group/index/explore_topic',
     '/^group\/explore$/' => 'group/index/explore',

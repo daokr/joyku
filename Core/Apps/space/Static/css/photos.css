@@ -1,0 +1,51 @@
+h2{ margin-bottom:12px}
+.photocom{ overflow:hidden;}
+.photocom li{ height:75px;}
+.photocom .pic{ width:50px;  height:50px; float:left;}
+.photocom .piccomment{ margin-left:60px;}
+.hidden{ display:none}
+.album-name .field, .album-intro .field {font-size:14px}
+.album-reply .field, .album-privacy .field, .album-order .field {margin-right:11px}
+.album-privacy label {margin-right:60px}
+.album-order label {margin-right:24px}
+.album-footer {margin-top:45px}
+.row {margin-bottom:20px;display:block}
+.btn {
+	padding:5px 16px;
+*padding:4px 8px;
+	height:27px;
+	cursor:pointer;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+	color:#fff;
+	background-color:#3fa156;
+	border:1px solid #528641;
+	display:inline
+}
+.btn:hover {
+	background-color:#4fca6c;
+	border-color:#6aad54
+}
+.btn:active {
+	background-color:#3fa156;
+	border-color:#528641
+}
+.cancel-album {
+	float:right;
+	display:inline
+}
+#album_name, #album_intro {
+	margin-top:5px;
+	padding:3px;
+	border:1px solid #ccc;
+	line-height:1.62
+}
+#album_name {
+	font-size:14px;
+	width:400px
+}
+#album_intro {height:242px;resize:vertial;font-size:13px;width:582px}
+#album_name:focus, #album_intro:focus {border-color:gray}
+
+
