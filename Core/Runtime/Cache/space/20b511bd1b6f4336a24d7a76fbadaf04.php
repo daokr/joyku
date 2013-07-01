@@ -29,9 +29,10 @@ __EXTENDS_JS__
 
 
 <script src="__PUBLIC__/js/uploadify/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
+
 <script src="__PUBLIC__/js/uploadify/swfobject.js" type="text/javascript"></script>
 
-<link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify.css" />
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify2.css" />
 
 <script type="text/javascript">
     var loadurl = "{U('photo','do',array('ik'=>'flash',albumid=>$albumid))}";
@@ -45,7 +46,7 @@ $(document).ready(function()
 		'script': 'index.php?app=photo&a=do&ik=flash&albumid=9',
 		'scriptData':{userid:1},
 		'method':'POST', 
-		'cancelImg': siteUrl+'Public/js/uploadify/cancel.png',
+		'cancelImg': siteUrl+'Public/js/uploadify/cancel2.png',
 		'folder': 'UploadFile',
 		'queueID': 'fileQueue',
 		'auto': false,
@@ -174,18 +175,30 @@ $(document).ready(function()
 <div class="mc">
 	<h1><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
-        <div>
-            <div id="fileQueue"></div>
-            <input type="file" id="uploadify" />
-            <p style="padding:10px 0;">上传文件只支持：jpg，gif，png格式；上传最大支持1M的图片<br>
-				提示：每次最多可以批量上传二十张照片，按着 "ctrl" 键可以一次选择多张照片
-            </p>
-            <p style="padding:10px 0;">
-            <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
-            <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
-            </p>
-        </div>    	
-    	
+    
+    	<?php if($type != 'n'): ?><div class="uploadtype">
+                <div id="fileQueue"></div><br>
+                <input type="file" id="uploadify" />
+                <p style="padding:10px 0;">上传文件只支持：jpg，gif，png格式；上传最大支持1M的图片<br>
+                    提示：每次最多可以批量上传二十张照片，按着 "ctrl" 键可以一次选择多张照片
+                </p>
+                <p style="padding:10px 0;">
+                <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+                <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
+                </p>
+                <p><br>无法上传？<a href="<?php echo U('space/photos/album',array('d'=>'upload','type'=>'n','id'=>$strAlbum[albumid]));?>">使用普通方式上传照片&gt;</a></p>
+       		</div>
+        <?php else: ?> 
+            <div class="uploadtype">
+                <p class="pl">你可以上传JPG，JPEG， GIF，PNG，每个文件大小可以到1M。</p><br>
+                <form enctype="multipart/form-data" action="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>" method="post" name="album_upload">
+                <span class="pl">选择图片 </span>
+                <input type="file" name="picfile"><br><br>
+                <span class="bn-flat"><input type="submit" value="开始上传" name="upload"></span>
+                </form>
+                <p><br><a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">使用批量上传方式上传照片&gt;</a></p>      
+            </div><?php endif; ?>
+        
     </div><!--//cleft-->
     <div class="cright">
         <div class="mod">

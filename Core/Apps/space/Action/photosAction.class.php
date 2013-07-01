@@ -104,17 +104,23 @@ class photosAction extends spacebaseAction {
 	public function uploadPhoto(){
 		if(! $this->visitor->is_login ) $this->redirect ( 'public/user/login' );
 		$albumid = $this->_get('id','trim,intval');
+		$type = $this->_get('type','trim','');
 		if(!empty($albumid)){
 			//获取相册信息
 			$strAlbum = $this->album_mod->getOneAlbum($albumid);
 			if($strAlbum['userid']==$this->userid){
 				
-				
-				$this->assign('strAlbum',$strAlbum);
-				$this->_config_seo ( array (
-						'title' => '上传照片 - '.$strAlbum['albumname']
-				) );
-				$this->display('upload');
+				if(IS_POST){
+					$picfile = $_FILES['picfile'];
+					dump($picfile);
+				}else{
+					$this->assign('type',$type);
+					$this->assign('strAlbum',$strAlbum);
+					$this->_config_seo ( array (
+							'title' => '上传照片 - '.$strAlbum['albumname']
+					) );
+					$this->display('upload');
+				}
 				
 			}else{
 				$this->error('你没有权限更新照片！');

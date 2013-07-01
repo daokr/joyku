@@ -59,4 +59,5 @@ h2{ margin-bottom:12px}
 #album_intro {height:242px;resize:vertial;font-size:13px;width:582px}
 #album_name:focus, #album_intro:focus {border-color:gray}
 
-
+/**上传**/
+.uploadtype{ margin-top:15px}
