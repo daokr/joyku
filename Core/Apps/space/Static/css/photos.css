@@ -1,9 +1,20 @@
 h2{ margin-bottom:12px}
+/**相册页面**/
+.albumlst{margin:9px 0 10px 0;padding:0 0 10px 0;line-height:1.65em;float:left;width:49%}
+.albumlst_r{overflow:hidden;word-wrap:break-word;color:#777;float:left;width:240px;padding-top:4px}
+.albumlst_descri{color:#333;margin-bottom:10px}
+.album{background:url('../images/albumback.gif') 1px 1px no-repeat;padding:4px 7px 7px 4px}
+.album_photo{display:block;overflow:hidden;width:181px;height:181px}
+.album_photo:link{display:block;color:#777;font-style:italic}
+.album_photo:visited{color:#777;font-style:italic}
+.album_photo:hover{background:0;color:#777}
+
 .photocom{ overflow:hidden;}
 .photocom li{ height:75px;}
 .photocom .pic{ width:50px;  height:50px; float:left;}
 .photocom .piccomment{ margin-left:60px;}
 .hidden{ display:none}
+/**创建页**/
 .album-name .field, .album-intro .field {font-size:14px}
 .album-reply .field, .album-privacy .field, .album-order .field {margin-right:11px}
 .album-privacy label {margin-right:60px}

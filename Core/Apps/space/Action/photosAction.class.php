@@ -27,6 +27,10 @@ class photosAction extends spacebaseAction {
 		}else{
 			$this->error('呃...你想访问的页面不存在');
 		}
+		//获取相册列表
+		$arrAlbum = $this->album_mod->getAlbums(array('userid'=>$userid));
+		
+		$this->assign('arrAlbum',$arrAlbum);
 		
 		$this->_config_seo ( array (
 				'title' => $title
@@ -36,17 +40,29 @@ class photosAction extends spacebaseAction {
 	//相册
 	public function album(){
 		$type = $this->_get ( 'd', 'trim' );
-		switch ($type) {
-			case "create" :
-				$this->create();
-				break;
-			default:
-				$this->error('呃...你想访问的页面不存在');
+		if(empty($type)){
+			$albumid = $this->_get ( 'id', 'trim,intval' );
+			if($albumid>0){
+				
+			}else{
+				$this->error('呃...你想访问的相册不存在');
+			}
+		}else{
+			switch ($type) {
+				case "create" :
+					$this->create();
+					break;
+				case "upload" :
+					$this->uploadPhoto();
+					break;
+				default:
+					$this->error('呃...你想访问的页面不存在');
+			}			
 		}
-
 	}
 	//创建相册
 	public function create(){
+		if(! $this->visitor->is_login ) $this->redirect ( 'public/user/login' );
 		if(IS_POST){
 			$data['userid'] = $this->userid;
 			$data['albumname'] = $this->_post('albumname','trim','');
@@ -71,7 +87,7 @@ class photosAction extends spacebaseAction {
 			// 保存当前数据对象
 			$albumid = $this->album_mod->add ();
 			if ($albumid !== false) { // 保存成功
-				$this->redirect('space/photos/upload',array('from'=>$albumid));
+				$this->redirect('space/photos/album',array('d'=>'upload','id'=>$albumid));
 			} else {
 				// 失败提示
 				$this->error ( '创建相册失败!' );
@@ -85,10 +101,24 @@ class photosAction extends spacebaseAction {
 		}	
 	}
 	//上传照片
-	public function upload(){
-		$albumid = $this->_get('from','trim,intval');
+	public function uploadPhoto(){
+		if(! $this->visitor->is_login ) $this->redirect ( 'public/user/login' );
+		$albumid = $this->_get('id','trim,intval');
 		if(!empty($albumid)){
-			
+			//获取相册信息
+			$strAlbum = $this->album_mod->getOneAlbum($albumid);
+			if($strAlbum['userid']==$this->userid){
+				
+				
+				$this->assign('strAlbum',$strAlbum);
+				$this->_config_seo ( array (
+						'title' => '上传照片 - '.$strAlbum['albumname']
+				) );
+				$this->display('upload');
+				
+			}else{
+				$this->error('你没有权限更新照片！');
+			}
 		}
 	}
 	

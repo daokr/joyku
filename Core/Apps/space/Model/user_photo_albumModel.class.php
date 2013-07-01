@@ -16,6 +16,24 @@ class user_photo_albumModel extends Model
 			array('addtime','time',self::MODEL_INSERT,'function'),
 			array('uptime','time',self::MODEL_INSERT,'function'),
 	);
-
-
+	
+	//获取相册列表
+	public function getAlbums($map,$order='addtime desc',$limit = '')
+	{
+		$res = $this->where($map)->order($order)->limit($limit)->select();
+		if($res){
+			return $res;
+		}else{
+			return false;
+		}
+	}
+	//获取一个相册
+	public function getOneAlbum($id){
+		$res = $this->where(array('albumid'=>$id))->find();
+		if($res){
+			return $res;
+		}else{
+			return false;
+		}		
+	}
 }

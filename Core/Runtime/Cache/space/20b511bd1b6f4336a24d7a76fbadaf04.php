@@ -27,6 +27,41 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
+
+<script src="__PUBLIC__/js/uploadify/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
+<script src="__PUBLIC__/js/uploadify/swfobject.js" type="text/javascript"></script>
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify.css" />
+
+<script type="text/javascript">
+    var loadurl = "{U('photo','do',array('ik'=>'flash',albumid=>$albumid))}";
+	var objdata = {'userid': '{$IK_USER[user][userid]}','albumid': '<?php echo ($albumid); ?>'};
+	var jumpurl = "{U('photo','album',array('ik'=>'info',albumid=>$albumid,'addtime'=>$addtime))}";
+$(document).ready(function()
+{		
+	$("#uploadify").uploadify({
+		'uploader': siteUrl + 'Public/js/uploadify/uploadify.swf',
+		'expressInstall': siteUrl + 'Public/js/uploadify/expressInstall.swf',
+		'script': 'index.php?app=photo&a=do&ik=flash&albumid=9',
+		'scriptData':{userid:1},
+		'method':'POST', 
+		'cancelImg': siteUrl+'Public/js/uploadify/cancel.png',
+		'folder': 'UploadFile',
+		'queueID': 'fileQueue',
+		'auto': false,
+		'multi': true,
+		'buttonText': '',
+		'buttonImg': siteUrl+'Public/images/upload-btns.png',		
+		'fileDesc':'jpg,gif,png图片格式',
+		'fileExt':'*.jpg;*.gif;*.png',
+		'onAllComplete' : function(event,data) {
+			//window.location = jumpurl;
+		}
+
+	});
+
+})
+</script>
 </head>
 
 <body>
@@ -139,41 +174,24 @@ __EXTENDS_JS__
 <div class="mc">
 	<h1><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
-    	<div class="">
-        	<?php if(is_array($arrAlbum)): foreach($arrAlbum as $key=>$item): ?><div class="albumlst">
-                <a href="<?php echo U('space/photos/album',array('id'=>$item[albumid]));?>" class="album_photo">
-                <?php if(empty($item[albumface])): ?><img src="__STATIC_IMG__/photo_album.png" class="album">
-                <?php else: ?>
-                 <img src="<?php echo attach($item[albumface]);?>" class="album"><?php endif; ?> 
-                </a>
-                <div class="albumlst_r">
-                <div class="pl2"><a href="<?php echo U('space/photos/album',array('id'=>$item[albumid]));?>"><?php echo ($item[albumname]); ?></a></div>
-                <div class="albumlst_descri"><?php echo getsubstrutf8(t($item['albumdesc']),0,30) ?></div>
-                <span class="pl">
-                <?php echo ($item[count_photo]); ?>张照片&nbsp;
-                <?php echo (date("Y-m-d",$item["addtime"])); ?>创建<br>
-                </span>
-                &gt;<a href="<?php echo U('space/photos/album',array('d'=>'edit','id'=>$item[albumid]));?>">修改相册属性</a>
-                &nbsp;&gt;<a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$item[albumid]));?>">添加照片</a>
-                </div>
-                <br>
-                </div><?php endforeach; endif; ?>        
-        </div>
+        <div>
+            <div id="fileQueue"></div>
+            <input type="file" id="uploadify" />
+            <p style="padding:10px 0;">上传文件只支持：jpg，gif，png格式；上传最大支持1M的图片<br>
+				提示：每次最多可以批量上传二十张照片，按着 "ctrl" 键可以一次选择多张照片
+            </p>
+            <p style="padding:10px 0;">
+            <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+            <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
+            </p>
+        </div>    	
     	
     </div><!--//cleft-->
     <div class="cright">
-        <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('d'=>'create'));?>" class="create-new-album" >创建新相册</a></p>
-        <div class="mod">       
-            <h2>最新回应 &nbsp; ·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2>
-            <ul class="photocom">
-                <li>
-                    <div class="pic"><a href="http://www.douban.com/people/HornGala/"><img src="http://img3.douban.com/icon/u43158322-78.jpg"></a></div>
-                    <div class="piccomment">
-                        <p><a href="#">清凉 : 机会对于任何人都是公平的，它在我们身边的时候，不是打扮的花枝招展，而是普普通通的，根本就不起眼。 </a></p>
-                        <span>2012-11-24 22:02</span>
-                    </div>
-                </li>
-            </ul>
+        <div class="mod">
+        所有相册空间的总容量为 5G。
+        <br><br>
+        <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strAlbum[albumid]));?>">回相册"<?php echo ($strAlbum[albumname]); ?>"</a></p>
         </div>
 
         
