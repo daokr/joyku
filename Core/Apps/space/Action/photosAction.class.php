@@ -8,7 +8,7 @@ class photosAction extends spacebaseAction {
 		parent::_initialize ();
 		// 访问者控制
 		if (! $this->visitor->is_login && in_array ( ACTION_NAME, array (
-				'create',
+				'info',
 		) )) {
 			$this->redirect ( 'public/user/login' );
 		} else {
@@ -17,6 +17,7 @@ class photosAction extends spacebaseAction {
 		//应用所需 mod
 		$this->user_mod = D('user');
 		$this->album_mod = D('user_photo_album');
+		$this->photo_mod = D('user_photo');
 	}
 	//相册首页
 	public function index(){
@@ -40,10 +41,13 @@ class photosAction extends spacebaseAction {
 	//相册
 	public function album(){
 		$type = $this->_get ( 'd', 'trim' );
+
 		if(empty($type)){
-			$albumid = $this->_get ( 'id', 'trim,intval' );
-			if($albumid>0){
-				
+			//相册显示页面
+			$albumid = $this->_get ( 'id', 'trim,intval','0');
+			$strAlbum = $this->album_mod->getOneAlbum($albumid);
+			if($strAlbum){
+				$this->albumList($albumid);
 			}else{
 				$this->error('呃...你想访问的相册不存在');
 			}
@@ -54,6 +58,12 @@ class photosAction extends spacebaseAction {
 					break;
 				case "upload" :
 					$this->uploadPhoto();
+					break;
+				case "ajaxupload" :
+					$this->ajaxupload();
+					break;	
+				case "info" :
+					$this->info();
 					break;
 				default:
 					$this->error('呃...你想访问的页面不存在');
@@ -111,10 +121,28 @@ class photosAction extends spacebaseAction {
 			if($strAlbum['userid']==$this->userid){
 				
 				if(IS_POST){
-					$picfile = $_FILES['picfile'];
-					dump($picfile);
+					$smalltime = $this->_get('t','trim');
+					//上传
+					$arrUpload = $this->photo_mod->addPhoto($_FILES['picfile'],$this->userid,$albumid);
+					
+					if($arrUpload){
+					
+						$arrData = array(
+								'userid'	=> $this->userid,
+								'albumid'	=> $albumid,
+								'photopath' => $arrUpload['path'],
+								'photoname' => $arrUpload['filename']
+						);
+
+						if(!false == $this->photo_mod->create ($arrData)){
+							$photoid = $this->photo_mod->add();
+							$this->redirect('space/photos/album',array('d'=>'info','id'=>$albumid,'t'=>$smalltime));
+						}
+					}
+					
 				}else{
 					$this->assign('type',$type);
+					$this->assign('smalltime',time());
 					$this->assign('strAlbum',$strAlbum);
 					$this->_config_seo ( array (
 							'title' => '上传照片 - '.$strAlbum['albumname']
@@ -126,6 +154,107 @@ class photosAction extends spacebaseAction {
 				$this->error('你没有权限更新照片！');
 			}
 		}
+	}
+	//ajax上传照片
+	public function ajaxupload(){
+		if(IS_POST){
+			$userid = $this->_post('userid','intval');
+			if(empty($userid)) exit;
+			
+			$albumid = $this->_post('albumid','intval');
+			
+			//上传
+			$arrUpload = $this->photo_mod->addPhoto($_FILES['Filedata'],$userid,$albumid);
+			if($arrUpload){
+				
+				$arrData = array(
+						'userid'	=> $userid,
+						'albumid'	=> $albumid,
+						'photopath' => $arrUpload['filepath'],
+						'photoname' => $arrUpload['filename']
+				);
+				
+				if(!false === $this->photo_mod->create ($arrData)){
+					$photoid = $this->photo_mod->add();
+				}	
+			}
+			
+		}else{
+			$this->error('非法操作');
+		}
+	}
+	//上传完成
+	public function info(){
+		$albumid = $this->_get('id','intval');
+		$userid = $this->userid;
+		
+		!empty($albumid) && $strAlbum = $this->album_mod->getOneAlbum($albumid);
+		
+		if($strAlbum && $strAlbum['userid'] == $userid){
+			if(IS_POST){
+				$pid = $this->_post('albumface','trim,intval','0');
+				$arrphotoid = $this->_post('photoid');
+				$arrphotodesc = $this->_post('photodesc');
+
+				
+				foreach($arrphotodesc as $key => $item){
+					if($item){
+						$photoid = $arrphotoid[$key];
+						$this->photo_mod->where(array('photoid'=>$photoid))->setField('photodesc',h($item));
+					}	
+				}
+				
+				if($pid>0){
+					$albumface = $this->photo_mod->getOnePhoto($pid);
+					
+					$this->album_mod->where(array('albumid'=>$albumid))->setField(array('path'=>$albumface['photopath'],'albumface'=>$albumface['photoname']));
+				}
+				$this->redirect('space/photos/album',array('id'=>$albumid));
+				
+			}else{
+				$smalltime = $this->_get('t','trim');
+				if(!empty($smalltime)){
+					$map['addtime'] = array('gt',$smalltime);
+					$map['userid'] = $userid;
+					$map['albumid'] = $albumid;
+					$arrPhoto = $this->photo_mod->getPhotos($map);
+					empty($arrPhoto) && $this->error('呃...你想访问的页面不存在');
+					$title = '完成上传！添加描述 - '.$strAlbum['albumname'];
+				}else{
+					$arrPhoto = $this->photo_mod->getPhotos(array('userid'=>$userid,'albumid'=>$albumid));
+					$title = '批量修改 - '.$strAlbum['albumname'];
+				}
+				$this->assign('strAlbum',$strAlbum);
+				$this->assign('arrPhoto',$arrPhoto);
+				$this->_config_seo ( array (
+						'title' => $title
+				) );
+				$this->display('complete');
+			}
+		}else{
+			$this->error('呃...你无权访问此页面');
+		}
+	}
+	//相册显示
+	public function albumList($albumid){
+		$strAlbum = $this->album_mod->getOneAlbum($albumid);
+		$user = $this->user_mod->getOneUser($strAlbum['userid']);
+		
+		$page_max = 100; //发现页面最多显示页数
+		$where = array('albumid'=>$albumid);
+		$this->waterfall($where, 'photoid DESC', $page_max);
+		
+		$this->assign('strAlbum',$strAlbum);
+		$this->assign('user',$user);
+		$this->_config_seo ( array (
+				'title' => $user['username'].'的相册 - '.$strAlbum['albumname']
+		) );
+		$this->display('album');
+	}
+	public function index_ajax() {
+		$albumid = $this->_get('albumid','intval');
+		$where = array('albumid'=>$albumid);
+		$this->wall_ajax($where);
 	}
 	
 	

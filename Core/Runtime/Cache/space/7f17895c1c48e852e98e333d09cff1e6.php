@@ -137,6 +137,7 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
+	<h1><?php echo ($seo["title"]); ?></h1>
 		<div class="cleft">
 <form id="cform" method="post" name="creat_album"  action="<?php echo U('space/photos/album',array('d'=>'create'));?>" onsubmit="return checkAlbum(this)">
 	<div class="row album-name">

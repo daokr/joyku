@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+<js href="__PUBLIC__/js/masonry/jquery.masonry.min.js" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<div class="midder">
+<div class="mc">
+	<h1>{$seo.title}</h1>
+	<div class="cleft">
+    	<if condition="$visitor[userid] eq $strAlbum[userid]">
+        <div class="pl photitle">
+        &nbsp;&gt;&nbsp;<a href="{:U('space/photos/album',array('d'=>'edit','id'=>$strAlbum[albumid]))}">修改相册属性</a>
+        &nbsp;&gt;&nbsp;<a href="{:U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]))}">添加照片</a>
+        &nbsp;&gt;&nbsp;<a href="{:U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid]))}">批量修改</a>
+        &nbsp;&gt;&nbsp;<a href="{:U('space/photos/index',array('id'=>$strAlbum[userid]))}">返回我的相册首页</a>
+        </div>
+        <else/>
+        <div class="pl photitle">&gt; <a href="{:U('space/photos/index',array('id'=>$strAlbum[userid]))}">返回{$user[username]}的相册首页</a></div>
+        </if>
+
+<div class="">
+        <div id="J_waterfall" class="wall_container" data-uri="{:U('space/photos/index_ajax',array('albumid'=>$strAlbum[albumid],'p'=>$p))}">
+            <include file="public:waterfall" />
+        </div>
+        
+        <present name="show_load">
+        <div id="J_wall_loading" class="wall_loading tc gray"><span>加载中。。。</span></div>
+        </present>
+        
+        <present name="page_bar">
+            <div id="J_wall_page" class="wall_page" <present name="show_page">style="display:block;"</present>>
+                <div class="page_bar">{$page_bar}</div>
+            </div>
+        </present>   
+</div>
+
+    	
+    </div><!--//cleft-->
+    <div class="cright">
+        <p class="pl2">&gt; <a href="{:U('space/photos/album',array('d'=>'create'))}" class="create-new-album" >创建新相册</a></p>
+        <div class="mod">       
+            <h2>最新回应 &nbsp; ·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2>
+            <ul class="photocom">
+                <li>
+                    <div class="pic"><a href="http://www.douban.com/people/HornGala/"><img src="http://img3.douban.com/icon/u43158322-78.jpg"></a></div>
+                    <div class="piccomment">
+                        <p><a href="#">清凉 : 机会对于任何人都是公平的，它在我们身边的时候，不是打扮的花枝招展，而是普普通通的，根本就不起眼。 </a></p>
+                        <span>2012-11-24 22:02</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        
+    </div><!--//right-->
+</div>
+</div>
+<js href="__STATIC_JS__/wall.js" />
+<include file="public:footer" />
+</body>
+</html>

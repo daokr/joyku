@@ -142,9 +142,9 @@ __EXTENDS_JS__
     	<div class="">
         	<?php if(is_array($arrAlbum)): foreach($arrAlbum as $key=>$item): ?><div class="albumlst">
                 <a href="<?php echo U('space/photos/album',array('id'=>$item[albumid]));?>" class="album_photo">
-                <?php if(empty($item[albumface])): ?><img src="__STATIC_IMG__/photo_album.png" class="album">
+                <?php if(empty($item[albumface])): ?><img src="__STATIC_IMG__/photo_album.png" class="album" >
                 <?php else: ?>
-                 <img src="<?php echo attach($item[albumface]);?>" class="album"><?php endif; ?> 
+                 <img src="<?php echo ($item[simg]); ?>" class="album"><?php endif; ?> 
                 </a>
                 <div class="albumlst_r">
                 <div class="pl2"><a href="<?php echo U('space/photos/album',array('id'=>$item[albumid]));?>"><?php echo ($item[albumname]); ?></a></div>

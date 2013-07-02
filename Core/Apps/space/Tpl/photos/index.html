@@ -16,9 +16,9 @@
                 <div class="albumlst">
                 <a href="{:U('space/photos/album',array('id'=>$item[albumid]))}" class="album_photo">
                 <empty name="item[albumface]">
-               	 <img src="__STATIC_IMG__/photo_album.png" class="album">
+               	 <img src="__STATIC_IMG__/photo_album.png" class="album" >
                 <else/>
-                 <img src="{:attach($item[albumface])}" class="album">
+                 <img src="{$item[simg]}" class="album">
                 </empty> 
                 </a>
                 <div class="albumlst_r">

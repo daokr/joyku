@@ -35,16 +35,17 @@ __EXTENDS_JS__
 <link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify2.css" />
 
 <script type="text/javascript">
-    var loadurl = "{U('photo','do',array('ik'=>'flash',albumid=>$albumid))}";
-	var objdata = {'userid': '{$IK_USER[user][userid]}','albumid': '<?php echo ($albumid); ?>'};
-	var jumpurl = "{U('photo','album',array('ik'=>'info',albumid=>$albumid,'addtime'=>$addtime))}";
+	var vuserid = '<?php echo ($visitor[userid]); ?>', albumid = '<?php echo ($strAlbum[albumid]); ?>';
+    var loadurl = "<?php echo U('space/photos/album',array('d'=>'ajaxupload'));?>";
+	var objdata = {'userid': vuserid,'albumid': albumid};
+	var jumpurl = "<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid],'t'=>$smalltime));?>";
 $(document).ready(function()
 {		
 	$("#uploadify").uploadify({
 		'uploader': siteUrl + 'Public/js/uploadify/uploadify.swf',
 		'expressInstall': siteUrl + 'Public/js/uploadify/expressInstall.swf',
-		'script': 'index.php?app=photo&a=do&ik=flash&albumid=9',
-		'scriptData':{userid:1},
+		'script': 'index.php?app=space&m=photos&a=album&d=ajaxupload',
+		'scriptData':objdata,
 		'method':'POST', 
 		'cancelImg': siteUrl+'Public/js/uploadify/cancel2.png',
 		'folder': 'UploadFile',
@@ -56,7 +57,7 @@ $(document).ready(function()
 		'fileDesc':'jpg,gif,png图片格式',
 		'fileExt':'*.jpg;*.gif;*.png',
 		'onAllComplete' : function(event,data) {
-			//window.location = jumpurl;
+			window.location = jumpurl;
 		}
 
 	});
@@ -191,7 +192,7 @@ $(document).ready(function()
         <?php else: ?> 
             <div class="uploadtype">
                 <p class="pl">你可以上传JPG，JPEG， GIF，PNG，每个文件大小可以到1M。</p><br>
-                <form enctype="multipart/form-data" action="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>" method="post" name="album_upload">
+                <form enctype="multipart/form-data" action="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid],'t'=>$smalltime));?>" method="post" name="album_upload">
                 <span class="pl">选择图片 </span>
                 <input type="file" name="picfile"><br><br>
                 <span class="bn-flat"><input type="submit" value="开始上传" name="upload"></span>

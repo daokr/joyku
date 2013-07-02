@@ -209,7 +209,7 @@ __EXTENDS_JS__
         <p class="intro clr6"><?php echo ($item["intro"]); ?></p>
         <!--评论-->
  		<?php if(!empty($item['comment_list'])): ?><ul class="rep_list">
-            <?php $__FOR_START_28166__=0;$__FOR_END_28166__=C('pin_item_cover_comments');for($i=$__FOR_START_28166__;$i < $__FOR_END_28166__;$i+=1){ if(!empty($item['comment_list'][$i])): ?><li class="rep_f">
+            <?php $__FOR_START_1007__=0;$__FOR_END_1007__=C('pin_item_cover_comments');for($i=$__FOR_START_1007__;$i < $__FOR_END_1007__;$i+=1){ if(!empty($item['comment_list'][$i])): ?><li class="rep_f">
                 <a href="" target="_blank">
                     <img src="" class="J_card avt fl r3" alt="<?php echo ($item['comment_list'][$i]['uname']); ?>" data-uid="">
                 </a>
