@@ -31,7 +31,6 @@ DROP TABLE IF EXISTS `ik_user_photo_album`;
 CREATE TABLE `ik_user_photo_album` (
   `albumid` int(11) NOT NULL AUTO_INCREMENT COMMENT '相册ID',
   `userid` int(11) NOT NULL DEFAULT '0',
-  `path` varchar(255) NOT NULL DEFAULT '' COMMENT '相册路径',
   `albumface` varchar(255) NOT NULL DEFAULT '' COMMENT '相册封面',
   `albumname` char(64) NOT NULL DEFAULT '',
   `albumdesc` varchar(400) NOT NULL DEFAULT '' COMMENT '相册介绍',
