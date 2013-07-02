@@ -16503,3 +16503,22 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:0.001408s ]
 INFO: [ view_end ] --END-- [ RunTime:0.001522s ]
 
+[ 2013-07-01T18:35:13+08:00 ] 127.0.0.1 /joyku/index.php/space/photos/album/id/5
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001147s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001309s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000415s ]
+INFO: Run load_lang Behavior [ RunTime:0.001942s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002558s ]
+SQL: SHOW COLUMNS FROM `ik_message` [ RunTime:0.004739s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ik_message` WHERE ( `touserid` = 1 ) AND ( `isread` = 0 ) AND ( `isinbox` = 0 ) LIMIT 1   [ RunTime:0.001188s ]
+SQL: SELECT COUNT(*) AS count FROM ik_user_online WHERE `ctime` > 1372674013 [ RunTime:0.000382s ]
+SQL: SHOW COLUMNS FROM `ik_app` [ RunTime:0.004453s ]
+SQL: SELECT `app_name`,`app_alias`,`app_entry` FROM `ik_app` WHERE ( `status` = 1 ) ORDER BY display_order asc  [ RunTime:0.001038s ]
+SQL: SELECT * FROM `ik_app` WHERE ( `app_name` = 'space' ) LIMIT 1   [ RunTime:0.000496s ]
+SQL: SHOW COLUMNS FROM `ik_user` [ RunTime:0.005394s ]
+SQL: SHOW COLUMNS FROM `ik_user_photo_album` [ RunTime:0.004294s ]
+NOTIC: 建议使用I方法替代_get
+NOTIC: 建议使用I方法替代_get
+
