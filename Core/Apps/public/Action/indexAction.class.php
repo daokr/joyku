@@ -11,6 +11,7 @@ class indexAction extends frontendAction {
 		$this->group_topic_mod = D ( 'group/group_topics' );
 		$this->article_mod = D('article/article');
 		$this->dev_mod = D('develop/develop');
+		$this->photo_mod = D('space/user_photo');
 	}
 	public function index() {
 		// 来路
@@ -42,7 +43,10 @@ class indexAction extends frontendAction {
 		//视觉
 		$arrfunArticle = $this->article_mod->getArticleItemByMap('orderid desc','4',array('cateid'=>array('exp',' IN (18,19) ','isphoto'=>1)));
 		$this->assign ( 'arrfunArticle', $arrfunArticle );
-
+		
+		//获取推荐照片
+		$arrPhoto = $this->photo_mod->getRecommendPhoto(4);
+		$this->assign ( 'arrPhoto', $arrPhoto );
 		
 		//统计用户数
 		$count_user = $this->user_mod->count('*'); 

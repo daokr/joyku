@@ -57,6 +57,19 @@ class user_photoModel extends Model
     		return false;
     	}
     }
+    //获取推荐照片
+    public function getRecommendPhoto($limit){
+    	$res = $this->field('photoid')->where(array('isrecommend'=>1))->order('addtime desc')->limit($limit)->select();
+	    if($res){
+	    	$result = array();
+	        foreach ($res as $item){
+    			$result[] = $this->getOnePhoto($item['photoid']); 
+    		}
+    		return  $result;
+	    }else{
+	    	return false;
+	    }
+    }
 
 
 }

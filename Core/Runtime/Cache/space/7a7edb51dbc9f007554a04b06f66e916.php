@@ -27,7 +27,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
-
 </head>
 
 <body>
@@ -140,38 +139,31 @@ __EXTENDS_JS__
 <div class="mc">
 	<h1><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
+
+
+<div id="link-report">
+      <div style="text-align:center">
+          <a title="点击查看下一张" href="#" class="mainphoto">
+              <img src="<?php echo ($strPhoto[mimg]); ?>">
+          </a>
+      </div>
+      <div class="photo_descri">
+              <div class="j a_editable edtext pl">
+                  <span id="display">描述</span>
+                  <span id="edi">&#12288;<a href="http://www.douban.com/photos/album/105660462/info#2022717009">修改</a></span>
+                  <form style="display:none" action="/j/photos/photo_desc" name="128" method="post"><div style="display:none;"><input type="hidden" value="Ng5o" name="ck"></div><textarea name="desc"></textarea> <input type="hidden" value="2022717009" name="pid"><input type="submit" class="submit" value="保存">
+                      <input type="button" class="cancel" value="取消">
+                  &#12288;&#12288;<input type="radio" name="iscover">设为相册封面
+                  </form>
+              </div>
+      </div>
+</div>
     
-<form id="iform" method="post" name="album_info">
-    <div class="photo-complete">
     
-    	<?php if(is_array($arrPhoto)): foreach($arrPhoto as $key=>$item): ?><div class="photo-item">
-            <div class="cover">
-                <a href="<?php echo U('space/photos/show',array('id'=>$item[photoid]));?>">
-                <img src="<?php echo ($item[simg]); ?>">
-                </a>
-                <div class="choose-cover">
-                    <label><input type="radio" value="<?php echo ($item[photoid]); ?>" name="albumface">设置为封面</label>
-                </div>
-            </div>
-            <div class="intro">
-             	<input type="hidden" name="photoid[]" value="<?php echo ($item[photoid]); ?>"/>
-                <textarea maxlength="128" name="photodesc[]"></textarea>
-                <p><a class="delete-photo" title="删除这张照片"  href="<?php echo U('space/photos/delphoto',array('id'=>$item[photoid]));?>">删除照片</a></p>
-            </div>
-        </div><?php endforeach; endif; ?>
-        
-    </div>
-    
-    <div class="submit-area">
-       <span class="bn-flat"><input type="submit" value="保存" name="save"></span>
-    </div>
-</form>
-        
+    	
     </div><!--//cleft-->
     <div class="cright">
-        <div class="mod">
-       	 <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strAlbum[albumid]));?>">回相册"<?php echo ($strAlbum[albumname]); ?>"</a></p>
-        </div>
+       
 
         
     </div><!--//right-->
