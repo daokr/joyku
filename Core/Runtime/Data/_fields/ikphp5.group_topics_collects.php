@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'userid', 1 => 'topicid', 2 => 'addtime', '_autoinc' => false, '_pk' => 'topicid', '_type' => array ( 'userid' => 'int(11)', 'topicid' => 'int(11)', 'addtime' => 'int(11)', ), );?>

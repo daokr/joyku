@@ -13,6 +13,7 @@ class adminAction extends backendAction {
 		$this->user_mod = D ( 'user' );
 		$this->topics_mod = D ( 'group_topics' );
 		$this->topics_comments = M ( 'group_topics_comments' );
+		$this->cate_mod = D ( 'group_cate' );
 	}
 	public function setting(){
 		if(IS_POST){
@@ -271,6 +272,105 @@ class adminAction extends backendAction {
     	
     	$this->title ( '帖子评论管理' );
         $this->display('comments');
+    }
+    
+    //小组分类管理
+    public function catelist(){
+    	$referid = $this->_get('referid','trim,intval');
+    	if(empty($referid)){
+    	    //父类管理
+    	    $list = $this->cate_mod->getParentCate();
+    	    $this->assign('list',$list);
+    		$this->title ( '分类管理' );
+    		$this->display('catelist');
+    	}else{
+    		//子类管理
+    		$strCate = $this->cate_mod->getOneCate($referid);
+    		$list = $this->cate_mod->getReferCate($referid);
+    		$this->assign('list',$list);
+    		$this->assign('strCate',$strCate);
+    		$this->title ( $strCate['catename'].' - 分类管理' );
+    		$this->display('childcate');
+    	}
+
+    }
+    //添加分类
+    public function addcate(){
+    	$ik = $this->_get ( 'ik', 'trim');
+    	
+    	switch ($ik) {
+    		case "parent" :
+				if(IS_POST){
+					$data['catename'] = $this->_post('catename','trim');
+					$childname = $this->_post('childname'); 
+					$arrname = explode("\n", $childname); //换行
+					
+					if(!false == $this->cate_mod->create($data)){
+						$cateid = $this->cate_mod->add();
+					}else{
+						$this->error($this->cate_mod->getError());
+					}
+					if(is_array($arrname) && !empty($arrname) && $cateid){
+						foreach($arrname as $item) {
+							$cdata['catename'] = $item;
+							$cdata['referid'] = $cateid;
+							if(!false == $this->cate_mod->create($cdata)){
+								$this->cate_mod->add();
+							}
+						}
+					}
+					$this->redirect('group/admin/catelist');
+					
+				}else{
+					$this->title ( '添加一级分类' );
+    			 	$this->display('addcate');					
+				}
+    			 
+    			break;
+    		case "child" :
+    			if(IS_POST){
+    				$referid = $this->_get('referid','trim,intval');
+    				$childname = $this->_post('childname'); 
+					$arrname = explode("\n", $childname); //换行
+    				
+					if(is_array($arrname) && !empty($arrname) && $referid){
+						foreach($arrname as $item) {
+							$cdata['catename'] = $item;
+							$cdata['referid'] = $referid;
+							if(!false == $this->cate_mod->create($cdata)){
+								$this->cate_mod->add();
+							}
+						}
+					}
+					$this->redirect('group/admin/catelist',array('referid'=>$referid));
+					
+    			}else{
+    				$cateid = $this->_get('id','trim,intval');
+    				$strCate = $this->cate_mod->getOneCate($cateid);
+    				
+    				$this->assign('strCate',$strCate);
+					$this->title ( $strCate['catename'].' - 添加子分类' );
+    			 	$this->display('addchildcate');    				
+    			}
+    			break;	
+    	}
+
+    }
+    //编辑分类
+    public  function  editcate(){
+    	$cateid = $this->_get('id','trim,intval');
+    	if($cateid){
+    		if(IS_POST){
+    			$catename = $this->_post('catename','trim');
+    			$this->cate_mod->where(array('cateid'=>$cateid))->setField('catename', $catename);
+    			$this->redirect('group/admin/catelist');
+    		}else{
+	    		$strCate = $this->cate_mod->getOneCate($cateid);
+	    		$this->assign('strCate',$strCate);
+	    		$this->title ( '编辑分类' );
+	    		$this->display();
+    		}
+    	}
     }
 
 }

@@ -46,6 +46,7 @@ class indexAction extends frontendAction {
 		$this->group_topics_mod = D ( 'group_topics' );
 		$this->group_topics_collects = D ( 'group_topics_collects' );
 		$this->group_topics_comments = M ( 'group_topics_comments' );
+		$this->cate_mod = D ( 'group_cate' );
 		//生成导航
 		$this->assign('arrNav',$this->_nav());
 	}
@@ -197,13 +198,22 @@ class indexAction extends frontendAction {
 			}
 			if ($_POST ['grp_agreement'] != 1)
 				$this->error ( '不同意社区指导原则是不允许创建小组的！' );
+			//新增小组分类	
+			$oneid = $this->_post ( 'oneid', 'trim,intval',0);
+			$twoid = $this->_post ( 'twoid', 'trim,intval',0);
+			if ($oneid != 0 && $twoid == 0) {
+				$data ['cateid'] = $oneid;
+			} elseif ($oneid != 0 && $twoid != 0) {
+				$data ['cateid'] = $twoid;
+			}else{
+				$this->error ( '请选择一个小组分类吧！' );
+			}
 			$data ['userid'] = $this->visitor->info ['userid'];
 			$data ['groupname'] = ikwords($this->_post ( 'groupname', 'trim' ));
 			$data ['groupdesc'] = ikwords($this->_post ( 'groupdesc', 'trim' ));
 			$data ['tag'] = $this->_post ( 'tag', 'trim' );
 			$tags = str_replace ( ' ', ' ', $data ['tag'] );
 			$arrtag = explode ( ' ', $tags );
-			$data ['groupname'] = $this->_post ( 'groupname', 'trim' );
 			$data ['isaudit'] = C('ik_group_isaudit');//是否要审核 0 不审核 1 审核
 			$data ['addtime'] = time ();
 			// 小组名唯一性判断
@@ -213,10 +223,18 @@ class indexAction extends frontendAction {
 			{
 				$this->error ('小组名称太长啦，最多20个字...^_^！');
 			
-			}else if( mb_strlen($data ['groupdesc'], 'utf8') > 10000)
+			}elseif (mb_strlen($data ['groupname'],'utf8')<2){
+				
+				$this->error ('小组名称太短啦，必须大于2汉字...^_^！');
+				
+			}elseif ( mb_strlen($data ['groupdesc'], 'utf8') > 10000)
 			{
 				$this->error ('写这么多内容干啥，超出1万个字了都^_^');
-			}else if(count($arrtag)>5)
+				
+			}elseif (mb_strlen($data ['groupdesc'], 'utf8') < 10){
+				$this->error ('小组描述太少了必须大于10个字，多多益善^_^');
+				
+			}elseif(count($arrtag)>5)
 			{
 				$this->error ('最多 5 个标签，写的太多了...^_^！');
 			}
@@ -227,9 +245,8 @@ class indexAction extends frontendAction {
 					$this->error ('小组标签太长啦，最多8个字...^_^！');
 				}
 			}
-
 			if (false !== $this->_mod->create ( $data )) {
-				$groupid = $this->_mod->add ();
+				$groupid = $this->_mod->add (); 
 				if ($groupid) {
 					// 小组图标
 					$groupicon = $_FILES ['picfile'];
@@ -267,8 +284,28 @@ class indexAction extends frontendAction {
 			$maxgroup = $this->_mod->where(array('userid'=>$this->userid))->count();
 
 			if($maxgroup>=C('ik_maxgroup')) $this->error('您好，您的积分不够，最多只能创建'.$maxgroup.'个小组！');
+			
+			//新加分类
+			$arrOne = $this->cate_mod->getParentCate();
+			
+			$this->assign('arrOne',$arrOne);
 			$this->_config_seo ();
 			$this->display ();
+		}
+	}
+	//ajax获取子分类
+	public function ajax_getcate(){
+		$oneid = $this->_post('oneid','trim,intval');
+		$arrCate = $this->cate_mod->getReferCate($oneid);
+		if ($arrCate) {
+			echo '<select id="twoid" name="twoid" class="txt">';
+			echo '<option value="0">请选择</option>';
+			foreach ( $arrCate as $item ) {
+				echo '<option value="' . $item ['cateid'] . '">' . $item ['catename'] . '</option>';
+			}
+			echo "</select>";
+		} else {
+			echo '';
 		}
 	}
 	public function iscreate($groupname) {
@@ -1089,6 +1126,12 @@ class indexAction extends frontendAction {
 						$tags .= $item['tagname'].' '; 
 					}
 					$strGroup['tags'] = trim($tags);
+					
+								//新加分类
+					$arrOne = $this->cate_mod->getParentCate();
+			
+					$this->assign('arrOne',$arrOne);
+					
 					$this->_config_seo (array('title'=>'编辑小组基本信息','subtitle'=>'小组'));
 					break;
 					
@@ -1117,6 +1160,18 @@ class indexAction extends frontendAction {
 			}
 			switch ($type) {
 				case "base" :
+					
+					//新增小组分类	
+					$oneid = $this->_post ( 'oneid', 'trim,intval',0);
+					$twoid = $this->_post ( 'twoid', 'trim,intval',0);
+					if ($oneid != 0 && $twoid == 0) {
+						$data ['cateid'] = $oneid;
+					} elseif ($oneid != 0 && $twoid != 0) {
+						$data ['cateid'] = $twoid;
+					}else{
+						$this->error ( '请选择一个小组分类吧！' );
+					}
+			
 					$data ['groupname'] = $this->_post ( 'groupname', 'trim' );
 					$data ['groupdesc'] = $this->_post ( 'groupdesc', 'trim' );
 					if($data ['groupname']=='' || $data ['groupdesc']=='') $this->error('小组名称和介绍不能为空！');
@@ -1127,9 +1182,18 @@ class indexAction extends frontendAction {
 					{
 						$this->error('小组名称太长啦，最多20个字...^_^！');
 							
+					}elseif (mb_strlen($data ['groupname'],'utf8')<2){
+				
+						$this->error ('小组名称太短啦，必须大于2汉字...^_^！');
+				
 					}else if( mb_strlen($data ['groupdesc'], 'utf8') > 10000)
 					{
 						$this->error('写这么多内容干啥，超出1万个字了都^_^');
+						
+					}else if( mb_strlen($data ['groupdesc'], 'utf8') <10){
+						
+						$this->error('描述写的太少了；必须大于10个字哦^_^');
+						
 					}else if(count($arrtag)>5)
 					{
 						$this->error('最多 5 个标签，写的太多了...^_^！');
@@ -1146,7 +1210,7 @@ class indexAction extends frontendAction {
 					$this->_mod->where(array('groupid'=>$groupid))->save($data);
 							$this->success('基本信息修改成功！');
 			
-							break;
+					break;
 						
 					case "icon" :
 					// 小组图标

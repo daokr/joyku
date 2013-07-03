@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'userid', 1 => 'userid_follow', 2 => 'addtime', '_autoinc' => false, '_pk' => 'userid_follow', '_type' => array ( 'userid' => 'int(11)', 'userid_follow' => 'int(11)', 'addtime' => 'int(11)', ), );?>

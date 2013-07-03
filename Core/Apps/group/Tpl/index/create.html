@@ -2,6 +2,31 @@
 <html>
 <head>
 <include file="public:head" />
+<script>
+$(document).ready(function() {
+//选择一级区域
+$('#oneid').change(function(){
+	$("#stwoid").html('<img src="'+siteUrl+'static/public/images/loading.gif" />');
+	var oneid = $(this).children('option:selected').val();  //弹出select的值
+	
+	if(oneid==0){
+		$("#stwoid").html('');
+	 }else{
+		$.ajax({
+			type: "POST",
+			url:  "{:U('group/index/ajax_getcate')}",
+			data: {oneid:oneid},
+			success: function(msg){
+				$("#stwoid").html(msg);				
+			}
+		});
+	
+	}
+	
+});
+
+});
+</script>
 </head>
 
 <body>
@@ -18,6 +43,18 @@
                 <th>小组名称：</th>
                 <td><input type="text" value="" maxlength="63" size="31" name="groupname" tabindex="1" class="txt"    placeholder="请填写小组名称"></td>
             </tr>
+            <tr>
+                <th>小组分类：</th>
+                <td>
+<select id="oneid" name="oneid" class="txt">
+<option value="0">请选择</option>
+<volist name="arrOne" id="vo">
+<option value="{$vo[cateid]}">{$vo[catename]}</option>
+</volist>
+</select>
+<span id="stwoid"></span>
+	</td>
+            </tr>            
             <tr>
                 <th>小组介绍：</th>
                 <td><textarea style="width:500px;height:200px;" name="groupdesc" tabindex="2" id="editor_mini" class="txt"   placeholder="请填写小组介绍"></textarea></td>
