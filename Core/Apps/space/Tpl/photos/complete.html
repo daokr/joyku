@@ -19,7 +19,7 @@
     	<foreach name="arrPhoto" item="item">
         <div class="photo-item">
             <div class="cover">
-                <a href="{:U('space/photos/photo',array('id'=>$item[photoid]))}">
+                <a href="{:U('space/photos/show',array('id'=>$item[photoid]))}">
                 <img src="{$item[simg]}">
                 </a>
                 <div class="choose-cover">

@@ -256,6 +256,30 @@ class photosAction extends spacebaseAction {
 		$where = array('albumid'=>$albumid);
 		$this->wall_ajax($where);
 	}
+	//照片显示
+	public function show(){
+		$pid = $this->_get('id','trim,intval');
+		!empty($pid) && $strPhoto = $this->photo_mod->getOnePhoto($pid);
+		if($strPhoto){
+			$albumname = $this->album_mod->field('albumname')->where(array('albumid'=>$strPhoto['albumid']))->getField('albumname');
+			$user = $this->user_mod->getOneUser($strPhoto['userid']);
+			
+			
+			
+			$this->assign('strPhoto',$strPhoto);
+			if($this->userid == $strPhoto['userid']){
+				$title = '我的相册 - '.$albumname;
+			}else{
+				$title = $user['username'].'的相册 - '.$albumname;
+			}
+			$this->_config_seo ( array (
+					'title' => $title
+			) );
+			$this->display();
+		}else{
+			$this->error('呃...你想访问的页面不存在');
+		}
+	}
 	
 	
 }

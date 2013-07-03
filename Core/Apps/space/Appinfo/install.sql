@@ -1,7 +1,7 @@
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ik_photo`
+-- 表的结构 `ik_user_photo`
 --
 DROP TABLE IF EXISTS `ik_user_photo`;
 CREATE TABLE `ik_user_photo` (

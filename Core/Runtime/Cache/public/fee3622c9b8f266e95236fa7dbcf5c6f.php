@@ -144,7 +144,33 @@ __EXTENDS_JS__
   <div class="wrapper">
         <div id="head-slide-box" class="head-slide-box">
         	<ul class="head-slides">
-            	<li class="item" style="display:block">
+				<li class="item" style="display:block">
+                	<div class="mod2-left">
+                        <a  href="<?php echo U('space/photos/show',array('id'=>$arrPhoto[0][photoid]));?>"><img width="400" height="300" alt="" src="<?php echo ($arrPhoto[0][mimg]); ?>">
+                        
+                        </a>                    
+                    </div>
+                    <div class="mod2-mid">
+
+                        <div>
+                            <a href="<?php echo U('space/photos/show',array('id'=>$arrPhoto[1][photoid]));?>"><img src="<?php echo ($arrPhoto[1][mimg]); ?>" alt="" height="150" width="250">
+                            
+                            </a>
+                        </div>
+                        <div class="pt1h">
+                        <a href="<?php echo U('space/photos/show',array('id'=>$arrPhoto[2][photoid]));?>"><img src="<?php echo ($arrPhoto[2][mimg]); ?>" alt="" height="149" width="250">
+                       
+                        </a>
+                        </div>
+                        
+                    </div>
+                    <div class="mod2-right">
+                        <a  href="<?php echo U('space/photos/show',array('id'=>$arrPhoto[3][photoid]));?>"><img width="400" height="300" alt="" src="<?php echo ($arrPhoto[3][mimg]); ?>">
+                       
+                        </a>  	
+                    </div>
+                </li>            
+            	<li class="item">
                     <div class="mod1-left">
                     	<div class="dlitem">
                     	<dl>
@@ -258,7 +284,7 @@ __EXTENDS_JS__
                 </li>
             </ul>
             <ul class="head-ctrls">
-               <li class="on">头条</li><li>视觉</li><li class="last">热门</li>
+               <li class="on">推荐</li><li>头条</li><li>视觉</li><li class="last">热门</li>
             </ul>
         </div>
         
