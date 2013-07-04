@@ -261,16 +261,36 @@ class photosAction extends spacebaseAction {
 		$pid = $this->_get('id','trim,intval');
 		!empty($pid) && $strPhoto = $this->photo_mod->getOnePhoto($pid);
 		if($strPhoto){
-			$albumname = $this->album_mod->field('albumname')->where(array('albumid'=>$strPhoto['albumid']))->getField('albumname');
+			$strAlbum = $this->album_mod->field('albumname,orderid')->where(array('albumid'=>$strPhoto['albumid']))->find();
+			$order = 'addtime '.$strAlbum['orderid'];
+			$arrPhotoIds = $this->photo_mod->field('photoid')->where(array('albumid'=>$strPhoto['albumid']))->order($order)->select();
+			
+			foreach($arrPhotoIds as $item){
+				$arrPhotoId[] = $item['photoid'];
+			}
+			rsort($arrPhotoId);
+			$nowkey = array_search($pid,$arrPhotoId);
+			$nowPage =  $nowkey+1 ;
+			$countPage = count($arrPhotoId);
+			$prev = $arrPhotoId[$nowkey - 1];
+			$next = $arrPhotoId[$nowkey +1];
+
+			$strPhoto['nexturl'] = U('space/photos/show',array('id'=>$next));
+			$strPhoto['prevturl'] = U('space/photos/show',array('id'=>$prev));
+			$strPhoto['nowPage'] = $nowPage;
+			$strPhoto['countPage'] = $countPage;
+			
 			$user = $this->user_mod->getOneUser($strPhoto['userid']);
 			
 			
 			
 			$this->assign('strPhoto',$strPhoto);
 			if($this->userid == $strPhoto['userid']){
-				$title = '我的相册 - '.$albumname;
+				$title = '我的相册 - '.$strAlbum['albumname'];
 			}else{
-				$title = $user['username'].'的相册 - '.$albumname;
+				//浏览量+1
+				$this->photo_mod->where(array('photoid'=>$pid))->setInc('count_view',1);
+				$title = $user['username'].'的相册 - '.$strAlbum['albumname'];
 			}
 			$this->_config_seo ( array (
 					'title' => $title

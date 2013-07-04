@@ -13,17 +13,31 @@
 	<h1>{$seo.title}</h1>
 	<div class="cleft">
     	<if condition="$visitor[userid] eq $strAlbum[userid]">
-        <div class="pl photitle">
-        &nbsp;&gt;&nbsp;<a href="{:U('space/photos/album',array('d'=>'edit','id'=>$strAlbum[albumid]))}">修改相册属性</a>
-        &nbsp;&gt;&nbsp;<a href="{:U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]))}">添加照片</a>
-        &nbsp;&gt;&nbsp;<a href="{:U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid]))}">批量修改</a>
-        &nbsp;&gt;&nbsp;<a href="{:U('space/photos/index',array('id'=>$strAlbum[userid]))}">返回我的相册首页</a>
-        </div>
+            <div class="pl photitle">
+            <span class="fr">
+            &nbsp;&gt;&nbsp;<a href="{:U('space/photos/album',array('d'=>'edit','id'=>$strAlbum[albumid]))}">修改相册属性</a>
+            &nbsp;&gt;&nbsp;<a href="{:U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]))}">添加照片</a>
+            &nbsp;&gt;&nbsp;<a href="{:U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid]))}">批量修改</a>
+            &nbsp;&gt;&nbsp;<a href="{:U('space/photos/index',array('id'=>$strAlbum[userid]))}">返回我的相册首页</a>
+            </span>
+            </div>
         <else/>
-        <div class="pl photitle">&gt; <a href="{:U('space/photos/index',array('id'=>$strAlbum[userid]))}">返回{$user[username]}的相册首页</a></div>
+        	<div class="pl photitle">
+            <span class="fr">&gt; <a href="{:U('space/photos/index',array('id'=>$strAlbum[userid]))}">返回{$user[username]}的相册首页</a></span>
+            </div>
         </if>
 
 <div class="">
+        <empty name="item_list">
+        <if condition="$visitor[userid] eq $strAlbum[userid]">
+        <br>
+        <p class="pl">这个相册现在还没有照片 , 你可以<b><a href="{:U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]))}">添加照片</a></b></p>
+        <else/>
+        <br>
+        <p class="pl">这个相册现在还没有照片</p>
+        </if>
+        </empty>
+
         <div id="J_waterfall" class="wall_container" data-uri="{:U('space/photos/index_ajax',array('albumid'=>$strAlbum[albumid],'p'=>$p))}">
             <include file="public:waterfall" />
         </div>

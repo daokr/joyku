@@ -141,15 +141,25 @@ __EXTENDS_JS__
 	<h1><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
     	<?php if($visitor[userid] == $strAlbum[userid]): ?><div class="pl photitle">
-        &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/album',array('d'=>'edit','id'=>$strAlbum[albumid]));?>">修改相册属性</a>
-        &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">添加照片</a>
-        &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid]));?>">批量修改</a>
-        &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/index',array('id'=>$strAlbum[userid]));?>">返回我的相册首页</a>
-        </div>
+            <span class="fr">
+            &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/album',array('d'=>'edit','id'=>$strAlbum[albumid]));?>">修改相册属性</a>
+            &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">添加照片</a>
+            &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid]));?>">批量修改</a>
+            &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/index',array('id'=>$strAlbum[userid]));?>">返回我的相册首页</a>
+            </span>
+            </div>
         <?php else: ?>
-        <div class="pl photitle">&gt; <a href="<?php echo U('space/photos/index',array('id'=>$strAlbum[userid]));?>">返回<?php echo ($user[username]); ?>的相册首页</a></div><?php endif; ?>
+        	<div class="pl photitle">
+            <span class="fr">&gt; <a href="<?php echo U('space/photos/index',array('id'=>$strAlbum[userid]));?>">返回<?php echo ($user[username]); ?>的相册首页</a></span>
+            </div><?php endif; ?>
 
 <div class="">
+        <?php if(empty($item_list)): if($visitor[userid] == $strAlbum[userid]): ?><br>
+        <p class="pl">这个相册现在还没有照片 , 你可以<b><a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">添加照片</a></b></p>
+        <?php else: ?>
+        <br>
+        <p class="pl">这个相册现在还没有照片</p><?php endif; endif; ?>
+
         <div id="J_waterfall" class="wall_container" data-uri="<?php echo U('space/photos/index_ajax',array('albumid'=>$strAlbum[albumid],'p'=>$p));?>">
             <?php if(is_array($item_list)): $i = 0; $__LIST__ = $item_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?><div class="J_item wall_item">
     

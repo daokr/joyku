@@ -137,10 +137,17 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-	<h1><?php echo ($seo["title"]); ?></h1>
+	<h1  id="image"><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
 
-
+<div class="pl photitle">
+        <span class="fr">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strPhoto[albumid]));?>">返回相册</a></span>
+        <span class="fl">第<?php echo ($strPhoto[nowPage]); ?>张 / 共<?php echo ($strPhoto[countPage]); ?>张</span>
+        <?php if($strPhoto[nowPage] > 1): ?><a id="pre_photo" title="上一张" href="<?php echo ($strPhoto[prevturl]); ?>#image">上一张</a>
+        	 <?php if($strPhoto[nowPage] < $strPhoto[countPage]): ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php endif; endif; ?>
+        <?php if($strPhoto[nowPage] < $strPhoto[countPage]): ?><a id="next_photo" title="下一张" href="<?php echo ($strPhoto[nexturl]); ?>#image">下一张</a><?php endif; ?>
+</div>
+    
 <div id="link-report">
       <div style="text-align:center">
           <a title="点击查看下一张" href="#" class="mainphoto">
@@ -148,15 +155,20 @@ __EXTENDS_JS__
           </a>
       </div>
       <div class="photo_descri">
-              <div class="j a_editable edtext pl">
-                  <span id="display">描述</span>
-                  <span id="edi">&#12288;<a href="http://www.douban.com/photos/album/105660462/info#2022717009">修改</a></span>
-                  <form style="display:none" action="/j/photos/photo_desc" name="128" method="post"><div style="display:none;"><input type="hidden" value="Ng5o" name="ck"></div><textarea name="desc"></textarea> <input type="hidden" value="2022717009" name="pid"><input type="submit" class="submit" value="保存">
-                      <input type="button" class="cancel" value="取消">
-                  &#12288;&#12288;<input type="radio" name="iscover">设为相册封面
-                  </form>
-              </div>
+           <p class="pl">
+           <span>
+               <?php if($strPhoto[photodesc]): echo ($strPhoto[photodesc]); ?>
+               <?php else: ?>
+               这张照片的还没有添加任何描述...<?php endif; ?>
+           </span>
+           &nbsp;<?php if($visitor[userid] == $strPhoto[userid]): ?>&gt;&nbsp;<a title="编辑描述" href="">编辑描述</a><?php endif; ?>
+           </p>
       </div>
+      <div class="report-link" style="color:#999;margin-bottom:5px">
+      		<?php if($visitor[userid] == $strPhoto[userid]): ?><span class="fr">&gt;&nbsp;<a title="删除这张照片" href="">删除照片</a></span><?php endif; ?>
+            <?php echo ($strPhoto[count_view]); ?>人浏览&#12288;上传于<?php echo (date("Y-m-d",$strPhoto[addtime])); ?>&#12288;<a target="_blank" title="查看原图" href="<?php echo ($strPhoto[img]); ?>">查看原图</a>
+      </div>
+    
 </div>
     
     

@@ -108,14 +108,6 @@ h2{ margin-bottom:12px}
 	text-align:center
 }
 /**相册列表**/
-
-.photitle {
-    border-bottom: 1px solid #DDDDDD;
-    margin-bottom: 5px;
-    padding-bottom: 5px;
-    text-align: right;
-}
-
 .wall_item {float:left;margin:0 10px 15px 10px;overflow:hidden;}
 .wall_item .pic{padding:8px 0; background-color: #FFFFFF;}
 .wall_item .pic li{text-align:center;position:relative;overflow:hidden;}
@@ -142,3 +134,8 @@ h2{ margin-bottom:12px}
 .wall_container {min-height:500px;position:relative; }
 .wall_loading {background: black;opacity:0.5;filter:alpha(opacity=50);color: white;border-radius: 16px 16px 16px 16px;text-align: center; width: 100px; display: none; bottom: 0px; position: absolute; left: 50%; margin-left: -50px;}
 .wall_loading span { background: url(../images/loading.gif) no-repeat scroll 0 center transparent; padding-left: 24px; color: white; height: 30px; line-height: 30px;}
+
+/**相册展示**/
+.photitle {border-bottom: 1px solid #DDDDDD;margin-bottom: 10px;text-align:center; display:block; height:22px; line-height:22px;}
+.photo_descri{ margin:10px 0px; border-top:#ddd solid 1px; padding:10px}
+.mainphoto:hover{background:0}
