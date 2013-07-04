@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'userid', 1 => 'groupid', 2 => 'isadmin', 3 => 'addtime', '_autoinc' => false, '_pk' => 'groupid', '_type' => array ( 'userid' => 'int(11)', 'groupid' => 'int(11)', 'isadmin' => 'int(11)', 'addtime' => 'int(11)', ), );?>

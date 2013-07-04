@@ -1,4 +1,4 @@
-function tips(c){ $.dialog({content: '<font style="font-size:14px;">'+c+'</font>',fixed: true, width:300, time:1500});}
+function tips(c){ $.dialog({content: '<font style="font-size:14px;">'+c+'</font>',fixed: true, width:300, time:2000});}
 function succ(c){ $.dialog({icon: 'succeed',content: '<font  style="font-size:14px;">'+c+'</font>' , time:2000});}
 function error(c){$.dialog({icon: 'error',content: '<font  style="font-size:14px;">'+c+'</font>' , time:2000});}
 
@@ -202,9 +202,14 @@ function createGroup(that)
 {
 	var groupname = $(that).find('input[name=groupname]').val();
 	var groupdesc = $(that).find('textarea[name=groupdesc]').val();
+	var oneid = $(that).find('select[name=oneid]').val();
 	var tag = $(that).find('input[name=tag]').val();
 	var grp_agreement = $(that).find('input[name=grp_agreement]').val();
-	if(groupname == '' || groupdesc == ''){tips('小组标题和小组描述必须填写'); return false;}
+	if(groupname == '' || groupname==0){tips('小组标题必须填写；且必须在2-30个字以内'); return false;}
+	if(groupdesc == '' || groupdesc==0){tips('小组描述必须填写；且必须大于10个字'); return false;}
+	if(groupname.length<2){ tips('小组标题必须大于2个字'); return false; }
+	if(groupdesc.length<10){ tips('小组描述必须大于10个字'); return false; }
+	if(oneid == 0){tips('小组分类必须选择一个'); $(that).find('select[name=oneid]').focus();return false;}
 	if(tag =='')
 	{
 		tips('小组标签不为空');
