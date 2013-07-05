@@ -1,124 +1,353 @@
-<style type="text/css">
-.captcha_image {height:40px; padding-left:20px;}
-a.pop_win_close { top: 5px }
-.pop_win { padding: 0 }
-.pop_win h3 { font-size: 14px; padding: 12px 10px 8px 10px; margin: 0; color: #006600; background: #ebf5eb; *height: auto }
-.dui-dialog .hd h3 { color: #006600 }
-.pop_win h3 span, .dui-dialog .hd h3 span { color: #888; font-size: 12px }
-.pop_win h3 a, .dui-dialog .hd h3 a { font-size: 12px }
-#pop_win_login { width:300px; padding: 10px }
-#pop_win_login form { width: 300px; border: none }
-#pop_win_login fieldset { border: 0 none; padding: 0; margin: 0 }
-#pop_win_login .item { margin: 15px 0 12px 0; overflow: visible }
-#pop_win_login label { display: inline-block; float:left; margin-right: 15px; text-align: right; width: 40px; font-size: 14px; line-height: 30px; vertical-align: baseline }
-#pop_win_login label.sub { font-size: 12px; display: inline; width: auto; text-align: left; float: none; margin: 0; color: #666 }
-#pop_win_login input { vertical-align: middle }
-#pop_win_login .text { width: 200px; padding: 5px; height: 18px; font-size: 14px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #c9c9c9 }
-#pop_win_login .text:focus { border: 1px solid #a9a9a9 }
-.captcha_block { margin-top:1em; }
-
-
-.device-mobile #pop_win_login { width:auto; }
-.device-mobile #pop_win_login form { width:auto; }
-.device-mobile #pop_win_login .item { margin:0 0 5px;overflow:hidden; }
-.device-mobile #pop_win_login label { margin-right: 5px; width: 30px; }
-.device-mobile #pop_win_login .text { width: 70%; padding: 2px; height: auto; font-size: 14px;  }
-.device-mobile #captcha_field { padding:2px;width:30% }
-.device-mobile #captcha_image { padding:0; }
-.device-mobile .captcha_block { margin-top:5px; }
-.device-mobile .recsubmit { padding-top:10px; }
-
-
-.device-mobile .dui-dialog-content h3 {font-size:16px;}
-.device-mobile .dui-dialog-content h3 span{font-size:14px;}
-.device-mobile a.dui-dialog-close {font-size: 20px;}
-
-/*
-.device-mobile #pop_win_login {padding:0;}
-.device-mobile #pop_win_login .item .text{width:65%; padding:8px;}
-.device-mobile #pop_win_login .item {margin:10px 0;}
-.device-mobile #pop_win_login .item label {float:none;display:inline-block;}
-.device-mobile #pop_win_login .item #remember {height:30px;}
-.device-mobile #pop_win_login .recsubmit label {display:none;}
-.device-mobile #pop_win_login .recsubmit .bn-flat{margin:0;}
-.device-mobile #pop_win_login .recsubmit .bn-flat input{font-size:16px; height:40px; padding:0 40%;}
-.device-mobile #pop_win_login .remember {padding:10px 0;}
-.device-mobile #pop_win_login label {height:30px; width:auto;}
-.device-mobile #pop_win_login a{line-height:30px;display:inline-block;}
-.device-mobile #captcha_field { padding:2px;width:30% }
-.device-mobile #captcha_image { padding:0; }
-.device-mobile .captcha_block { margin-top:5px; }
-*/
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>登录引导</title>
+<script>var siteUrl = '__SITE_URL__',show_login_url='{:U("public/user/ajaxlogin")}',show_register_url='{:U("public/user/ajaxregister")}';</script>
+<script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
+<script src="__PUBLIC__/js/validate/jquery.validateid.js"></script>
+<style>
+html {
+	color:#111;
+	background:#fff
+}
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, legend, li, pre, textarea, ul {
+	margin:0;
+	padding:0
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0
+}
+fieldset, img {
+	border:0
+}
+address, caption, cite, code, dfn, em, i, optgroup, strong, th, var {
+	font-style:normal;
+	font-weight:normal
+}
+ol, ul {
+	list-style:none
+}
+caption, th {
+	text-align:left
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+	font-weight:normal
+}
+q:after, q:before {
+content:
+}
+abbr, acronym {
+	border:0;
+	font-variant:normal
+}
+sup {
+	vertical-align:baseline
+}
+sub {
+	vertical-align:baseline
+}
+legend {
+	color:#000
+}
+button, input, optgroup, option, select, textarea {
+	font-family:inherit;
+	font-size:inherit;
+	font-style:inherit;
+	font-weight:inherit
+}
+button, input, select, textarea {
+*font-size:100%
+}
+pre {
+	white-space:pre-wrap;
+	word-wrap:break-word
+}
+a {
+	cursor:pointer
+}
+a:link {
+	color:#37a;
+	text-decoration:none
+}
+a:visited {
+	color:#669;
+	text-decoration:none
+}
+a:hover {
+	color:#fff;
+	text-decoration:none;
+	background:#37a
+}
+a:active {
+	color:#fff;
+	text-decoration:none;
+	background:#f93
+}
+a img {
+	border-width:0;
+	vertical-align:middle
+}
+body, td, th {
+	font:12px Helvetica, Arial, sans-serif;
+	line-height:1.62
+}
+table {
+	border-collapse:collapse;
+	border:0;
+	padding:0;
+	margin:0
+}
+wbr:after {
+	content:"\00200B"
+}
+textarea {
+	resize:none
+}
+input[type=password]:focus, input[type=text]:focus, textarea:focus {
+	outline:0
+}
+body, html {
+	width:100%;
+	height:100%
+}
+.list {
+	overflow:hidden;
+	zoom:1
+}
+.list ul {
+	letter-spacing:-0.31em;
+*letter-spacing:normal;
+	word-spacing:-0.43em
+}
+.list li {
+	display:inline-block;
+*display:inline;
+	zoom:1;
+	width:33.3%;
+	vertical-align:top;
+	letter-spacing:normal;
+	word-spacing:normal
+}
+.group-item .pic {
+	float:left;
+	margin-right:12px
+}
+.group-item .info {
+	overflow:hidden;
+	zoom:1;
+	margin-right:24px
+}
+.group-item .title {
+	margin-bottom:10px;
+	line-height:1.3;
+	font-size:14px
+}
+.group-item .members {
+	margin-bottom:10px;
+	font-size:14px;
+	color:#666
+}
+.group-item .members i {
+	color:#072
+}
+.group-item p {
+	margin:0 0 10px;
+	color:#666;
+	max-height:13em;
+	_height:6.2em;
+	overflow:hidden;
+	word-break:break-all;
+	word-wrap:break-word
+}
+.lnk-selection {
+	display:inline-block;
+*display:inline;
+	zoom:1;
+	width:80px;
+	line-height:1.8;
+*height:1.8em;
+*line-height:1.9;
+*overflow:hidden;
+	text-align:center;
+	border-radius:3px
+}
+.lnk-selection:active, .lnk-selection:hover, .lnk-selection:link, .lnk-selection:visited {
+	background-color:#3fa156;
+	color:#fff
+}
+.lnk-selection:active, .lnk-selection:hover {
+	background-color:#44af5d
+}
+.selected:active, .selected:hover, .selected:link, .selected:visited {
+	background-color:#ccc;
+	color:#fff
+}
+.selected:active, .selected:hover {
+	background-color:#ccc
+}
+.mod-login, .mod-register {
+	width: 75%;
+	margin: auto;
+}
+.mod-login .item input, .mod-register .item input {
+	width: 78%;
+}
+h1 {
+	width: 75%;
+	margin:0 auto 12px;
+	font-size:18px;
+	color: #072;
+}
+.col {
+	padding-top: 14px;
+	width: 50%;
+}
+.dou-intro {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	right: 0;
+	top: 0;
+	background: #ecf6ed;
+}
+.info {
+	padding: 24px 0 0 40px;
+	margin-bottom: 20px;
+	color: #666;
+}
+.info b {
+	margin-right: 10px;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+.dou-intro p {
+	padding-left: 40px;
+	padding-top: 80px;
+	margin: 0 40px 0 0;
+	font-size: 18px;
+	color: #072;
+	-webkit-font-smoothing: antialiased;
+}
+.mod-register-error {
+	position: absolute;
+	top: 10px;
+	left: 40px;
+}
+.lnk-reg-entry, .lnk-login-entry {
+	display: inline-block;
+ *display: inline;
+	zoom: 1;
+	padding: 0 14px;
+	vertical-align: middle;
+	background: #edf7ef;
+	line-height: 1.8;
+}
+.lnk-reg-entry:link, .lnk-reg-entry:visited, .lnk-reg-entry:hover, .lnk-reg-entry:active, .lnk-login-entry:link, .lnk-login-entry:visited, .lnk-login-entry:hover, .lnk-login-entry:active {
+	color:#072;
+	background:#edf7ef;
+}
+h1 {
+	margin-top: 22px;
+}
+.mod-register-error {
+	top:30px;
+}
+.mod-login .item-captcha .error, .mod-register .item-captcha .error {
+	right: 140px;
+}
 
 </style>
+<css file="__STATIC_CSS__/pop.css" />
+</head>
+<body>
+<div id="content">
+
+<div class="col">
+  <h1>登录{:C('ik_site_title')}</h1>
+<div class="mod-login">
+    <form target="_top" action="{:U('public/user/login')}" method="POST" name="lzform" id="lzform" tagName="from">
+    <div class="item item-inp">
+      <label for="email">邮箱</label>
+      <input type="text" value="" id="email" name="email">
+    </div>
 
 
-<h3>会员登录<span> ( <a href="{:U('public/user/register')}" >还没有注册?</a> ) </span></h3>
+    <div class="item item-inp">
+      <label for="form_password">密码</label>
+      <input type="password" id="password" name="password">
+    </div>
 
-<div id="pop_win_login" class="">
-    <form class="pop_win_login_form" name="lzform" method="post" action="{:U('public/user/login')}">
-        <fieldset>
-            <input type="hidden" name="ret_url" value="{$jump}" />
-            <input type="hidden" name="cktime" value="2592000">
-            <div class="item">
-                <label for="form_email">帐号</label>
-                <input tabindex="1" type="text" id="form_email" name="email" class="text pop_email" value="邮箱"/>
-            </div>
-            <div class="item">
-                <label for="form_password">密码</label>
-                <input tabindex="2" type="password" name="password" id="pop_password" class="text"/>
-            </div>
-            <div class="item remember">
-                <label>&nbsp;</label>
-                <input id="remember" type="checkbox" name="remember" tabindex="4"/>
-                <label for="remember" class="sub">下次自动登录 |</label><a href="{:U('public/user/forgetpwd')}" style="margin-left: 0.8em;" >忘记密码了</a>
-            </div>
-            <div class="item recsubmit">
-                <label>&nbsp;</label>
-                <div><span class="bn-flat"><input type="submit" value="登录" tabindex="5"></span></div>
-            </div>
-        </fieldset>
-    </form>
+
+    <div class="item-rember">
+       <label><input type="checkbox" name="remember">&nbsp;下次自动登录</label>
+    </div>
+    <div class="item-submit">
+      <input type="submit" value="登录" class="btn-submit">
+      <a class="lnk-reg-entry" href="{:U('public/user/ajaxregister')}">还没有{:C('ik_site_title')}帐号? 15秒注册</a>
+    </div>
+    
+  <style>
+  /* 3rd login*/
+  .item-3rd { padding:5px 0;margin-top:10px;border-top:1px solid #eee;border-bottom:1px solid #eee; }
+  .item-3rd label { width:auto;margin:0;font-size:12px;color:#999;line-height:1.5; }
+  .item-3rd img { margin:0 5px;vertical-align:middle; }
+  .item-3rd a:hover { background-color:transparent; }
+  .item-3rd a:active { background-color:transparent; }
+  </style>
+  
+  
+  <div class="item item-3rd">
+    <label>
+    第三方登录：
+    </label>
+    <a href="{:U('public/oauth/index', array('mod'=>'qq'))}" target="_top"><img title="QQ" src="__PUBLIC__/images/connect_qq.png"></a>
+    <a href="{:U('public/oauth/index', array('mod'=>'sina'))}" target="_top"><img title="新浪微博" src="__PUBLIC__/images/connect_sina_weibo.png"></a>
+  </div>
+
+</form>
 </div>
 <script>
-
-(function(){
-
-    var email=unescape(get_cookie("ik_email")),pop_email=$(".pop_email");
-    if(email&&email!=""&&email!='null'){
-        pop_email.attr({value:email});
-        setTimeout( function() {
-            $("#pop_password").focus();
-        } , 500);
-    }
-    $('.pop_win_login_form').submit(function(){
-        set_cookie({regfromurl:location.href,regfromtitle:encodeURIComponent(document.title)});
-    });
-
-var email_id='form_email';
-var pwd_id='pop_password';
-IK(function(){
-	var a=$("#"+email_id);
-	var b="邮箱";
-	a.focus(function(){
-		var c=$(this);
-		if(c.val()===b)
-		{
-			c.val("").css("color","#000")
-		}
-	}).blur(function(){
-		var c=$(this);
-		if(!c.val())
-		{
-			c.val(b).css("color","#ccc")
+$(function(){
+      var validator = $("#lzform").validate({
+		onkeyup: false,
+		rules:{
+			email: {
+				required: true,
+				email: true
+			},
+			password: {
+				required: true
+			}
+		},
+		messages: {
+			email: {
+					required: "不能为空",
+					email: "格式不正确"
+			},
+			password: {
+				required: "不能为空"
+			}
 		}
 	});
-	if(a.val()&&a.val()!=b)
-	{
-		$("#"+pwd_id).focus()
-	}else{
-		a.css("color","#ccc")
-	}
-   });
-})();
+});
 </script>
+
+
+</div>
+<div class="col dou-intro">
+  <p>现在加入{:C('ik_site_title')}小组，结识更多志趣相投之人，<br>无论你来自哪里，有什么兴趣爱好，都能在这里找到和你一样特别的人。</p>
+
+  <div class="info">
+	<b>爱客网开源社区程序，内容互动性强，交流更方便</b><br><em>简单</em><em>快捷</em><em>方便</em><em>建设本地化，垂直型社区；目前已有<cite>{$count_user}</cite>位用户加入！</em>
+  <br>
+
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

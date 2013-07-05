@@ -71,6 +71,8 @@ class indexAction extends frontendAction {
 		$this->assign('ikTheme',$ikTheme);
 		$this->_config_seo ( array (
 				'title' => '更换主题风格',
+				'keywords' =>'',
+				'description'=>'',
 		) );
 		$this->display();
 	}

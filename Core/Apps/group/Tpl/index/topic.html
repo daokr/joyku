@@ -108,7 +108,12 @@
             <h4><span class="fr"></span><a href="{:U('space/index/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <php> echo date('Y-m-d H:i:s',$item[addtime])</php></h4>
             
             <if condition="$item[referid] neq 0">
-            <div class="recomment"><a href="{:U('space/index/index',array('id'=>$item[recomment][user][doname]))}"><img src="{$item[recomment][user][face]}" width="24" align="absmiddle"></a> <strong><a href="{:U('space/index/index',array('id'=>$item[recomment][user][doname]))}">{$item[recomment][user][username]}</a></strong>：{$item[recomment][content]}</div>
+            <div class="recomment"><span id="re_sub_{$item[commentid]}"><php>echo getsubstrutf8(t($item[recomment][content]),0,60,0);</php>&nbsp;
+            <php>if(mb_strlen(t($item[recomment][content]),'utf8')>60){</php>
+            <a href="javascript:;" onClick="$('#re_all_{$item[commentid]}').show();$('#re_sub_{$item[commentid]}').hide();">... </a>
+            </span><span style="display:none" id="re_all_{$item[commentid]}"><php>echo t($item[recomment][content]);</php></span>
+            <php>}</php>
+            <strong><a href="{:U('space/index/index',array('id'=>$item[recomment][user][doname]))}">{$item[recomment][user][username]}</a></strong></div>
             </if>
             
             <p> {$item[content]} </p>
@@ -142,7 +147,7 @@
       <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
       <div> 
         <if condition="!$visitor['userid']">
-        <div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="{:U('public/user/login')}">登录</a> | <a href="{:U('public/user/register')}">注册</a></div>
+        <div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="{:U('public/user/login')}" class="i a_show_login">登录</a> | <a href="{:U('public/user/register')}" class="i a_show_register">注册</a></div>
         <elseif condition="!$isGroupUser" /> 
         不是本组成员不能回应此贴哦 
         <elseif condition="$strTopic[iscomment] eq 1 && $strTopic[userid] neq $visitor['userid']" />

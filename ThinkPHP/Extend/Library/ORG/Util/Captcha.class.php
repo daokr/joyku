@@ -5,7 +5,7 @@ class Captcha {
 	public $glbVerifySeed = "abcdefghjkmnpqrstuvwxyz";
 	public $strLength = 5;
 	public $session_var = 'authcode';
-	public $backgroundColor = array(255, 255, 255);
+	public $backgroundColor = array(239, 241, 240);
 	public $colors = array(
 			array(27,78,181), // blue
 			array(22,163,35), // green
@@ -32,6 +32,12 @@ class Captcha {
 		}
 		//$this->PolluteNum = intval($this->width*$this->height/20);
 		$this->PolluteNum = 0;
+		
+		$r = Array(225, 255, 255, 223);
+		$g = Array(225, 236, 237, 255);
+		$b = Array(225, 236, 166, 125);
+		$key = mt_rand(0, 3);
+		$this->backgroundColor = array($r[$key], $g[$key], $b[$key]);
 	}
 
 	public function CreateImage() {

@@ -100,7 +100,12 @@ class indexAction extends frontendAction {
 		$this->assign ( 'arrMyAdminGroup', $arrMyAdminGroup );
 		$this->assign ( 'count_Admingroup', $count_Admingroup );
 
-		$this->_config_seo (array('title'=>'我管理/加入的小组','subtitle'=>'小组'));
+		$this->_config_seo ( array (
+				'title' => '我管理/加入的小组',
+				'subtitle'=>'小组_'.C('ik_site_title'),
+				'keywords' =>'',
+				'description'=>'',
+		) );
 		$this->display ();
 	}
 	//我收藏喜欢的帖子
@@ -121,7 +126,13 @@ class indexAction extends frontendAction {
 		}
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrTopic', $arrTopic );
-		$this->_config_seo (array('title'=>'我喜欢的话题','subtitle'=>'小组'));
+	
+		$this->_config_seo ( array (
+				'title' => '我喜欢的话题',
+				'subtitle'=>'小组_'.C('ik_site_title'),
+				'keywords' =>'',
+				'description'=>'',
+		) );
 		$this->display ();
 	}
 	// 我发起的话题
@@ -138,7 +149,13 @@ class indexAction extends frontendAction {
 		}		
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrTopic', $arrTopic );
-		$this->_config_seo (array('title'=>'我发起的话题','subtitle'=>'小组'));
+
+		$this->_config_seo ( array (
+				'title' => '我发起的话题',
+				'subtitle'=>'小组_'.C('ik_site_title'),
+				'keywords' =>'',
+				'description'=>'',
+		) );
 		$this->display ();
 	}
 	// 我的小组话题
@@ -170,7 +187,13 @@ class indexAction extends frontendAction {
 		$this->assign('myGroups',$myGroups);//我加入和管理的小组
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrTopic', $arrTopic );
-		$this->_config_seo (array('title'=>'我的小组话题','subtitle'=>'小组'));
+
+		$this->_config_seo ( array (
+				'title' => '我的小组话题',
+				'subtitle'=>'小组_'.C('ik_site_title'),
+				'keywords' =>'',
+				'description'=>'',
+		) );
 		$this->display ();
 	
 	}
@@ -187,7 +210,13 @@ class indexAction extends frontendAction {
 		}
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrTopic', $arrTopic );
-		$this->_config_seo (array('title'=>'我回应的话题','subtitle'=>'小组'));
+
+		$this->_config_seo ( array (
+				'title' => '我回应的话题',
+				'subtitle'=>'小组_'.C('ik_site_title'),
+				'keywords' =>'',
+				'description'=>'',
+		) );		
 		$this->display ();		
 	}
 	// 创建小组
@@ -289,7 +318,13 @@ class indexAction extends frontendAction {
 			$arrOne = $this->cate_mod->getParentCate();
 			
 			$this->assign('arrOne',$arrOne);
-			$this->_config_seo ();
+			
+			$this->_config_seo ( array (
+					'title' => '申请创建小组',
+					'subtitle'=>'小组_'.C('ik_site_title'),
+					'keywords' =>'',
+					'description'=>'',
+			) );
 			$this->display ();
 		}
 	}
@@ -343,7 +378,13 @@ class indexAction extends frontendAction {
 		$this->assign ( 'strGroup', $group );
 		$this->assign ( 'strLeader', $strLeader );
 		$this->assign ( 'arrGroupUser', $arrGroupUser );
-		$this->_config_seo (array('title'=>$group['groupname'],'subtitle'=>'小组'));
+		
+		$this->_config_seo ( array (
+				'title' => $group['groupname'],
+				'subtitle'=>'小组_'.C('ik_site_title'),
+				'keywords' => ikscws($group['groupname']),
+				'description'=> getsubstrutf8($group['groupdesc'],0,200),
+		) );
 		$this->display ();
 	}
 	// 发布新帖
@@ -384,6 +425,13 @@ class indexAction extends frontendAction {
 		$this->assign ( 'strGroup', $group );
 		$this->assign ( 'isGroupUser', $isGroupUser );
 		$this->_config_seo (array('title'=>$group['groupname'].'发布帖子','subtitle'=>'小组'));
+		
+		$this->_config_seo ( array (
+				'title' => $group['groupname'].'发布帖子',
+				'subtitle'=>'小组_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
 		$this->display ();
 	}
 	// 执行发布
@@ -605,7 +653,13 @@ class indexAction extends frontendAction {
 			$this->assign ( 'action', $action );
 			$this->assign ( 'isGroupUser', $isGroupUser );
 			$this->assign ( 'arrCollectUser', $arrCollectUser );
-			$this->_config_seo (array('title'=>$strTopic['title'],'subtitle'=>$strGroup['groupname']));
+
+			$this->_config_seo ( array (
+					'title' => $strTopic['title'],
+					'subtitle'=> $strGroup['groupname'].'_'.C('ik_site_title'),
+					'keywords' => ikscws($strTopic['title']),
+					'description'=> getsubstrutf8(t($strTopic['content']),0,200),
+			) );			
 			$this->display ();
 		}
 	
@@ -687,7 +741,13 @@ class indexAction extends frontendAction {
 			$count = $this->_mod->where($where)->order('isrecommend DESC')->count('groupid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrGroups =  $this->_mod->where($where)->order('isrecommend DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
-			$this->_config_seo (array('title'=>$tag.'相关的小组','subtitle'=>'小组'));
+			
+			$this->_config_seo ( array (
+					'title' => $tag.'相关的小组',
+					'subtitle'=> '小组_'.C('ik_site_title'),
+					'keywords' => '',
+					'description'=> '',
+			) );
 		}else{
 			//查询
 			$map['isopen'] = 0; //开放公开
@@ -697,7 +757,13 @@ class indexAction extends frontendAction {
 			$count = $this->_mod->where($map)->order('isrecommend DESC')->count('groupid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrGroups =  $this->_mod->where($map)->order('isrecommend DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
-			$this->_config_seo (array('title'=>'发现小组','subtitle'=>'小组'));
+		
+			$this->_config_seo ( array (
+					'title' => '发现小组',
+					'subtitle'=> '小组_'.C('ik_site_title'),
+					'keywords' => '',
+					'description'=> '',
+			) );
 		}
 		
 		foreach($arrGroups as $key=>$item){
@@ -737,7 +803,13 @@ class indexAction extends frontendAction {
 			$pager = $this->_pager($count, $pagesize);
 			$arrTopics =  $this->group_topics_mod->where($where)->order('addtime DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
 			
-			$this->_config_seo (array('title'=>$tag.'相关的话题','subtitle'=>'小组'));
+
+			$this->_config_seo ( array (
+					'title' => $tag.'相关的话题',
+					'subtitle'=> '小组_'.C('ik_site_title'),
+					'keywords' => '',
+					'description'=> '',
+			) );
 		}else{
 			//查询是否显示
 			$map['ishow']  = '0';
@@ -748,12 +820,18 @@ class indexAction extends frontendAction {
 			$count = $this->group_topics_mod->where($map)->order('addtime DESC')->count('topicid');
 			$pager = $this->_pager($count, $pagesize);
 			$arrTopics =  $this->group_topics_mod->where($map)->order('addtime DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
-			$this->_config_seo (array('title'=>'发现话题','subtitle'=>'小组'));
+	
+			$this->_config_seo ( array (
+					'title' => '发现话题',
+					'subtitle'=> '小组_'.C('ik_site_title'),
+					'keywords' => '',
+					'description'=> '',
+			) );
 		}
 
 		foreach($arrTopics as $key=>$item){
 			$list[] = $item;
-			$list[$key]['content'] = ikhtml_text('topic',$item['topicid'],$item['content']);
+			$list[$key]['content'] = ikhtml_text('topicd', $item['topicid'], $item['content']);
 			$list[$key]['group'] = $this->_mod->getOneGroup($item['groupid']);
 		}
 			
@@ -1038,7 +1116,13 @@ class indexAction extends frontendAction {
 			$this->assign ( 'strTopic', $strTopic );
 			$this->assign ( 'strGroup', $strGroup );
 			$this->assign ( 'topic_id', $topicid );
-			$this->_config_seo (array('title'=>'编辑“'.$strTopic['title'].'”','subtitle'=>'小组'));
+			
+			$this->_config_seo ( array (
+					'title' => '编辑“'.$strTopic['title'].'”',
+					'subtitle'=> '小组_'.C('ik_site_title'),
+					'keywords' => '',
+					'description'=> '',
+			) );
 			$this->display ('add');
 		}else{
 			$this->error("您没有权限编辑帖子！");
@@ -1100,7 +1184,13 @@ class indexAction extends frontendAction {
 	// 地区的话题 北京话题
 	public 	function nearby(){
 		
-		$this->show("内容还在建设中！");
+		$this->_config_seo ( array (
+				'title' => '北京话题',
+				'subtitle'=> '小组_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
+		$this->error("内容还在建设中！");
 	}
 	// 编辑小组信息
 	public function edit(){
@@ -1132,11 +1222,23 @@ class indexAction extends frontendAction {
 			
 					$this->assign('arrOne',$arrOne);
 					
-					$this->_config_seo (array('title'=>'编辑小组基本信息','subtitle'=>'小组'));
+
+					$this->_config_seo ( array (
+							'title' => '编辑小组基本信息',
+							'subtitle'=> '小组_'.C('ik_site_title'),
+							'keywords' => '',
+							'description'=> '',
+					) );					
 					break;
 					
 				case "icon" :
-					$this->_config_seo (array('title'=>'修改小组头像','subtitle'=>'小组'));
+					
+					$this->_config_seo ( array (
+							'title' => '修改小组头像',
+							'subtitle'=> '小组_'.C('ik_site_title'),
+							'keywords' => '',
+							'description'=> '',
+					) );
 					break;					
 			}
 			$this->assign ( 'menu', $menu );
@@ -1279,7 +1381,13 @@ class indexAction extends frontendAction {
 			$titlepage='';
 		}
 		
-		$this->_config_seo (array('title'=>$strGroup['groupname'].'小组成员'.$titlepage,'subtitle'=>'小组'));
+		
+		$this->_config_seo ( array (
+				'title' => $strGroup['groupname'].'小组成员'.$titlepage,
+				'subtitle'=> '小组_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
 		$this->display();
 		
 	}

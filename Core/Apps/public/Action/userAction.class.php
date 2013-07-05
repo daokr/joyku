@@ -310,14 +310,22 @@ class userAction extends userbaseAction {
 				'id' => $this->visitor->info ['doname'] 
 		) );
 		if (IS_POST) {
+			//快捷注册
+			$simple = $this->_get ( 'simple', 'trim', 0);
+			
 			$captcha = $this->_post ( 'authcode', 'trim' );
 			$username = $this->_post ( 'username', 'trim' );
 			$email = $this->_post ( 'email', 'trim' );
 			$password = $this->_post ( 'password', 'trim' );
 			$repassword = $this->_post ( 'repassword', 'trim' );
-			if ($password != $repassword) {
-				$this->error ( L ( 'inconsistent_password' ) ); // 确认密码
-			}elseif (empty($username)){
+			//简单注册没有二次密码
+			
+			if($simple == 0){
+				if ($password != $repassword) {
+					$this->error ( L ( 'inconsistent_password' ) ); // 确认密码
+				}
+			}
+			if (empty($username)){
 				$this->error('用户名名称不能为空!');
 			}elseif (empty($email)){
 				$this->error('Email不能为空!');
@@ -613,9 +621,21 @@ class userAction extends userbaseAction {
 	}
 	//ajax登录
 	public function ajaxlogin(){
-		
+		//统计用户数
+		$count_user = $this->user_mod->count('*');
+		$this->assign ( 'count_user', $count_user );		
 		$jump = $_SERVER['HTTP_REFERER'];
 		$this->assign('jump',$jump);
 		$this->display('login_form');	
+	}
+	//ajax注册	
+	public function ajaxregister(){
+		//统计用户数
+		$count_user = $this->user_mod->count('*');
+		$this->assign ( 'count_user', $count_user );	
+		$jump = $_SERVER['HTTP_REFERER'];
+		$this->assign('jump',$jump);
+		$this->display('reg_form');
+		
 	}
 }

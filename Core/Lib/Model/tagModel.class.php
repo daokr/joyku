@@ -93,7 +93,7 @@ class tagModel extends Model
 		D('tag_topic_index')->where($where)->delete();
 		return true;
 	}
-	//根据标题获取tag
+	//根据标题分词  中文分词
 	public function get_tags_by_title($title, $num=10)
 	{
 		vendor('pscws4.pscws4', '', '.class.php');

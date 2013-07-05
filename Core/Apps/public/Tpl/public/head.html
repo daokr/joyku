@@ -1,7 +1,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>{$seo.title} - {$seo.subtitle}</title>
+<title>{$seo.title}_{$seo.subtitle}</title>
+<notempty name="seo.keywords">
 <meta name="keywords" content="{$seo.keywords}" /> 
+</notempty>
+<notempty name="seo.description">
 <meta name="description" content="{$seo.description}" />
+</notempty>
 <meta property="qc:admins" content="12472730776130006375" />
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
 __SITE_THEME_CSS__
@@ -11,7 +15,7 @@ __SITE_THEME_CSS__
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__',show_login_url='{:U("public/user/ajaxlogin")}';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='{:U("public/user/ajaxlogin")}',show_register_url='{:U("public/user/ajaxregister")}';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>

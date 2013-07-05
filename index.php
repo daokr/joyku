@@ -19,7 +19,7 @@ define('SITE_PATH', dirname(__FILE__));
 //定义项目名称和路径
 define('APP_NAME', 'Core');
 define('APP_PATH', './Core/');
-define('APP_DEBUG',FALSE);
+define('APP_DEBUG',true);
 define('APPS_PATH', APP_PATH.'Apps/');
 define('APPS_URL', APP_NAME.'/apps/');
 

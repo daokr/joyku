@@ -22,17 +22,17 @@ class photosAction extends spacebaseAction {
 	//相册首页
 	public function index(){
 		$userid = $this->_get('id','trim,intval');
-		$userid > 0 && $username = $this->user_mod->field('username')->where(array('userid'=>$userid))->getField('username');
-		if(!empty($username)){
-			$title = $username.'的相册';
+		$userid > 0 && $user = $this->user_mod->getOneUser($userid);
+		if(!empty($user)){
+			$title = $user['username'].'的相册';
 		}else{
 			$this->error('呃...你想访问的页面不存在');
 		}
 		//获取相册列表
 		$arrAlbum = $this->album_mod->getAlbums(array('userid'=>$userid));
-		
+
 		$this->assign('arrAlbum',$arrAlbum);
-		
+		$this->assign('user',$user);
 		$this->_config_seo ( array (
 				'title' => $title
 		) );		

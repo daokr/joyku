@@ -29,6 +29,8 @@ class user_photo_albumModel extends Model
 					//图片大小
 					$result[$key]['simg'] =  attach($item['path'].$ext[0].'_'.C('ik_simg.width').'_'.C('ik_simg.height').'.jpg');
 					$result[$key]['mimg'] =  attach($item['path'].$ext[0].'_'.C('ik_mimg.width').'_'.C('ik_mimg.height').'.jpg');
+				}else{
+					$result[$key]['simg'] = $result[$key]['mimg'] = __ROOT__ . "/Public/images/photo_album.png";
 				}
 			}
 			return $result;

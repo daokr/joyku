@@ -16,6 +16,8 @@ class indexAction extends spacebaseAction {
 		$this->group_topics_mod = D ( 'group/group_topics' );
 		$this->group_topics_collects = D ( 'group/group_topics_collects' );
 		$this->group_topics_comments = M ( 'group_topics_comments' );
+		//相册
+		$this->album_mod = D('user_photo_album');
 	}
 	public function index() {	
 		$doname = $this->_get ( 'id' );
@@ -42,7 +44,7 @@ class indexAction extends spacebaseAction {
 		// 回复的帖子
 		$arrComments = $this->group_topics_comments->field ( 'topicid' )->where ( array (
 				'userid' => $userid 
-		) )->group ( 'topicid' )->order ( 'addtime DESC' )->select ();
+		) )->group ( 'topicid' )->order ( 'addtime DESC' )->limit(10)->select ();
 		if (is_array ( $arrComments )) {
 			foreach ( $arrComments as $item ) {
 				$oneTopic = $this->group_topics_mod->getOneTopic($item ['topicid']);
@@ -58,7 +60,17 @@ class indexAction extends spacebaseAction {
 				$arrMyGroup[] = $this->group_mod->getOneGroup($item['groupid']);
 			}
 		}
+		//我的相册
+		if($this->userid != $userid && !$strUser['isfollow']) {	
+			$map['privacy'] = 1; //公开
+		}elseif ($strUser['isfollow']){
+			$map['privacy'] = 2; //只能好友可见
+		}
+		$map['userid'] = $userid;
+		$arrAlbum = $this->album_mod->getAlbums($map,'uptime desc',4);
 		
+		
+		$this->assign('arrAlbum',$arrAlbum);
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrMyTopic', $arrMyTopic );
 		$this->assign ( 'arrMyCollect', $arrMyCollect );

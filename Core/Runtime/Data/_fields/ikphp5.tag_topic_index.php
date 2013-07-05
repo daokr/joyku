@@ -1,0 +1,1 @@
+<?php	return array ( 0 => 'topicid', 1 => 'tagid', '_autoinc' => false, '_pk' => 'tagid', '_type' => array ( 'topicid' => 'int(11)', 'tagid' => 'int(11)', ), );?>

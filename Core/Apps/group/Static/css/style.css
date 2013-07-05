@@ -150,11 +150,10 @@ white-space:nowrap;}
     display: block;
 }
 .infobox .bd {
-    background: #FFF4E8;
-    padding: 8px 9px;
     word-wrap: break-word;
-	padding: 10px 10px;
 	border-radius:5px;
+	background: none repeat scroll 0 0 #FFF4E8;
+    padding: 10px 20px;
 }
 .infobox .bd p{ margin:0px 0px 10px 0px}
 .groupicon {
@@ -278,10 +277,13 @@ h2 span {
 .comment li .reply-doc {float: right;width: 580px;overflow: hidden;}
 .comment li .reply-doc p img{max-width:450px;}
 .comment li .reply-doc h4 {font-weight:normal;font-size:12px;height: 22px;line-height: 22px;margin: 0 0 5px 0px;color: #666666;display: block;overflow: hidden; background-color:#F0F6F3; padding:0px 10px}
-.comment li .reply-doc p {margin: 0 0 25px;overflow: hidden;word-wrap: break-word;line-height:23px; padding:0px 10px}
-.comment li .reply-doc .recomment {background: #F8F8F8;border: 1px dashed #DDDDDD;color: #666666;font-size: 12px;padding: 10px;}
+.comment li .reply-doc p {margin: 0 0 25px;overflow: hidden;word-wrap: break-word;}
+.comment li .reply-doc .recomment {margin: 20px 0;font-size: 12px; padding-left:7px;border-left: 1px solid; width:80%}
+.comment li .reply-doc .recomment strong{margin-left: 10px;white-space: nowrap;}
 .comment li .group_banned {text-align: right; padding-bottom:5px}
-
+.comment li .group_banned span{ margin-left:10px}
+.comment li .group_banned span a{ color:#aaa}
+.comment li .group_banned span a:hover{ color:#fff}
 /**orderbar**/
 .orderbar{ text-align:right; padding-bottom:5px}
 

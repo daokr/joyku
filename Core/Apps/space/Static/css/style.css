@@ -571,3 +571,11 @@ cursor:pointer
 .inviteok{ color:#007722; font-size:14px;}
 .invitedbd h3{ font-size:14px;font: 14px Arial,Helvetica,sans-serif;color: #666;line-height: 1.8;background-color: #F2FBF2;margin-top:10px; padding-left:10px}
 .invitedbd .indent{ padding-left:10px}
+
+/**个人空间相册**/
+a.nbg:hover{
+	background:0
+}
+.photoin {float:left;width:160px;height:160px;overflow:hidden}
+.album_s {background:url(../images/albumback_s.gif) 1px 1px no-repeat;padding:5px 8px 8px 5px}
+.photoin .info p{ padding-top:8px; width:118px; word-spacing:normal; word-spacing:normal;word-wrap: break-word; height:18px; overflow:hidden}

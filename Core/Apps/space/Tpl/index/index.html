@@ -112,6 +112,31 @@
     </if>
 </div>
 
+
+<div id="photo" class="sort">
+    <h2>
+    <if condition="$strUser[userid] eq $visitor[userid]">
+        我的相册
+        <else/>
+        {$strUser[username]}的相册
+    </if>
+        &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('space/photos/index',array('id'=>$strUser[userid]))}">全部</a>) </span></h2>
+    <div class="bd">
+    	<volist name="arrAlbum" id="vo">
+        <div class="photoin">
+            <a title="{$vo.albumname}" href="{:U('space/photos/album',array('id'=>$vo[albumid]))}" class="nbg"><img class="album_s" src="{$vo.simg}" width="100" height="100" alt="{$vo.albumname}"></a>
+            <div class="info pl">
+            	<p><a href="">{$vo.albumname}</a></p>{$vo.uptime|date="Y-m-d",###} 更新
+            </div>
+        </div>
+        </volist>
+        
+    </div>
+
+
+</div>
+
+
 <div class="clear"></div>
 </div>
 

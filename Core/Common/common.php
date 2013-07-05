@@ -364,6 +364,7 @@ function ikhtml_img($type,$typeid,$content){
 		return;
 	}	
 }
+//注意：该方法已弃用 使用 t()函数处理文本输出
 function ikhtml_text($type,$typeid,$content){
 	//图片
 	$arr_photo = array();
@@ -1322,5 +1323,24 @@ function ikScanDir($dir, $isDir = null) {
 	}
 
 	return $arrDirs;
-
+}
+//新增一个中文分词函数
+function ikscws($title, $num=10, $implode= ',')
+{
+	vendor('pscws4.pscws4', '', '.class.php');
+	$pscws = new PSCWS4();
+	$pscws->set_dict(IK_DATA_PATH . 'scws/dict.utf8.xdb');
+	$pscws->set_rule(IK_DATA_PATH . 'scws/rules.utf8.ini');
+	$pscws->set_ignore(true);
+	$pscws->send_text($title);
+	$words = $pscws->get_tops($num);
+	$pscws->close();
+	$arrword = array();
+	foreach ($words as $val) {
+		$arrword[] = $val['word'];
+	}
+	if(!empty($implode)){
+		$arrword = implode($implode, $arrword);
+	}
+	return $arrword;
 }
