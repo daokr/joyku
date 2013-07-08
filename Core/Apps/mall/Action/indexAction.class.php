@@ -52,7 +52,12 @@ class indexAction extends mallbaseAction {
         $this->assign('sort', $sort);
         
 
-		$this->_config_seo (array('title'=>'发现宝贝','subtitle'=>'爱客商城'));
+		$this->_config_seo ( array (
+				'title' => '发现宝贝',
+				'subtitle'=> '爱客商城_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
 		$this->display();
 	}	
     public function index_ajax() {

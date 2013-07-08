@@ -761,7 +761,7 @@ class indexAction extends frontendAction {
 			$this->_config_seo ( array (
 					'title' => '发现小组',
 					'subtitle'=> '小组_'.C('ik_site_title'),
-					'keywords' => '',
+					'keywords' => '官方小组,科技,智趣,生活,情感,开源,APP下载,案例展示,二次开发,艺术,闲聊,情趣,兴趣,风格模板,php讨论',
 					'description'=> '',
 			) );
 		}

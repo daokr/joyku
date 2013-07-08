@@ -113,7 +113,13 @@ class eventAction extends locationbaseAction {
 		$this->assign('arrCate',$arrCate);
 		$this->assign('currtCity',$currtCity);
 		$this->assign('arrCity',$arrCity);
-		$this->_config_seo (array('title'=>'创建同城活动','subtitle'=>$currtCity['areaname']));
+				
+		$this->_config_seo ( array (
+			'title' => '创建同城活动',
+			'subtitle'=> $currtCity['areaname'].'同城活动_'.C('ik_site_title'),
+			'keywords' => '',
+			'description'=> '',
+		) );
 		$this->display();
 	}
 	//第二步 上传海报
@@ -144,7 +150,13 @@ class eventAction extends locationbaseAction {
 				$this->assign('imgSrc',attach($result['file']));
 				$this->assign('imgpath',$result['file']);
 				$this->assign('eventid',$eventid);
-				$this->_config_seo (array('title'=>'上传或更改海报','subtitle'=>'同城活动'));
+				
+				$this->_config_seo ( array (
+					'title' => '上传或更改海报',
+					'subtitle'=> '同城活动_'.C('ik_site_title'),
+					'keywords' => '',
+					'description'=> '',
+				) );
 				$this->display();
 			}else{ 
 				//获取截图位置
@@ -194,7 +206,13 @@ class eventAction extends locationbaseAction {
 				$this->assign('imgpath','');
 			}
 			$this->assign('eventid',$eventid);
-			$this->_config_seo (array('title'=>'上传或更改海报','subtitle'=>'同城活动'));
+	
+			$this->_config_seo ( array (
+				'title' => '上传或更改海报',
+				'subtitle'=> '同城活动_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+			) );
 			$this->display();
 		}
 	}
@@ -207,7 +225,13 @@ class eventAction extends locationbaseAction {
 			$this->error('你没有权限访问这个页面');
 		}
 		$this->assign('eventid',$eventid);
-		$this->_config_seo (array('title'=>'成功创建活动','subtitle'=>'同城活动'));
+		
+		$this->_config_seo ( array (
+				'title' => '成功创建活动',
+				'subtitle'=> '同城活动_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
 		$this->display();
 	}
 	//显示
@@ -216,7 +240,13 @@ class eventAction extends locationbaseAction {
 		$strEvent = $this->mod->getOneEvent($id);
 		if(!$strEvent){ $this->error('呃...你想访问的页面不存在');}
 		$this->assign('strEvent',$strEvent);
-		$this->_config_seo (array('title'=>$strEvent['title'],'subtitle'=>'同城活动'));
+
+		$this->_config_seo ( array (
+				'title' => $strEvent['title'],
+				'subtitle'=> '同城活动_'.C('ik_site_title'),
+				'keywords' => ikscws($strEvent['title']),
+				'description'=> getsubstrutf8(t($strEvent['content']),0,200),
+		) );
 		$this->display();
 	}
 	//ajax获取子分类
@@ -308,7 +338,14 @@ class eventAction extends locationbaseAction {
 		$this->assign('list', $arrList);
 		$this->assign('parentCate', $parentCate);
 		$this->assign('timelist', $timelist);
-		$this->_config_seo (array('title'=>'最近一周的同城活动','subtitle'=>'北京'));
+
+		
+		$this->_config_seo ( array (
+				'title' => '最近一周的同城活动',
+				'subtitle'=> '同城活动_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
 		$this->display();
 	}
 

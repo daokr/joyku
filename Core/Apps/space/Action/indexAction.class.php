@@ -81,6 +81,17 @@ class indexAction extends spacebaseAction {
 				'title' => $strUser ['username'],
 				'subtitle' => '个人主页' 
 		) );
+		if($strUser['about']){
+			$seodesc = $strUser['about'];
+		}else{
+			$seodesc = '提供免费个人日记，个人空间，个人相册等。您可以玩装扮、上传照片、写广播、写日志、听音乐，和朋友一起享受生活，分享欢笑！';
+		}
+		$this->_config_seo ( array (
+				'title' => $strUser ['username'],
+				'subtitle'=> '个人主页_'.C('ik_site_title'),
+				'keywords' => '个人空间,个人相册,个人日记,免费空间,分享日志,关注好友,友邻广播',
+				'description'=> $seodesc,
+		) );
 		$this->display ();
 	}
 }

@@ -301,7 +301,9 @@ class userAction extends userbaseAction {
 			$ret_url = isset ( $_SERVER ['HTTP_REFERER'] ) ? $_SERVER ['HTTP_REFERER'] : __APP__;
 			$this->assign ( 'ret_url', $ret_url );
 			
-			$this->_config_seo ();
+			$this->_config_seo ( array (
+					'title' => '会员登录'
+			) );
 			$this->display ();
 		}
 	}
@@ -363,7 +365,9 @@ class userAction extends userbaseAction {
 					'id' => $this->visitor->info ['doname'] 
 			) );
 		} else {
-			$this->_config_seo ();
+			$this->_config_seo ( array (
+					'title' => '会员注册'
+			) );
 			$this->display ();
 		}
 	}

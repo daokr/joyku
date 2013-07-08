@@ -33,8 +33,12 @@ class photosAction extends spacebaseAction {
 
 		$this->assign('arrAlbum',$arrAlbum);
 		$this->assign('user',$user);
+		
 		$this->_config_seo ( array (
-				'title' => $title
+				'title' => $title,
+				'subtitle'=> '_相册_'.C('ik_site_title'),
+				'keywords' => '网络相册,免费相册,相片,照片,相册',
+				'description'=> '分享生活中的照片，爱客相册，留住青春，珍藏您一生的记忆！',
 		) );		
 		$this->display();
 	}
@@ -104,8 +108,12 @@ class photosAction extends spacebaseAction {
 			}
 			
 		}else{
+
 			$this->_config_seo ( array (
-					'title' => '创建新相册'
+				'title' => '创建新相册',
+				'subtitle'=> '相册_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
 			) );
 			$this->display('create');
 		}	
@@ -146,6 +154,13 @@ class photosAction extends spacebaseAction {
 					$this->assign('strAlbum',$strAlbum);
 					$this->_config_seo ( array (
 							'title' => '上传照片 - '.$strAlbum['albumname']
+					) );
+					
+					$this->_config_seo ( array (
+						'title' => '上传照片 - '.$strAlbum['albumname'],
+						'subtitle'=> '相册_'.C('ik_site_title'),
+						'keywords' => '',
+						'description'=> '',
 					) );
 					$this->display('upload');
 				}
@@ -226,8 +241,12 @@ class photosAction extends spacebaseAction {
 				}
 				$this->assign('strAlbum',$strAlbum);
 				$this->assign('arrPhoto',$arrPhoto);
+				
 				$this->_config_seo ( array (
-						'title' => $title
+						'title' => $title,
+						'subtitle'=> '相册_'.C('ik_site_title'),
+						'keywords' => '',
+						'description'=> '',
 				) );
 				$this->display('complete');
 			}
@@ -246,8 +265,12 @@ class photosAction extends spacebaseAction {
 		
 		$this->assign('strAlbum',$strAlbum);
 		$this->assign('user',$user);
+
 		$this->_config_seo ( array (
-				'title' => $user['username'].'的相册 - '.$strAlbum['albumname']
+				'title' => $user['username'].'的相册',
+				'subtitle'=> $strAlbum['albumname'].'_相册_'.C('ik_site_title'),
+				'keywords' => ikscws($strAlbum['albumname']),
+				'description'=> $strAlbum['albumdesc'],
 		) );
 		$this->display('album');
 	}
@@ -293,7 +316,10 @@ class photosAction extends spacebaseAction {
 				$title = $user['username'].'的相册 - '.$strAlbum['albumname'];
 			}
 			$this->_config_seo ( array (
-					'title' => $title
+					'title' => $title,
+					'subtitle'=> '_相册_'.C('ik_site_title'),
+					'keywords' => ikscws($strAlbum['albumname']),
+					'description'=> $strPhoto['photodesc'],
 			) );
 			$this->display();
 		}else{
