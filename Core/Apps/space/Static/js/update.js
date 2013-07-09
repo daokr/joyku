@@ -47,10 +47,17 @@ $(function(){
 		p.addClass('focus');
 		l.hide();		
 	});
-	h.bind('change',function(){
+	h.bind('keyup',function(){
 		if(h.val()!=0){
 			p.removeClass('isay-disable');
+		}else{
+			p.addClass('isay-disable');
 		}
 	});
+	
+	if(location.search){
+			
+	}
+	
 	
 });

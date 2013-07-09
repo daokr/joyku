@@ -112,12 +112,12 @@
                     <foreach name="arrAlbum" item="item">
                     <li>
                     <div class="pic">
-                        <a href="http://www.douban.com/photos/album/105660462/">
+                        <a href="{:U('space/photos/album',array('id'=>$item[albumid]))}">
                             <img width="75" height="75" alt="美女图片" src="{$item[simg]}">
                         </a>
                     </div>
                     <div class="info">
-                        <a href="http://www.douban.com/photos/album/105660462/">{$item[albumname]}</a>
+                        <a href="{:U('space/photos/album',array('id'=>$item[albumid]))}">{$item[albumname]}</a>
                         <span class="num">{$item[count_photo]}张照片</span>
                         <p><php> echo getsubstrutf8(t($item[albumdesc]),0,30);</php></p>
                     </div>
