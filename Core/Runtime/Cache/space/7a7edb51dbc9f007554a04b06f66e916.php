@@ -28,42 +28,6 @@ __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
 
-<script src="__PUBLIC__/js/uploadify/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
-
-<script src="__PUBLIC__/js/uploadify/swfobject.js" type="text/javascript"></script>
-
-<link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify2.css" />
-
-<script type="text/javascript">
-	var vuserid = '<?php echo ($visitor[userid]); ?>', albumid = '<?php echo ($strAlbum[albumid]); ?>';
-    var loadurl = "<?php echo U('space/photos/album',array('d'=>'ajaxupload'));?>";
-	var objdata = {'userid': vuserid,'albumid': albumid};
-	var jumpurl = "<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid],'t'=>$smalltime));?>";
-$(document).ready(function()
-{		
-	$("#uploadify").uploadify({
-		'uploader': siteUrl + 'Public/js/uploadify/uploadify.swf',
-		'expressInstall': siteUrl + 'Public/js/uploadify/expressInstall.swf',
-		'script': 'index.php?app=space&m=photos&a=album&d=ajaxupload',
-		'scriptData':objdata,
-		'method':'POST', 
-		'cancelImg': siteUrl+'Public/js/uploadify/cancel2.png',
-		'folder': 'UploadFile',
-		'queueID': 'fileQueue',
-		'auto': false,
-		'multi': true,
-		'buttonText': '',
-		'buttonImg': siteUrl+'Public/images/upload-btns.png',		
-		'fileDesc':'jpg,gif,png图片格式',
-		'fileExt':'*.jpg;*.gif;*.png',
-		'onAllComplete' : function(event,data) {
-			window.location = jumpurl;
-		}
-
-	});
-
-})
-</script>
 </head>
 
 <body>
@@ -174,39 +138,134 @@ $(document).ready(function()
 
 <div class="midder">
 <div class="mc">
-	<h1><?php echo ($seo["title"]); ?></h1>
+	<h1  id="image"><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
+
+<div class="pl photitle">
+        <span class="fr">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strPhoto[albumid]));?>">返回相册</a></span>
+        <span class="fl">第<?php echo ($strPhoto[nowPage]); ?>张 / 共<?php echo ($strPhoto[countPage]); ?>张</span>
+        <?php if($strPhoto[nowPage] > 1): ?><a id="pre_photo" title="上一张" href="<?php echo ($strPhoto[prevturl]); ?>#image">上一张</a>
+        	 <?php if($strPhoto[nowPage] < $strPhoto[countPage]): ?>&nbsp;&nbsp;/&nbsp;&nbsp;<?php endif; endif; ?>
+        <?php if($strPhoto[nowPage] < $strPhoto[countPage]): ?><a id="next_photo" title="下一张" href="<?php echo ($strPhoto[nexturl]); ?>#image">下一张</a><?php endif; ?>
+</div>
     
-    	<?php if($type != 'n'): ?><div class="uploadtype">
-                <div id="fileQueue"></div><br>
-                <input type="file" id="uploadify" />
-                <p style="padding:10px 0;">上传文件只支持：jpg，gif，png格式；上传最大支持1M的图片<br>
-                    提示：每次最多可以批量上传二十张照片，按着 "ctrl" 键可以一次选择多张照片
-                </p>
-                <p style="padding:10px 0;">
-                <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
-                <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
-                </p>
-                <p><br>无法上传？<a href="<?php echo U('space/photos/album',array('d'=>'upload','type'=>'n','id'=>$strAlbum[albumid]));?>">使用普通方式上传照片&gt;</a></p>
-       		</div>
-        <?php else: ?> 
-            <div class="uploadtype">
-                <p class="pl">你可以上传JPG，JPEG， GIF，PNG，每个文件大小可以到1M。</p><br>
-                <form enctype="multipart/form-data" action="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid],'t'=>$smalltime));?>" method="post" name="album_upload">
-                <span class="pl">选择图片 </span>
-                <input type="file" name="picfile"><br><br>
-                <span class="bn-flat"><input type="submit" value="开始上传" name="upload"></span>
-                </form>
-                <p><br><a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">使用批量上传方式上传照片&gt;</a></p>      
-            </div><?php endif; ?>
-        
+<div id="link-report">
+      <div style="text-align:center">
+       <?php if($strPhoto[nowPage] < $strPhoto[countPage]): ?><a title="点击查看下一张" href="<?php echo ($strPhoto[nexturl]); ?>#image" class="mainphoto">
+              <img src="<?php echo ($strPhoto[mimg]); ?>">
+          </a>
+       <?php else: ?>
+       		 <img src="<?php echo ($strPhoto[mimg]); ?>"><?php endif; ?>   
+      </div>
+      <div class="photo_descri">
+           <p class="pl" id="desc_info">
+           <span>
+               <?php if($strPhoto[photodesc]): echo ($strPhoto[photodesc]); ?>
+               <?php else: ?>
+               这张照片的还没有添加任何描述...<?php endif; ?>
+           </span>
+           &nbsp;<?php if($visitor[userid] == $strPhoto[userid]): ?>&gt;&nbsp;<a title="编辑描述" href="javascript:;" id="edit_pinfo">编辑描述</a><?php endif; ?>
+           </p>
+           
+           <?php if($visitor[userid] == $strPhoto[userid]): ?><p class="pl" id="desc_edit" style="display:none">
+               <textarea maxlength="120" name="photodesc" id="photodesc" style="width:100%; margin-bottom:5px; color:#666" class="txt"><?php echo ($strPhoto[photodesc]); ?></textarea>
+               <br/>
+               <input type="button" value="保存" class="subab" id="savebtn">&nbsp;&nbsp;<a href="javascript:;" id="cancle_edit">取消</a>
+           </p><?php endif; ?>
+           
+      </div>
+      <div class="report-link" style="color:#999;margin-bottom:5px">
+      		<?php if($visitor[userid] == $strPhoto[userid]): ?><span class="fr">&gt;&nbsp;<a title="删除这张照片" href="<?php echo U('space/photos/delphoto',array('id'=>$strPhoto[photoid]));?>">删除照片</a></span><?php endif; ?>
+            <?php echo ($strPhoto[count_view]); ?>人浏览&#12288;上传于<?php echo (date("Y-m-d",$strPhoto[addtime])); ?>&#12288;<a target="_blank" title="查看原图" href="<?php echo ($strPhoto[img]); ?>">查看原图</a>
+      </div>
+    
+</div>
+
+<div class="mod">
+	      <div class="orderbar"> 
+        <?php if(($page == 1) && ($strTopic[count_comment] > 3)): ?><a href="<?php echo U('group/index/topic',array('id'=>$strTopic[topicid],'sc'=>$sc,'isauthor'=>$author[isauthor]));?>"><?php echo ($author[text]); ?></a>&nbsp;&nbsp;
+        <?php if($sc == 'asc'): ?><a href="<?php echo U('group/index/topic',array('id'=>$strTopic[topicid],'sc'=>'desc','isauthor'=>$isauthor));?>">倒序阅读</a> 
+        <?php else: ?>
+        	<a href="<?php echo U('group/index/topic',array('id'=>$strTopic[topicid],'sc'=>'asc','isauthor'=>$isauthor));?>">正序阅读</a><?php endif; endif; ?>
+      </div>      
+      <!--comment评论-->
+      <ul class="comment" id="comment">
+       <?php if(!empty($commentList)): if(is_array($commentList)): foreach($commentList as $key=>$item): ?><li class="clearfix">
+                  <div class="user-face"> 
+                  <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img title="<?php echo ($item[user][username]); ?>" alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a> 
+                  </div>
+                  <div class="reply-doc">
+                    <h4>
+                        <span class="fr"></span>
+                        <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> 
+                        <?php echo date('Y-m-d H:i:s',$item[addtime]) ?>
+                    </h4>
+                    
+                    <?php if($item[referid] != 0): ?><div class="recomment"><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><img src="<?php echo ($item[recomment][user][face]); ?>" width="24" align="absmiddle"></a> <strong><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><?php echo ($item[recomment][user][username]); ?></a></strong>：<?php echo ($item[recomment][content]); ?></div><?php endif; ?>
+                    
+                    <p><?php echo ($item[content]); ?></p>
+                    
+                    <div class="group_banned"> 
+                      <?php if($visitor[userid] != 0): ?><span><a href="javascript:void(0)"  onclick="commentOpen(<?php echo ($item[commentid]); ?>,<?php echo ($item[photoid]); ?>)">回复</a></span><?php endif; ?>
+                      <?php if(($strPhoto[userid] == $visitor[userid]) OR ($visitor[userid] == $item[userid])): ?><span><a class="j a_confirm_link" href="<?php echo U('space/photos/delcomment',array('commentid'=>$item[commentid]));?>" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span><?php endif; ?>
+                    </div>
+                    <div id="rcomment_<?php echo ($item[commentid]); ?>" style="display:none; clear:both; padding:0px 10px">
+                      <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_<?php echo ($item[commentid]); ?>" type="text" onkeydown="keyRecomment(<?php echo ($item[commentid]); ?>,<?php echo ($item[photoid]); ?>,event)" class="txt"></textarea>
+                      <p style=" padding:5px 0px">
+                        <button onclick="recomment(this,<?php echo ($item[commentid]); ?>,<?php echo ($item[photoid]); ?>)" id="recomm_btn_<?php echo ($item[commentid]); ?>" class="subab" data-url="<?php echo U('space/photos/recomment');?>">提交</button>
+                        &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_<?php echo ($item[commentid]); ?>').slideToggle('fast');">取消</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="clear"></div>
+                </li><?php endforeach; endif; endif; ?>
+      </ul>
+      
+      <div class="page"><?php echo ($pageUrl); ?></div>
+      <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
+      <div> 
+            <?php if(!$visitor['userid']): ?><div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="<?php echo U('public/user/login');?>">登录</a> | <a href="<?php echo U('public/user/register');?>">注册</a></div>
+            <?php else: ?>
+            <form method="POST" action="<?php echo U('space/photos/addcomment');?>" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
+              <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
+              <input type="hidden" name="photoid" value="<?php echo ($strPhoto[photoid]); ?>" />
+              <input type="hidden" name="p" value="<?php echo ($page); ?>" />
+              <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
+            </form><?php endif; ?>
+      </div>
+</div>
+    
+<script language="javascript">
+	$('#edit_pinfo').bind('click',function(){
+		var desc_info = $('#desc_info'),desc_edit = $('#desc_edit');
+		desc_info.hide();desc_edit.show();
+	});
+	$('#cancle_edit').bind('click',function(){
+		var desc_info = $('#desc_info'),desc_edit = $('#desc_edit');
+		desc_info.show();desc_edit.hide();
+	});
+	$('#savebtn').bind('click',function(){
+		var info = $('#photodesc'),pid = <?php echo ($strPhoto["photoid"]); ?>,ajaxurl='<?php echo U("space/photos/editphoto");?>';
+		var desc_info = $('#desc_info'),desc_edit = $('#desc_edit');
+		if(info.val()=="" || info.val() == 0){
+			tips('描述不能为空字符')
+		}else{
+			$.post(ajaxurl,{photoid:pid,photodesc:info.val()},function(res){
+				if(res.r==1){
+					desc_info.show();desc_edit.hide();
+					desc_info.find('span').html(res.html);
+					info.val(res.html);
+				}else{
+					tips(res.error)
+				}
+			});
+		}
+	})
+</script>    
+    	
     </div><!--//cleft-->
     <div class="cright">
-        <div class="mod">
-        所有相册空间的总容量为 5G。
-        <br><br>
-        <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strAlbum[albumid]));?>">回相册"<?php echo ($strAlbum[albumname]); ?>"</a></p>
-        </div>
+       
 
         
     </div><!--//right-->

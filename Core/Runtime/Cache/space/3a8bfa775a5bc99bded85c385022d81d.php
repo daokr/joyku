@@ -25,45 +25,8 @@ __SITE_THEME_CSS__
 <![endif]-->
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
+<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
-
-<script src="__PUBLIC__/js/uploadify/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
-
-<script src="__PUBLIC__/js/uploadify/swfobject.js" type="text/javascript"></script>
-
-<link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify2.css" />
-
-<script type="text/javascript">
-	var vuserid = '<?php echo ($visitor[userid]); ?>', albumid = '<?php echo ($strAlbum[albumid]); ?>';
-    var loadurl = "<?php echo U('space/photos/album',array('d'=>'ajaxupload'));?>";
-	var objdata = {'userid': vuserid,'albumid': albumid};
-	var jumpurl = "<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid],'t'=>$smalltime));?>";
-$(document).ready(function()
-{		
-	$("#uploadify").uploadify({
-		'uploader': siteUrl + 'Public/js/uploadify/uploadify.swf',
-		'expressInstall': siteUrl + 'Public/js/uploadify/expressInstall.swf',
-		'script': 'index.php?app=space&m=photos&a=album&d=ajaxupload',
-		'scriptData':objdata,
-		'method':'POST', 
-		'cancelImg': siteUrl+'Public/js/uploadify/cancel2.png',
-		'folder': 'UploadFile',
-		'queueID': 'fileQueue',
-		'auto': false,
-		'multi': true,
-		'buttonText': '',
-		'buttonImg': siteUrl+'Public/images/upload-btns.png',		
-		'fileDesc':'jpg,gif,png图片格式',
-		'fileExt':'*.jpg;*.gif;*.png',
-		'onAllComplete' : function(event,data) {
-			window.location = jumpurl;
-		}
-
-	});
-
-})
-</script>
 </head>
 
 <body>
@@ -175,41 +138,48 @@ $(document).ready(function()
 <div class="midder">
 <div class="mc">
 	<h1><?php echo ($seo["title"]); ?></h1>
-	<div class="cleft">
-    
-    	<?php if($type != 'n'): ?><div class="uploadtype">
-                <div id="fileQueue"></div><br>
-                <input type="file" id="uploadify" />
-                <p style="padding:10px 0;">上传文件只支持：jpg，gif，png格式；上传最大支持1M的图片<br>
-                    提示：每次最多可以批量上传二十张照片，按着 "ctrl" 键可以一次选择多张照片
-                </p>
-                <p style="padding:10px 0;">
-                <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
-                <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
-                </p>
-                <p><br>无法上传？<a href="<?php echo U('space/photos/album',array('d'=>'upload','type'=>'n','id'=>$strAlbum[albumid]));?>">使用普通方式上传照片&gt;</a></p>
-       		</div>
-        <?php else: ?> 
-            <div class="uploadtype">
-                <p class="pl">你可以上传JPG，JPEG， GIF，PNG，每个文件大小可以到1M。</p><br>
-                <form enctype="multipart/form-data" action="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid],'t'=>$smalltime));?>" method="post" name="album_upload">
-                <span class="pl">选择图片 </span>
-                <input type="file" name="picfile"><br><br>
-                <span class="bn-flat"><input type="submit" value="开始上传" name="upload"></span>
-                </form>
-                <p><br><a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">使用批量上传方式上传照片&gt;</a></p>      
-            </div><?php endif; ?>
-        
-    </div><!--//cleft-->
-    <div class="cright">
-        <div class="mod">
-        所有相册空间的总容量为 5G。
-        <br><br>
-        <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strAlbum[albumid]));?>">回相册"<?php echo ($strAlbum[albumname]); ?>"</a></p>
+		<div class="cleft">
+<form id="cform" method="post" name="creat_album"  action="<?php echo U('space/photos/album',array('d'=>'edit','id'=>$strAlbum[albumid]));?>" onsubmit="return checkAlbum(this)">
+	<div class="row album-name">
+        <label for="album-name" class="field">相册名称（必填）</label><br> 
+        <input type="text" class="notnull most20" id="album_name" name="albumname" value="<?php echo ($strAlbum[albumname]); ?>" maxlength="20">
+        <span class="attn hidden field"><br>相册名称不能为空，且不超过20字</span>
+    </div>
+	<div class="row album-intro">
+        <label for="album_intro" class="field">相册描述</label><br> 
+        <textarea class="most128" id="album_intro" name="albumdesc" maxlength="120"><?php echo ($strAlbum[albumdesc]); ?></textarea>
+        <span class="attn hidden field"><br>不超过120字</span>
+	</div>
+	<div class="row album-order">
+        <label class="field">显示顺序:</label>
+        <?php if($strAlbum[orderid] == 'desc' ): ?><label for="sel-order-False"><input type="radio" id="sel-order-False" checked="checked" value="desc" name="orderid">最新上传排在前面</label>
+        <label for="sel-order-True"><input type="radio" id="sel-order-True" value="acs" name="orderid">最新上传排在后面</label>
+        <?php else: ?>
+        <label for="sel-order-False"><input type="radio" id="sel-order-False" value="desc" name="orderid">最新上传排在前面</label>
+        <label for="sel-order-True"><input type="radio" id="sel-order-True" checked="checked"  value="acs" name="orderid">最新上传排在后面</label><?php endif; ?>
+	</div>
+    <div class="row album-privacy">
+        <label class="field">浏览权限:</label>
+        <label><input type="radio" value="1" name="privacy" <?php if($strAlbum[privacy] == 1 ): ?>checked="checked"<?php endif; ?> >所有人可见</label>
+        <label><input type="radio" value="2" name="privacy" <?php if($strAlbum[privacy] == 2 ): ?>checked="checked"<?php endif; ?> >仅朋友可见</label>
+        <label><input type="radio" value="3" name="privacy" <?php if($strAlbum[privacy] == 3 ): ?>checked="checked"<?php endif; ?> >仅自己可见</label>
+    </div>
+	<div class="row album-reply">
+        <label class="field">回复权限:</label>
+        <label><input type="checkbox" name="isreply" value="0" <?php if($strAlbum[isreply] == 0 ): ?>checked="checked"<?php endif; ?> > 不允许回应</label>
+	</div>
+	<div class="row album-footer">
+        <span class="bn-flat cancel-album"><input type="button" class="bn-flat" tabindex="9" value="取消" name="cancel" onClick="history.go(-1)"></span>
+        <input type="submit" class="btn" tabindex="8" value="更新我的设置" name="album_create">
+    </div>
+</form>
         </div>
-
-        
-    </div><!--//right-->
+        <div class="cright">
+            <div class="mod">
+            	<p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">添加照片</a></p>
+                <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strAlbum[albumid]));?>">回相册"<?php echo ($strAlbum[albumname]); ?>"</a></p>
+            </div>
+        </div>
 </div>
 </div>
 
@@ -232,7 +202,7 @@ $(document).ready(function()
         <div class="cl"></div>
         <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  
         <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线 
-        <!--<script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />-->
+        <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />
         <span style="font-size:0.83em;">{__RUNTIME__}          </span>
 
         
@@ -246,7 +216,7 @@ $(document).ready(function()
 <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1&amp;pos=right&amp;uid=0" ></script>
 <script type="text/javascript" id="bdshell_js"></script>
 <script type="text/javascript">
-//document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
 </script>
 <!-- Baidu Button END -->
 

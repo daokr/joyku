@@ -25,6 +25,10 @@ class user_photoModel extends Model
 			return false;
 		}
     }
+    public function _after_insert($data, $options){
+    	$album_mod = D('user_photo_album');
+    	$album_mod->where(array('albumid'=>$data['albumid']))->setInc('count_photo');
+    }
     //获取照片
     public function getPhotos($map,$order='addtime desc',$limit=''){
     	$res = $this->field('photoid')->where($map)->order($order)->limit($limit)->select();
@@ -70,6 +74,24 @@ class user_photoModel extends Model
 	    	return false;
 	    }
     }
+    //删除照片 单个或多个 $photoid = '1,2,3' 以逗号分隔
+    public function delPhoto($photoid){
+    	$where['photoid'] = array('exp',' IN ('.$photoid.') ');
+    	$arrPhoto = $this->field('albumid')->where($where)->select();
+    	if($arrPhoto){
+    		$this->where($where)->delete();
+    		//删除评论
+    		D('user_photo_comment')->where($where)->delete();
+    		foreach ($arrPhoto as $item){
+    			D('user_photo_album')->where(array('albumid'=>$item['albumid']))->setDec('count_photo');
+    		}
+    		return true;    		
+    	}else{
+    		return false;
+    	}
+
+    }
+
 
 
 }

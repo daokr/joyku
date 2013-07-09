@@ -3,9 +3,9 @@
 <head>
 <!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title><?php echo ($seo["title"]); ?> - <?php echo ($seo["subtitle"]); ?></title>
-<meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /> 
-<meta name="description" content="<?php echo ($seo["description"]); ?>" />
+<title><?php echo ($seo["title"]); ?>_<?php echo ($seo["subtitle"]); ?></title>
+<?php if(!empty($seo["keywords"])): ?><meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /><?php endif; ?>
+<?php if(!empty($seo["description"])): ?><meta name="description" content="<?php echo ($seo["description"]); ?>" /><?php endif; ?>
 <meta property="qc:admins" content="12472730776130006375" />
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
 __SITE_THEME_CSS__
@@ -15,7 +15,7 @@ __SITE_THEME_CSS__
 <!--[if lt IE 7]>
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
 <![endif]-->
-<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>';</script>
+<script>var siteUrl = '__SITE_URL__',show_login_url='<?php echo U("public/user/ajaxlogin");?>',show_register_url='<?php echo U("public/user/ajaxregister");?>';</script>
 <script src="__PUBLIC__/js/jquery.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/common.js" type="text/javascript"></script>
 <script src="__PUBLIC__/js/IK.js" type="text/javascript" data-cfg-autoload="false"></script>
@@ -25,7 +25,7 @@ __SITE_THEME_CSS__
 <![endif]-->
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
+<!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
 
 </head>
@@ -180,6 +180,7 @@ __EXTENDS_JS__
 
 <!--引入后前台的模版文件 -->
 <!--footer-->
+<?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>
 <footer>
 <div id="footer">
 	<div class="f_content">
@@ -196,7 +197,7 @@ __EXTENDS_JS__
         <div class="cl"></div>
         <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  
         <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线 
-        <!-- <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script> --><br />
+        <!--<script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />-->
         <span style="font-size:0.83em;">{__RUNTIME__}          </span>
 
         
@@ -210,7 +211,7 @@ __EXTENDS_JS__
 <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1&amp;pos=right&amp;uid=0" ></script>
 <script type="text/javascript" id="bdshell_js"></script>
 <script type="text/javascript">
-document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+//document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
 </script>
 <!-- Baidu Button END -->
 

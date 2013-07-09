@@ -139,3 +139,14 @@ h2{ margin-bottom:12px}
 .photitle {border-bottom: 1px solid #DDDDDD;margin-bottom: 10px;text-align:center; display:block; height:22px; line-height:22px;}
 .photo_descri{ margin:10px 0px; border-top:#ddd solid 1px; padding:10px}
 .mainphoto:hover{background:0}
+
+/*comment评论列表*/
+.comment{width: 100%;overflow:hidden;}
+.comment li {margin: 0 0 0px 0px;overflow:hidden; display:block;}
+.comment li .user-face {float: left;height: 48px;overflow: hidden;width: 48px; margin-top:0px;}
+.comment li .reply-doc {float: right;width: 580px;overflow: hidden;}
+.comment li .reply-doc p img{max-width:450px;}
+.comment li .reply-doc h4 {font-weight:normal;font-size:12px;height: 22px;line-height: 22px;margin: 0 0 5px 0px;color: #666666;display: block;overflow: hidden; background-color:#F0F6F3; padding:0px 10px}
+.comment li .reply-doc p {margin: 0 0 25px;overflow: hidden;word-wrap: break-word;line-height:23px; padding:0px 10px}
+.comment li .reply-doc .recomment {background: #F8F8F8;border: 1px dashed #DDDDDD;color: #666666;font-size: 12px;padding: 10px;}
+.comment li .group_banned {text-align: right; padding-bottom:5px}

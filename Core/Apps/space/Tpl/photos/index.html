@@ -28,8 +28,10 @@
                 {$item[count_photo]}张照片&nbsp;
                 {$item.addtime|date="Y-m-d",###}创建<br>
                 </span>
+                <if condition="$visitor[userid] eq $user[userid]">
                 &gt;<a href="{:U('space/photos/album',array('d'=>'edit','id'=>$item[albumid]))}">修改相册属性</a>
                 &nbsp;&gt;<a href="{:U('space/photos/album',array('d'=>'upload','id'=>$item[albumid]))}">添加照片</a>
+                </if>
                 </div>
                 <br>
                 </div>

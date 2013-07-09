@@ -27,43 +27,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
-
-<script src="__PUBLIC__/js/uploadify/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
-
-<script src="__PUBLIC__/js/uploadify/swfobject.js" type="text/javascript"></script>
-
-<link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify2.css" />
-
-<script type="text/javascript">
-	var vuserid = '<?php echo ($visitor[userid]); ?>', albumid = '<?php echo ($strAlbum[albumid]); ?>';
-    var loadurl = "<?php echo U('space/photos/album',array('d'=>'ajaxupload'));?>";
-	var objdata = {'userid': vuserid,'albumid': albumid};
-	var jumpurl = "<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid],'t'=>$smalltime));?>";
-$(document).ready(function()
-{		
-	$("#uploadify").uploadify({
-		'uploader': siteUrl + 'Public/js/uploadify/uploadify.swf',
-		'expressInstall': siteUrl + 'Public/js/uploadify/expressInstall.swf',
-		'script': 'index.php?app=space&m=photos&a=album&d=ajaxupload',
-		'scriptData':objdata,
-		'method':'POST', 
-		'cancelImg': siteUrl+'Public/js/uploadify/cancel2.png',
-		'folder': 'UploadFile',
-		'queueID': 'fileQueue',
-		'auto': false,
-		'multi': true,
-		'buttonText': '',
-		'buttonImg': siteUrl+'Public/images/upload-btns.png',		
-		'fileDesc':'jpg,gif,png图片格式',
-		'fileExt':'*.jpg;*.gif;*.png',
-		'onAllComplete' : function(event,data) {
-			window.location = jumpurl;
-		}
-
-	});
-
-})
-</script>
 </head>
 
 <body>
@@ -171,48 +134,91 @@ $(document).ready(function()
 	</div>
         
 </div>
-
 <div class="midder">
-<div class="mc">
-	<h1><?php echo ($seo["title"]); ?></h1>
-	<div class="cleft">
+	<div class="mc">
+    <h1><?php echo ($seo["title"]); ?></h1>
+        <div class="cleft">
+            <div id="th-apps">
+            	<div class="mod hd">
+                    <h2>
+                        大家在谈论
+                            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                    </h2>
+                    <div class="cate-tab">
+                     	<a href="<?php echo U('develop/index/applist');?>" <?php if(($apptype) == "0"): ?>class="on"<?php endif; ?> >最新</a>
+						<?php if(is_array($typeList)): foreach($typeList as $key=>$item): if($item[id] == $apptype): ?><a href="<?php echo U('develop/index/applist',array('type'=>$item[id]));?>" class="on"><?php echo ($item[name]); ?></a>
+                          <?php else: ?>
+                          <a href="<?php echo U('develop/index/applist',array('type'=>$item[id]));?>"><?php echo ($item[name]); ?></a><?php endif; endforeach; endif; ?>
+                    </div>
+                 </div>
+                <div class="bd">
+                	<div class="comment-list">
+                    		<?php if(is_array($arrApp)): foreach($arrApp as $key=>$item): ?><div data-id="$item[appid]" class="common-item">
+                                <div class="pic">
+                                  <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><img alt="<?php echo ($item[title]); ?>" src="<?php echo ($item[icon_100]); ?>"></a>
+                                </div>
+                                <span class="digg">
+                                	<?php if($visitor[userid] > 0): ?><a title="有用" class="a_digg <?php echo ($item[digged]); ?>"  data-url="<?php echo U('develop/index/vote',array('id'=>$item[appid]));?>" href="javascript:;" onClick="postvote(this)">有用</a>
+                                    <?php else: ?>
+                                    <a title="有用" class="i a_show_login a_digg"  data-url="<?php echo U('develop/index/vote',array('id'=>$item[appid]));?>" href="javascript:;">有用</a><?php endif; ?>
+                                    <span class="counter"><?php echo ($item[count_vote]); ?></span>
+                                </span>
+                                <div class="info">
+                                     	<?php if($item[comment][content]): ?><p><?php echo getsubstrutf8(t($item[comment][content]),0,80) ?></p><?php endif; ?>
+                                        <div class="info-ft">
+                                            <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a> |
+                                            <a href="<?php echo U('develop/index/applist',array('type'=>$apptype,'cateid'=>$item[cateid]));?>"><?php echo ($item[cate][catename]); ?></a>,
+                                            <?php if($item[comment][content]): echo ($item[comment][user][username]); ?>的短评<?php endif; ?>
+                                        </div>
+                                 </div>
+                            </div><?php endforeach; endif; ?> 
+                                               
+                    </div>
+                    <div class="page"><?php echo ($pageUrl); ?></div>
+                </div>
+            </div>	
+        
+        </div><!--//left-->
+        <div class="cright">
+
+            <div class="mod" id="th-app-cate">
+                <h2>
+                    发现更多应用
+                        &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                </h2>
+              <div class="sub-mod list cate-list">
+                <ul>
+                  <?php if(is_array($cateList)): foreach($cateList as $key=>$item): ?><li><a href="<?php echo U('develop/index/applist',array('type'=>$apptype,'cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
+                </ul>
+              </div>
+            </div>
+
+        	<div class="mod">
+                <h2>
+                        最近流行的应用
+                            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                </h2>
+                <div class="th-app-pop">
+                     <ul>
+                     	<?php if(is_array($arrpopApp)): foreach($arrpopApp as $key=>$item): ?><li class="common-item">
+                         <div class="pic">
+                             <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><img width="48" src="<?php echo ($item[icon_100]); ?>"></a>
+                         </div>
+                         <div class="info">
+                             <div class="title">
+                               <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a>
+                             </div>
+                             <div class="favs"><?php echo ($item[count_down]); ?>人用过 / <?php echo ($item[cate][catename]); ?></div>
+                         </div>
+                         </li><?php endforeach; endif; ?>
+                     </ul>
+                </div> 
+            </div><!--//mod-->
+            
+        </div><!--//right-->
     
-    	<?php if($type != 'n'): ?><div class="uploadtype">
-                <div id="fileQueue"></div><br>
-                <input type="file" id="uploadify" />
-                <p style="padding:10px 0;">上传文件只支持：jpg，gif，png格式；上传最大支持1M的图片<br>
-                    提示：每次最多可以批量上传二十张照片，按着 "ctrl" 键可以一次选择多张照片
-                </p>
-                <p style="padding:10px 0;">
-                <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
-                <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
-                </p>
-                <p><br>无法上传？<a href="<?php echo U('space/photos/album',array('d'=>'upload','type'=>'n','id'=>$strAlbum[albumid]));?>">使用普通方式上传照片&gt;</a></p>
-       		</div>
-        <?php else: ?> 
-            <div class="uploadtype">
-                <p class="pl">你可以上传JPG，JPEG， GIF，PNG，每个文件大小可以到1M。</p><br>
-                <form enctype="multipart/form-data" action="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid],'t'=>$smalltime));?>" method="post" name="album_upload">
-                <span class="pl">选择图片 </span>
-                <input type="file" name="picfile"><br><br>
-                <span class="bn-flat"><input type="submit" value="开始上传" name="upload"></span>
-                </form>
-                <p><br><a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">使用批量上传方式上传照片&gt;</a></p>      
-            </div><?php endif; ?>
-        
-    </div><!--//cleft-->
-    <div class="cright">
-        <div class="mod">
-        所有相册空间的总容量为 5G。
-        <br><br>
-        <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strAlbum[albumid]));?>">回相册"<?php echo ($strAlbum[albumname]); ?>"</a></p>
-        </div>
-
-        
-    </div><!--//right-->
+    </div>
 </div>
-</div>
-
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>

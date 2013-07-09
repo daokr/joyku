@@ -18,6 +18,7 @@ class photosAction extends spacebaseAction {
 		$this->user_mod = D('user');
 		$this->album_mod = D('user_photo_album');
 		$this->photo_mod = D('user_photo');
+		$this->comment_mod = D('user_photo_comment');
 	}
 	//相册首页
 	public function index(){
@@ -33,8 +34,12 @@ class photosAction extends spacebaseAction {
 
 		$this->assign('arrAlbum',$arrAlbum);
 		$this->assign('user',$user);
+		
 		$this->_config_seo ( array (
-				'title' => $title
+				'title' => $title,
+				'subtitle'=> '_相册_'.C('ik_site_title'),
+				'keywords' => '网络相册,免费相册,相片,照片,相册',
+				'description'=> '分享生活中的照片，爱客相册，留住青春，珍藏您一生的记忆！',
 		) );		
 		$this->display();
 	}
@@ -65,6 +70,9 @@ class photosAction extends spacebaseAction {
 				case "info" :
 					$this->info();
 					break;
+				case "edit" :
+					$this->editalbum();
+					break;	
 				default:
 					$this->error('呃...你想访问的页面不存在');
 			}			
@@ -104,11 +112,58 @@ class photosAction extends spacebaseAction {
 			}
 			
 		}else{
+
 			$this->_config_seo ( array (
-					'title' => '创建新相册'
+				'title' => '创建新相册',
+				'subtitle'=> '相册_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
 			) );
 			$this->display('create');
 		}	
+	}
+	public function editalbum(){
+		$albumid = $this->_get('id','trim,intval');
+		$strAlbum = $this->album_mod->getOneAlbum($albumid);
+		if($strAlbum['userid']==$this->userid){
+			if(IS_POST){
+				
+				$data['albumname'] = $this->_post('albumname','trim','');
+				$data['albumdesc'] = $this->_post('albumdesc','trim','');
+				$data['orderid'] = $this->_post('orderid','trim','');
+				$data['privacy'] = $this->_post('privacy','intval','');
+				$data['isreply'] = $this->_post('isreply','trim','1'); // 1表示允许回复
+				//录入检查
+				if( mb_strlen($data ['albumname'],'utf8')>20)
+				{
+					$this->error ('相册名太长啦，最多20个字...^_^！');
+				
+				}else if( mb_strlen($data ['albumdesc'],'utf8')>120){
+				
+					$this->error ('相册描述太多了，最多120个字...^_^！');
+				}
+				
+				//开始保存
+				if (false === $this->album_mod->where(array('albumid'=>$albumid))->save($data)) {
+					$this->error ( $this->album_mod->getError () );
+				}else{
+					$this->redirect('space/photos/album',array('id'=>$albumid));
+				}
+				
+			}else{
+				$this->_config_seo ( array (
+						'title' => '修改相册属性 - '.$strAlbum['albumname'],
+						'subtitle'=> '相册_'.C('ik_site_title'),
+						'keywords' => '',
+						'description'=> '',
+				) );
+				$this->assign('strAlbum',$strAlbum);
+				$this->display('editalbum');
+			}
+			
+		}else{
+			$this->error('你没有权限更新！');
+		}
 	}
 	//上传照片
 	public function uploadPhoto(){
@@ -146,6 +201,13 @@ class photosAction extends spacebaseAction {
 					$this->assign('strAlbum',$strAlbum);
 					$this->_config_seo ( array (
 							'title' => '上传照片 - '.$strAlbum['albumname']
+					) );
+					
+					$this->_config_seo ( array (
+						'title' => '上传照片 - '.$strAlbum['albumname'],
+						'subtitle'=> '相册_'.C('ik_site_title'),
+						'keywords' => '',
+						'description'=> '',
 					) );
 					$this->display('upload');
 				}
@@ -226,8 +288,12 @@ class photosAction extends spacebaseAction {
 				}
 				$this->assign('strAlbum',$strAlbum);
 				$this->assign('arrPhoto',$arrPhoto);
+				
 				$this->_config_seo ( array (
-						'title' => $title
+						'title' => $title,
+						'subtitle'=> '相册_'.C('ik_site_title'),
+						'keywords' => '',
+						'description'=> '',
 				) );
 				$this->display('complete');
 			}
@@ -246,8 +312,12 @@ class photosAction extends spacebaseAction {
 		
 		$this->assign('strAlbum',$strAlbum);
 		$this->assign('user',$user);
+
 		$this->_config_seo ( array (
-				'title' => $user['username'].'的相册 - '.$strAlbum['albumname']
+				'title' => $user['username'].'的相册',
+				'subtitle'=> $strAlbum['albumname'].'_相册_'.C('ik_site_title'),
+				'keywords' => ikscws($strAlbum['albumname']),
+				'description'=> $strAlbum['albumdesc'],
 		) );
 		$this->display('album');
 	}
@@ -282,6 +352,40 @@ class photosAction extends spacebaseAction {
 			
 			$user = $this->user_mod->getOneUser($strPhoto['userid']);
 			
+			//获取评论
+			$page = $this->_get('p','intval',1);
+			$sc = $this->_get('sc','trim','asc');
+			$isauthor = $this->_get('isauthor','trim','0');
+			
+			//查询条件 是否显示
+			$map['photoid'] = $strPhoto ['photoid'];
+			if($isauthor){
+				$map['userid']  = $strPhoto ['userid'];
+				$author = array('isauthor'=>0,'text'=>'查看所有回应');
+			}else{
+				$author = array('isauthor'=>1,'text'=>'只看楼主');
+			}
+			//显示列表
+			$pagesize = 30;
+			$count = $this->comment_mod->where($map)->order('addtime '.$sc)->count();
+			$pager = $this->_pager($count, $pagesize);
+			$arrComment =  $this->comment_mod->where($map)->order('addtime '.$sc)->limit($pager->firstRow.','.$pager->listRows)->select();
+			foreach($arrComment as $key=>$item){
+				$commentList[] = $item;
+				$commentList[$key]['user'] = $this->user_mod->getOneUser($item['userid']);
+				$commentList[$key]['content'] = h($item['content']);
+				if($item['referid']>0){
+					$recomment = $this->comment_mod->recomment($item['referid']);
+					$commentList[$key]['recomment'] = $recomment;
+				}
+			}
+			$this->assign('pageUrl', $pager->fshow());
+			$this->assign('page', $page);
+			$this->assign('commentList', $commentList);
+			$this->assign ( 'sc', $sc );
+			$this->assign ( 'author', $author );
+			$this->assign ( 'isauthor', $isauthor );
+			//评论list结束					
 			
 			
 			$this->assign('strPhoto',$strPhoto);
@@ -293,7 +397,10 @@ class photosAction extends spacebaseAction {
 				$title = $user['username'].'的相册 - '.$strAlbum['albumname'];
 			}
 			$this->_config_seo ( array (
-					'title' => $title
+					'title' => $title,
+					'subtitle'=> '_相册_'.C('ik_site_title'),
+					'keywords' => ikscws($strAlbum['albumname']),
+					'description'=> $strPhoto['photodesc'],
 			) );
 			$this->display();
 		}else{
@@ -301,5 +408,108 @@ class photosAction extends spacebaseAction {
 		}
 	}
 	
+	//编辑照片描述
+	public function editphoto(){
+		$pid = $this->_post('photoid','intval');
+		$pinfo = $this->_post('photodesc','trim,t');
+		$userid = $this->userid;
+		!empty($pid) && $strPhoto = $this->photo_mod->getOnePhoto($pid);
+		if($userid>0 || $strPhoto['userid'] ==$userid){
+			$this->photo_mod->where(array('photoid'=>$pid))->setField('photodesc', $pinfo);
+			$this->ajaxReturn(array('r'=>1,'html'=>$pinfo));
+		}else{
+			$this->ajaxReturn(array('r'=>0,'error'=>'无权更新'));
+		}
+	}
+	//删除照片
+	public function delphoto(){
+		$pid = $this->_get('id','trim,intval');
+		$userid = $this->userid;
+		!empty($pid) && $strPhoto = $this->photo_mod->getOnePhoto($pid);
+		if($userid>0 || $strPhoto['userid'] ==$userid){
+			if(!false == $this->photo_mod->delPhoto($pid)){
+				$this->redirect('space/photos/album',array('id'=>$strPhoto['albumid']));
+			}else{
+				$this->error($this->photo_mod->getError());
+			}
+			
+		}else{
+			$this->error('你没有删除权限');
+		}
+	}
+	//添加评论
+	public function addcomment(){
+		$photoid	= $this->_post('photoid','intval');
+		$content	= $this->_post('content','trim');
+		$page	= $this->_post('p','intval','1');
+		if(empty($content)){
+			
+			$this->error('没有任何内容是不允许你通过滴^_^');
+				
+		}elseif(mb_strlen($content,'utf8')>10000){
+				
+			$this->error('发这么多内容干啥,最多只能写10000千个字^_^,回去重写哇！');
+				
+		}else{ 
+			//执行添加
+			$data = array(
+					'photoid'	=> $photoid,
+					'userid'	=> $this->userid,
+					'content'	=> ikwords($content),
+					'addtime'	=> time(),
+			);
+			if (false !== $this->comment_mod->create ( $data )) {
+				$commentid = $this->comment_mod->add ();
+				$this->redirect ( 'space/photos/show', array (
+						'id' => $photoid,
+						'p'  => $page,
+				) );
+			}
+		}
+		
+	}
+	
+	// 回复评论
+	public function recomment(){
+		$objid = $this->_post('objid');
+		$referid = $this->_post('referid');
+		$content = $this->_post('content');		
+		//安全性检查
+		if( mb_strlen($content, 'utf8') > 10000)
+		{
+			echo 1;
+			exit ();
+		}
+		//执行添加
+		$data = array(
+				'photoid'	=> $objid,
+				'userid'	=> $this->userid,
+				'referid'	=> $referid,
+				'content'	=> ikwords($content), // ajax 提交过来数据的转一下
+				'addtime'	=> time(),
+		);
+		if (false !== $this->comment_mod->create ( $data )) {
+			$commentid = $this->comment_mod->add ();
+			echo 0;
+		}
+	}
+	// 删除某条评论
+	public function delcomment(){
+		$commentid = $this->_get('commentid','intval');
+		$userid = $this->userid;
+		$strComment = $this->comment_mod->where(array('commentid'=>$commentid))->find();
+		$strPhoto = $this->photo_mod->getOnePhoto(array('photoid'=>$strComment['photoid']));
+				
+		// 只有应用发布人 可以删除 其他权限不允许删除
+		if($strPhoto['userid']==$userid || $strComment['userid']==$userid){
+			$this->comment_mod->delComment($commentid);
+			$this->redirect ( 'space/photos/show', array (
+					'id' => $strComment['photoid'],
+			) );			
+		}else{
+			$this->error('你没有删除权限或找不到要访问的页面');
+		}
+
+	}
 	
 }

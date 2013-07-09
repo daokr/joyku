@@ -12,6 +12,7 @@ CREATE TABLE `ik_user_photo` (
   `photoname` varchar(255) NOT NULL DEFAULT '',
   `photodesc` varchar(255) NOT NULL DEFAULT '',
   `count_view` int(11) NOT NULL DEFAULT '0',
+  `count_comment` int(11) NOT NULL DEFAULT '0',  
   `isrecommend` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0不推荐1推荐',
   `addtime` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`photoid`)

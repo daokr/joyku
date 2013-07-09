@@ -27,43 +27,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
-
-<script src="__PUBLIC__/js/uploadify/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
-
-<script src="__PUBLIC__/js/uploadify/swfobject.js" type="text/javascript"></script>
-
-<link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify2.css" />
-
-<script type="text/javascript">
-	var vuserid = '<?php echo ($visitor[userid]); ?>', albumid = '<?php echo ($strAlbum[albumid]); ?>';
-    var loadurl = "<?php echo U('space/photos/album',array('d'=>'ajaxupload'));?>";
-	var objdata = {'userid': vuserid,'albumid': albumid};
-	var jumpurl = "<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid],'t'=>$smalltime));?>";
-$(document).ready(function()
-{		
-	$("#uploadify").uploadify({
-		'uploader': siteUrl + 'Public/js/uploadify/uploadify.swf',
-		'expressInstall': siteUrl + 'Public/js/uploadify/expressInstall.swf',
-		'script': 'index.php?app=space&m=photos&a=album&d=ajaxupload',
-		'scriptData':objdata,
-		'method':'POST', 
-		'cancelImg': siteUrl+'Public/js/uploadify/cancel2.png',
-		'folder': 'UploadFile',
-		'queueID': 'fileQueue',
-		'auto': false,
-		'multi': true,
-		'buttonText': '',
-		'buttonImg': siteUrl+'Public/images/upload-btns.png',		
-		'fileDesc':'jpg,gif,png图片格式',
-		'fileExt':'*.jpg;*.gif;*.png',
-		'onAllComplete' : function(event,data) {
-			window.location = jumpurl;
-		}
-
-	});
-
-})
-</script>
 </head>
 
 <body>
@@ -171,48 +134,46 @@ $(document).ready(function()
 	</div>
         
 </div>
-
 <div class="midder">
-<div class="mc">
-	<h1><?php echo ($seo["title"]); ?></h1>
-	<div class="cleft">
-    
-    	<?php if($type != 'n'): ?><div class="uploadtype">
-                <div id="fileQueue"></div><br>
-                <input type="file" id="uploadify" />
-                <p style="padding:10px 0;">上传文件只支持：jpg，gif，png格式；上传最大支持1M的图片<br>
-                    提示：每次最多可以批量上传二十张照片，按着 "ctrl" 键可以一次选择多张照片
-                </p>
-                <p style="padding:10px 0;">
-                <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
-                <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
-                </p>
-                <p><br>无法上传？<a href="<?php echo U('space/photos/album',array('d'=>'upload','type'=>'n','id'=>$strAlbum[albumid]));?>">使用普通方式上传照片&gt;</a></p>
-       		</div>
-        <?php else: ?> 
-            <div class="uploadtype">
-                <p class="pl">你可以上传JPG，JPEG， GIF，PNG，每个文件大小可以到1M。</p><br>
-                <form enctype="multipart/form-data" action="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid],'t'=>$smalltime));?>" method="post" name="album_upload">
-                <span class="pl">选择图片 </span>
-                <input type="file" name="picfile"><br><br>
-                <span class="bn-flat"><input type="submit" value="开始上传" name="upload"></span>
-                </form>
-                <p><br><a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">使用批量上传方式上传照片&gt;</a></p>      
-            </div><?php endif; ?>
-        
-    </div><!--//cleft-->
-    <div class="cright">
-        <div class="mod">
-        所有相册空间的总容量为 5G。
-        <br><br>
-        <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strAlbum[albumid]));?>">回相册"<?php echo ($strAlbum[albumname]); ?>"</a></p>
-        </div>
+	<div class="mc">
+    	
+	<div class="boxShadow">
+  	<div class="banner"><a class="btn-release" href="<?php echo U('develop/index/add');?>">发布新应用</a><a class="btn-manage" href="<?php echo U('develop/index/userapp',array('id'=>$visitor[userid]));?>">管理我的应用</a></div>
+		<div class="model clearfix">
+			<ul>
+				<li class=""><a href="#"><strong>开发者风采</strong><br><p>认证开发者的展示平台</p></a></li>			
+				<li class=""><a href="#"><strong>开发文档</strong><br><p>开发相关的文档</p></a></li>
+				<li class=""><a href="#"><strong>交流论坛</strong><br><p>站长与开发者的对话</p></a></li>
+				<li class=""><a href="#"><strong>需求市场</strong><br><p>开发者与需求方的沟通桥梁</p></a></li>
+			</ul>
+		</div>
+		<!-- 
+		<div class="clearfix pb20">
+			<div class="mod-list">
+				<div class="tit"><a href="" class="fr">更多动态>></a><h3>最新动态</h3></div>
+				<ul>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+				</ul>
+			</div>
+			<div class="mod-list">
+				<div class="tit"><a href="" class="fr">更多动态>></a><h3>帮助中心</h3></div>
+				<ul>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+					<li><a href="">求天气预报插件，各位开发大牛前来围观，价格细谈</a></li>
+				</ul>
+			</div>
+		</div> -->
+	</div>
 
-        
-    </div><!--//right-->
+    </div>
 </div>
-</div>
-
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>
