@@ -4,12 +4,15 @@
 <div class="mod">       
     <h2>最新回应 &nbsp; ·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2>
     <ul class="photocom">
+    <foreach name="arrNewComment" item="item">
         <li>
-            <div class="pic"><a href="http://www.douban.com/people/HornGala/"><img src="http://img3.douban.com/icon/u43158322-78.jpg"></a></div>
+            <div class="pic"><a href="{:U('space/index/index',array('id'=>$item[user][doname]))}"><img src="{$item[user][face]}"></a></div>
             <div class="piccomment">
-                <p><a href="#">清凉 : 机会对于任何人都是公平的，它在我们身边的时候，不是打扮的花枝招展，而是普普通通的，根本就不起眼。 </a></p>
-                <span>2012-11-24 22:02</span>
+                <p><a href="{:U('space/photos/show',array('id'=>$item[photoid]))}">{$item[user][username]} : 
+                <php> echo getsubstrutf8(t($item[content]),0,30);</php></a></p>
+                <span class="pl">{$item.addtime|date="Y-m-d h:m",###}</span>
             </div>
         </li>
+    </foreach>
     </ul>
 </div>

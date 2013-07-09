@@ -31,9 +31,13 @@ class photosAction extends spacebaseAction {
 		}
 		//获取相册列表
 		$arrAlbum = $this->album_mod->getAlbums(array('userid'=>$userid));
-
+		//获取最新评论
+		$arrNewComment = $this->comment_mod->getNewComment($userid,8);
+		$this->assign('arrNewComment',$arrNewComment);
+		
 		$this->assign('arrAlbum',$arrAlbum);
 		$this->assign('user',$user);
+		
 		
 		$this->_config_seo ( array (
 				'title' => $title,
@@ -310,6 +314,10 @@ class photosAction extends spacebaseAction {
 		$where = array('albumid'=>$albumid);
 		$this->waterfall($where, 'photoid DESC', $page_max);
 		
+		//获取最新评论
+		$arrNewComment = $this->comment_mod->getNewComment($strAlbum['userid'],8);
+		$this->assign('arrNewComment',$arrNewComment);
+		
 		$this->assign('strAlbum',$strAlbum);
 		$this->assign('user',$user);
 
@@ -386,6 +394,12 @@ class photosAction extends spacebaseAction {
 			$this->assign ( 'author', $author );
 			$this->assign ( 'isauthor', $isauthor );
 			//评论list结束					
+			
+			//我的相册
+			$map['privacy'] = 1; //公开
+			$map['userid'] = $user['userid'];
+			$arrAlbum = $this->album_mod->getAlbums($map,'uptime desc',4);
+			$this->assign('arrAlbum',$arrAlbum);
 			
 			
 			$this->assign('strPhoto',$strPhoto);

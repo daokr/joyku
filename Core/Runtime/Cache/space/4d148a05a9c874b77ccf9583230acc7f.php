@@ -25,7 +25,7 @@ __SITE_THEME_CSS__
 <![endif]-->
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
+<!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
 <script type="text/javascript" src="__PUBLIC__/js/masonry/jquery.masonry.min.js"></script>
 </head>
@@ -189,16 +189,16 @@ __EXTENDS_JS__
 <div class="mod">       
     <h2>最新回应 &nbsp; ·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2>
     <ul class="photocom">
-        <li>
-            <div class="pic"><a href="http://www.douban.com/people/HornGala/"><img src="http://img3.douban.com/icon/u43158322-78.jpg"></a></div>
+    <?php if(is_array($arrNewComment)): foreach($arrNewComment as $key=>$item): ?><li>
+            <div class="pic"><a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img src="<?php echo ($item[user][face]); ?>"></a></div>
             <div class="piccomment">
-                <p><a href="#">清凉 : 机会对于任何人都是公平的，它在我们身边的时候，不是打扮的花枝招展，而是普普通通的，根本就不起眼。 </a></p>
-                <span>2012-11-24 22:02</span>
+                <p><a href="<?php echo U('space/photos/show',array('id'=>$item[photoid]));?>"><?php echo ($item[user][username]); ?> : 
+                <?php echo getsubstrutf8(t($item[content]),0,30); ?></a></p>
+                <span class="pl"><?php echo (date("Y-m-d h:m",$item["addtime"])); ?></span>
             </div>
-        </li>
+        </li><?php endforeach; endif; ?>
     </ul>
 </div>
-
     </div><!--//right-->
 </div>
 </div>
@@ -222,7 +222,7 @@ __EXTENDS_JS__
         <div class="cl"></div>
         <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  
         <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线 
-        <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />
+        <!--<script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />-->
         <span style="font-size:0.83em;">{__RUNTIME__}          </span>
 
         
@@ -236,7 +236,7 @@ __EXTENDS_JS__
 <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1&amp;pos=right&amp;uid=0" ></script>
 <script type="text/javascript" id="bdshell_js"></script>
 <script type="text/javascript">
-document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+//document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
 </script>
 <!-- Baidu Button END -->
 

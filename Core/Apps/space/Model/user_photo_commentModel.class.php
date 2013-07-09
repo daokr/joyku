@@ -52,5 +52,15 @@ class user_photo_commentModel extends Model {
 		$photo_mod = D('user_photo');
 		$photo_mod->where(array('photoid'=>$data['photoid']))->setInc('count_comment');
 	}
+	//获取最新回应
+	public function getNewComment($userid,$limit = 10){
+		$where['userid'] = $userid;
+		$arrresult = $this->where($where)->order('addtime desc')->limit($limit)->select();
+		foreach ($arrresult as $key=>$item){
+			$result[] = $item;
+			$result[$key]['user'] = D('user')->getOneUser($item['userid']);
+		}
+		return $result;
+	}
 
 }

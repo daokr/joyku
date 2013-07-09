@@ -100,7 +100,32 @@
     </div><!--//cleft-->
     <div class="cright">
        
+<div class="mod">
+        
+    <h2>
+        我的相册&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+        <span class="pl">&nbsp;(<a href="{:U('space/photos/index',array('id'=>$strPhoto['userid']))}">全部</a>) </span>
+    </h2>
 
+        <div class="bd">
+            <ul class="album-list">
+                    <foreach name="arrAlbum" item="item">
+                    <li>
+                    <div class="pic">
+                        <a href="http://www.douban.com/photos/album/105660462/">
+                            <img width="75" height="75" alt="美女图片" src="{$item[simg]}">
+                        </a>
+                    </div>
+                    <div class="info">
+                        <a href="http://www.douban.com/photos/album/105660462/">{$item[albumname]}</a>
+                        <span class="num">{$item[count_photo]}张照片</span>
+                        <p><php> echo getsubstrutf8(t($item[albumdesc]),0,30);</php></p>
+                    </div>
+                    </li>
+  					</foreach>				    
+            </ul>
+        </div>
+    </div>		
         
     </div><!--//right-->
 </div>

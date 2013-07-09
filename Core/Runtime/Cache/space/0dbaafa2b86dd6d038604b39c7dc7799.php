@@ -27,43 +27,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
-
-<script src="__PUBLIC__/js/uploadify/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
-
-<script src="__PUBLIC__/js/uploadify/swfobject.js" type="text/javascript"></script>
-
-<link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify2.css" />
-
-<script type="text/javascript">
-	var vuserid = '<?php echo ($visitor[userid]); ?>', albumid = '<?php echo ($strAlbum[albumid]); ?>';
-    var loadurl = "<?php echo U('space/photos/album',array('d'=>'ajaxupload'));?>";
-	var objdata = {'userid': vuserid,'albumid': albumid};
-	var jumpurl = "<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid],'t'=>$smalltime));?>";
-$(document).ready(function()
-{		
-	$("#uploadify").uploadify({
-		'uploader': siteUrl + 'Public/js/uploadify/uploadify.swf',
-		'expressInstall': siteUrl + 'Public/js/uploadify/expressInstall.swf',
-		'script': 'index.php?app=space&m=photos&a=album&d=ajaxupload',
-		'scriptData':objdata,
-		'method':'POST', 
-		'cancelImg': siteUrl+'Public/js/uploadify/cancel2.png',
-		'folder': 'UploadFile',
-		'queueID': 'fileQueue',
-		'auto': false,
-		'multi': true,
-		'buttonText': '',
-		'buttonImg': siteUrl+'Public/images/upload-btns.png',		
-		'fileDesc':'jpg,gif,png图片格式',
-		'fileExt':'*.jpg;*.gif;*.png',
-		'onAllComplete' : function(event,data) {
-			window.location = jumpurl;
-		}
-
-	});
-
-})
-</script>
 </head>
 
 <body>
@@ -176,39 +139,60 @@ $(document).ready(function()
 <div class="mc">
 	<h1><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
-    
-    	<?php if($type != 'n'): ?><div class="uploadtype">
-                <div id="fileQueue"></div><br>
-                <input type="file" id="uploadify" />
-                <p style="padding:10px 0;">上传文件只支持：jpg，gif，png格式；上传最大支持1M的图片<br>
-                    提示：每次最多可以批量上传二十张照片，按着 "ctrl" 键可以一次选择多张照片
-                </p>
-                <p style="padding:10px 0;">
-                <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
-                <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
-                </p>
-                <p><br>无法上传？<a href="<?php echo U('space/photos/album',array('d'=>'upload','type'=>'n','id'=>$strAlbum[albumid]));?>">使用普通方式上传照片&gt;</a></p>
-       		</div>
-        <?php else: ?> 
-            <div class="uploadtype">
-                <p class="pl">你可以上传JPG，JPEG， GIF，PNG，每个文件大小可以到1M。</p><br>
-                <form enctype="multipart/form-data" action="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid],'t'=>$smalltime));?>" method="post" name="album_upload">
-                <span class="pl">选择图片 </span>
-                <input type="file" name="picfile"><br><br>
-                <span class="bn-flat"><input type="submit" value="开始上传" name="upload"></span>
-                </form>
-                <p><br><a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">使用批量上传方式上传照片&gt;</a></p>      
-            </div><?php endif; ?>
+    	<div id="mod-status-cate">
+            <div class="status-cate">
+                <a class="bn-status-more" href="#"><span>全部</span><i></i></a>
+                <div class="more-status-items">
+                  <table cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr><td><span class="cate-list-title">分组查看</span></td></tr>
+                      <tr><td><a class="on" href="#">全部</a></td></tr>
+                      <tr><td><a class="" href="#">日记</a></td></tr>
+                      <tr><td><a class="" href="#">相册</a></td></tr>
+                  </tbody></table>
+                </div>
+            </div>
+    	</div>
+
+		<!--内容开始-->
+        <div id="statuses">
         
+<div class="mod isay isay-disable" id="db-isay">
+	<form action="http://www.douban.com/update/" method="post" name="mbform">
+    <ul class="isay-links">
+      <li class="isay-main active"><a href="javascript:void(0);" data-action="main">说句话</a></li>
+      <li class="isay-share"><a href="javascript:void(0);" data-action="share">推荐网页</a></li>
+      <li class="isay-tab-subject"><a href="javascript:void(0);" data-action="subject">分享电影</a></li>
+      <li class="notes-link"><a title="添加日记" href="#">写日记</a></li>
+    </ul>
+    <div class="item">
+      <p class="highlighter mention-highlighter"></p>
+      <p class="highlighter error-highlighter"></p>
+      <label for="isay-cont" id="isay-label">来分享吧...</label>
+      <textarea rows="1" name="comment" id="isay-cont" tabindex="1" data-minheight="70"></textarea>
+    </div>
+    <div class="isay-act" id="isay-act-field"></div>
+    <div class="btn">
+      <span id="isay-counter"></span>
+      <span class="bn-submit bn-flat"><input type="submit" value="我说" tabindex="1" id="isay-submit"></span>
+    </div>
+  </form>
+  <div class="btn-group">
+    <form method="post" enctype="multipart/form-data" action="/j/upload" data-action="pic" id="isay-upload" charset="utf-8">
+      <input type="file" title="上传照片" name="image" data-action="pic" autocomplete="off" tabindex="2" id="isay-upload-inp">
+    </form>
+    <a title="上传照片" class="ico ico-pic" data-action="pic" tabindex="-1" href="javascript:void(0);">照片</a>
+    <a title="添加话题" class="ico ico-topic" data-action="topic" tabindex="2" href="javascript:void(0);">话题</a>
+  </div>
+</div>
+
+
+        </div>
+        
+
     </div><!--//cleft-->
     <div class="cright">
-        <div class="mod">
-        所有相册空间的总容量为 5G。
-        <br><br>
-        <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strAlbum[albumid]));?>">回相册"<?php echo ($strAlbum[albumname]); ?>"</a></p>
-        </div>
-
-        
+		
     </div><!--//right-->
 </div>
 </div>

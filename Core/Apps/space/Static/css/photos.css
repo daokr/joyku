@@ -140,6 +140,14 @@ h2{ margin-bottom:12px}
 .photo_descri{ margin:10px 0px; border-top:#ddd solid 1px; padding:10px}
 .mainphoto:hover{background:0}
 
+.album-list  { margin-top:-13px; }
+.album-list li { overflow:hidden;zoom:1;margin-top:25px; }
+.album-list .pic { float:left;margin-right:10px; }
+.album-list .pic img { padding:3px 7px 7px 3px;background:url(../images/albumback_s.png) no-repeat 0 0; }
+.album-list .info { overflow:hidden;zoom:1;color:#999; }
+.album-list .info .num { display:block;margin-bottom:8px; }
+.album-list .info p { margin:0; word-wrap: break-word; }
+
 /*comment评论列表*/
 .comment{width: 100%;overflow:hidden;}
 .comment li {margin: 0 0 0px 0px;overflow:hidden; display:block;}

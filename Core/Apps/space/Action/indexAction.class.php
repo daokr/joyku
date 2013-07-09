@@ -88,7 +88,7 @@ class indexAction extends spacebaseAction {
 		}
 		$this->_config_seo ( array (
 				'title' => $strUser ['username'],
-				'subtitle'=> '个人主页_'.C('ik_site_title'),
+				'subtitle'=> '个人空间_'.C('ik_site_title'),
 				'keywords' => '个人空间,个人相册,个人日记,免费空间,分享日志,关注好友,友邻广播',
 				'description'=> $seodesc,
 		) );
