@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<div class="midder">
+<div class="mc">
+	<h1>{$seo.title}</h1>
+	<div class="cleft">
+
+	  
+
+<form id="form_note" method="post"><div style="display:none;"><input name="ck" value="vQPv" type="hidden"></div>
+    <input id="note_id" name="note_id" value="282939518" type="hidden">
+    <div class="row note-title">
+        <label class="field" for="note_title">题目:</label>
+        <div>
+            <input tabindex="1" id="note_title" name="note_title" value="" autofocus="" type="text">
+        </div>
+    </div>
+    <div class="row note-text">
+        <ul class="control-panel">
+            <li class="image-btn">
+                <a class="lnk-flat" href="#image" title="插入图片">图片</a>
+            </li>
+            <li class="link-btn">
+                <a class="lnk-flat" href="#link" title="插入链接">链接</a>
+            </li>
+        </ul>
+        <label class="field" for="note_text">正文:</label>
+        <textarea tabindex="2" id="note_text" name="note_text"></textarea>
+    </div>
+    <div class="images">
+    </div>
+    <div class="row note-privacy">
+        <label class="field">设置可见: </label>
+        <label>
+            <input tabindex="3" name="note_privacy" value="P" checked="" type="radio"><span>所有人可见</span>
+        </label>
+        <label>
+            <input tabindex="4" name="note_privacy" value="S" type="radio"><span>仅朋友可见</span>
+        </label>
+        <label>
+            <input tabindex="5" name="note_privacy" value="X" type="radio"><span>仅自己可见</span>
+        </label>
+    </div>
+    <div class="row note-reply">
+        <label class="field" for="cannot_reply">权限设置: </label>
+        <label>
+            <input tabindex="6" id="cannot_reply" name="cannot_reply" type="checkbox"><span>不允许回应</span>
+        </label>
+    </div>
+    <div class="row footer">
+        <div class="error-msg board">
+        </div>
+
+
+        <span class="bn-flat">
+            <input tabindex="7" id="preview_note" value="预览" class="bn-flat" type="button">
+        </span>
+        &nbsp;
+        <input tabindex="8" id="publish_note" value="发表" class="btn" name="note_submit" type="submit">
+        <span class="bn-flat cancel-note">
+            <input tabindex="9" id="cancel_note" value="取消" class="bn-flat" name="cancel_note" type="submit">
+        </span>
+    </div>
+</form>
+<div id="preview"></div>
+
+
+	    	
+    	
+    </div><!--//cleft-->
+    <div class="cright">
+		
+    </div><!--//right-->
+</div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>

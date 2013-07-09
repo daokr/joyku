@@ -137,47 +137,80 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-<h1><span class="add_new"><a href="<?php echo U('develop/index/add');?>">+发布新应用</a></span><?php echo ($seo["title"]); ?></h1>
-<div id="openappbox">
-			<div class="opentitlenav">
-				<p class="appmz">共有<b><?php echo ($count); ?></b>个应用</p>
-				<p class="applx">分类</p>
-				<p class="appkf">审核状态</p>
-				<p class="appcs">下载次数</p>
-				<p class="appmt">更新时间</p>
-				<p class="appcz">操作</p>
-			</div>
-			<ul>
-            	<?php if(is_array($arrApp)): foreach($arrApp as $key=>$item): ?><li>
-					<p class="pic">
-                    <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">
-                    <img width="64" height="64" src="<?php echo ($item[icon_100]); ?>"></a>
-                    </p>
-					<p class="name"><b><a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a></b>
-                    <em><?php echo getsubstrutf8(t($item['desc']),0,30) ?></em>
-                    </p>
-					<p class="sort">
-							模型内容			
-                    </p>
-					<p class="oper">
-                   	 	
-                        <?php if($item[isaudit] == 1): if(($item["status"]) == "0"): ?>审核未通过<?php endif; ?>
-                            <?php if(($item["status"]) == "1"): ?>审核通过<?php endif; ?>
-                        <?php else: ?>
-                        	审核中<?php endif; ?>
-                    </p>
-					<p class="down"><?php echo ($item[count_down]); ?></p>
-					<p class="mtime"><?php echo (date("Y-m-d",$item["uptime"])); ?></p>
-					<p class="caoz">
-                    <?php if($visitor[userid] == $item[userid]): ?><a href="<?php echo U('develop/index/editapp',array('id'=>$item[appid]));?>">[编辑]</a>&nbsp;&nbsp;<?php endif; ?>
-                     	 <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">[去看看]</a>
-                    </p>
-				</li><?php endforeach; endif; ?>		
-             </ul> 
-        <div class="clear"></div>
-        <div class="page"><?php echo ($pageUrl); ?></div>
+<h1>
+<?php echo ($seo["title"]); ?>
+</h1>
 
+<div class="nav-step">
+              <span>1. 填写应用信息</span>
+              <span class="pl">&gt;</span>
+              <span class="pl">2. 上传应用图片</span>
+              <span class="pl">&gt;</span>              
+              <span class="pl">3. 提交应用</span>
 </div>
+            
+<form method="POST" action="<?php echo U('develop/index/add');?>" onsubmit="return checkForm(this)"  enctype="multipart/form-data" id="ikform">
+<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+
+	<tr>
+    	<th>应用标题：</th>
+		<td><input style="width:400px;" type="text" value="" maxlength="30" name="title"  class="txt"   placeholder="请填写应用简要名称"></td>
+    </tr>
+    <tr><th></th><td><span class="tips">请填写应用的名称如：IKPHP小组应用，名称中不要包含版本号，最多30个字</span></td></tr>  
+    <tr>
+        <th>版本号：</th>
+        <td><input style="width:200px;" type="text" value=""  maxlength="30" name="version"  class="txt" ></td>
+    </tr>   
+    <tr>
+        <th>详细描述：</th><td>
+        <textarea style="width:99.5%;height:250px;" id="editor_full" cols="55" rows="20" name="desc" class="txt"   placeholder="请填写详细的描述"></textarea>
+        </td>
+    </tr>
+    <tr><th></th><td><span class="tips">请简要的阐述此插件的具体功能、安装方法、使用手册等内容。</span></td></tr>    
+    
+    <tr>
+        <th>类型：</th>
+        <td>
+            <label><input type="radio" name="apptype" value="1" checked/>应用</label> 
+            &nbsp;&nbsp;&nbsp;
+            <label><input type="radio" name="apptype" value="2" />插件</label>
+             &nbsp;&nbsp;&nbsp;
+            <label><input type="radio" name="apptype" value="3" />模版皮肤</label>
+        </td>
+    </tr>
+    <tbody class="tbodyitem">
+    <tr>
+        <th>分类：</th>
+        <td>
+			<select class="txt" name="cateid">
+                <?php if(is_array($cateList)): foreach($cateList as $key=>$item): ?><option value="<?php echo ($item[cateid]); ?>"><?php echo ($item[catename]); ?></option><?php endforeach; endif; ?>
+            </select>      
+        </td>
+    </tr>
+   </tbody>  
+    <tr>
+        <th>包名：</th>
+        <td><input style="width:200px;" type="text" value="" maxlength="30" name="package_name"  class="txt"   placeholder="AppName"><span class="ntips">包名必须是英文名称</span></td>
+    </tr> 
+    <tr>
+        <th>官方网站：</th>
+        <td><input style="width:200px;" type="text" value="" maxlength="50" name="appsite"  class="txt"   placeholder="http://"></td>
+    </tr>    
+    <tr>
+        <th>IKPHP版本：</th>
+        <td><select name="ikphpversion" class="txt">
+	            	<option value="1.5.3">IKPHP1.5.3</option>
+	        </select>
+      </td>
+    </tr>   
+    <tr>
+    	<th>&nbsp;</th><td>
+        <input type="hidden" name="userid" value="<?php echo ($userid); ?>"/>
+        <input class="submit" type="submit" value="好啦，继续下一步"> <a href="<?php echo U('develop/index/index');?>">返回</a>
+        </td>
+    </tr>
+</table>
+</form>
 
 
 

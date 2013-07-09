@@ -101,6 +101,13 @@ class itemAction extends mallbaseAction {
 		$this->assign ( 'arrCollectUser', $arrCollectUser );
 		
     	$this->_config_seo (array('title'=>$item['title'],'subtitle'=>'爱客商城'));
+    	
+		$this->_config_seo ( array (
+				'title' => $item['title'],
+				'subtitle'=> '爱客商城_'.C('ik_site_title'),
+				'keywords' => ikscws($item['title']),
+				'description'=> '',
+		) );
     	$this->display();
     }
     //喜欢该商品

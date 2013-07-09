@@ -134,56 +134,68 @@ __EXTENDS_JS__
 	</div>
         
 </div>
-
 <div class="midder">
-<div class="mc">
-<h1><span class="add_new"><a href="<?php echo U('develop/index/add');?>">+发布新应用</a></span><?php echo ($seo["title"]); ?></h1>
-<div id="openappbox">
-			<div class="opentitlenav">
-				<p class="appmz">共有<b><?php echo ($count); ?></b>个应用</p>
-				<p class="applx">分类</p>
-				<p class="appkf">审核状态</p>
-				<p class="appcs">下载次数</p>
-				<p class="appmt">更新时间</p>
-				<p class="appcz">操作</p>
-			</div>
-			<ul>
-            	<?php if(is_array($arrApp)): foreach($arrApp as $key=>$item): ?><li>
-					<p class="pic">
-                    <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">
-                    <img width="64" height="64" src="<?php echo ($item[icon_100]); ?>"></a>
-                    </p>
-					<p class="name"><b><a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a></b>
-                    <em><?php echo getsubstrutf8(t($item['desc']),0,30) ?></em>
-                    </p>
-					<p class="sort">
-							模型内容			
-                    </p>
-					<p class="oper">
-                   	 	
-                        <?php if($item[isaudit] == 1): if(($item["status"]) == "0"): ?>审核未通过<?php endif; ?>
-                            <?php if(($item["status"]) == "1"): ?>审核通过<?php endif; ?>
-                        <?php else: ?>
-                        	审核中<?php endif; ?>
-                    </p>
-					<p class="down"><?php echo ($item[count_down]); ?></p>
-					<p class="mtime"><?php echo (date("Y-m-d",$item["uptime"])); ?></p>
-					<p class="caoz">
-                    <?php if($visitor[userid] == $item[userid]): ?><a href="<?php echo U('develop/index/editapp',array('id'=>$item[appid]));?>">[编辑]</a>&nbsp;&nbsp;<?php endif; ?>
-                     	 <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">[去看看]</a>
-                    </p>
-				</li><?php endforeach; endif; ?>		
-             </ul> 
-        <div class="clear"></div>
-        <div class="page"><?php echo ($pageUrl); ?></div>
+	<div class="mc">
+		<aside class="w190 fl">
+			<section class="categories">
+				<div class="hd">
+					<h3>全部分类</h3>
+				</div>
+				<ul class="list categories-list">
+                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/index/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
+				</ul>
+			</section>
+			<section class="personal-publish">
+				<div class="hd">
+					<h3>作品投稿</h3>
+				</div>
+				<div class="bd">
+					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
+					<p class="entrance">
+						<a href="<?php echo U('article/index/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
+					</p>
+				</div>
+			</section>
+		</aside>
+		<article class="w770 fr">
+			<section>
+				<div class="hd tag-heading">
+					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
+				</div>
 
+				<div class="bd">
+					<ul class="list-lined article-list">
+						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
+							<div class="title">
+								<a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
+                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
+                                </a>
+							</div>
+                           <?php if($item[isphoto]): ?><div class="cover">
+                                <a class="pic" href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">
+									<img src="<?php echo ($item[photo][simg]); ?>" />
+								</a> 
+							</div><?php endif; ?>                           
+							<div class="info">
+								<div class="article-desc-brief">
+									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
+                                    <a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">（更多）</a>
+								</div>
+							</div>
+							<a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
+						</li><?php endforeach; endif; ?>
+
+					</ul>
+				</div>
+
+
+			</section>
+            
+             <div class="page"><?php echo ($pageUrl); ?></div>   
+             
+		</article>
+	</div>
 </div>
-
-
-
-</div>
-</div>
-
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>

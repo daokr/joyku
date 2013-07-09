@@ -27,7 +27,13 @@ class mineAction extends mallbaseAction {
     }    
     public function ablum(){
     	
-    	$this->_config_seo (array('title'=>$this->strUser['username'].'的专辑','subtitle'=>'爱客商城'));
+    	
+    	$this->_config_seo ( array (
+				'title' => $this->strUser['username'].'的专辑',
+				'subtitle'=> '爱客商城_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
     	$this->display();
     }
     public function item() {  
@@ -47,7 +53,13 @@ class mineAction extends mallbaseAction {
     	$this->waterfall($where, $order, $field);
     	$this->assign('sort', $sort);
     	
-    	$this->_config_seo (array('title'=>$this->strUser['username'].'的分享','subtitle'=>'爱客商城'));
+    	
+    	$this->_config_seo ( array (
+				'title' => $this->strUser['username'].'的分享',
+				'subtitle'=> '爱客商城_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
     	$this->display();
     }
     public function getMineNav(){

@@ -137,50 +137,33 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-<h1><span class="add_new"><a href="<?php echo U('develop/index/add');?>">+发布新应用</a></span><?php echo ($seo["title"]); ?></h1>
-<div id="openappbox">
-			<div class="opentitlenav">
-				<p class="appmz">共有<b><?php echo ($count); ?></b>个应用</p>
-				<p class="applx">分类</p>
-				<p class="appkf">审核状态</p>
-				<p class="appcs">下载次数</p>
-				<p class="appmt">更新时间</p>
-				<p class="appcz">操作</p>
-			</div>
-			<ul>
-            	<?php if(is_array($arrApp)): foreach($arrApp as $key=>$item): ?><li>
-					<p class="pic">
-                    <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">
-                    <img width="64" height="64" src="<?php echo ($item[icon_100]); ?>"></a>
-                    </p>
-					<p class="name"><b><a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a></b>
-                    <em><?php echo getsubstrutf8(t($item['desc']),0,30) ?></em>
-                    </p>
-					<p class="sort">
-							模型内容			
-                    </p>
-					<p class="oper">
-                   	 	
-                        <?php if($item[isaudit] == 1): if(($item["status"]) == "0"): ?>审核未通过<?php endif; ?>
-                            <?php if(($item["status"]) == "1"): ?>审核通过<?php endif; ?>
-                        <?php else: ?>
-                        	审核中<?php endif; ?>
-                    </p>
-					<p class="down"><?php echo ($item[count_down]); ?></p>
-					<p class="mtime"><?php echo (date("Y-m-d",$item["uptime"])); ?></p>
-					<p class="caoz">
-                    <?php if($visitor[userid] == $item[userid]): ?><a href="<?php echo U('develop/index/editapp',array('id'=>$item[appid]));?>">[编辑]</a>&nbsp;&nbsp;<?php endif; ?>
-                     	 <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">[去看看]</a>
-                    </p>
-				</li><?php endforeach; endif; ?>		
-             </ul> 
-        <div class="clear"></div>
-        <div class="page"><?php echo ($pageUrl); ?></div>
-
-</div>
-
-
-
+	<h1><?php echo ($seo["title"]); ?></h1>
+	<div class="cleft">
+    	<div class="">
+        	<?php if(is_array($arrAlbum)): foreach($arrAlbum as $key=>$item): ?><div class="albumlst">
+                <a href="<?php echo U('space/photos/album',array('id'=>$item[albumid]));?>" class="album_photo">
+                <?php if(empty($item[albumface])): ?><img src="__STATIC_IMG__/photo_album.png" class="album" >
+                <?php else: ?>
+                 <img src="<?php echo ($item[simg]); ?>" class="album"><?php endif; ?> 
+                </a>
+                <div class="albumlst_r">
+                <div class="pl2"><a href="<?php echo U('space/photos/album',array('id'=>$item[albumid]));?>"><?php echo ($item[albumname]); ?></a></div>
+                <div class="albumlst_descri"><?php echo getsubstrutf8(t($item['albumdesc']),0,30) ?></div>
+                <span class="pl">
+                <?php echo ($item[count_photo]); ?>张照片&nbsp;
+                <?php echo (date("Y-m-d",$item["addtime"])); ?>创建<br>
+                </span>
+                &gt;<a href="<?php echo U('space/photos/album',array('d'=>'edit','id'=>$item[albumid]));?>">修改相册属性</a>
+                &nbsp;&gt;<a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$item[albumid]));?>">添加照片</a>
+                </div>
+                <br>
+                </div><?php endforeach; endif; ?>        
+        </div>
+    	
+    </div><!--//cleft-->
+    <div class="cright">
+		
+    </div><!--//right-->
 </div>
 </div>
 

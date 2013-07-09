@@ -60,7 +60,13 @@ class indexAction extends frontendAction {
 			$cateList = $this->dev_cate_mod->getCateList();
 			$this->assign('cateList',$cateList); //获取分类
 			$this->assign('userid',$userid);
-			$this->_config_seo (array('title'=>'发布新应用','subtitle'=>'应用商店'));
+						
+			$this->_config_seo ( array (
+				'title' => '发布新应用',
+				'subtitle'=> '应用商店_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+			) );
 			$this->display();
 		}
 		
@@ -76,7 +82,14 @@ class indexAction extends frontendAction {
 				$arrPhoto = D('images')->getImagesByMap(array('type'=>'screenshot','typeid'=>$appid,'userid'=>$userid));
 				$this->assign('arrPhoto',$arrPhoto);
 				$this->assign('strApp',$strApp);
-				$this->_config_seo (array('title'=>'上传应用图片','subtitle'=>'应用商店'));
+				
+				
+				$this->_config_seo ( array (
+				'title' => '上传应用图片',
+				'subtitle'=> '应用商店_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+				) );
 				$this->display('upload');
 			}
 		}else{
@@ -92,7 +105,13 @@ class indexAction extends frontendAction {
 		if($userid == $this->userid){
 			//查询
 			$map['userid'] = $userid; 
-			$this->_config_seo (array('title'=>'我的应用','subtitle'=>'应用商店'));
+			
+			$this->_config_seo ( array (
+				'title' => '我的应用',
+				'subtitle'=> '应用商店_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+			) );
 			
 		}else{
 			//查询
@@ -103,7 +122,13 @@ class indexAction extends frontendAction {
 			if(empty($user['username'])){
 				$this->redirect('develop/index/index');
 			}
-			$this->_config_seo (array('title'=>$user['username'].'发布的应用','subtitle'=>'应用商店'));
+			
+			$this->_config_seo ( array (
+				'title' => $user['username'].'发布的应用',
+				'subtitle'=> '应用商店_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+			) );
 		}
 		//显示列表
 		$pagesize = 20;
@@ -123,7 +148,13 @@ class indexAction extends frontendAction {
 	}
 	public function index() {
 		
-		$this->_config_seo (array('title'=>'发布/管理应用','subtitle'=>'应用商店'));
+
+		$this->_config_seo ( array (
+				'title' => '发布/管理应用',
+				'subtitle'=> '应用商店_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
 		$this->display();
 	}
 	// 应用列表
@@ -168,7 +199,13 @@ class indexAction extends frontendAction {
 		$this->assign('typeList',$typeList);
 		$this->assign('cateList',$cateList);
 		$this->assign('arrpopApp',$arrpopApp);
-		$this->_config_seo (array('title'=>'发现感兴趣的应用','subtitle'=>'应用商店'));
+
+		$this->_config_seo ( array (
+				'title' => '发现感兴趣的应用',
+				'subtitle'=> '应用商店_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
 		$this->display();		
 	}	
 	//编辑应用
@@ -196,7 +233,13 @@ class indexAction extends frontendAction {
 				$this->assign('cateList',$cateList); //获取分类
 				$this->assign('strApp', $strApp);
 				$this->assign('userid',$userid);
-				$this->_config_seo (array('title'=>'编辑应用','subtitle'=>'应用商店'));
+				
+				$this->_config_seo ( array (
+					'title' => '编辑应用',
+					'subtitle'=> '应用商店_'.C('ik_site_title'),
+					'keywords' => '',
+					'description'=> '',
+				) );
 				$this->display();
 			}
 		}else{
@@ -212,7 +255,13 @@ class indexAction extends frontendAction {
 			$this->error('你没有权限访问这个页面');
 		}
 		$this->assign('appid',$appid);
-		$this->_config_seo (array('title'=>'成功发布应用','subtitle'=>'应用商店'));
+		
+		$this->_config_seo ( array (
+				'title' => '成功发布应用',
+				'subtitle'=> '应用商店_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
 		$this->display();
 	}
 	//显示
@@ -269,9 +318,12 @@ class indexAction extends frontendAction {
 		$this->assign ( 'strApp', $strApp );
 		$this->assign ( 'page', $page );
 		$this->assign('downuserList',$downuserList);
+		
 		$this->_config_seo ( array (
 				'title' => $strApp ['title'],
-				'subtitle' => '应用商店'
+				'subtitle'=> '应用商店_'.C('ik_site_title'),
+				'keywords' => ikscws($strApp ['title']),
+				'description'=> getsubstrutf8(t($strApp['desc']),0,200),
 		) );
 		$this->display ();
 	}

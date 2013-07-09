@@ -27,6 +27,7 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
+
 </head>
 
 <body>
@@ -120,7 +121,9 @@ __EXTENDS_JS__
         </div>
 		<div class="appnav">
 			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
+                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): if($key == 'share'): ?><li><a href="javascript:;" class="a_<?php echo ($key); ?>" data-url="<?php echo ($item[url]); ?>"><?php echo ($item[name]); ?></a></li>
+                    <?php else: ?>
+                    <li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>" ><?php echo ($item[name]); ?></a></li><?php endif; endforeach; endif; ?>
 			    </ul>
 		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
                 <input type="hidden" value="all" name="type">
@@ -134,56 +137,83 @@ __EXTENDS_JS__
 	</div>
         
 </div>
-
 <div class="midder">
-<div class="mc">
-<h1><span class="add_new"><a href="<?php echo U('develop/index/add');?>">+发布新应用</a></span><?php echo ($seo["title"]); ?></h1>
-<div id="openappbox">
-			<div class="opentitlenav">
-				<p class="appmz">共有<b><?php echo ($count); ?></b>个应用</p>
-				<p class="applx">分类</p>
-				<p class="appkf">审核状态</p>
-				<p class="appcs">下载次数</p>
-				<p class="appmt">更新时间</p>
-				<p class="appcz">操作</p>
+	<div class="mc">  
+		
+        <div class="cleft">
+            <div class="mod item-subject">
+                <h1><?php echo ($seo["title"]); ?></h1> 
+                <div class="btn-bar">
+                    <a href="<?php echo U('mall/item/buy');?>?url=<?php echo base64_encode($strItem['url']);?>"  target="_blank" class="btn btn-icon"><span class="price-tag"><?php echo ($strItem["price"]); ?>元</span><i class="icon-splitter"></i><i class="icon-buy"></i>购买</a>&nbsp;&nbsp;
+                
+                <?php if($strItem[islike]): ?><a href="<?php echo U('mall/item/like');?>" title="取消喜欢" data-tkind="<?php echo ($strItem[id]); ?>" data-tid="<?php echo ($strItem[id]); ?>" data-tuid="<?php echo ($visitor['userid']); ?>"  class="btn btn-icon btn-like i a_like_btn"><i class="icon-like"></i>喜欢 <span id="like-num"><?php echo ($strItem[likes]); ?>人</span></a> 
+				<?php else: ?>
+                <a href="<?php echo U('mall/item/like');?>" title="标为喜欢" data-tkind="<?php echo ($strItem[id]); ?>" data-tid="<?php echo ($strItem[id]); ?>" data-tuid="<?php echo ($visitor['userid']); ?>"  class="btn btn-icon btn-like i a_like_btn"><i class="icon-like"></i>喜欢 <span id="like-num"><?php echo ($strItem[likes]); ?>人</span></a><?php endif; ?>
+
+                    <p>（<a class="rating-amount" target="_blank" href="#"><?php echo ($strItem[comments]); ?>人评价</a>）</p>
+                </div> 
+            </div>
+            
+            <div class="item-info">
+            	 <?php if(is_array($img_list)): $i = 0; $__LIST__ = $img_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$img): $mod = ($i % 2 );++$i;?><div class="img-item"><a href="<?php echo U('mall/item/buy');?>?url=<?php echo base64_encode($strItem['url']);?>"  target="_blank"  title="<?php echo ($strItem["title"]); ?>"><img src="<?php echo attach(get_thumb($img['url'], '_b'), 'item');?>" alt="<?php echo ($strItem["title"]); ?>"></a></div><?php endforeach; endif; else: echo "" ;endif; ?>
+            </div>
+            
+        </div>
+        
+        <div class="cright">
+        
+            <div class="mod" id="g-user-profile">
+                <div class="usercard">
+                  <div class="pic">
+                        <a href="<?php echo U('mall/mine/index',array('id'=>$strItem[user][doname]));?>"><img alt="<?php echo ($strItem[user][username]); ?>" src="<?php echo ($strItem[user][face]); ?>"></a>
+                  </div>
+                  <div class="info">
+                       <div class="namebar">
+                           <a href="<?php echo U('mall/mine/index',array('id'=>$strItem[user][doname]));?>" class="uname"><?php echo ($strItem[user][username]); ?></a>
+                            <?php if($strItem[user][userid] != $visitor[userid]): if($strItem[user][isfollow]): ?><span class="followed">√已关注</span>
+                                <?php else: ?>
+                                <a class="follow follow-btn" href="<?php echo U('public/user/userfollow',array('userid'=>$strItem[user][userid]));?>">+关注</a><?php endif; endif; ?>
+                       </div>
+                         <p><?php echo ($strItem[intro]); ?></p>                    
+                   </div>
+                </div>
+            </div> 
+                    
+			<div class="mod">
+				<div class="hd"><h3>标签</h3></div>
+                <div class="bd">
+                <ul class="tags">
+                	<?php if(is_array($strItem[tags])): foreach($strItem[tags] as $key=>$item): ?><li><a href="<?php echo U('mall/index/explore_goods',array('tag'=>$item[tagname]));?>"><span class="works-category"><?php echo ($item[tagname]); ?></span></a></li><?php endforeach; endif; ?>
+                </ul>
+                </div>
 			</div>
-			<ul>
-            	<?php if(is_array($arrApp)): foreach($arrApp as $key=>$item): ?><li>
-					<p class="pic">
-                    <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">
-                    <img width="64" height="64" src="<?php echo ($item[icon_100]); ?>"></a>
-                    </p>
-					<p class="name"><b><a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a></b>
-                    <em><?php echo getsubstrutf8(t($item['desc']),0,30) ?></em>
-                    </p>
-					<p class="sort">
-							模型内容			
-                    </p>
-					<p class="oper">
-                   	 	
-                        <?php if($item[isaudit] == 1): if(($item["status"]) == "0"): ?>审核未通过<?php endif; ?>
-                            <?php if(($item["status"]) == "1"): ?>审核通过<?php endif; ?>
-                        <?php else: ?>
-                        	审核中<?php endif; ?>
-                    </p>
-					<p class="down"><?php echo ($item[count_down]); ?></p>
-					<p class="mtime"><?php echo (date("Y-m-d",$item["uptime"])); ?></p>
-					<p class="caoz">
-                    <?php if($visitor[userid] == $item[userid]): ?><a href="<?php echo U('develop/index/editapp',array('id'=>$item[appid]));?>">[编辑]</a>&nbsp;&nbsp;<?php endif; ?>
-                     	 <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">[去看看]</a>
-                    </p>
-				</li><?php endforeach; endif; ?>		
-             </ul> 
-        <div class="clear"></div>
-        <div class="page"><?php echo ($pageUrl); ?></div>
+            
+			<div class="mod">
+				<div class="hd"><h3>喜欢该宝贝的人</h3></div>
+                <div class="bd">
+                    <?php if(isset($arrCollectUser)): if(is_array($arrCollectUser)): foreach($arrCollectUser as $key=>$item): ?><dl class="obu">
+                            <dt>
+                                <a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>" title="<?php echo ($item[username]); ?>">
+                                    <img  alt="<?php echo ($item[username]); ?>"  src="<?php echo avatar($item['userid'], 48);?>"class="m_sub_img"  >
+                                </a>
+                            </dt>
+                            <dd>
+                                 <?php echo ($item[username]); ?><br>
+                                <span class="pl">(<a href="<?php echo U('location/area',array('areaid'=>$item[area][areaid]));?>"><?php echo ($item[area][areaname]); ?></a>)</span>
+                            </dd>
+                    </dl><?php endforeach; endif; ?>
+                    <?php else: ?>
+                    <div style="color: #999999;padding: 20px 0">还没有人喜欢该宝贝呢，赶快来抢个沙发吧^_^</div><?php endif; ?>
+                </div>
+			</div>            
+            
+        </div>
 
+        
+    </div>
 </div>
-
-
-
-</div>
-</div>
-
+<script type="text/javascript" src="__PUBLIC__/js/masonry/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="__STATIC_JS__/item.js"></script>
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>
@@ -220,6 +250,7 @@ __EXTENDS_JS__
 document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
 </script>
 <!-- Baidu Button END -->
+
 
 </body>
 </html>

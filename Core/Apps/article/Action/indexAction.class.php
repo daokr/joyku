@@ -63,9 +63,12 @@ class indexAction extends frontendAction {
 		$this->assign ( 'arrCate', $arrCate );
 		$this->assign ( 'arrArticle', $arrArticle );
 		
+		
 		$this->_config_seo ( array (
 				'title' => '最新美文',
-				'subtitle' => '阅读' 
+				'subtitle'=>'阅读_'.C('ik_site_title'),
+				'keywords' => '互联网,摄影,动漫,思考,阅读,旅游,时尚,居家,美食,数码,情感',
+				'description'=> '可以通过投稿、发布优质文章，还可以关注最新博客日志，提供最新最好的实时动态美文。',
 		) );
 		$this->display ();
 	}
@@ -84,11 +87,12 @@ class indexAction extends frontendAction {
 			}
 			$arrCate .= '</optgroup>';
 		}
-		
-		$this->assign ( 'arrCate', $arrCate );
+
 		$this->_config_seo ( array (
 				'title' => '发表新文章',
-				'subtitle' => '阅读' 
+				'subtitle'=>'阅读_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
 		) );
 		$this->display ();
 	}
@@ -160,12 +164,12 @@ class indexAction extends frontendAction {
 				}
 			} else {
 				// 更新
-				$arrItemid = $this->mod->field('itemid')->where(array ('aid' => $id) )->find();
-				if($arrItemid['userid']!=$userid){
+				$itemuserid = $this->item_mod->field('userid')->where ( array ('itemid' => $id) )->getField('userid');				
+				if($itemuserid!=$userid){
 					$this->error('非法操作！');
 				}
 				$this->mod->where ( array ('aid' => $id) )->save ( $data );
-				$this->item_mod->where ( array ('itemid' => $arrItemid['itemid']) )->save ( $item );
+				$this->item_mod->where ( array ('itemid' => $id) )->save ( $item );
 				// 执行更新图片信息
 				$arrSeqid = $this->_post ( 'seqid');
 				$arrTitle = $this->_post ( 'photodesc');
@@ -241,10 +245,13 @@ class indexAction extends frontendAction {
 		$this->assign ( 'strArticle', $strArticle );
 		$this->assign ( 'arrPhotos', $arrPhotos );
 		$this->assign ( 'arrVideos', $arrVideos );
+
 		$this->_config_seo ( array (
 				'title' => '编辑“'.$strArticle['title'].'”',
-				'subtitle' => '阅读'
-		) );	
+				'subtitle'=>'阅读_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
+		) );
 		$this->display ('add');
 	}
 	// 编辑文章
@@ -319,10 +326,14 @@ class indexAction extends frontendAction {
 		$this->assign ( 'upArticle', $upArticle );
 		$this->assign ( 'downArticle', $downArticle );
 		$this->assign ( 'strUser', $strArticle ['user'] );
+
 		$this->_config_seo ( array (
 				'title' => $strArticle ['title'],
-				'subtitle' => '阅读' 
+				'subtitle'=> '阅读_'.C('ik_site_title'),
+				'keywords' => ikscws($strArticle ['title']),
+				'description'=> getsubstrutf8(t($strArticle['content']),0,200),
 		) );
+					
 		$this->display ();
 	}
 	// 文章分类列表
@@ -349,9 +360,12 @@ class indexAction extends frontendAction {
 		$this->assign ( 'arrArticle', $arrArticle );
 		///////////////////////////////
 				
+
 		$this->_config_seo ( array (
-				'title' => $strChannel['name'].'&nbsp;-&nbsp;'.$strCate['catename'],
-				'subtitle' => '阅读'
+				'title' => $strChannel['name'].'-'.$strCate['catename'],
+				'subtitle'=> '阅读_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
 		) );
 		$this->assign ( 'arrCate', $arrCate );
 		$this->display ();
@@ -385,10 +399,12 @@ class indexAction extends frontendAction {
 		$this->assign('pageUrl', $pager->fshow());		
 		$this->assign ( 'arrArticle', $arrArticle );
 		
-		$this->assign ( 'arrCate', $arrCate );
+		$this->assign('arrCate',$arrCate);
 		$this->_config_seo ( array (
 				'title' => $strChannel['name'],
-				'subtitle' => '阅读' 
+				'subtitle'=> '阅读_'.C('ik_site_title'),
+				'keywords' => '',
+				'description'=> '',
 		) );
 		$this->display ();
 	}
@@ -400,8 +416,10 @@ class indexAction extends frontendAction {
 			$this->error('开发中。。。。。');
 			
 			$this->_config_seo ( array (
-					'title' => '我的文章',
-					'subtitle' => '阅读'
+					'title' => '我的投稿',
+					'subtitle'=> '阅读_'.C('ik_site_title'),
+					'keywords' => '',
+					'description'=> '',
 			) );
 			$this->display();
 		}else{

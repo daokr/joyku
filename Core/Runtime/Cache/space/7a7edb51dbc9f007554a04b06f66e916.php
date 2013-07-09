@@ -25,8 +25,7 @@ __SITE_THEME_CSS__
 <![endif]-->
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
-<!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
-
+<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>
 
 </head>
 
@@ -151,117 +150,28 @@ __EXTENDS_JS__
     
 <div id="link-report">
       <div style="text-align:center">
-       <?php if($strPhoto[nowPage] < $strPhoto[countPage]): ?><a title="点击查看下一张" href="<?php echo ($strPhoto[nexturl]); ?>#image" class="mainphoto">
+          <a title="点击查看下一张" href="#" class="mainphoto">
               <img src="<?php echo ($strPhoto[mimg]); ?>">
           </a>
-       <?php else: ?>
-       		 <img src="<?php echo ($strPhoto[mimg]); ?>"><?php endif; ?>   
       </div>
       <div class="photo_descri">
-           <p class="pl" id="desc_info">
+           <p class="pl">
            <span>
                <?php if($strPhoto[photodesc]): echo ($strPhoto[photodesc]); ?>
                <?php else: ?>
                这张照片的还没有添加任何描述...<?php endif; ?>
            </span>
-           &nbsp;<?php if($visitor[userid] == $strPhoto[userid]): ?>&gt;&nbsp;<a title="编辑描述" href="javascript:;" id="edit_pinfo">编辑描述</a><?php endif; ?>
+           &nbsp;<?php if($visitor[userid] == $strPhoto[userid]): ?>&gt;&nbsp;<a title="编辑描述" href="">编辑描述</a><?php endif; ?>
            </p>
-           
-           <?php if($visitor[userid] == $strPhoto[userid]): ?><p class="pl" id="desc_edit" style="display:none">
-               <textarea maxlength="120" name="photodesc" id="photodesc" style="width:100%; margin-bottom:5px; color:#666" class="txt"><?php echo ($strPhoto[photodesc]); ?></textarea>
-               <br/>
-               <input type="button" value="保存" class="subab" id="savebtn">&nbsp;&nbsp;<a href="javascript:;" id="cancle_edit">取消</a>
-           </p><?php endif; ?>
-           
       </div>
       <div class="report-link" style="color:#999;margin-bottom:5px">
-      		<?php if($visitor[userid] == $strPhoto[userid]): ?><span class="fr">&gt;&nbsp;<a title="删除这张照片" href="<?php echo U('space/photos/delphoto',array('id'=>$strPhoto[photoid]));?>">删除照片</a></span><?php endif; ?>
+      		<?php if($visitor[userid] == $strPhoto[userid]): ?><span class="fr">&gt;&nbsp;<a title="删除这张照片" href="">删除照片</a></span><?php endif; ?>
             <?php echo ($strPhoto[count_view]); ?>人浏览&#12288;上传于<?php echo (date("Y-m-d",$strPhoto[addtime])); ?>&#12288;<a target="_blank" title="查看原图" href="<?php echo ($strPhoto[img]); ?>">查看原图</a>
       </div>
     
 </div>
-
-<div class="mod">
-	      <div class="orderbar"> 
-        <?php if(($page == 1) && ($strTopic[count_comment] > 3)): ?><a href="<?php echo U('group/index/topic',array('id'=>$strTopic[topicid],'sc'=>$sc,'isauthor'=>$author[isauthor]));?>"><?php echo ($author[text]); ?></a>&nbsp;&nbsp;
-        <?php if($sc == 'asc'): ?><a href="<?php echo U('group/index/topic',array('id'=>$strTopic[topicid],'sc'=>'desc','isauthor'=>$isauthor));?>">倒序阅读</a> 
-        <?php else: ?>
-        	<a href="<?php echo U('group/index/topic',array('id'=>$strTopic[topicid],'sc'=>'asc','isauthor'=>$isauthor));?>">正序阅读</a><?php endif; endif; ?>
-      </div>      
-      <!--comment评论-->
-      <ul class="comment" id="comment">
-       <?php if(!empty($commentList)): if(is_array($commentList)): foreach($commentList as $key=>$item): ?><li class="clearfix">
-                  <div class="user-face"> 
-                  <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img title="<?php echo ($item[user][username]); ?>" alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a> 
-                  </div>
-                  <div class="reply-doc">
-                    <h4>
-                        <span class="fr"></span>
-                        <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> 
-                        <?php echo date('Y-m-d H:i:s',$item[addtime]) ?>
-                    </h4>
-                    
-                    <?php if($item[referid] != 0): ?><div class="recomment"><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><img src="<?php echo ($item[recomment][user][face]); ?>" width="24" align="absmiddle"></a> <strong><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><?php echo ($item[recomment][user][username]); ?></a></strong>：<?php echo ($item[recomment][content]); ?></div><?php endif; ?>
-                    
-                    <p><?php echo ($item[content]); ?></p>
-                    
-                    <div class="group_banned"> 
-                      <?php if($visitor[userid] != 0): ?><span><a href="javascript:void(0)"  onclick="commentOpen(<?php echo ($item[commentid]); ?>,<?php echo ($item[photoid]); ?>)">回复</a></span><?php endif; ?>
-                      <?php if(($strPhoto[userid] == $visitor[userid]) OR ($visitor[userid] == $item[userid])): ?><span><a class="j a_confirm_link" href="<?php echo U('space/photos/delcomment',array('commentid'=>$item[commentid]));?>" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span><?php endif; ?>
-                    </div>
-                    <div id="rcomment_<?php echo ($item[commentid]); ?>" style="display:none; clear:both; padding:0px 10px">
-                      <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_<?php echo ($item[commentid]); ?>" type="text" onkeydown="keyRecomment(<?php echo ($item[commentid]); ?>,<?php echo ($item[photoid]); ?>,event)" class="txt"></textarea>
-                      <p style=" padding:5px 0px">
-                        <button onclick="recomment(this,<?php echo ($item[commentid]); ?>,<?php echo ($item[photoid]); ?>)" id="recomm_btn_<?php echo ($item[commentid]); ?>" class="subab" data-url="<?php echo U('space/photos/recomment');?>">提交</button>
-                        &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_<?php echo ($item[commentid]); ?>').slideToggle('fast');">取消</a>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="clear"></div>
-                </li><?php endforeach; endif; endif; ?>
-      </ul>
-      
-      <div class="page"><?php echo ($pageUrl); ?></div>
-      <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
-      <div> 
-            <?php if(!$visitor['userid']): ?><div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="<?php echo U('public/user/login');?>">登录</a> | <a href="<?php echo U('public/user/register');?>">注册</a></div>
-            <?php else: ?>
-            <form method="POST" action="<?php echo U('space/photos/addcomment');?>" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
-              <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
-              <input type="hidden" name="photoid" value="<?php echo ($strPhoto[photoid]); ?>" />
-              <input type="hidden" name="p" value="<?php echo ($page); ?>" />
-              <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
-            </form><?php endif; ?>
-      </div>
-</div>
     
-<script language="javascript">
-	$('#edit_pinfo').bind('click',function(){
-		var desc_info = $('#desc_info'),desc_edit = $('#desc_edit');
-		desc_info.hide();desc_edit.show();
-	});
-	$('#cancle_edit').bind('click',function(){
-		var desc_info = $('#desc_info'),desc_edit = $('#desc_edit');
-		desc_info.show();desc_edit.hide();
-	});
-	$('#savebtn').bind('click',function(){
-		var info = $('#photodesc'),pid = <?php echo ($strPhoto["photoid"]); ?>,ajaxurl='<?php echo U("space/photos/editphoto");?>';
-		var desc_info = $('#desc_info'),desc_edit = $('#desc_edit');
-		if(info.val()=="" || info.val() == 0){
-			tips('描述不能为空字符')
-		}else{
-			$.post(ajaxurl,{photoid:pid,photodesc:info.val()},function(res){
-				if(res.r==1){
-					desc_info.show();desc_edit.hide();
-					desc_info.find('span').html(res.html);
-					info.val(res.html);
-				}else{
-					tips(res.error)
-				}
-			});
-		}
-	})
-</script>    
+    
     	
     </div><!--//cleft-->
     <div class="cright">
@@ -291,7 +201,7 @@ __EXTENDS_JS__
         <div class="cl"></div>
         <p>Powered by <a class="softname" href="<?php echo (IKPHP_SITEURL); ?>"><?php echo (IKPHP_SITENAME); ?></a> <?php echo (IKPHP_VERSION); ?>  
         <font color="green">ThinkPHP版本<?php echo (THINK_VERSION); ?></font>  目前有 <?php echo ($count_online_user); ?> 人在线 
-        <!--<script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />-->
+        <script src="http://s6.cnzz.com/stat.php?id=5262498&web_id=5262498" language="JavaScript"></script><br />
         <span style="font-size:0.83em;">{__RUNTIME__}          </span>
 
         
@@ -305,7 +215,7 @@ __EXTENDS_JS__
 <script type="text/javascript" id="bdshare_js" data="type=slide&amp;img=1&amp;pos=right&amp;uid=0" ></script>
 <script type="text/javascript" id="bdshell_js"></script>
 <script type="text/javascript">
-//document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
 </script>
 <!-- Baidu Button END -->
 

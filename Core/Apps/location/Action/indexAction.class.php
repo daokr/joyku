@@ -22,7 +22,13 @@ class indexAction extends locationbaseAction {
 		}
 		$this->assign('arrCateList',$arrCateList);
 		$this->assign('hotEvent',$hotEvent);
-		$this->_config_seo (array('title'=>'爱客同城','subtitle'=>'北京'));
+		
+		$this->_config_seo ( array (
+				'title' => '爱客同城',
+				'subtitle'=> '北京_'.C('ik_site_title'),
+				'keywords' => '活动网站, 同城活动, 活动发布, 活动搜索, 音乐, 演出, 电影, 话剧, 公益, 讲座, 沙龙, 展览, 聚会, 旅行, 交友',
+				'description'=> '提供北京本地所有音乐、戏剧、讲座、聚会、旅行等线下活动的资讯，并能根据你的口味推荐好活动给你，帮助你结识志同道合的人',
+		) );
 		$this->display();
 	}
 	public function area() {
