@@ -27,6 +27,7 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
+<script src="__PUBLIC__/js/lib/jquery.text-selection.js"></script>
 </head>
 
 <body>
@@ -158,35 +159,37 @@ __EXTENDS_JS__
         <div id="statuses">
         
 <div class="mod isay isay-disable" id="db-isay">
-	<form action="http://www.douban.com/update/" method="post" name="mbform">
+	<form action="<?php echo U('space/update/publish');?>" method="post" name="mbform">
     <ul class="isay-links">
       <li class="isay-main active"><a href="javascript:void(0);" data-action="main">说句话</a></li>
-      <li class="isay-share"><a href="javascript:void(0);" data-action="share">推荐网页</a></li>
-      <li class="isay-tab-subject"><a href="javascript:void(0);" data-action="subject">分享电影</a></li>
+      <li class="isay-share"><a href="javascript:void(0);" data-action="sharesite">推荐网页</a></li>
+     <!-- <li class="isay-tab-subject"><a href="javascript:void(0);" data-action="subject">分享电影</a></li> -->
       <li class="notes-link"><a title="添加日记" href="#">写日记</a></li>
     </ul>
+    <div class="isay-act" id="isay-url-field"></div>
     <div class="item">
       <p class="highlighter mention-highlighter"></p>
       <p class="highlighter error-highlighter"></p>
-      <label for="isay-cont" id="isay-label">来分享吧...</label>
-      <textarea rows="1" name="comment" id="isay-cont" tabindex="1" data-minheight="70"></textarea>
+      <label for="isay-cont" id="isay-label">快来分享一下你今天的所见所得吧...</label>
+      <textarea rows="1" name="comment" id="isay-cont" tabindex="1" data-minheight="90" maxlength="150"></textarea>
     </div>
     <div class="isay-act" id="isay-act-field"></div>
     <div class="btn">
       <span id="isay-counter"></span>
-      <span class="bn-submit bn-flat"><input type="submit" value="我说" tabindex="1" id="isay-submit"></span>
+      <span class="bn-submit bn-flat"><input type="submit" value="我来说" tabindex="1" id="isay-submit" disabled></span>
     </div>
   </form>
   <div class="btn-group">
     <form method="post" enctype="multipart/form-data" action="/j/upload" data-action="pic" id="isay-upload" charset="utf-8">
-      <input type="file" title="上传照片" name="image" data-action="pic" autocomplete="off" tabindex="2" id="isay-upload-inp">
+      <input type="file" title="上传照片" name="image" data-action="pic" autocomplete="off" tabindex="2" id="isay-upload-inp" onChange="Ik.upload()">
     </form>
-    <a title="上传照片" class="ico ico-pic" data-action="pic" tabindex="-1" href="javascript:void(0);">照片</a>
-    <a title="添加话题" class="ico ico-topic" data-action="topic" tabindex="2" href="javascript:void(0);">话题</a>
+    <a title="上传照片" class="ico ico-pic"   data-action="pic" tabindex="-1" href="javascript:void(0);" >照片</a>
+    <a title="添加话题" class="ico ico-topic" data-action="topic" tabindex="2" href="javascript:void(0);" >话题</a>
   </div>
 </div>
-
-
+<script language="javascript">
+	var Ik = {upload:function(){IK.uplaodPic()}};
+</script>
         </div>
         
 

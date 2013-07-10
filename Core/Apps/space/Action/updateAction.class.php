@@ -25,6 +25,16 @@ class updateAction extends spacebaseAction {
 		) );		
 		$this->display();
 	}
+	//发布
+	public function publish(){
+		$comment = $this->_post('comment','trim'); // 150个字最多
+
+		$content = str_replace("＃", "#", $content);
+		preg_match_all("/#([^#]*[^#^\s][^#]*)#/is",$content,$arr);
+		$arr = array_unique($arr[1]);
+		dump($arr);
+
+	}
 	
 	
 	

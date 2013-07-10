@@ -72,3 +72,39 @@ CREATE TABLE `ik_user_photo_comment` (
   KEY `referid` (`referid`,`photoid`),
   KEY `photoid` (`photoid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='图片回复/评论' AUTO_INCREMENT=1 ;
+
+
+DROP TABLE IF EXISTS `ik_feed`;
+CREATE TABLE `ik_feed` (
+  `feedid` int(11) NOT NULL AUTO_INCREMENT COMMENT '动态ID',
+  `userid` int(11) NOT NULL COMMENT '用户ID',
+  `type` char(50) DEFAULT NULL COMMENT 'feed类型',
+  `share_link` varchar(250) DEFAULT NULL COMMENT '分享链接地址',
+  `share_text` varchar(250) DEFAULT NULL COMMENT '分享链接标题',  
+  `addtime` int(11) NOT NULL COMMENT '产生时间戳',
+  `is_del` int(2) NOT NULL DEFAULT '0' COMMENT '是否删除 默认为0',
+  `count_comment` int(10) DEFAULT '0' COMMENT '评论数',
+  `count_repost` int(10) DEFAULT '0' COMMENT '分享数 转发数',
+  `is_repost` int(2) DEFAULT '0' COMMENT '是否转发 0-否  1-是',
+  `is_audit` int(2) DEFAULT '1' COMMENT '是否已审核 0-未审核 1-已审核',
+  PRIMARY KEY (`feedid`),
+  KEY `is_del` (`is_del`,`addtime`),
+  KEY `userid` (`userid`,`is_del`,`addtime`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `ik_feed_topic`;
+CREATE TABLE `ik_feed_topic` (
+  `topicid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '话题ID',
+  `topicname` varchar(150) NOT NULL COMMENT '话题标题',
+  `count_topic` int(11) NOT NULL COMMENT '关联的话题数',
+  `addtime` int(11) NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`topicid`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `ik_feed_data`;
+CREATE TABLE `ik_feed_data` (
+  `feedid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '关联feed表，feedid',
+  `feeddata` text COMMENT '动态数据，序列化保存',
+  `feedcontent` text COMMENT '纯微博内容',
+  PRIMARY KEY (`feedid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
