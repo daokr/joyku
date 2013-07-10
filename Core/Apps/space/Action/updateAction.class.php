@@ -29,13 +29,17 @@ class updateAction extends spacebaseAction {
 	public function publish(){
 		$comment = $this->_post('comment','trim'); // 150个字最多
 
-		$content = str_replace("＃", "#", $content);
-		preg_match_all("/#([^#]*[^#^\s][^#]*)#/is",$content,$arr);
+		$comment = str_replace("＃", "#", $comment);
+		preg_match_all("/#([^#]*[^#^\s][^#]*)#/is",$comment,$arr);
 		$arr = array_unique($arr[1]);
 		dump($arr);
 
 	}
-	
+	public function uploadImg(){
+		
+		$arrJson = array('r'=>1, 'html'=> array('simg'=>'http://www.ikphp.com/data/upload/photo/2/2/20130704130340oYMS_500_500.jpg?v=1373470912','imgid'=>base64_encode(123)));
+		echo json_encode($arrJson);
+	}	
 	
 	
 }

@@ -27,7 +27,8 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
-<script src="__PUBLIC__/js/lib/jquery.text-selection.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/lib/jquery.text-selection.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
 </head>
 
 <body>
@@ -180,7 +181,7 @@ __EXTENDS_JS__
     </div>
   </form>
   <div class="btn-group">
-    <form method="post" enctype="multipart/form-data" action="/j/upload" data-action="pic" id="isay-upload" charset="utf-8">
+    <form method="post" enctype="multipart/form-data" action="<?php echo U('space/update/uploadImg');?>" data-action="pic" id="isay-upload" charset="utf-8">
       <input type="file" title="上传照片" name="image" data-action="pic" autocomplete="off" tabindex="2" id="isay-upload-inp" onChange="Ik.upload()">
     </form>
     <a title="上传照片" class="ico ico-pic"   data-action="pic" tabindex="-1" href="javascript:void(0);" >照片</a>

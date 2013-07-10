@@ -21,6 +21,7 @@ $(function(){
 	var pic = $('#isay-upload-inp');
 	var pic_act = $('#isay-act-field');
 	var url_act = $('#isay-url-field');
+	var closebtn = $('#closex');
 	var action = '';
 	function s(z) {
 		var y = z.target; // html element
@@ -104,10 +105,12 @@ $(function(){
 			in_url.live('blur',function(){
 				url_act.find('.bd').removeClass('active');
 			});
+			pic_act.html('')
 			subtn.attr('disabled', true);
 		}
 		//分享动态
 		if(action == 'main'){
+			url_act.html('')
 			checktext();
 			p.removeClass('act-share field-up acting');
 		}
@@ -134,15 +137,41 @@ $(function(){
 	})
 	
 	IK.uplaodPic = function(){
-		var html = '<div class="field"><div class="bd"><div style="padding-left:0;" class="waiting"><img src="http://127.0.0.1/joyku/data/upload/article/2013/0628/17/20130628172523SLAl_500_500.jpg?v=1373436689"></div><input type="hidden" value="http://img3.douban.com/view/status/small/public/a4530e6a5dd828c.jpg" name="uploaded"></div><a class="bn-x isay-cancel" href="javascript:void(0);">×</a></div>';
+		var ajaxurl = $('#isay-upload').attr('action');
 		//开始ajax
-		if(1==1){
-			pic_act.html(html);
-			h.blur();
-			p.addClass('acting');
-		}
-	}
+		$.ajaxFileUpload(
+            {
+                url : ajaxurl,
+                fileElementId : 'isay-upload-inp',
+                dataType : 'json',
+                allowType : 'jpg|png|gif|jpeg',
+                begin : function(){
+					var html = '<div class="field"><div class="bd"><div class="waiting">正在上传中...</div></div><a class="bn-x isay-cancel" href="javascript:void(0);" id="closex">×</a></div>';
+ 					pic_act.html(html);
+                },
+                success : function(data, status){
+					
+					if(data.r==1){
+						var html = '<div class="field"><div class="bd">'+
+									'<div style="padding-left:0;" class="waiting"><img src="'+data.html.simg+'"></div>'+
+									'<input type="hidden" value="'+data.html.imgid+'" name="uploaded"></div>'+
+									'<a class="bn-x isay-cancel" href="javascript:void(0);" id="closex">×</a></div>';
+						pic_act.html(html);
+						h.blur();
+						p.addClass('acting');
+					}
+                },
+                error : function(data, status, e){
+                    // console.log(e);
+                }
+            }
+       ); 
 
+	}
+	//关闭
+	closebtn.live('click',function(){
+		$(this).parents('.isay-act').html('');
+	})
 	
 });
 

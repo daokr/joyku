@@ -1,1 +1,0 @@
-<?php	return array ( 0 => 'cateid', 1 => 'catename', 2 => 'orderid', '_autoinc' => true, '_pk' => 'cateid', '_type' => array ( 'cateid' => 'int(11)', 'catename' => 'char(32)', 'orderid' => 'tinyint(3) unsigned', ), );?>

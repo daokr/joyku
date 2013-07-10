@@ -1,1 +1,0 @@
-<?php	return array ( 0 => 'commentid', 1 => 'referid', 2 => 'topicid', 3 => 'userid', 4 => 'content', 5 => 'addtime', '_autoinc' => true, '_pk' => 'commentid', '_type' => array ( 'commentid' => 'int(11)', 'referid' => 'int(11)', 'topicid' => 'int(11)', 'userid' => 'int(11)', 'content' => 'text', 'addtime' => 'int(11)', ), );?>

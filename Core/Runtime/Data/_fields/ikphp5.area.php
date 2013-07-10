@@ -1,1 +1,0 @@
-<?php	return array ( 0 => 'areaid', 1 => 'areaname', 2 => 'zm', 3 => 'referid', 4 => 'ishot', 5 => 'pinyin', '_autoinc' => true, '_pk' => 'areaid', '_type' => array ( 'areaid' => 'int(11)', 'areaname' => 'varchar(32)', 'zm' => 'char(1)', 'referid' => 'int(11)', 'ishot' => 'int(1)', 'pinyin' => 'varchar(30)', ), );?>

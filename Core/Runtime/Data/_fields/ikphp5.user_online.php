@@ -1,1 +1,0 @@
-<?php	return array ( 0 => 'userid', 1 => 'ctime', '_autoinc' => false, '_pk' => 'userid', '_type' => array ( 'userid' => 'int(11)', 'ctime' => 'int(11)', ), );?>
