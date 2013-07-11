@@ -32,7 +32,7 @@
         <div id="statuses">
         
 <div class="mod isay isay-disable" id="db-isay">
-	<form action="{:U('space/update/publish')}" method="post" name="mbform">
+	<form action="{:U('space/update/publish')}" method="post" name="mbform" onsubmit="return checkFrom(this)">
     <ul class="isay-links">
       <li class="isay-main active"><a href="javascript:void(0);" data-action="main">说句话</a></li>
       <li class="isay-share"><a href="javascript:void(0);" data-action="sharesite">推荐网页</a></li>
@@ -63,6 +63,12 @@
 <script language="javascript">
 	var Ik = {upload:function(){IK.uplaodPic()}};
 </script>
+
+<!--内容-->
+<div class="stream-items">
+	<include file="feed_data" />
+</div>
+<!--//内容-->
         </div>
         
 

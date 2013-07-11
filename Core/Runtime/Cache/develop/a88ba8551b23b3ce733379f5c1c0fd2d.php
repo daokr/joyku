@@ -27,8 +27,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
-<script type="text/javascript" src="__PUBLIC__/js/lib/jquery.text-selection.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
 </head>
 
 <body>
@@ -139,100 +137,162 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-	<h1><?php echo ($seo["title"]); ?></h1>
-	<div class="cleft">
-    	<div id="mod-status-cate">
-            <div class="status-cate">
-                <a class="bn-status-more" href="#"><span>全部</span><i></i></a>
-                <div class="more-status-items">
-                  <table cellspacing="0" cellpadding="0">
-                    <tbody>
-                      <tr><td><span class="cate-list-title">分组查看</span></td></tr>
-                      <tr><td><a class="on" href="#">全部</a></td></tr>
-                      <tr><td><a class="" href="#">日记</a></td></tr>
-                      <tr><td><a class="" href="#">相册</a></td></tr>
-                  </tbody></table>
-                </div>
-            </div>
+<h1><?php echo ($seo["title"]); ?>
+	<?php if(($strApp["isrecommend"]) == "1"): ?><span class="recomment-tag">
+        推荐
+    </span><?php endif; ?>
+</h1>
+
+<div class="cleft">
+	
+    <div class="mod item-subject">
+        <div class="pic">
+            <a href="<?php echo ($strApp[icon_100]); ?>"><img width="100" alt=" " src="<?php echo ($strApp[icon_100]); ?>"></a>
+            <?php if($visitor[userid] == $strApp[userid]): ?><div class="th-modify">
+                <a href="<?php echo U('develop/index/add_upload',array('id'=>$strApp[appid]));?>">增改描述或图标</a>
+        	</div><?php endif; ?>
+        </div>
+        <div class="app_info">
+        <ul>
+            <li>
+                <span class="attr-name">应用类别：</span>
+                <span class="attr-value">
+                    <a href="<?php echo U('develop/index/applist',array('type'=>$strApp[apptype],'cateid'=>$strApp[cateid]));?>">内容聚合</a>
+                </span>
+            </li>
+    
+            <li>
+                <span class="attr-name">开发者：</span>
+                <span class="attr-value">
+                    <a href="<?php echo U('space/index/index',array('id'=>$strApp[user][doname]));?>"><?php echo ($strApp[user][username]); ?></a>
+                </span>
+            </li>
+            
+            <li>
+                <span class="attr-name">官方网站：</span>        
+                <span class="attr-value">
+                    <a target="_blank" href="<?php echo ($strApp[appsite]); ?>"><?php echo ($strApp[appsite]); ?></a>
+                </span>
+            </li>
+    
+            <li>
+                <span class="attr-name">需要积分：</span>
+                <span class="attr-value"> 
+                免费
+                </span>
+            </li>        
+    
+        </ul>
     	</div>
+        <div class="appcoutinfo">
+        	<?php if(!empty($strApp[appfile]) && $strApp[isaudit] == 1): ?><div class="downbar"><a href="<?php echo U('develop/index/down',array('id'=>$strApp[appid]));?>">↓点击下载</a></div>
+            <?php else: ?>
+            <div class="downbar"><b>应用审核中</b></div><?php endif; ?>
+            <div class="infos"><span>浏览：<?php echo ($strApp[count_view]); ?></span><span>下载：<?php echo ($strApp[count_down]); ?></span></div>
+        </div>
 
-		<!--内容开始-->
-        <div id="statuses">
-        
-<div class="mod isay isay-disable" id="db-isay">
-	<form action="<?php echo U('space/update/publish');?>" method="post" name="mbform" onsubmit="return checkFrom(this)">
-    <ul class="isay-links">
-      <li class="isay-main active"><a href="javascript:void(0);" data-action="main">说句话</a></li>
-      <li class="isay-share"><a href="javascript:void(0);" data-action="sharesite">推荐网页</a></li>
-     <!-- <li class="isay-tab-subject"><a href="javascript:void(0);" data-action="subject">分享电影</a></li> -->
-      <li class="notes-link"><a title="添加日记" href="#">写日记</a></li>
-    </ul>
-    <div class="isay-act" id="isay-url-field"></div>
-    <div class="item">
-      <p class="highlighter mention-highlighter"></p>
-      <p class="highlighter error-highlighter"></p>
-      <label for="isay-cont" id="isay-label">快来分享一下你今天的所见所得吧...</label>
-      <textarea rows="1" name="comment" id="isay-cont" tabindex="1" data-minheight="90" maxlength="150"></textarea>
-    </div>
-    <div class="isay-act" id="isay-act-field"></div>
-    <div class="btn">
-      <span id="isay-counter"></span>
-      <span class="bn-submit bn-flat"><input type="submit" value="我来说" tabindex="1" id="isay-submit" disabled></span>
-    </div>
-  </form>
-  <div class="btn-group">
-    <form method="post" enctype="multipart/form-data" action="<?php echo U('space/update/uploadImg');?>" data-action="pic" id="isay-upload" charset="utf-8">
-      <input type="file" title="上传照片" name="image" data-action="pic" autocomplete="off" tabindex="2" id="isay-upload-inp" onChange="Ik.upload()">
-    </form>
-    <a title="上传照片" class="ico ico-pic"   data-action="pic" tabindex="-1" href="javascript:void(0);" >照片</a>
-    <a title="添加话题" class="ico ico-topic" data-action="topic" tabindex="2" href="javascript:void(0);" >话题</a>
-  </div>
-</div>
-<script language="javascript">
-	var Ik = {upload:function(){IK.uplaodPic()}};
-</script>
+	</div>
 
-<!--内容-->
-<div class="stream-items">
-	<?php if(is_array($arrFeed)): foreach($arrFeed as $key=>$item): ?><div data-object-id="536893167" data-object-kind="1018" data-target-type="sns" data-action="1" data-sid="1188476174" style="" class="status-item">
-    <div data-status-id="1188476174" class="mod">
+<?php if(!empty($strApp[screenshotList])): ?><div class="mod screenshot">
+    	<div class="header">应用截图</div>
+        <div class="screenshots">
+        	<?php if(is_array($strApp[screenshotList])): foreach($strApp[screenshotList] as $key=>$item): ?><a href="<?php echo ($item[bimg]); ?>" target="_blank">
+                <img width="165" alt="" src="<?php echo ($item[mimg]); ?>">
+            </a><?php endforeach; endif; ?>
+        </div>
+</div><?php endif; ?> 
+
+<div id="link-report" class="mod item-desc">
+    <h2>
+        应用简介&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+    </h2>
+    <div class="desc-box">
+		<?php echo nl2br($strApp[desc]); ?>
+    </div>
+</div>    
+
+    
+<div class="mod">
+	      <!--comment评论-->
+      <ul class="comment" id="comment">
+       <?php if(!empty($commentList)): if(is_array($commentList)): foreach($commentList as $key=>$item): ?><li class="clearfix">
+                  <div class="user-face"> 
+                  <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img title="<?php echo ($item[user][username]); ?>" alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a> 
+                  </div>
+                  <div class="reply-doc">
+                    <h4>
+                        <span class="fr"></span>
+                        <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> 
+                        <?php echo date('Y-m-d H:i:s',$item[addtime]) ?>
+                    </h4>
+                    
+                    <?php if($item[referid] != 0): ?><div class="recomment"><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><img src="<?php echo ($item[recomment][user][face]); ?>" width="24" align="absmiddle"></a> <strong><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><?php echo ($item[recomment][user][username]); ?></a></strong>：<?php echo ($item[recomment][content]); ?></div><?php endif; ?>
+                    
+                    <p><?php echo ($item[content]); ?></p>
+                    
+                    <div class="group_banned"> 
+                      <?php if($visitor[userid] != 0): ?><span><a href="javascript:void(0)"  onclick="commentOpen(<?php echo ($item[commentid]); ?>,<?php echo ($item[appid]); ?>)">回复</a></span><?php endif; ?>
+                      <?php if(($strApp[userid] == $visitor[userid]) OR ($visitor[userid] == $item[userid])): ?><span><a class="j a_confirm_link" href="<?php echo U('develop/index/delcomment',array('commentid'=>$item[commentid]));?>" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span><?php endif; ?>
+                    </div>
+                    <div id="rcomment_<?php echo ($item[commentid]); ?>" style="display:none; clear:both; padding:0px 10px">
+                      <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_<?php echo ($item[commentid]); ?>" type="text" onkeydown="keyRecomment(<?php echo ($item[commentid]); ?>,<?php echo ($item[appid]); ?>,event)" class="txt"></textarea>
+                      <p style=" padding:5px 0px">
+                        <button onclick="recomment(this,<?php echo ($item[commentid]); ?>,<?php echo ($item[appid]); ?>)" id="recomm_btn_<?php echo ($item[commentid]); ?>" class="subab" data-url="<?php echo U('develop/index/recomment');?>">提交</button>
+                        &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_<?php echo ($item[commentid]); ?>').slideToggle('fast');">取消</a>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="clear"></div>
+                </li><?php endforeach; endif; endif; ?>
+      </ul>
       
-      <div class="hd">
-        <a title="<?php echo ($item[user][username]); ?>" href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a>
+      <div class="page"><?php echo ($pageUrl); ?></div>
+      <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
+      <div> 
+            <?php if(!$visitor['userid']): ?><div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="<?php echo U('public/user/login');?>">登录</a> | <a href="<?php echo U('public/user/register');?>">注册</a></div>
+            <?php else: ?>
+            <form method="POST" action="<?php echo U('develop/index/addcomment');?>" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
+              <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
+              <input type="hidden" name="appid" value="<?php echo ($strApp[appid]); ?>" />
+              <input type="hidden" name="p" value="<?php echo ($page); ?>" />
+              <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
+            </form><?php endif; ?>
       </div>
-      
-      <div class="bd layout-2"> 
-       	<?php echo ($item[content]); ?>
-        <div class="actions">
-          <span title="<?php echo (date('Y-m-d h:m:s',$item["addtime"])); ?>" class="created_at"><a href="#"><?php echo getTime($item[addtime],time()); ?></a></span>
-          &nbsp;&nbsp;
-          <a data-action-type="showComments" class="btn btn-action-reply" href="#">回应</a>
-          &nbsp;&nbsp;<a data-action-type="deleteStatus" class="btn btn-action-reply-delete" href="#">删除</a>
-        </div>
-
-        <div class="others">
-          <div class="comments">
-              <div class="comments-items"></div>
-              <form class="comment-form" action="#" method="post">
-                  <input type="text" data-type="status-comment" class="comment-text" name="text" maxlength="280">
-                  <input type="submit" data-type="status-comment" value="发表回应">
-                  <a class="add-more-comments" href="javascript:void(0);">继续回应</a>
-              </form>
-          </div>
-        </div>
-        
-      </div><!--//layout2 -->
-    </div>
-</div><?php endforeach; endif; ?>
 </div>
-<!--//内容-->
-        </div>
-        
+    
+    
 
-    </div><!--//cleft-->
-    <div class="cright">
-		
-    </div><!--//right-->
+    
+</div>
+
+
+<div class="cright">
+ 	<?php if($visitor[userid] == $strApp[userid]): ?><p class="pl2"> &gt; <a href="<?php echo U('develop/index/editapp',array('id'=>$strApp[appid]));?>">编辑应用信息</a></p><?php endif; ?>
+    <p class="pl2"> &gt; <a href="<?php echo U('develop/index/applist');?>">发现更多应用</a></p>
+
+    <div class="mod">
+        <h2>
+            下载过这个应用的人
+                &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+        </h2>
+
+        <?php if(is_array($downuserList)): foreach($downuserList as $key=>$item): ?><dl class="obu">
+            <dt>
+            <a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><img alt="<?php echo ($item[username]); ?>" class="m_sub_img" src="<?php echo ($item[face]); ?>" /></a>
+            </dt>
+            <dd><?php echo ($item[username]); ?><br>
+                <span class="pl">(<a href="<?php echo U('location/area',array(areaid=>$item[area][areaid]));?>"><?php echo ($item[area][areaname]); ?></a>)</span>
+            </dd>
+     	 </dl><?php endforeach; endif; ?>
+       <div class="clear"></div>
+    </div>
+
+    
+
+</div>
+
+
+
 </div>
 </div>
 

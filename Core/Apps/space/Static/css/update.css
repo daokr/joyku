@@ -584,3 +584,176 @@ a.usr-btn.selected:link, a.usr-btn.selected:visited {
 	color:#fae7d6;
 	background:#d9896a
 }
+
+/**列表**/
+.status-item {
+	color:#333
+}
+.status-item .mod {
+	margin:0;
+	padding-bottom:12px;
+	position:relative
+}
+.status-item .hd {
+	float:left;
+	margin:3px 20px 0 0;
+	width:48px;
+	height:48px
+}
+.status-item .bd {
+	border-bottom:1px solid #eee;
+	overflow:hidden;
+	padding-bottom:14px;
+	zoom:1;
+	_width:517px;
+	min-height:48px
+}
+.status-item .bd .text {
+	margin:0 0 5px 0;
+	font-size:13px;
+	word-wrap:break-word
+}
+.status-item blockquote {
+	margin:5px 0 5px 25px;
+	padding:0 0 0 15px;
+	background:url(../images/quotel.gif) no-repeat left 4px;
+	width:auto;
+}
+.status-item blockquote p {
+	display:inline;
+	background:url(../images/quoter.gif) no-repeat right bottom;
+	padding:0 15px 0 0;
+	word-wrap:break-word;
+*zoom:1
+}
+.status-item blockquote p img {
+	vertical-align:bottom
+}
+.status-item .attachments {
+	position:relative;
+	overflow:hidden;
+	zoom:1;
+	_line-height:0;
+	color:#999
+}
+.status-item .photo-set {
+	max-width:128px;
+	max-height:128px
+}
+.status-item .attachments div, .status-item .attachments h6, .status-item .attachments p {
+	line-height:1.62
+}
+.status-item .description {
+	margin:0;
+	color:#aaa
+}
+.status-item .actions {
+	margin:5px 0;
+	color:#aaa
+}
+.status-item .actions a.btn {
+	color:#7094b7
+}
+.status-item .actions a.btn:hover {
+	background:#7094b7;
+	color:#fff
+}
+.status-item .actions a.btn-unlike, .status-item .actions a.btn-unreshare {
+	color:#999
+}
+.status-item .actions a.btn-unlike:hover, .status-item .actions a.btn-unreshare:hover {
+	background:#999;
+	color:#fff
+}
+.status-item .description, .status-item .attachments, .status-item .actions, .status-item .others {
+	padding-left:24px
+}
+.status-item .attachments .description {
+	padding-left:0;
+	word-wrap:break-word
+}
+.status-item .big:hover {
+	cursor:url(../images/icon/big.png), url(../images/icon/big.cur), auto
+}
+.status-item .small:hover {
+	cursor:url(../images/icon/small.png), url(../images/icon/small.cur), auto
+}
+.status-item .upload-pic-wrapper:hover {
+	background:0
+}
+.status-item .others {
+	display:none
+}
+.status-item .comments {
+	position:relative;
+	left:0;
+	top:0;
+	overflow:hidden;
+	*zoom:1
+}
+.status-item .comments-items {
+	_line-height:0
+}
+.status-item .comments-items p {
+	margin:3px 0;
+	color:#666;
+	overflow:hidden;
+	zoom:1;
+	word-wrap:break-word;
+	line-height:1.62
+}
+.status-item .comments-items .mover {
+	background:#f2f2f2
+}
+.status-item .comments-items p em {
+	float:left;
+	width:80%;
+	font-style:normal
+}
+.status-item .comments .comment-text {
+	width:330px
+}
+.status-item .comments .add-more-comments, .comment-posted input {
+	display:none
+}
+.status-item .comment-posted .add-more-comments {
+	display:inline
+}
+.status-item .comments-items .btn-del {
+	float:right;
+	color:#aaa
+}
+.status-item .comments-items .btn-del:hover {
+	color:#bbb;
+	background:0
+}
+.status-item .likers {
+	padding:0;
+	color:#aaa
+}
+.status-item .likers em {
+	max-width:300px;
+	float:left;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+	overflow:hidden;
+	zoom:1;
+	font-style:normal;
+	_width:expression((documentElement.clientWidth>300) ? "300px":"auto")
+}
+.status-item .created_at a {
+	color:#999
+}
+.status-item .created_at a:hover {
+	background:#999;
+	color:#fff
+}
+.status-item .reshared_by {
+	background:url(../images/reshared-icon.gif) no-repeat left center;
+	padding:0 0 0 18px;
+	color:#66a366
+}
+.status-current .bd {
+	border-color:#bfddb7
+}

@@ -27,8 +27,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
-<script type="text/javascript" src="__PUBLIC__/js/lib/jquery.text-selection.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
 </head>
 
 <body>
@@ -139,100 +137,147 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-	<h1><?php echo ($seo["title"]); ?></h1>
-	<div class="cleft">
-    	<div id="mod-status-cate">
-            <div class="status-cate">
-                <a class="bn-status-more" href="#"><span>全部</span><i></i></a>
-                <div class="more-status-items">
-                  <table cellspacing="0" cellpadding="0">
-                    <tbody>
-                      <tr><td><span class="cate-list-title">分组查看</span></td></tr>
-                      <tr><td><a class="on" href="#">全部</a></td></tr>
-                      <tr><td><a class="" href="#">日记</a></td></tr>
-                      <tr><td><a class="" href="#">相册</a></td></tr>
-                  </tbody></table>
-                </div>
-            </div>
-    	</div>
+<h1>
+<?php echo ($seo["title"]); ?>
+</h1>
 
-		<!--内容开始-->
-        <div id="statuses">
-        
-<div class="mod isay isay-disable" id="db-isay">
-	<form action="<?php echo U('space/update/publish');?>" method="post" name="mbform" onsubmit="return checkFrom(this)">
-    <ul class="isay-links">
-      <li class="isay-main active"><a href="javascript:void(0);" data-action="main">说句话</a></li>
-      <li class="isay-share"><a href="javascript:void(0);" data-action="sharesite">推荐网页</a></li>
-     <!-- <li class="isay-tab-subject"><a href="javascript:void(0);" data-action="subject">分享电影</a></li> -->
-      <li class="notes-link"><a title="添加日记" href="#">写日记</a></li>
-    </ul>
-    <div class="isay-act" id="isay-url-field"></div>
-    <div class="item">
-      <p class="highlighter mention-highlighter"></p>
-      <p class="highlighter error-highlighter"></p>
-      <label for="isay-cont" id="isay-label">快来分享一下你今天的所见所得吧...</label>
-      <textarea rows="1" name="comment" id="isay-cont" tabindex="1" data-minheight="90" maxlength="150"></textarea>
-    </div>
-    <div class="isay-act" id="isay-act-field"></div>
-    <div class="btn">
-      <span id="isay-counter"></span>
-      <span class="bn-submit bn-flat"><input type="submit" value="我来说" tabindex="1" id="isay-submit" disabled></span>
-    </div>
-  </form>
-  <div class="btn-group">
-    <form method="post" enctype="multipart/form-data" action="<?php echo U('space/update/uploadImg');?>" data-action="pic" id="isay-upload" charset="utf-8">
-      <input type="file" title="上传照片" name="image" data-action="pic" autocomplete="off" tabindex="2" id="isay-upload-inp" onChange="Ik.upload()">
-    </form>
-    <a title="上传照片" class="ico ico-pic"   data-action="pic" tabindex="-1" href="javascript:void(0);" >照片</a>
-    <a title="添加话题" class="ico ico-topic" data-action="topic" tabindex="2" href="javascript:void(0);" >话题</a>
-  </div>
+<div class="nav-step">
+              <span class="pl">1. 填写应用信息</span>
+              <span class="pl">&gt;</span>
+              <span >2. 上传应用图片</span>
+              <span class="pl">&gt;</span>              
+              <span class="pl">3. 提交应用</span>
 </div>
+            
+<form method="POST" action="<?php echo U('develop/index/add_upload',array('id'=>$strApp[appid]));?>" enctype="multipart/form-data" id="ikform">
+<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+    <tr>
+        <th valign="top" style="padding-top:10px">Logo：</th>
+        <td><input name="applogo_file" type="file" id="applogo" onChange="uploadfile(this,'applogo');"><span class="ntips">支持jpg,jpge,png格式，大小:64x64,100x100</span>
+        <div class="input-content">
+            <ul class="image-list">
+           		<?php if($strApp[applogo]): ?><li>
+                <img width="100" height="100" src="<?php echo attach($strApp[applogo]);?>">
+                </li><?php endif; ?>
+            </ul>
+        </div>        
+        </td>
+    </tr>
+    <tr>
+        <th valign="top" style="padding-top:10px">截图：</th>
+        <td><input name="screenshot_file" type="file" id="screenshot" onChange="uploadfile(this,'screenshot');"><span class="ntips">支持jpg,jpge,png格式，大小限制<?php echo intval(C('ik_attr_allow_size')/1024); ?>M以内，最多上传5张图片</span>
+        <div class="input-content">
+            <ul class="image-list">
+				<?php if(is_array($arrPhoto)): foreach($arrPhoto as $key=>$item): ?><li>
+                <img width="100" height="100" src="<?php echo ($item[simg]); ?>">
+                <a class="name" href="javascript:void(0)" onclick="removeAttachId(this)" delurl="<?php echo U('develop/index/ajax_del_file', array('id'=>$item[id]));?>">删除</a>
+                </li><?php endforeach; endif; ?>
+            </ul>
+        </div> 
+        </td>
+    </tr>    
+    <tr>
+        <th valign="top" style="padding-top:10px">安装包：</th>
+        <td><input name="appfile_file" type="file" id="appfile"  onChange="uploadfile(this,'appfile');"><span class="ntips">支持zip,rar格式，大小:5M以内</span>
+        <div class="input-content">
+        <ul class="file-list">
+        	<?php if($strApp[appfile]): ?><li>
+            <i class="ico-rar-small"></i>
+            <a class="ico-close right" href="javascript:void(0)" onclick="removeAttachId(this)"></a>
+            </li><?php endif; ?>
+        </ul>
+        </div>
+        </td>
+    </tr>                 	
+    <tr>
+    	<th>&nbsp;</th><td>
+        <input type="hidden" name="userid" value="<?php echo ($userid); ?>"/>
+        <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('develop/index/editapp',array('id'=>$strApp[appid]));?>">返回到上一步</a>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
 <script language="javascript">
-	var Ik = {upload:function(){IK.uplaodPic()}};
+function uploadfile(o,id){
+	var ajaxurl = "<?php echo U('develop/index/ajax_upload',array('userid'=>$userid,'appid'=>$strApp[appid]));?>";
+	var obj = $(o).parent().find('.input-content');
+	var _self=$(o);
+	if(id=='screenshot' && obj.find('li').length>5){
+		error('只能上传6张截图');
+		return;
+	}
+	ajaxUpload(_self,obj,ajaxurl);
+}
+function ajaxUpload(_self,obj,ajaxurl){
+	var list = obj.find('.image-list');
+	var fileid = _self.attr('id'); 
+	if(list.length==0){
+		list = obj.find('.file-list');
+	}
+	if(list==0){ return;}
+	$.ajaxFileUpload(
+            {
+                url : ajaxurl,
+                fileElementId : fileid,
+                dataType : 'json',
+                allowType : 'jpg|png|gif|jpeg|zip|rar',
+                begin : function(){
+					var html = '<li id="loading"><img src="__PUBLIC__/images/loading.gif"></li>';
+ 					list.append(html);obj.fadeIn(100);
+                },
+                complete : function(){
+					list.find('#loading').remove();
+                },
+                success : function(data, status){
+					
+                    if(data.r == 0){
+                        error(data.html);
+                    }else{
+                        buildHtml(fileid,list,data);
+                    }
+                },
+                error : function(data, status, e){
+                    // console.log(e);
+                }
+            }
+       ); 
+}
+function buildHtml(fileid,list,data){
+	var id = fileid;
+	if(id=='applogo'){
+		var html = '<li><img width="100" height="100" src="'+data.photo_url+'"></li>';
+		list.html(html);
+		return;
+	}
+	if(id=='screenshot'){
+		var html = '<li><img width="100" height="100" src="'+data.photo_url+'">'+
+		'<a class="name" href="javascript:void(0)" onclick="removeAttachId(this)" delurl="'+data.delurl+'">删除</a></li>';
+		list.append(html);
+		return;		
+	}
+	if(id=='appfile'){
+		var html = '<li><i class="ico-rar-small"></i><a class="ico-close right" href="javascript:void(0)" onclick="removeAttachId(this)"></a>'+data.savename+'<span>('+data.filesize+' KB)</span></li>';
+		list.html(html);
+		return;		
+	}
+}
+function removeAttachId(obj){
+	var delurl = $(obj).attr('delurl');
+	if(delurl){
+		$.post(delurl,{},function(data){
+			if(data.r == 1){
+				$(obj).parent().remove();
+			}
+		},'json');
+	}else{
+		$(obj).parent().fadeOut(100).remove();
+	}
+}
 </script>
+</form>
 
-<!--内容-->
-<div class="stream-items">
-	<?php if(is_array($arrFeed)): foreach($arrFeed as $key=>$item): ?><div data-object-id="536893167" data-object-kind="1018" data-target-type="sns" data-action="1" data-sid="1188476174" style="" class="status-item">
-    <div data-status-id="1188476174" class="mod">
-      
-      <div class="hd">
-        <a title="<?php echo ($item[user][username]); ?>" href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a>
-      </div>
-      
-      <div class="bd layout-2"> 
-       	<?php echo ($item[content]); ?>
-        <div class="actions">
-          <span title="<?php echo (date('Y-m-d h:m:s',$item["addtime"])); ?>" class="created_at"><a href="#"><?php echo getTime($item[addtime],time()); ?></a></span>
-          &nbsp;&nbsp;
-          <a data-action-type="showComments" class="btn btn-action-reply" href="#">回应</a>
-          &nbsp;&nbsp;<a data-action-type="deleteStatus" class="btn btn-action-reply-delete" href="#">删除</a>
-        </div>
 
-        <div class="others">
-          <div class="comments">
-              <div class="comments-items"></div>
-              <form class="comment-form" action="#" method="post">
-                  <input type="text" data-type="status-comment" class="comment-text" name="text" maxlength="280">
-                  <input type="submit" data-type="status-comment" value="发表回应">
-                  <a class="add-more-comments" href="javascript:void(0);">继续回应</a>
-              </form>
-          </div>
-        </div>
-        
-      </div><!--//layout2 -->
-    </div>
-</div><?php endforeach; endif; ?>
-</div>
-<!--//内容-->
-        </div>
-        
 
-    </div><!--//cleft-->
-    <div class="cright">
-		
-    </div><!--//right-->
 </div>
 </div>
 

@@ -17,6 +17,7 @@ $(function(){
 	var h = $("#isay-cont");
 	var p = $("#db-isay");
 	var B = $(".btn-group");
+	var count_text = $('#isay-counter');
 	var subtn = $('#isay-submit');
 	var pic = $('#isay-upload-inp');
 	var pic_act = $('#isay-act-field');
@@ -81,11 +82,11 @@ $(function(){
 			
 			if (val.charAt(start - 1) == '#' && val.charAt(end) == '#') return;
 			
-			var rep = '#' + (sel || '话题') + '#';
+			var rep = '#' + (sel || '热门话题') + '#';
 			h.value = val.substring(0, start) + rep + val.substring(end, len);
 			h.val(h.value)
 			if (sel === '') {
-				h.set_selection(start + 1, start + 3);
+				h.set_selection(start + 1, start + 5);
 			}
 			
 		}
@@ -121,7 +122,7 @@ $(function(){
 		var g = $("#isay-inp-url"), v = $.trim(g.val());
 		if(v!=0 && v !='' && v!='http://'){
 			if(1==1){
-				url_act.find('.bd').before('<div class="hd"><input value="爱客网_爱客开源社区程序" name="title" class="field-title" style="width: 563px;"></div>');
+				url_act.find('.bd').before('<div class="hd"><input value="爱客网" name="share_name" class="field-title" style="width: 563px;"><input value="" name="share_link" style="width: 10px;display:none"></div>');
 				url_act.find('.bd').html('http://www.ikphp.com');
 				url_act.find('.bd').after('<a class="bn-x isay-cancel" href="javascript:void(0);" style="display:block" data-action="sharesite">×</a>');
 				url_act.find('.bd').removeClass('active');
@@ -153,8 +154,8 @@ $(function(){
 					
 					if(data.r==1){
 						var html = '<div class="field"><div class="bd">'+
-									'<div style="padding-left:0;" class="waiting"><img src="'+data.html.simg+'"></div>'+
-									'<input type="hidden" value="'+data.html.imgid+'" name="uploaded"></div>'+
+									'<div style="padding-left:0;" class="waiting"><img src="'+data.html.photo_url+'"></div>'+
+									'<input type="hidden" value="'+data.html.photo_name+'" name="photo_name[]"></div>'+
 									'<a class="bn-x isay-cancel" href="javascript:void(0);" id="closex">×</a></div>';
 						pic_act.html(html);
 						h.blur();
@@ -171,7 +172,14 @@ $(function(){
 	//关闭
 	closebtn.live('click',function(){
 		$(this).parents('.isay-act').html('');
-	})
+	});
 	
 });
+//检查提交
+function checkFrom(that){
+	var comment = $(that).find('textarea[name=comment]').val();
+	if(comment == '' || comment==0){tips('发布内容不能为空'); return false;}
+	if(comment.length>150){ tips('发布内容字数太多了；最多150个字'); return false; }
+	$(that).find('input[type=submit]').val('正在提交^_^').attr('disabled',true);
+}
 

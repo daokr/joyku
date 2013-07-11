@@ -27,8 +27,6 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
-<script type="text/javascript" src="__PUBLIC__/js/lib/jquery.text-selection.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
 </head>
 
 <body>
@@ -139,100 +137,50 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-	<h1><?php echo ($seo["title"]); ?></h1>
-	<div class="cleft">
-    	<div id="mod-status-cate">
-            <div class="status-cate">
-                <a class="bn-status-more" href="#"><span>全部</span><i></i></a>
-                <div class="more-status-items">
-                  <table cellspacing="0" cellpadding="0">
-                    <tbody>
-                      <tr><td><span class="cate-list-title">分组查看</span></td></tr>
-                      <tr><td><a class="on" href="#">全部</a></td></tr>
-                      <tr><td><a class="" href="#">日记</a></td></tr>
-                      <tr><td><a class="" href="#">相册</a></td></tr>
-                  </tbody></table>
-                </div>
-            </div>
-    	</div>
+<h1><span class="add_new"><a href="<?php echo U('develop/index/add');?>">+发布新应用</a></span><?php echo ($seo["title"]); ?></h1>
+<div id="openappbox">
+			<div class="opentitlenav">
+				<p class="appmz">共有<b><?php echo ($count); ?></b>个应用</p>
+				<p class="applx">分类</p>
+				<p class="appkf">审核状态</p>
+				<p class="appcs">下载次数</p>
+				<p class="appmt">更新时间</p>
+				<p class="appcz">操作</p>
+			</div>
+			<ul>
+            	<?php if(is_array($arrApp)): foreach($arrApp as $key=>$item): ?><li>
+					<p class="pic">
+                    <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">
+                    <img width="64" height="64" src="<?php echo ($item[icon_100]); ?>"></a>
+                    </p>
+					<p class="name"><b><a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>"><?php echo ($item[title]); ?></a></b>
+                    <em><?php echo getsubstrutf8(t($item['desc']),0,30) ?></em>
+                    </p>
+					<p class="sort">
+							模型内容			
+                    </p>
+					<p class="oper">
+                   	 	
+                        <?php if($item[isaudit] == 1): if(($item["status"]) == "0"): ?>审核未通过<?php endif; ?>
+                            <?php if(($item["status"]) == "1"): ?>审核通过<?php endif; ?>
+                        <?php else: ?>
+                        	审核中<?php endif; ?>
+                    </p>
+					<p class="down"><?php echo ($item[count_down]); ?></p>
+					<p class="mtime"><?php echo (date("Y-m-d",$item["uptime"])); ?></p>
+					<p class="caoz">
+                    <?php if($visitor[userid] == $item[userid]): ?><a href="<?php echo U('develop/index/editapp',array('id'=>$item[appid]));?>">[编辑]</a>&nbsp;&nbsp;<?php endif; ?>
+                     	 <a href="<?php echo U('develop/index/show',array('id'=>$item[appid]));?>">[去看看]</a>
+                    </p>
+				</li><?php endforeach; endif; ?>		
+             </ul> 
+        <div class="clear"></div>
+        <div class="page"><?php echo ($pageUrl); ?></div>
 
-		<!--内容开始-->
-        <div id="statuses">
-        
-<div class="mod isay isay-disable" id="db-isay">
-	<form action="<?php echo U('space/update/publish');?>" method="post" name="mbform" onsubmit="return checkFrom(this)">
-    <ul class="isay-links">
-      <li class="isay-main active"><a href="javascript:void(0);" data-action="main">说句话</a></li>
-      <li class="isay-share"><a href="javascript:void(0);" data-action="sharesite">推荐网页</a></li>
-     <!-- <li class="isay-tab-subject"><a href="javascript:void(0);" data-action="subject">分享电影</a></li> -->
-      <li class="notes-link"><a title="添加日记" href="#">写日记</a></li>
-    </ul>
-    <div class="isay-act" id="isay-url-field"></div>
-    <div class="item">
-      <p class="highlighter mention-highlighter"></p>
-      <p class="highlighter error-highlighter"></p>
-      <label for="isay-cont" id="isay-label">快来分享一下你今天的所见所得吧...</label>
-      <textarea rows="1" name="comment" id="isay-cont" tabindex="1" data-minheight="90" maxlength="150"></textarea>
-    </div>
-    <div class="isay-act" id="isay-act-field"></div>
-    <div class="btn">
-      <span id="isay-counter"></span>
-      <span class="bn-submit bn-flat"><input type="submit" value="我来说" tabindex="1" id="isay-submit" disabled></span>
-    </div>
-  </form>
-  <div class="btn-group">
-    <form method="post" enctype="multipart/form-data" action="<?php echo U('space/update/uploadImg');?>" data-action="pic" id="isay-upload" charset="utf-8">
-      <input type="file" title="上传照片" name="image" data-action="pic" autocomplete="off" tabindex="2" id="isay-upload-inp" onChange="Ik.upload()">
-    </form>
-    <a title="上传照片" class="ico ico-pic"   data-action="pic" tabindex="-1" href="javascript:void(0);" >照片</a>
-    <a title="添加话题" class="ico ico-topic" data-action="topic" tabindex="2" href="javascript:void(0);" >话题</a>
-  </div>
 </div>
-<script language="javascript">
-	var Ik = {upload:function(){IK.uplaodPic()}};
-</script>
 
-<!--内容-->
-<div class="stream-items">
-	<?php if(is_array($arrFeed)): foreach($arrFeed as $key=>$item): ?><div data-object-id="536893167" data-object-kind="1018" data-target-type="sns" data-action="1" data-sid="1188476174" style="" class="status-item">
-    <div data-status-id="1188476174" class="mod">
-      
-      <div class="hd">
-        <a title="<?php echo ($item[user][username]); ?>" href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a>
-      </div>
-      
-      <div class="bd layout-2"> 
-       	<?php echo ($item[content]); ?>
-        <div class="actions">
-          <span title="<?php echo (date('Y-m-d h:m:s',$item["addtime"])); ?>" class="created_at"><a href="#"><?php echo getTime($item[addtime],time()); ?></a></span>
-          &nbsp;&nbsp;
-          <a data-action-type="showComments" class="btn btn-action-reply" href="#">回应</a>
-          &nbsp;&nbsp;<a data-action-type="deleteStatus" class="btn btn-action-reply-delete" href="#">删除</a>
-        </div>
 
-        <div class="others">
-          <div class="comments">
-              <div class="comments-items"></div>
-              <form class="comment-form" action="#" method="post">
-                  <input type="text" data-type="status-comment" class="comment-text" name="text" maxlength="280">
-                  <input type="submit" data-type="status-comment" value="发表回应">
-                  <a class="add-more-comments" href="javascript:void(0);">继续回应</a>
-              </form>
-          </div>
-        </div>
-        
-      </div><!--//layout2 -->
-    </div>
-</div><?php endforeach; endif; ?>
-</div>
-<!--//内容-->
-        </div>
-        
 
-    </div><!--//cleft-->
-    <div class="cright">
-		
-    </div><!--//right-->
 </div>
 </div>
 
