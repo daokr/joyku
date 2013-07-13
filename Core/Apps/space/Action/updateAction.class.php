@@ -97,7 +97,7 @@ class updateAction extends spacebaseAction {
 		//有图片则更新图片
 		if($feedid && !empty($photo_name)){
 			foreach ($photo_name as $item){
-				$path = 'update/photo/'.$userid;
+				$path = 'update/photo/'.$userid.'/';
 				$dataImg = array('userid'=>$userid,'feedid'=>$feedid,'name'=>base64_decode($item),'path'=>$path);
 				$this->feed_img->add($dataImg);
 				//附件
