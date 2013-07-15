@@ -112,6 +112,7 @@ class userModel extends Model
 		$data = array (
 				'userid' => $userid,
 				'userid_follow' => $userid_follow,
+				'addtime'=>time(),
 		);		
 		$user_follow_mod = M('user_follow'); 
 		if (false !== $user_follow_mod->create ( $data )) {

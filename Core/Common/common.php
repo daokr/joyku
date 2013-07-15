@@ -200,6 +200,8 @@ function getTime($btime, $etime) {
 	}
 	if ($secs >= 1) {
 		return $secs . ' 秒前';
+	}else{
+		return '刚刚';
 	}
 
 }
@@ -300,6 +302,7 @@ function cleanJs($text) {
 	}
 	return $text;
 }
+
 //纯文本输入
 function t($text) {
 	$text = cleanJs ( $text );

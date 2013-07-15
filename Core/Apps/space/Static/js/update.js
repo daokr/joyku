@@ -68,12 +68,13 @@ $(function(){
 		}
 	}
 	p.find('a').live('click',function(){
-		var t = $(this),len = h.val().length; 
+		var t = $(this),len = h.val().length,isaytype = $('#isaytype');
 		action = t.attr('data-action');
 		t.parent().siblings().removeClass('active');
 		t.parent().addClass('active');		
 		if(action=='topic'){
 			h.focus();
+			isaytype.val('topic');
 			var val = h.val(),
 			selection = h.get_selection(),
 			sel = selection.text,
@@ -98,6 +99,7 @@ $(function(){
 			in_url = url_act.find('input[name=url]');
 			h.blur();
 			in_url.focus();
+			isaytype.val('sharesite');
 			p.removeClass('focus');
 			p.addClass('act-share field-up acting isay-disable');
 			in_url.live('focus',function(){
@@ -111,6 +113,7 @@ $(function(){
 		}
 		//分享动态
 		if(action == 'main'){
+			isaytype.val('topic');
 			url_act.html('')
 			checktext();
 			p.removeClass('act-share field-up acting');
@@ -121,16 +124,19 @@ $(function(){
 	p.find('.bn-preview').live('click',function(){
 		var g = $("#isay-inp-url"), v = $.trim(g.val());
 		if(v!=0 && v !='' && v!='http://'){
-			if(1==1){
-				url_act.find('.bd').before('<div class="hd"><input value="爱客网" name="share_name" class="field-title" style="width: 563px;"><input value="" name="share_link" style="width: 10px;display:none"></div>');
-				url_act.find('.bd').html('http://www.ikphp.com');
-				url_act.find('.bd').after('<a class="bn-x isay-cancel" href="javascript:void(0);" style="display:block" data-action="sharesite">×</a>');
-				url_act.find('.bd').removeClass('active');
-				p.removeClass('isay-disable');	
-			}else{
-				url_act.find('.bd').html('<div class="error">这个网址无法识别。 <a data-action="sharesite" href="javascript:void(0);">重新输入</a></div>');
-				subtn.attr('disabled', true);
-			}
+			$.post('index.php?app=space&m=update&a=sharesite',{url:v},function(res){
+				if(res.r==1){
+					url_act.find('.bd').before('<div class="hd"><input value="'+res.html.title+'" name="share_name" class="field-title" style="width: 563px;"><input value="'+res.html.url+'" name="share_link" style="width: 10px;display:none"></div>');
+					url_act.find('.bd').html(res.html.url);
+					url_act.find('.bd').after('<a class="bn-x isay-cancel" href="javascript:void(0);" style="display:block" data-action="sharesite">×</a>');
+					url_act.find('.bd').removeClass('active');
+					p.removeClass('isay-disable');	
+				}else{
+					url_act.find('.bd').html('<div class="error">这个网址无法识别。 <a data-action="sharesite" href="javascript:void(0);">重新输入</a></div>');
+					subtn.attr('disabled', true);
+				}			
+			},'json');
+
 		}else{
 			url_act.find('.bd').addClass('active');
 			return;
@@ -173,6 +179,7 @@ $(function(){
 	closebtn.live('click',function(){
 		$(this).parents('.isay-act').html('');
 	});
+
 	
 });
 //检查提交
@@ -182,4 +189,19 @@ function checkFrom(that){
 	if(comment.length>150){ tips('发布内容字数太多了；最多150个字'); return false; }
 	$(that).find('input[type=submit]').val('正在提交^_^').attr('disabled',true);
 }
+
+$(function(){
+	//附件图片放大缩小
+	var attach = $('.attachments');
+	$('.upload-pic').live('click',function(){
+		var _self = $(this), org_img = _self.attr('data-src'),small_img = _self.attr('small-src');
+		if(_self.hasClass('big')){
+			_self.removeClass('big').addClass('small');
+			_self.attr('src',org_img);
+		}else{
+			_self.removeClass('small').addClass('big');
+			_self.attr('src',small_img);
+		}
+	});
+})
 

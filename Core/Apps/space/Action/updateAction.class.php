@@ -21,12 +21,20 @@ class updateAction extends spacebaseAction {
 		$user = $this->user_mod->getOneUser($userid);
 		
 		//获取feed
-		$arrFeeds = 
+		$arrUserid = M('user_follow')->field('userid_follow')->where(array('userid'=>$userid))->order('addtime desc')->select();
+		$user_floows = $userid;
+		foreach ($arrUserid as $uid){
+			$user_floows .= ','.$uid['userid_follow'];
+		}
+
 		//查询条件 是否审核 是否已经删除
-		$map = array('isaudit'=>'1','is_del'=>'0','userid'=>$userid);
+		$map['isaudit'] = 1;
+		$map['is_del'] = 0;
+		$map['userid'] = array('exp',' IN ('.$user_floows.') ');
+
 		//显示列表
 		$pagesize = 30;
-		$count = $this->feed_mod->field('feedid')->where($map)->order('addtime desc')->count('feedid');
+		$count = $this->feed_mod->field('feedid')->where($map)->order('addtime desc')->count('feedid'); 
 		$pager = $this->_pager($count, $pagesize);
 		$arrItemid =  $this->feed_mod->where($map)->order('addtime desc')->limit($pager->firstRow.','.$pager->listRows)->select();
 		foreach($arrItemid as $k=>$item){
@@ -46,6 +54,11 @@ class updateAction extends spacebaseAction {
 		$this->assign('pageUrl', $pager->fshow());
 		$this->assign ( 'arrFeed', $arrFeed );
 		
+		//他关注的用户
+		$strUser['followUser'] = $this->user_mod->getfollow_user($userid, 8);
+		
+		$this->assign('strUser',$strUser);
+		
 		$this->_config_seo ( array (
 				'title' => '我的动态广播',
 				'keywords' => '分享日记,分享动态信息,日记,宝贝,照片,最新动态',
@@ -56,6 +69,7 @@ class updateAction extends spacebaseAction {
 	//发布
 	public function publish(){
 		if(! $this->visitor->is_login ) $this->redirect ( 'public/user/login' );
+		$type = $this->_post('type','trim','topic'); // 默认是说说
 		$userid =  $this->visitor->info ['userid'];
 		$username = $this->visitor->info ['username'];
 		$doname = $this->visitor->info ['doname'];
@@ -68,15 +82,21 @@ class updateAction extends spacebaseAction {
 			$this->error('输入的广播字数太多了；请不要超过150个字！');
 		}
 		$comment = str_replace("＃", "#", $comment);
+		$comment = preg_replace("/#([^#]*[^#^\s][^#]*)#/is",htmlspecialchars("\${1}"),$comment);
+		echo $comment;die;
 		preg_match_all("/#([^#]*[^#^\s][^#]*)#/is",$comment,$arr);
+
+		dump($arr);die;
 		$arr = array_unique($arr[1]);
 		
 		//判断是有话题 添加话题
 		if(!empty($arr)){
 			foreach ($arr as $v){
-				$dataTopic = array('topicname'=>trim(t($v)));
-				$topicid = $this->ftopic_mod->addTopic($dataTopic);
+				$dataTopic = array('topicname'=>trim($v)); echo trim($v);die;
+				//$topicid = $this->ftopic_mod->addTopic($dataTopic);
 			}
+			
+			
 		}
 		//feed数据
 		$dataFeed = array(
@@ -88,36 +108,50 @@ class updateAction extends spacebaseAction {
 		//$dataTpl
 		$spaceUrl = U('space/index/index',array('id'=>$doname));
 		$dataTpl = '<p class="text">{userinfo}{actname}{actinfo}</p><blockquote><p>{comment}</p></blockquote><div class="attachments">{attachments}</div>';
-		$tplData['actname'] = ' 说：';
-		$tplData['actinfo'] = '';
-		$tplData['userinfo'] = '<a href="'.$spaceUrl.'">'.$username.'</a>';
-		$tplData['comment'] = htmlspecialchars($comment);
 		
-		$feedid = $this->feed_mod->addFeed($dataFeed);
-		//有图片则更新图片
-		if($feedid && !empty($photo_name)){
-			foreach ($photo_name as $item){
-				$path = 'update/photo/'.$userid.'/';
-				$dataImg = array('userid'=>$userid,'feedid'=>$feedid,'name'=>base64_decode($item),'path'=>$path);
-				$this->feed_img->add($dataImg);
-				//附件
-				$ext =  explode ( '.', base64_decode($item));
-				//图片大小
-				$simg =  attach($path.$ext[0].'_130_130.jpg');
-				$bimg =  attach($path.$ext[0].'_500_500.jpg');
-				//附件图片
-				$strimgs .= '<img src="'.$simg.'" data-src="'.$bimg.'">';
+		if($type=='topic'){
+			//随便说
+			$tplData['actname'] = ' 说：';
+			$tplData['actinfo'] = '';
+			$tplData['userinfo'] = '<a href="'.$spaceUrl.'">'.$username.'</a>';
+			$tplData['comment'] = htmlspecialchars($comment);
+			
+			$feedid = $this->feed_mod->addFeed($dataFeed);
+			//有图片则更新图片
+			if($feedid && !empty($photo_name)){
+				foreach ($photo_name as $item){
+					$path = 'update/photo/'.$userid.'/';
+					$dataImg = array('userid'=>$userid,'feedid'=>$feedid,'name'=>base64_decode($item),'path'=>$path);
+					$this->feed_img->add($dataImg);
+					//附件
+					$ext =  explode ( '.', base64_decode($item));
+					//图片大小
+					$simg =  attach($path.$ext[0].'_130_130.jpg');
+					$bimg =  attach($path.$ext[0].'_500_500.jpg');
+					//附件图片
+					$strimgs .= '<a class="upload-pic-wrapper" href="javascript:;"><img class="upload-pic big" src="'.$simg.'"  small-src="'.$simg.'" data-src="'.$bimg.'"></a>';
+				}
+				$this->feed_mod->where(array('feedid'=>$feedid))->setField('is_image', '1');
 			}
-			$this->feed_mod->where(array('feedid'=>$feedid))->setField('is_image', '1');
+			//模版附件
+			$tplData['attachments'] = $strimgs;
+						
+		}elseif($type=='sharesite'){
+			//分享网站
+			$tplData['actname'] = ' 推荐网址  ';
+			$tplData['actinfo'] = '<a href="'.$share_link.'" target="_top">'.$share_name.'</a>';
+			$tplData['userinfo'] = '<a href="'.$spaceUrl.'">'.$username.'</a>';
+			$tplData['comment'] = htmlspecialchars($comment);	
+			
+			$feedid = $this->feed_mod->addFeed($dataFeed);
 		}
-		//模版附件
-		$tplData['attachments'] = $strimgs;
+		
 		//添加模版数据
 		$tplData = array_merge($dataFeed,$tplData);
 		$this->feed_mod->addFeedData($feedid,$dataTpl, $tplData);
 		$this->redirect('space/update/index');
 	}
-	public function uploadImg(){
+	public function uploadImg(){ 
 		$userid =  $this->visitor->info ['userid'];
 		$image = $_FILES ['image'];
 		if(!empty($image['name']) && $userid){
@@ -139,6 +173,48 @@ class updateAction extends spacebaseAction {
 			}			
 		}
 	}	
-	
+	//抓取网站
+	public function sharesite(){
+		$url = $this->_post('url','trim','0');
+		$userid =  $this->visitor->info ['userid'];
+		if(!empty($url) && $userid){
+			
+			$strdesc = $this->geturlfile($url);
+			preg_match("/\<title\>([\s\S]*)\<\/title\>/is", $strdesc, $arr);
+			
+			if($arr[1]){
+				$arrSite = array('title'=>$arr[1],'url'=>$url);
+				echo json_encode(array('r'=>1,'html'=>$arrSite));
+				return ;
+			}else {
+				echo json_encode(array('r'=>0,'html'=>''));
+				return ;				
+			}
+
+		}
+	}
+	function geturlfile($url, $encode = 1, $charset='UTF-8') {
+		$text = '';
+		if (! empty ( $url )) {
+			if (function_exists ( 'file_get_contents' )) {
+				@$text = file_get_contents ( $url );
+				
+			} else {
+				@$carr = file ( $url );
+				if (! empty ( $carr ) && is_array ( $carr )) {
+					$text = implode ( '', $carr );
+				}
+			}
+		}
+		$text = str_replace ( '·', '', $text );
+		if (! empty ( $charset ) && $encode == 1) {
+			if (function_exists ( 'iconv' )) {
+				$text = iconv ( $charset, C ( 'ik_charset' ), $text );
+			} else {
+				$text = encodeconvert ( $charset, $text );
+			}
+		}
+		return $text;
+	}
 	
 }

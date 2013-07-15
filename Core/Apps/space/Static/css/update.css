@@ -425,7 +425,7 @@ textarea {
 }
 #db-isay .commodity-link .publish-ways .review a:active, #db-isay .commodity-link .publish-ways .review a:hover, #db-isay .commodity-link .publish-ways .review a:link, #db-isay .commodity-link .publish-ways .review a:visited, #db-isay .commodity-link .publish-ways .share a:active, #db-isay .commodity-link .publish-ways .share a:hover, #db-isay .commodity-link .publish-ways .share a:link, #db-isay .commodity-link .publish-ways .share a:visited {
 	color:#111;
-	background:url(../images/ilmen/commodity/icons_publish.1.png) no-repeat 0 0
+	background:url(../images/icons_publish.1.png) no-repeat 0 0
 }
 #db-isay .commodity-link .publish-ways .share {
 	border:1px solid #e6e6e6;
@@ -673,10 +673,10 @@ a.usr-btn.selected:link, a.usr-btn.selected:visited {
 	word-wrap:break-word
 }
 .status-item .big:hover {
-	cursor:url(../images/icon/big.png), url(../images/icon/big.cur), auto
+	cursor:url(../images/big.png), url(../images/big.cur), auto
 }
 .status-item .small:hover {
-	cursor:url(../images/icon/small.png), url(../images/icon/small.cur), auto
+	cursor:url(../images/small.png), url(../images/small.cur), auto
 }
 .status-item .upload-pic-wrapper:hover {
 	background:0

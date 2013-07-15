@@ -1,7 +1,6 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-<!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?>_<?php echo ($seo["subtitle"]); ?></title>
 <?php if(!empty($seo["keywords"])): ?><meta name="keywords" content="<?php echo ($seo["keywords"]); ?>" /><?php endif; ?>
@@ -26,13 +25,9 @@ __SITE_THEME_CSS__
 <script src="__PUBLIC__/js/dialog/jquery.artDialog.min5.js" type="text/javascript"></script> 
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
-
-<script type="text/javascript" src="__PUBLIC__/js/lib/jquery.text-selection.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
 </head>
 
 <body>
-<!--引入后前台公共public的模版文件 -->
 <!--头部开始-->
 <header>
 <?php if($app_name == 'public' && empty($visitor) && $module_name == 'index'): ?><div class="hd-wrap">
@@ -113,144 +108,72 @@ __EXTENDS_JS__
 	</div>
         
 </div><?php endif; ?>
-<!--header-->
-<div id="header">
-    
-	<div class="site_nav">
-        <div class="<?php echo ($logo[style]); ?>">
-            <a href="<?php echo ($logo[url]); ?>"><?php echo ($logo[name]); ?></a>
-        </div>
-		<div class="appnav">
-			    <ul id="nav_bar">
-                    <?php if(is_array($arrNav)): foreach($arrNav as $key=>$item): ?><li><a href="<?php echo ($item[url]); ?>" class="a_<?php echo ($key); ?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>
-			    </ul>
-		   <form onsubmit="return searchForm(this);" method="post" action="<?php echo U('public/search/index');?>">
-                <input type="hidden" value="all" name="type">
-                <div id="search_bar">
-                    <div class="inp"><input type="text" placeholder="小组、话题、日志、成员、小站" value="" class="key" name="q"></div>
-                    <div class="inp-btn"><input type="submit" class="search-button" value="搜索"></div>
-                </div>
-		    </form>
-		</div>
-        <div class="cl"></div>
-	</div>
-        
-</div>
-
+<!--main-->
 <div class="midder">
 <div class="mc">
-	<h1><?php echo ($seo["title"]); ?></h1>
-	<div class="cleft">
-    	<div id="mod-status-cate">
-            <div class="status-cate">
-                <a class="bn-status-more" href="#"><span>全部</span><i></i></a>
-                <div class="more-status-items">
-                  <table cellspacing="0" cellpadding="0">
-                    <tbody>
-                      <tr><td><span class="cate-list-title">分组查看</span></td></tr>
-                      <tr><td><a class="on" href="#">全部</a></td></tr>
-                      <tr><td><a class="" href="#">日记</a></td></tr>
-                      <tr><td><a class="" href="#">相册</a></td></tr>
-                  </tbody></table>
-                </div>
-            </div>
-    	</div>
 
-		<!--内容开始-->
-        <div id="statuses">
+<h1 class="set_tit">用户信息管理</h1>
+<div class="tabnav">
+<ul>
+<?php if(is_array($user_menu_list)): $i = 0; $__LIST__ = $user_menu_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i; if($user_menu_curr == $key): ?><li class="select"><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li>
+<?php else: ?>
+<li><a href="<?php echo ($menu["url"]); ?>" ><?php echo ($menu["text"]); ?></a></li><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+</ul>
+</div>
+
+    <div class="utable">
+        <form method="POST" action="<?php echo U('public/user/setbase');?>">
+        <table cellpadding="0" cellspacing="0" width="100%" class="table_1">
+        <tr>
+        <th>登陆Email：</th><td><input class="txt" value="<?php echo ($info["email"]); ?>" disabled="true" /></td>
+        </tr>
+        <tr><th>名 号：</th><td><input class="txt" name="username" value="<?php echo ($info["username"]); ?>"  /></td></tr>
         
-<div class="mod isay isay-disable" id="db-isay">
-	<form action="<?php echo U('space/update/publish');?>" method="post" name="mbform" onsubmit="return checkFrom(this)">
-    <ul class="isay-links">
-      <li class="isay-main active"><a href="javascript:void(0);" data-action="main">说句话</a></li>
-      <li class="isay-share"><a href="javascript:void(0);" data-action="sharesite">推荐网页</a></li>
-     <!-- <li class="isay-tab-subject"><a href="javascript:void(0);" data-action="subject">分享电影</a></li> -->
-      <li class="notes-link"><a title="添加日记" href="#">写日记</a></li>
-    </ul>
-    <div class="isay-act" id="isay-url-field"></div>
-    <div class="item">
-      <p class="highlighter mention-highlighter"></p>
-      <p class="highlighter error-highlighter"></p>
-      <label for="isay-cont" id="isay-label">快来分享一下你今天的所见所得吧...</label>
-      <textarea rows="1" name="comment" id="isay-cont" tabindex="1" data-minheight="90" maxlength="150"></textarea>
-    </div>
-    <div class="isay-act" id="isay-act-field"></div>
-    <div class="btn">
-      <span id="isay-counter"></span>
-      <span class="bn-submit bn-flat"><input type="hidden" value="topic" name="type" id="isaytype" ><input type="submit" value="我来说" tabindex="1" id="isay-submit" disabled></span>
-    </div>
-  </form>
-  <div class="btn-group">
-    <form method="post" enctype="multipart/form-data" action="<?php echo U('space/update/uploadImg');?>" data-action="pic" id="isay-upload" charset="utf-8">
-      <input type="file" title="上传照片" name="image" data-action="pic" autocomplete="off" tabindex="2" id="isay-upload-inp" onChange="Ik.upload()">
-    </form>
-    <a title="上传照片" class="ico ico-pic"   data-action="pic" tabindex="-1" href="javascript:void(0);" >照片</a>
-    <a title="添加话题" class="ico ico-topic" data-action="topic" tabindex="2" href="javascript:void(0);" >话题</a>
-  </div>
-</div>
-<script language="javascript">
-	var Ik = {upload:function(){IK.uplaodPic()}};
-</script>
-
-<!--内容-->
-<div class="stream-items">
-	<?php if(is_array($arrFeed)): foreach($arrFeed as $key=>$item): ?><div data-object-id="536893167" data-object-kind="1018" data-target-type="sns" data-action="1" data-sid="1188476174" style="" class="status-item">
-    <div data-status-id="1188476174" class="mod">
-      
-      <div class="hd">
-        <a title="<?php echo ($item[user][username]); ?>" href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a>
-      </div>
-      
-      <div class="bd layout-2"> 
-       	<?php echo ($item[content]); ?>
-        <div class="actions">
-          <span title="<?php echo (date('Y-m-d h:m:s',$item["addtime"])); ?>" class="created_at"><a href="#"><?php echo getTime($item[addtime],time()); ?></a></span>
-          &nbsp;&nbsp;
-          <a data-action-type="showComments" class="btn btn-action-reply" href="#">回应</a>
-          &nbsp;&nbsp;<a data-action-type="deleteStatus" class="btn btn-action-reply-delete" href="#">删除</a>
-        </div>
-
-        <div class="others">
-          <div class="comments">
-              <div class="comments-items"></div>
-              <form class="comment-form" action="#" method="post">
-                  <input type="text" data-type="status-comment" class="comment-text" name="text" maxlength="280">
-                  <input type="submit" data-type="status-comment" value="发表回应">
-                  <a class="add-more-comments" href="javascript:void(0);">继续回应</a>
-              </form>
-          </div>
-        </div>
+        <tr><th>性 别：</th><td>
         
-      </div><!--//layout2 -->
-    </div>
-</div><?php endforeach; endif; ?>
-</div>
-<!--//内容-->
-        </div>
+        <?php if($info["sex"] == '0'): ?><input checked="select" name="sex" type="radio" value="0" />保密 
+        <?php else: ?>
+        <input  name="sex" type="radio" value="0" />保密<?php endif; ?>
+        <?php if($info["sex"] == '1'): ?><input checked="select" name="sex" type="radio" value="1" />男  
+        <?php else: ?>
+        <input  name="sex" type="radio" value="1" />男<?php endif; ?>
+        <?php if($info["sex"] == '2'): ?><input checked="select" name="sex" type="radio" value="2" />女 
+        <?php else: ?>
+        <input name="sex" type="radio" value="2" />女<?php endif; ?>
         
-
-    </div><!--//cleft-->
-    <div class="cright">
-
-<div class="mod">
-
-<h2>
-    我关注的人
-</h2>
-
-<?php if(is_array($strUser[followUser])): foreach($strUser[followUser] as $key=>$item): ?><dl class="obu"><dt><a class="nbg" href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><img alt="<?php echo ($item[username]); ?>" class="m_sub_img" src="<?php echo ($item[face]); ?>"></a></dt>
-<dd><a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><?php echo ($item[username]); ?></a></dd>
-</dl><?php endforeach; endif; ?>
-
-<br clear="all">
+        
+        </td></tr>
+        
+        <tr><th>常居地：</th>
+        <td>
+        <?php if(!empty($strarea)): echo ($strarea[one][areaname]); ?> 
+        <?php echo ($strarea[two][areaname]); ?> 
+        <?php echo ($strarea[three][areaname]); endif; ?>
+        </td>
+        </tr>
+        
+        <tr><th>当前所在地：</th><td><input class="txt" name="address" value="<?php echo ($info["address"]); ?>" /></td></tr>
+        
+        <tr><th>登陆IP：</th><td><input class="txt" name="ip" value="<?php echo ($info["ip"]); ?>" disabled="true" /></td></tr>
+        
+        <tr><th>手 机：</th><td><input class="txt" name="phone" value="<?php echo ($info["phone"]); ?>"  /></td></tr>
+        
+        <tr><th>Blog地址：</th><td><input class="txt" name="blog" value="<?php echo ($info["blog"]); ?>"  /></td></tr>
+        
+        <tr><th>自我介绍：</th><td><textarea class="utext" name="about" style="height:70px; width:480px"><?php echo ($info["about"]); ?></textarea></td></tr>
+        
+        <tr><th>签 名：</th><td>
+        <textarea class="utext" name="signed" style="height:70px; width:480px"><?php echo t($info['signed']); ?></textarea>
+        (支持url链接，只需要输入http://www.******.com即可)
+        </td></tr>
+        
+        <tr><th></th><td><input class="submit" type="submit" value="更新个人资料"  /></td></tr>
+        
+        </table>
+        </form>
+    </div>
 </div>
-
-		
-    </div><!--//right-->
 </div>
-</div>
-
-<!--引入后前台的模版文件 -->
 <!--footer-->
 <?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>
 <footer>
@@ -286,6 +209,5 @@ __EXTENDS_JS__
 //document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
 </script>
 <!-- Baidu Button END -->
-
 </body>
 </html>
