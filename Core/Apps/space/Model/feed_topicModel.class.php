@@ -21,8 +21,8 @@ class feed_topicModel extends Model
 			return $str['topicid'];
 		}
 	}
-	public function getOneTopic($topicid){
-		$res = $this->where(array('topicid'=>$topicid))->find();
+	public function getOneTopic($map){
+		$res = $this->where($map)->find();
 		return $res;
 	}
 }

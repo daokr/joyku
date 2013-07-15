@@ -1347,3 +1347,27 @@ function ikscws($title, $num=10, $implode= ',')
 	}
 	return $arrword;
 }
+function parse_comment($content){
+    $content = str_replace("＃", "#", $content);
+    $content = preg_replace_callback("/#([^#]*[^#^\s][^#]*)#/is",_parse_html,$content);
+    return $content;	
+}
+function _parse_html($data){
+	$name = t($data[1]);
+    return "#".$name."#"; 
+}
+//替换模板微薄
+function replaceTheme($content){
+    $content = str_replace("＃", "#", $content);
+    $content = preg_replace_callback("/#([^#]*[^#^\s][^#]*)#/is",_parse_theme,$content);
+    return $content;
+}
+/**
+ * 话题替换 [格式化微博专用]
+ * @param array $data
+ * @return string
+ */
+function _parse_theme($data){
+	$name = t($data[1]);
+    return "#<a href=".U('space/update/topic',array('name'=>$name)).">".$name."</a>#"; 
+}

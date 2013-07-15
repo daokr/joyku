@@ -43,8 +43,13 @@ class updateAction extends spacebaseAction {
 			$feeddata = unserialize(stripslashes($strData['feeddata']));
 			if(is_array($feeddata)){
 				foreach($feeddata as $key=>$itemTmp){
-					$tmpkey = '{'.$key.'}';
-					$tmpdata[$tmpkey] = $itemTmp;					
+					$tmpkey = '{'.$key.'}'; 
+					if($tmpkey == '{comment}'){
+						$tmpdata[$tmpkey] = replaceTheme($itemTmp);	
+					}else{
+						$tmpdata[$tmpkey] = $itemTmp;	
+					}
+									
 				}
 			}
 			$arrFeed[$k]['user'] = $this->user_mod->getOneUser($item['userid']);
@@ -81,22 +86,16 @@ class updateAction extends spacebaseAction {
 		if(mb_strlen($comment,'utf8')>150){
 			$this->error('输入的广播字数太多了；请不要超过150个字！');
 		}
-		$comment = str_replace("＃", "#", $comment);
-		$comment = preg_replace("/#([^#]*[^#^\s][^#]*)#/is",htmlspecialchars("\${1}"),$comment);
-		echo $comment;die;
-		preg_match_all("/#([^#]*[^#^\s][^#]*)#/is",$comment,$arr);
-
-		dump($arr);die;
-		$arr = array_unique($arr[1]);
 		
+		$comment = parse_comment($comment);
+		preg_match_all("/#([^#]*[^#^\s][^#]*)#/is",$comment,$arr);
+		$arr = array_unique($arr[1]);
 		//判断是有话题 添加话题
 		if(!empty($arr)){
 			foreach ($arr as $v){
-				$dataTopic = array('topicname'=>trim($v)); echo trim($v);die;
-				//$topicid = $this->ftopic_mod->addTopic($dataTopic);
+				$dataTopic = array('topicname'=>t($v));
+				$topicid = $this->ftopic_mod->addTopic($dataTopic);
 			}
-			
-			
 		}
 		//feed数据
 		$dataFeed = array(
@@ -172,6 +171,16 @@ class updateAction extends spacebaseAction {
 				return ;
 			}			
 		}
+	}
+	//话题页面
+	public function topic(){
+		$name = $this->_get('name','trim');
+		$strTopic = $this->ftopic_mod->getOneTopic(array('topicname'=>$name));
+		if($strTopic){
+			
+		}else{
+			$this->error('您所查看的话题不存在！');
+		}
 	}	
 	//抓取网站
 	public function sharesite(){
@@ -193,6 +202,7 @@ class updateAction extends spacebaseAction {
 
 		}
 	}
+	//抓取地址解析
 	function geturlfile($url, $encode = 1, $charset='UTF-8') {
 		$text = '';
 		if (! empty ( $url )) {
@@ -216,5 +226,7 @@ class updateAction extends spacebaseAction {
 		}
 		return $text;
 	}
+
+	
 	
 }
