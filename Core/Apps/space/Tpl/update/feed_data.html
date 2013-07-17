@@ -1,6 +1,6 @@
 <foreach name="arrFeed" item="item">
-<div data-object-id="536893167" data-object-kind="1018" data-target-type="sns" data-action="1" data-sid="1188476174" style="" class="status-item">
-    <div data-status-id="1188476174" class="mod">
+<div data-object-id="{$item[feedid]}" class="status-item">
+    <div  class="mod">
       
       <div class="hd">
         <a title="{$item[user][username]}" href="{:U('space/index/index',array('id'=>$item[user][doname]))}"><img alt="{$item[user][username]}" src="{$item[user][face]}"></a>
@@ -10,9 +10,13 @@
        	{$item[content]}
         <div class="actions">
           <span title="{$item.addtime|date='Y-m-d h:m:s',###}" class="created_at"><a href="#"><php> echo getTime($item[addtime],time());</php></a></span>
-          &nbsp;&nbsp;
-          <a data-action-type="showComments" class="btn btn-action-reply" href="#">回应</a>
-          &nbsp;&nbsp;<a data-action-type="deleteStatus" class="btn btn-action-reply-delete" href="#">删除</a>
+          &nbsp;&nbsp;<a data-action-type="showComments" class="btn btn-action-reply" href="javascript:;">回应</a>
+          <if condition="$visitor[userid] neq $item[userid]">
+          &nbsp;&nbsp;<a data-action-type="like" class="btn btn-like" href="javascript:;" data-object-url="{:U('space/update/like')}">赞</a>
+          &nbsp;&nbsp;<a data-action-type="reshare" class="btn btn-key-reshare btn-reshare" href="javascript:;" data-object-url="{:U('space/update/reshare')}">转播</a>
+          <else/>
+          &nbsp;&nbsp;<a data-action-type="deleteStatus" class="btn btn-action-reply-delete" href="javascript:;" data-object-url="{:U('space/update/delete')}">删除</a>
+          </if>
         </div>
 
         <div class="others">

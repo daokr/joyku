@@ -1347,6 +1347,7 @@ function ikscws($title, $num=10, $implode= ',')
 	}
 	return $arrword;
 }
+//话题安全替换
 function parse_comment($content){
     $content = str_replace("＃", "#", $content);
     $content = preg_replace_callback("/#([^#]*[^#^\s][^#]*)#/is",_parse_html,$content);

@@ -7,7 +7,11 @@
 class updateAction extends spacebaseAction {
 	public function _initialize() {
 		parent::_initialize ();
-		
+		if(! $this->visitor->is_login ) {
+			$this->redirect ( 'public/user/login' );
+		}else{
+			$this->userid = $this->visitor->info ['userid'];
+		}
 		//应用所需 mod
 		$this->user_mod = D('user');
 		$this->feed_mod = D('feed');
@@ -94,8 +98,9 @@ class updateAction extends spacebaseAction {
 		if(!empty($arr)){
 			foreach ($arr as $v){
 				$dataTopic = array('topicname'=>t($v));
-				$topicid = $this->ftopic_mod->addTopic($dataTopic);
+				$topicid[] = $this->ftopic_mod->addTopic($dataTopic);
 			}
+			$topicid = implode(',', $topicid);
 		}
 		//feed数据
 		$dataFeed = array(
@@ -103,6 +108,7 @@ class updateAction extends spacebaseAction {
 				'type'	 => 'post',
 				'share_link' => $share_link,
 				'share_name' => $share_name,
+				'topicid' => $topicid,
 				);
 		//$dataTpl
 		$spaceUrl = U('space/index/index',array('id'=>$doname));
@@ -140,7 +146,8 @@ class updateAction extends spacebaseAction {
 			$tplData['actname'] = ' 推荐网址  ';
 			$tplData['actinfo'] = '<a href="'.$share_link.'" target="_top">'.$share_name.'</a>';
 			$tplData['userinfo'] = '<a href="'.$spaceUrl.'">'.$username.'</a>';
-			$tplData['comment'] = htmlspecialchars($comment);	
+			$tplData['comment'] = htmlspecialchars($comment);
+			$tplData['attachments'] = '';
 			
 			$feedid = $this->feed_mod->addFeed($dataFeed);
 		}
@@ -170,6 +177,24 @@ class updateAction extends spacebaseAction {
 				echo json_encode($arrJson);
 				return ;
 			}			
+		}
+	}
+	//ajax删除个人话题
+	public function delete(){
+		$userid =  $this->visitor->info ['userid'];
+		$feedid = $this->_post('feedid','trim,intval');
+		$strFeed = $this->feed_mod->getOneFeed($feedid,$userid);
+		if($strFeed){
+			$res = $this->feed_mod->deleteFeed($feedid);
+			if($res){
+				$arrJson = array('r'=>1, 'html'=> 'ok');
+				echo json_encode($arrJson);
+				return ;
+			}else{
+				$arrJson = array('r'=>0, 'html'=> 'error');
+				echo json_encode($arrJson);
+				return ;
+			}	
 		}
 	}
 	//话题页面

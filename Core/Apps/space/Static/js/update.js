@@ -59,12 +59,23 @@ $(function(){
 		checktext()
 	});
 	function checktext(){
-		if(h.val()!=0 && action!='sharesite'){
-			p.removeClass('isay-disable');
-			subtn.removeAttr('disabled');
-		}else{
-			p.addClass('isay-disable');
-			subtn.attr('disabled', true);
+		if(action=='sharesite'){
+			if(h.val()!=0 && $('input[name=share_name]').val()!=undefined){
+				p.removeClass('isay-disable');
+				subtn.removeAttr('disabled');				
+			}else{
+				p.addClass('isay-disable');
+				subtn.attr('disabled', true);
+			}
+		}else
+		{
+			if(h.val()!=0){
+				p.removeClass('isay-disable');
+				subtn.removeAttr('disabled');	
+			}else{
+				p.addClass('isay-disable');
+				subtn.attr('disabled', true);			
+			}
 		}
 	}
 	p.find('a').live('click',function(){
@@ -131,6 +142,7 @@ $(function(){
 					url_act.find('.bd').after('<a class="bn-x isay-cancel" href="javascript:void(0);" style="display:block" data-action="sharesite">×</a>');
 					url_act.find('.bd').removeClass('active');
 					p.removeClass('isay-disable');	
+					subtn.removeAttr('disabled');
 				}else{
 					url_act.find('.bd').html('<div class="error">这个网址无法识别。 <a data-action="sharesite" href="javascript:void(0);">重新输入</a></div>');
 					subtn.attr('disabled', true);
@@ -202,6 +214,18 @@ $(function(){
 			_self.removeClass('small').addClass('big');
 			_self.attr('src',small_img);
 		}
+	});
+	//删除话题
+	$('.btn-action-reply-delete').live('click',function(){
+			var _this = $(this), _parent = _this.parents('.status-item');
+			var feedid = _parent.attr('data-object-id'), url = _this.attr('data-object-url');
+			
+			$.post(url,{feedid:feedid},function(res){
+				if(res.r==1){
+					_parent.slideUp(200,function(){ _parent.remove(); })
+				}
+			},'json')
+			
 	});
 })
 

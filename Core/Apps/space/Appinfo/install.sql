@@ -81,6 +81,7 @@ CREATE TABLE `ik_feed` (
   `type` char(50) DEFAULT NULL COMMENT 'feed类型',
   `share_link` varchar(250) DEFAULT NULL COMMENT '分享链接地址',
   `share_name` varchar(250) DEFAULT NULL COMMENT '分享链接标题',  
+  `topicid` char(50) DEFAULT NULL COMMENT '关联的话题id',
   `addtime` int(11) NOT NULL COMMENT '产生时间戳',
   `is_del` int(2) NOT NULL DEFAULT '0' COMMENT '是否删除 默认为0',
   `count_comment` int(10) DEFAULT '0' COMMENT '评论数',
