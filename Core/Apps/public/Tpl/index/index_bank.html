@@ -192,153 +192,124 @@
   </div><!--//end wrapper-->
 </div><!--//end anony-sns-->
 
-<div class="section" id="anony-sns">
-  <div class="wrapper">
+<div class="midder">
+    <div class="mc">
+    
+        <div class="cleft">
+        
+            <h2>推荐小组<span class="pl">&nbsp;(<a href="{:U('group/index/explore')}">全部</a>) </span></h2>
+        
+            <div style="overflow:hidden;">
+            <foreach name="arrRecommendGroup" item="item">
+            <div class="sub-item">
+            <div class="pic">
+            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">
+            <img src="{$item[icon_48]}" alt="{$item[groupname]}" width="48" height="48">
+            </a>
+            </div>
+            <div class="info">
+            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a> ({$item[count_user]}/<font color="orange">{$item[count_topic]}</font>)             
+            <p>{$item[groupdesc]}</p>
+            </div>
+            </div>
+            </foreach>
+            </div>
+            <div class="clear"></div>
   
-<!-- douban ad begin -->
-<div id="dale_anonymous_homepage_top_for_crazy_ad"></div>
-<!-- douban ad end -->
+       
+            <h2>最热话题<span class="pl">&nbsp;(<a href="{:U('group/index/explore_topic')}">更多</a>) </span></h2>
+            <div class="topic-list">
+                <foreach name="arrHotTopic" item="item">
+                <dl>
+                    <dt><a href="{:U('space/index/index',array('id'=>$item[user][doname]))}"><img src="{$item[user][face]}"/></a></dt>
+                    <dd>
+                        <header class="title"><a href="{:U('group/index/topic',array('id'=>$item[topicid]))}" title="{$time[title]}">{$item[title]}</a></header>
+                         <a href="{:U('space/index/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <summary><php>echo getTime($item[addtime],time())</php> 阅读 {$item[count_view]} 评论 {$item[count_comment]}</summary>
+                        <p>
+                        <if condition="$item[video]">
+                        <a href="{:U('group/index/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[video][imgurl]}" class="fr"></a>
+                        <elseif condition="$item[img]"/>
+                        <a href="{:U('group/index/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[img][simg]}" class="fr"></a>
+                        </if>
+                        {$item[content]}
+                        </p>
+                    </dd>
+                </dl>
+                </foreach>
+            </div>
+        
+        </div><!--//left-->
+    
+        <div class="cright">
+            <h2>活跃用户</h2>
+            <div class="indent">
+            
+           <foreach name="arrHotUser" item="item">
+            <dl class="obu">
+                <dt>
+                    <a href="{:U('space/index/index',array('id'=>$item[doname]))}">
+                    <img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}" width="48" />
+                    </a>
+                    <if condition="$item[isonline] eq 1">
+                    	<div class="border-arrow" title="在线用户"></div>
+                    </if>
+                </dt>
+                <dd>
+                    <a href="{:U('space/index/index',array('id'=>$item[doname]))}">{$item[username]}</a>
+                </dd>
+            </dl>
+            </foreach>
+            <br clear="all"/>
+            </div>
 
-  
-  <div class="side">
+        	<div class="mod">
+                <h2>
+                        最近流行的应用
+                            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                </h2>
+                <div class="th-app-pop">
+                     <ul>
+                     	<foreach name="arrpopApp" item="item">
+                         <li class="common-item">
+                         <div class="pic">
+                             <a href="{:U('develop/index/show',array('id'=>$item[appid]))}"><img width="48" src="{$item[icon_100]}"></a>
+                         </div>
+                         <div class="info">
+                             <div class="title">
+                               <a href="{:U('develop/index/show',array('id'=>$item[appid]))}">{$item[title]}</a>
+                             </div>
+                             <div class="favs">{$item[count_down]}人用过 / {$item[cate][catename]}</div>
+                         </div>
+                         </li>
+                         </foreach>
+                     </ul>
+                </div> 
+            </div><!--//mod-->  
+            
+            <h2>最新创建小组&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('group/index/explore')}">全部</a>) </span></h2>
+            <div class="line23">
+            <foreach name="arrNewGroup" item="item">
+            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a> ({$item[count_user]}<if condition="$item[uptime] gt strtotime(date('Y-m-d 00:00:00'))">/<font color="orange">{$item[count_topic_today]}</font></if>)<br>
+            </foreach>
+            </div>
 
-  
-    <h2>
-        线上活动
-            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
-            <span class="pl">&nbsp;(
-                    <a href="http://www.douban.com/online/?r=i">更多</a>
-                ) </span>
-    </h2>
+			<h2>最新文章&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('article/index/index')}">全部</a>) </span></h2>
+			<div class="line23">
+			<foreach name="arrNewArticle" item="item">
+			<a href="{:U('article/index/show',array('id'=>$item[itemid]))}">{$item[title]}</a><br>
+ 			</foreach>
+			</div>
+            
+          
+            
 
-  <div class="online">
-    <ul>
-        <li>
-            <div class="title">
-                <a href="http://www.douban.com/online/11583350/">你出邮费我就送</a>
-            </div>
-            <div class="desc">
-                时间：7月28日 - 8月27日
-                <br><span class="num">2817人参加</span>
-            </div>
-        </li>
-        <li>
-            <div class="title">
-                <a href="http://www.douban.com/online/11582110/">豆瓣【原来不是】第一届比穷大赛！！！</a>
-            </div>
-            <div class="desc">
-                时间：7月26日 - 9月5日
-                <br><span class="num">1547人参加</span>
-            </div>
-        </li>
-        <li>
-            <div class="title">
-                <a href="http://www.douban.com/online/11535333/">晒出真实的自己，遇见对的TA！</a>
-            </div>
-            <div class="desc">
-                时间：5月7日 - 8月6日
-                <br><span class="num">5799人参加</span>
-            </div>
-        </li>
-        <li>
-            <div class="title">
-                <a href="http://www.douban.com/online/11582151/">来来来，给输入法和豆瓣阅读广告合个影吧！</a>
-            </div>
-            <div class="desc">
-                时间：7月26日 - 8月25日
-                <br><span class="num">235人参加</span>
-            </div>
-        </li>
-        <li>
-            <div class="title">
-                <a href="http://www.douban.com/online/11580254/">豆瓣首届喵星人Hold住大赛</a>
-            </div>
-            <div class="desc">
-                时间：7月23日 - 8月18日
-                <br><span class="num">1839人参加</span>
-            </div>
-        </li>
-        <!-- douban ad begin -->
-        <li>
-          <div id="dale_homepage_online_activity_promo_1"></div>
-        </li>
-        <li>
-          <div id="dale_anonymous_homepage_doublemint"></div>
-        </li>
-        <!-- douban ad end -->
-    </ul>
-  </div>
+        
+        
+            <div class="clear"></div>
+        </div><!--//right-->
+    
+    </div><!--//mc-->
 </div>
-  <div class="main">
-<div class="mod">
-
-  
-    <h2>
-        热点内容
-            ······
-    </h2>
-
-  <div class="albums">
-    <ul>
-      <li>
-      <div class="pic">
-          <a href="http://www.douban.com/photos/album/106931735/"><img alt="" data-origin="http://img3.douban.com/view/photo/albumcover/public/p2061959750.jpg" src="http://img3.douban.com/view/photo/albumcover/public/p2061959750.jpg"></a>
-      </div>
-      <a href="http://www.douban.com/photos/album/106931735/">●ω●</a>
-      <span class="num">23张照片</span>
-      </li><li>
-      <div class="pic">
-          <a href="http://www.douban.com/photos/album/106644365/"><img alt="" data-origin="http://img3.douban.com/view/photo/albumcover/public/p2038197635.jpg" src="http://img3.douban.com/view/photo/albumcover/public/p2038197635.jpg"></a>
-      </div>
-      <a href="http://www.douban.com/photos/album/106644365/">20分钟做意面</a>
-      <span class="num">13张照片</span>
-      </li><li>
-      <div class="pic">
-          <a href="http://www.douban.com/photos/album/106614246/"><img alt="" data-origin="http://img3.douban.com/view/photo/albumcover/public/p2037866810.jpg" src="http://img3.douban.com/view/photo/albumcover/public/p2037866810.jpg"></a>
-      </div>
-      <a href="http://www.douban.com/photos/album/106614246/">超市那个弱爆了，看洛杉矶艺术家的展台设计</a>
-      <span class="num">92张照片</span>
-      </li><li>
-      <div class="pic">
-          <a href="http://www.douban.com/photos/album/81000590/"><img alt="" data-origin="http://img3.douban.com/view/photo/albumcover/public/p2048571395.jpg" src="http://img3.douban.com/view/photo/albumcover/public/p2048571395.jpg"></a>
-      </div>
-      <a href="http://www.douban.com/photos/album/81000590/">LIFECYCLING</a>
-      <span class="num">793张照片</span>
-    </li></ul>
-  </div>
-  <div class="notes">
-    <ul>
-      <li class="first">
-      <div class="title">
-          <a href="http://www.douban.com/note/290939157/">读书真的重要吗？</a>
-      </div>
-      <div class="author">
-        芬雷的日记
-      </div>
-      <p>人到三十，我开始重新思考这个问题。想来想去，不一定有道理，我觉得读书是重要的...</p>
-      </li>
-
-      <li><a href="http://www.douban.com/note/289514899/">由绘画看人的包容和坚守</a></li>
-      <li><a href="http://www.douban.com/note/288959253/">下意识的语言模式（下）</a></li>
-      <li><a href="http://www.douban.com/note/289389729/">1、《满满都是我对你的爱》之我反对你们结婚</a></li>
-      <li><a href="http://www.douban.com/note/289501225/">商场的地下王国</a></li>
-      <li><a href="http://www.douban.com/note/290175650/">先生做饭太太乐</a></li>
-      <li><a href="http://www.douban.com/note/291906190/">闲话印石，以及我的封门青。</a></li>
-      <li><a href="http://www.douban.com/note/292016157/">20岁以后，努力选择去过自己喜欢的生活</a></li>
-      <li><a href="http://site.douban.com/MLS/widget/notes/13844412/note/289129651/">诗两首</a></li>
-      <li><a href="http://www.douban.com/note/289375225/">我收集的有用的社会科学数据（不断添加中）</a></li>
-    </ul>
-  </div>
-</div>
-</div>
-  </div>
-  
-<div class="extra" id="dale_anonymous_home_page_top"><iframe width="950" scrolling="no" height="90" frameborder="0" id="dale_anonymous_home_page_top_frame" style="overflow: hidden; margin: 0px;"></iframe></div>
-
-</div>
-
-
-
 <include file="public:footer" />
 </body>
 </html>
