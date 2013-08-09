@@ -137,65 +137,241 @@ __EXTENDS_JS__
 </div>
 <div class="midder">
 	<div class="mc">
-		<aside class="w190 fl">
-			<section class="categories">
-				<div class="hd">
-					<h3>全部分类</h3>
-				</div>
-				<ul class="list categories-list">
-                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/index/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
-				</ul>
-			</section>
-			<section class="personal-publish">
-				<div class="hd">
-					<h3>作品投稿</h3>
-				</div>
-				<div class="bd">
-					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
-					<p class="entrance">
-						<a href="<?php echo U('article/index/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
-					</p>
-				</div>
-			</section>
-		</aside>
-		<article class="w770 fr">
-			<section>
-				<div class="hd tag-heading">
-					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
-				</div>
+    	<div class="cleft">
+<div class="mod ui-slides" id="db-events-guess">
+  <div class="hd">
+    <h2>热门活动</h2>
+      
+  <div class="ui-slide-control" id="ui-control">
+    <span class="ui-slide-counter pl">1/4</span>
+    <a href="javascript:void(0)" class="btn-prev"></a>
+    <a href="javascript:void(0)" class="btn-next"></a>
+  </div>
+  
 
-				<div class="bd">
-					<ul class="list-lined article-list">
-						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
-							<div class="title">
-								<a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
-                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
-                                </a>
-							</div>
-                           <?php if($item[isphoto]): ?><div class="cover">
-                                <a class="pic" href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">
-									<img src="<?php echo ($item[photo][simg]); ?>" />
-								</a> 
-							</div><?php endif; ?>                           
-							<div class="info">
-								<div class="article-desc-brief">
-									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
-                                    <a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">（更多）</a>
-								</div>
-							</div>
-							<a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
-						</li><?php endforeach; endif; ?>
+  </div>
+  <div class="bd ui-slide-screen">
+    <ul class="ui-slide-contents gallery" id="ui-ul">  
+		<?php if(is_array($hotEvent)): foreach($hotEvent as $key=>$item): ?><li>
+          <div class="pic">
+            <a tabindex="-1"  href="<?php echo U('location/event/show',array('id'=>$item[eventid]));?>">
+            <img alt="<?php echo ($item[title]); ?>" src="<?php echo ($item[midimg]); ?>" height="165" width="120">
+            </a>
+          </div>
+          <div class="title">
+              <a href="<?php echo U('location/event/show',array('id'=>$item[eventid]));?>" title="<?php echo ($item[title]); ?>"><?php echo ($item[title]); ?></a>
+          </div>
+        </li><?php endforeach; endif; ?> 
+     
+    </ul>
+  </div>
+</div>
 
-					</ul>
-				</div>
+<!--cate-->
+<div class="mod cats-board inline-list">
+  <ul>
+      <?php if(is_array($arrCateList)): foreach($arrCateList as $key=>$item): if($item[childCate]): ?><li class="entry">
+        <h5>
+          <a href="<?php echo U('location/event/lists',array('type'=>'week-'.$item[parentCate][enname]));?>"><?php echo ($item[parentCate][catename]); ?>&gt;&gt;</a>
+        </h5>
+        <ul>
+            <?php if(is_array($item[childCate])): foreach($item[childCate] as $ckey=>$citem): ?><li>
+                <a href="<?php echo U('location/event/lists',array('type'=>'week-'.$citem[cateid]));?>"><?php echo ($citem[catename]); ?></a>
+                </li><?php endforeach; endif; ?>
+        </ul>
+      </li><?php endif; endforeach; endif; ?>
+  </ul>
+</div>
+
+<div class="mod">
+<script type="text/javascript">
+     document.write('<a style="display:none!important" id="tanx-a-mm_11053146_4018392_13072168"></a>');
+     tanx_s = document.createElement("script");
+     tanx_s.type = "text/javascript";
+     tanx_s.charset = "gbk";
+     tanx_s.id = "tanx-s-mm_11053146_4018392_13072168";
+     tanx_s.async = true;
+     tanx_s.src = "http://p.tanx.com/ex?i=mm_11053146_4018392_13072168";
+     tanx_h = document.getElementsByTagName("head")[0];
+     if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+</div>
+
+<div class="mod event-mod">
+      <h2>
+        <span class="pl fr">
+          <a href="#">更多</a>
+        </span>
+        音乐
+      </h2>
+      <div class="bd">
+
+     <ul class="events-list events-list-2col">
+     
+<?php if(is_array($hotEvent)): foreach($hotEvent as $key=>$item): ?><li class="list-entry">
+      <div class="pic">
+        <a tabindex="-1" href="<?php echo U('location/event/show',array('id'=>$item[eventid]));?>">
+          <img alt="<?php echo ($item[title]); ?>" data-lazy="<?php echo ($item[smallimg]); ?>" src="__PUBLIC__/images/blank.gif" width="70">
+        </a>
+      </div>
+      <div class="info">
+        <div class="title">
+          <a href="<?php echo U('location/location/event/show',array('id'=>$item[eventid]));?>" title="<?php echo ($item[title]); ?>">
+          <?php echo ($item[title]); ?>
+          </a>
+        </div>
+        <div class="datetime">
+        	<span class="month"><?php echo date('m月',$item[begin_date]); ?></span>
+            <span class="day"><?php echo date('d日',$item[begin_date]); ?> <?php echo ($item[begin_week_day]); ?></span>&nbsp;
+            <span class="time"><?php echo ($item[begin_time]); ?> - <?php echo ($item[end_time]); ?></span>
+        </div>
+        <address title="<?php echo ($item[city]); ?> <?php echo ($item[district]); ?> <?php echo ($item[street_address]); ?>">
+          <?php echo ($item[street_address]); ?>
+        </address>
+        <div>0人关注</div>
+      </div>
+      </li><?php endforeach; endif; ?>      
+        
+     </ul>
+
+      </div>
+    </div>
 
 
-			</section>
+
+
+
+
+
+        
+        </div><!--//left-->
+        <div class="cright">
+<div class="mod">  			
+<script type="text/javascript">
+     document.write('<a style="display:none!important" id="tanx-a-mm_11053146_4018392_13062841"></a>');
+     tanx_s = document.createElement("script");
+     tanx_s.type = "text/javascript";
+     tanx_s.charset = "gbk";
+     tanx_s.id = "tanx-s-mm_11053146_4018392_13062841";
+     tanx_s.async = true;
+     tanx_s.src = "http://p.tanx.com/ex?i=mm_11053146_4018392_13062841";
+     tanx_h = document.getElementsByTagName("head")[0];
+     if(tanx_h)tanx_h.insertBefore(tanx_s,tanx_h.firstChild);
+</script>
+</div>
+
+<div class="mod">  
+<a href="<?php echo U('location/event/create',array('loc'=>'beijing'));?>" rel="nofollow" class="bn-big-action">
+  ＋发起同城活动     
+</a>     
+</div>
             
-             <div class="page"><?php echo ($pageUrl); ?></div>   
-             
-		</article>
-	</div>
+<div class="mod event-mod">
+  <h2>
+    官方预售
+    <span class="pl fr">
+      <a href="#" title="北京的全部售票活动">
+        更多》
+      </a>
+    </span>
+  </h2>
+    <ul class="simple-list-1col">
+        
+        <li class="list-entry">
+        <a  href="#" class="ll"><img width="48" src="__PUBLIC__/images/defimg.gif" alt="情歌之巅&mdash;&mdash;胡里奥Julio lglesias中国巡回演唱会北京站"></a>
+        <div class="info">
+          <p class="event-title">
+              <a onclick="moreurl(this, {from:'loc-event-ticket-108288-0-title'})" href="#">
+              情歌之巅&mdash;&mdash;胡里奥Julio lglesias中国巡回演唱会北京站
+            </a>
+          </p>
+          <p class="tip">
+            04月21日 19:30-21:30<br>
+            
+            <span class="on-selling-events-price">¥ 380</span>
+          </p>
+        </div>
+        </li>
+        
+    </ul>
+</div>            
+  
+
+<!--主办方-->
+<div class="mod event-mod">
+    <h2>
+      <span class="pl fr">
+        <a href="#">更多》</a>
+      </span>
+      北京活跃的主办方
+    </h2>
+    
+<ul class="simple-list-1col">
+    <li class="list-entry">
+    <a href="#" class="ll" target="db-host"><img width="48" height="48" src="__PUBLIC__/images/defimg.gif" alt="北京中山公园音乐堂"></a>
+    <div class="info">
+      <p class="title"><a href="#" target="db-host">北京中山公园音乐堂</a></p>
+      <p class="tip">
+      
+      有<a href="#" target="db-host">18个活动</a>正在进行
+      </p>
+      <ul>
+          <li>
+          <a title="威尔第歌剧的光辉&mdash;女高音歌唱家李国玲和她的朋友们" href="#" class="gloomy">[音乐] 威尔第歌剧的光辉&mdash;女高音歌唱家...</a>
+          </li>
+          <li>
+          <a title="浪漫竖琴之夜-俄罗斯竖琴家艾米丽亚·莫斯克维金娜独奏音乐会" href="#" class="gloomy">[音乐] 浪漫竖琴之夜-俄罗斯竖琴家艾米丽...</a>
+          </li>
+      </ul>
+    </div>
+    </li>
+    
+</ul>
+
+  </div>
+ 
+
+<div class="mod">
+  <h2>更多发现</h2>
+  <ul class="inline-list linkgrid">
+  	<li>
+    <a class="no-hover no-visited" href="#">
+      <strong>
+      同城活动小组
+      </strong>
+      <span class="info">
+      发现玩活动的圈子
+      </span>
+    </a>
+  	</li>
+  	<li>
+    <a  class="no-hover no-visited" href="#" style="border-left:none">
+      <strong>
+      主办方系列活动
+      </strong>
+      <span class="info">
+      主办方的主题活动
+      </span>
+    </a>
+  	</li>
+  </ul>
+</div>
+
+<div class="mod">
+<p style="font-size:14px;" class="pl">
+<a href="#" class="lnk-rss" target="_blank">RSS</a>
+&nbsp;
+&nbsp;
+&gt; <a href="#">申请主办方</a>
+&nbsp;
+&nbsp;
+&gt; <a href="#">我要提建议</a>
+</p>
+</div>
+  
+        
+        </div><!--//right-->
+    </div>
 </div>
 <!--引入后前台的模版文件 -->
 <!--footer-->

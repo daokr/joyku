@@ -28,6 +28,16 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
+<script type="text/javascript">
+var SITEATTACH = "<?php echo C('ik_attach_path');?>";
+var eventshowUrl = "<?php echo U('location/event/show',array('id'=>$eventid));?>";
+
+IK.add('image', {path: '__PUBLIC__/js/lib/imgsel.js', type:'js'});
+IK("image",function(){var c,g,b;function d(i,l){var j=100/l.width,h=150/l.height,k="";$("#preimg").css({width:Math.round(j*c)+"px",height:Math.round(h*g)+"px",marginLeft:"-"+Math.round(j*l.x1)+"px",marginTop:"-"+Math.round(h*l.y1)+"px"});if($("#imgpos").length){k=Math.round(l.x1/b)+","+Math.round(l.y1/b)+","+Math.round(l.width/b)+","+Math.round(l.height/b);$("#imgpos").val(k)}}if($("#imgSrc").length){var a=new Image(),f,e;a.src=$("#imgSrc").val();$(a).bind("load",function(){if(a.width>a.height){c=Math.min(a.width,300);g=a.height*c/a.width,b=c/a.width;f=(g-10)*2/3;e=g-10}else{g=Math.min(a.height,300);c=a.width*g/a.height;b=g/a.height;f=c-10;e=(c-10)*3/2;if(c*3/2>g){e=(g-10);f=e*2/3}}$("#bigimg").attr("src",a.src).css("width",c+"px");$("#bigimg").imgAreaSelect({x1:0,x2:f,y1:0,y2:e,aspectRatio:"2:3",onSelectChange:d,onSelectBegin:d,noNewSelect:"true"})})}$("#reuploadPhotoHook").click(function(h){h.preventDefault();$("#uploadPhotoCon").removeClass("hide");$(this).remove()});$("#icon_submit").click(function(h){if(!$("#picfile").val()){h.preventDefault();alert("请选择上传文件")}})});
+IK.ready(function(){$('#skip_upload_poster').click(function(){
+	window.location.href = eventshowUrl;
+})});
+</script>
 </head>
 
 <body>
@@ -136,67 +146,69 @@ __EXTENDS_JS__
         
 </div>
 <div class="midder">
-	<div class="mc">
-		<aside class="w190 fl">
-			<section class="categories">
-				<div class="hd">
-					<h3>全部分类</h3>
-				</div>
-				<ul class="list categories-list">
-                    <?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><li><a href="<?php echo U('article/index/category',array('cateid'=>$item[cateid]));?>"><?php echo ($item[catename]); ?></a></li><?php endforeach; endif; ?>
-				</ul>
-			</section>
-			<section class="personal-publish">
-				<div class="hd">
-					<h3>作品投稿</h3>
-				</div>
-				<div class="bd">
-					<p>个人作者可以在爱客上直接发布作品。 内容领域不限，唯一要求是保证质量优秀。 发表后，作者可直接从中获得分成。</p>
-					<p class="entrance">
-						<a href="<?php echo U('article/index/add');?>" class="btn btn-large">去投稿<i class="arrow-right"></i></a>
-					</p>
-				</div>
-			</section>
-		</aside>
-		<article class="w770 fr">
-			<section>
-				<div class="hd tag-heading">
-					<h3 class="the-tag-name"><?php echo ($seo["title"]); ?></h3>
-				</div>
-
-				<div class="bd">
-					<ul class="list-lined article-list">
-						<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><li class="item" id="article-407582">
-							<div class="title">
-								<a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>"><?php echo ($item[title]); ?> 
-                                <?php if($item[isphoto]): ?>[图文]<?php endif; ?>
-                                </a>
-							</div>
-                           <?php if($item[isphoto]): ?><div class="cover">
-                                <a class="pic" href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">
-									<img src="<?php echo ($item[photo][simg]); ?>" />
-								</a> 
-							</div><?php endif; ?>                           
-							<div class="info">
-								<div class="article-desc-brief">
-									<?php echo getsubstrutf8(t($item[content]),0,150); ?>...
-                                    <a href="<?php echo U('article/index/show',array('id'=>$item[aid]));?>">（更多）</a>
-								</div>
-							</div>
-							<a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <span class="time">发表于 <?php echo date('Y-m-d H:i',$item[addtime]) ?> 评论 <?php echo ($item[count_comment]); ?> | 浏览 <?php echo ($item[count_view]); ?></span> 
-						</li><?php endforeach; endif; ?>
-
-					</ul>
-				</div>
+    <div class="mc">
+    	<h1><?php echo ($seo["title"]); ?></h1>
+        <div class="cleft">
+            <div class="nav-step">
+              <span class="pl">1. 填写活动信息</span>
+              <span class="pl">&gt;</span>
+              <span>2. 上传活动海报</span>
+              <span class="pl">&gt;</span>
+              <span class="pl">3. 提交活动</span>
+            </div>
 
 
-			</section>
+<form method="post" name="upload-poster" enctype="multipart/form-data">
+    <div class="img-container">
+    	<?php if($imgpath): ?><img id="bigimg"/>
+        <input id="imgSrc" type="hidden" value="<?php echo ($imgSrc); ?>" />
+        <input type="hidden" value="<?php echo ($imgpath); ?>" name="imgpath"/>
+        <?php else: ?>
+        <img  src="<?php echo ($imgSrc); ?>"/><?php endif; ?>
+    </div>
+    <div class="upload-info">
+    	<?php if(empty($imgpath)): ?><div class="upload" id="uploadPhotoCon">
+        <?php else: ?>
+         <div class="upload hide" id="uploadPhotoCon"><?php endif; ?>
+            <h2>从电脑中选择你喜欢的照片:</h2>
+            <p class="pl">你可以上传JPG、JPEG、GIF、PNG或BMP文件。</p>
+            <input type="file" name="picfile" id="picfile" />
+            <p>
+            <input class="loc-btn" name="icon_submit" type="submit" id="icon_submit" value="上传照片"/>
+            <?php if(empty($imgpath)): ?><input type="button" class="later-poster" value="以后再说" id="skip_upload_poster" name="skip_upload_poster"><?php endif; ?>
+            </p>
+        </div>
+        <?php if($imgpath): ?><a href="#" id="reuploadPhotoHook">重新选择上传图片</a>
+        <div class="preview">
+            <h2>这是你创建的活动的海报</h2>
+            <div class="info clearfix">
+                <div class="preview-box">
+                    <img src="<?php echo ($imgSrc); ?>" id="preimg"/>
+                </div>
+                <p class="pl">随意拖拽或调整大图中的虚线区域，预览小图即为裁切后的效果。</p>
+            </div>
+
+            <input type="hidden" id="imgpos" name="imgpos" />
+            <input type="submit" name="choose_submit" id="choose_submit" value="保存活动海报" class="loc-btn"/>
+        </div><?php endif; ?>
+    </div>
+</form>
+
+  
             
-             <div class="page"><?php echo ($pageUrl); ?></div>   
-             
-		</article>
-	</div>
-</div>
+        </div><!--//left-->
+    
+        <div class="cright">
+
+            <h2>让你的活动更吸引人！</h2>
+            <p>用一张适合的图片代表你的活动，即使你没有专业的设计师。</p>
+            <p>随意拖拽或调整大图中的虚线区域，预览小图即为裁切后的效果。</p>
+            <p>高宽比为3:2的图片会得到最完整的显示。</p>
+
+        </div><!--//right-->
+    
+    </div><!--//mc-->
+</div><!--//midder-->
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>
