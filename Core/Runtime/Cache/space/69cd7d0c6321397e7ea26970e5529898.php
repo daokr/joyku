@@ -8,6 +8,7 @@
 <?php if(!empty($seo["description"])): ?><meta name="description" content="<?php echo ($seo["description"]); ?>" /><?php endif; ?>
 <meta property="qc:admins" content="12472730776130006375" />
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
+<link rel="icon" href="__PUBLIC__/images/fav.gif" type="image/gif" />
 __SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
@@ -140,11 +141,8 @@ __EXTENDS_JS__
 	<h1><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
 
-
-	  
-
 	<form id="form_note" method="post">
-    <input id="note_id" name="note_id" value="282939518" type="hidden">
+    <input id="note_id" name="noteid" value="282939518" type="hidden">
     <div class="row note-title">
         <label class="field" for="note_title">题目:</label>
         <div>
@@ -184,10 +182,6 @@ __EXTENDS_JS__
         </label>
     </div>
     <div class="row footer">
-        <div class="error-msg board">
-        </div>
-
-        &nbsp;
         <input tabindex="8" id="publish_note" value="发表" class="btn" name="note_submit" type="submit">
         <span class="bn-flat cancel-note">
             <input tabindex="9" id="cancel_note" value="取消" class="bn-flat" name="cancel_note" type="button" onClick="history.go(-1)">

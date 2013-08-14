@@ -28,8 +28,7 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
-<script type="text/javascript" src="__PUBLIC__/js/lib/jquery.text-selection.js"></script>
-<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/masonry/jquery.masonry.min.js"></script>
 </head>
 
 <body>
@@ -142,117 +141,69 @@ __EXTENDS_JS__
 <div class="mc">
 	<h1><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
-    	<div id="mod-status-cate">
-            <div class="status-cate">
-                <a class="bn-status-more" href="#"><span>全部</span><i></i></a>
-                <div class="more-status-items">
-                  <table cellspacing="0" cellpadding="0">
-                    <tbody>
-                      <tr><td><span class="cate-list-title">分组查看</span></td></tr>
-                      <tr><td><a class="on" href="#">全部</a></td></tr>
-                      <tr><td><a class="" href="#">日记</a></td></tr>
-                      <tr><td><a class="" href="#">相册</a></td></tr>
-                  </tbody></table>
-                </div>
+    	<?php if($visitor[userid] == $strAlbum[userid]): ?><div class="pl photitle">
+            <span class="fr">
+            &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/album',array('d'=>'edit','id'=>$strAlbum[albumid]));?>">修改相册属性</a>
+            &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">添加照片</a>
+            &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid]));?>">批量修改</a>
+            &nbsp;&gt;&nbsp;<a href="<?php echo U('space/photos/index',array('id'=>$strAlbum[userid]));?>">返回我的相册首页</a>
+            </span>
             </div>
-    	</div>
+        <?php else: ?>
+        	<div class="pl photitle">
+            <span class="fr">&gt; <a href="<?php echo U('space/photos/index',array('id'=>$strAlbum[userid]));?>">返回<?php echo ($user[username]); ?>的相册首页</a></span>
+            </div><?php endif; ?>
 
-		<!--内容开始-->
-        <div id="statuses">
+<div class="">
+        <?php if(empty($item_list)): if($visitor[userid] == $strAlbum[userid]): ?><br>
+        <p class="pl">这个相册现在还没有照片 , 你可以<b><a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">添加照片</a></b></p>
+        <?php else: ?>
+        <br>
+        <p class="pl">这个相册现在还没有照片</p><?php endif; endif; ?>
+
+        <div id="J_waterfall" class="wall_container" data-uri="<?php echo U('space/photos/index_ajax',array('albumid'=>$strAlbum[albumid],'p'=>$p));?>">
+            <?php if(is_array($item_list)): $i = 0; $__LIST__ = $item_list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?><div class="J_item wall_item">
+    
+        <!--图片-->
+        <ul class="pic">
+            <li>
+                <a href="<?php echo U('space/photos/show', array('id'=>$item['photoid']));?>">
+					<img class="J_img J_decode_img" data-uri="<?php echo ($item[simg]); ?>" >
+                </a>
+            </li>
+        </ul>
+
+    </div><?php endforeach; endif; else: echo "" ;endif; ?>
+        </div>
         
-<div class="mod isay isay-disable" id="db-isay">
-	<form action="<?php echo U('space/update/publish');?>" method="post" name="mbform" onsubmit="return checkFrom(this)">
-    <ul class="isay-links">
-      <li class="isay-main active"><a href="javascript:void(0);" data-action="main">说句话</a></li>
-      <li class="isay-share"><a href="javascript:void(0);" data-action="sharesite">推荐网页</a></li>
-     <!-- <li class="isay-tab-subject"><a href="javascript:void(0);" data-action="subject">分享电影</a></li> -->
-      <li class="notes-link"><a title="添加日记" href="#">写日记</a></li>
-    </ul>
-    <div class="isay-act" id="isay-url-field"></div>
-    <div class="item">
-      <p class="highlighter mention-highlighter"></p>
-      <p class="highlighter error-highlighter"></p>
-      <label for="isay-cont" id="isay-label">快来分享一下你今天的所见所得吧...</label>
-      <textarea rows="1" name="comment" id="isay-cont" tabindex="1" data-minheight="90" maxlength="150"></textarea>
-    </div>
-    <div class="isay-act" id="isay-act-field"></div>
-    <div class="btn">
-      <span id="isay-counter"></span>
-      <span class="bn-submit bn-flat"><input type="hidden" value="topic" name="type" id="isaytype" ><input type="submit" value="我来说" tabindex="1" id="isay-submit" disabled></span>
-    </div>
-  </form>
-  <div class="btn-group">
-    <form method="post" enctype="multipart/form-data" action="<?php echo U('space/update/uploadImg');?>" data-action="pic" id="isay-upload" charset="utf-8">
-      <input type="file" title="上传照片" name="image" data-action="pic" autocomplete="off" tabindex="2" id="isay-upload-inp" onChange="Ik.upload()">
-    </form>
-    <a title="上传照片" class="ico ico-pic"   data-action="pic" tabindex="-1" href="javascript:void(0);" >照片</a>
-    <a title="添加话题" class="ico ico-topic" data-action="topic" tabindex="2" href="javascript:void(0);" >话题</a>
-  </div>
+        <?php if(isset($show_load)): ?><div id="J_wall_loading" class="wall_loading tc gray"><span>加载中。。。</span></div><?php endif; ?>
+        
+        <?php if(isset($page_bar)): ?><div id="J_wall_page" class="wall_page" <?php if(isset($show_page)): ?>style="display:block;"<?php endif; ?>>
+                <div class="page_bar"><?php echo ($page_bar); ?></div>
+            </div><?php endif; ?>   
 </div>
-<script language="javascript">
-	var Ik = {upload:function(){IK.uplaodPic()}};
-</script>
 
-<!--内容-->
-<div class="stream-items">
-	<?php if(is_array($arrFeed)): foreach($arrFeed as $key=>$item): ?><div data-object-id="<?php echo ($item[feedid]); ?>" class="status-item">
-    <div  class="mod">
-      
-      <div class="hd">
-        <a title="<?php echo ($item[user][username]); ?>" href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a>
-      </div>
-      
-      <div class="bd layout-2"> 
-       	<?php echo ($item[content]); ?>
-        <div class="actions">
-          <span title="<?php echo (date('Y-m-d h:m:s',$item["addtime"])); ?>" class="created_at"><a href="#"><?php echo getTime($item[addtime],time()); ?></a></span>
-          &nbsp;&nbsp;<a data-action-type="showComments" class="btn btn-action-reply" href="javascript:;">回应</a>
-          <?php if($visitor[userid] != $item[userid]): ?>&nbsp;&nbsp;<a data-action-type="like" class="btn btn-like" href="javascript:;" data-object-url="<?php echo U('space/update/like');?>">赞</a>
-          &nbsp;&nbsp;<a data-action-type="reshare" class="btn btn-key-reshare btn-reshare" href="javascript:;" data-object-url="<?php echo U('space/update/reshare');?>">转播</a>
-          <?php else: ?>
-          &nbsp;&nbsp;<a data-action-type="deleteStatus" class="btn btn-action-reply-delete" href="javascript:;" data-object-url="<?php echo U('space/update/delete');?>">删除</a><?php endif; ?>
-        </div>
-
-        <div class="others">
-          <div class="comments">
-              <div class="comments-items"></div>
-              <form class="comment-form" action="#" method="post">
-                  <input type="text" data-type="status-comment" class="comment-text" name="text" maxlength="280">
-                  <input type="submit" data-type="status-comment" value="发表回应">
-                  <a class="add-more-comments" href="javascript:void(0);">继续回应</a>
-              </form>
-          </div>
-        </div>
-        
-      </div><!--//layout2 -->
-    </div>
-</div><?php endforeach; endif; ?>
-</div>
-<!--//内容-->
-        </div>
-        
-
+    	
     </div><!--//cleft-->
     <div class="cright">
-
-<div class="mod">
-
-<h2>
-    我关注的人
-</h2>
-
-<?php if(is_array($strUser[followUser])): foreach($strUser[followUser] as $key=>$item): ?><dl class="obu"><dt><a class="nbg" href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><img alt="<?php echo ($item[username]); ?>" class="m_sub_img" src="<?php echo ($item[face]); ?>"></a></dt>
-<dd><a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><?php echo ($item[username]); ?></a></dd>
-</dl><?php endforeach; endif; ?>
-
-<br clear="all">
+    	<?php if($visitor[userid] == $user[userid]): ?><p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('d'=>'create'));?>" class="create-new-album" >创建新相册</a></p><?php endif; ?>
+<div class="mod">       
+    <h2>最新回应 &nbsp; ·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;</h2>
+    <ul class="photocom">
+    <?php if(is_array($arrNewComment)): foreach($arrNewComment as $key=>$item): ?><li>
+            <div class="pic"><a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img src="<?php echo ($item[user][face]); ?>"></a></div>
+            <div class="piccomment">
+                <p><a href="<?php echo U('space/photos/show',array('id'=>$item[photoid]));?>"><?php echo ($item[user][username]); ?> : 
+                <?php echo getsubstrutf8(t($item[content]),0,30); ?></a></p>
+                <span class="pl"><?php echo (date("Y-m-d h:m",$item["addtime"])); ?></span>
+            </div>
+        </li><?php endforeach; endif; ?>
+    </ul>
 </div>
-
-		
     </div><!--//right-->
 </div>
 </div>
-
+<script type="text/javascript" src="__STATIC_JS__/wall.js"></script>
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>

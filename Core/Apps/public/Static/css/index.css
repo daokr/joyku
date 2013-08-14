@@ -286,15 +286,16 @@ a.lnk-reg:link,a.lnk-reg:visited,a.lnk-reg:hover,a.lnk-reg:active {
 
 
 /**活跃会员**/
-#anony-sns.obu {
+#anony-sns .obu {
     display:block;
     margin: 0 0 0px;
 	display:block;
+	height:60px;
 }
 #anony-sns .obu dt {
     height: 50px;
     line-height: 16px;
-    margin: 0;
+    margin: 0 10px 0 0;
     overflow: hidden;
     text-align: center;
 	position:relative;
@@ -302,17 +303,15 @@ a.lnk-reg:link,a.lnk-reg:visited,a.lnk-reg:hover,a.lnk-reg:active {
 	float:left;
 }
 #anony-sns .obu dd {
-    height: 55px;
     margin: 0;
     overflow: hidden;
-    text-align: center;
 }
 #anony-sns .obu .border-arrow{
     border-bottom: 15px dashed transparent;
     border-left: 15px dashed transparent;
     border-top: 15px solid #87c636 !important;
 	top:0px;
-	right:14px;
+	right:0px;
 }
 #anony-sns .obu .border-arrow:hover{ border-top:15px solid #9ff82d !important;}
 #anony-sns .obu .border-arrow{

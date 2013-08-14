@@ -145,7 +145,7 @@ __EXTENDS_JS__
 	<div class="wrapper">
     	<div class="side">
         	<h2>
-        	线上活动
+        	活跃用户
             &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
             <!--<span class="pl">&nbsp;(
                     <a href="#">更多</a>
