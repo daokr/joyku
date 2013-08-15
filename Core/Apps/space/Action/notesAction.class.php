@@ -6,9 +6,16 @@
 class notesAction extends spacebaseAction {
 	public function _initialize() {
 		parent::_initialize ();
-		
+		if (! $this->visitor->is_login && in_array ( ACTION_NAME, array (
+				'create',
+		) )) {
+			$this->redirect ( 'public/user/login' );
+		} else {
+			$this->userid = $this->visitor->info ['userid'];
+		}
 		//应用所需 mod
 		$this->user_mod = D('user');
+		$this->note_mod = D('note');
 	}
 	//日记首页
 	public function index(){
@@ -30,6 +37,23 @@ class notesAction extends spacebaseAction {
 	}
 	//新加日记
 	public function create(){
+		$userid = $this->userid;
+		//查询预先数据
+		$strNote = $this->note_mod->getOneNote(array('userid'=>$userid,'cateid'=>'0'));
+		if($strNote){
+			//存在
+		}else{
+			//新增一条
+			$data['userid'] = $userid;
+			$data['cateid'] = 0;
+			$data['isaudit'] = 0;
+			$noteid = $this->note_mod->add($data); echo $this->note_mod->getLastSql();
+			$strNote['noteid'] = $noteid;
+		}
+		//获取个人分类
+		$arrCate = 
+		
+		$this->assign('strNote',$strNote);
 		
 		$this->_config_seo ( array (
 				'title' => '新加日记',

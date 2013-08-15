@@ -142,13 +142,28 @@ __EXTENDS_JS__
 	<div class="cleft">
 
 	<form id="form_note" method="post">
-    <input id="note_id" name="noteid" value="282939518" type="hidden">
+    <input id="note_id" name="noteid" value="<?php echo ($strNote[noteid]); ?>" type="hidden">
     <div class="row note-title">
         <label class="field" for="note_title">题目:</label>
         <div>
             <input tabindex="1" id="note_title" name="title" value="" autofocus="" type="text">
         </div>
     </div>
+    <div class="row note-title">
+        <label class="field" for="note_title">分类:</label>
+        <div>
+			<select name="cateid" class="txt" id="cate_select" style="float:left;">
+			<?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><option  {if $item[cateid] == $cateid } selected="select"  {/if}  value="<?php echo ($item[cateid]); ?>" ><?php echo ($item[catename]); ?></option><?php endforeach; endif; ?>
+			</select> <span id="cate_input" style="display:none; float:left; margin-left:5px; margin-top:2px">
+			<input type="text" class="txt" style="width:100px;float:left; display:inline-block" name="catename" maxlength="10"/>
+			<input class="subab" type="button" value="新增" onClick="cateOptions.addPost();"  style="float:left; display:inline-block; margin-left:5px; margin-top:2px" /> 
+			<a href="javascript:;" onClick="cateOptions.cancel();" style="float:left; display:inline-block; margin-left:5px; margin-top:2px" >取消</a>
+			</span>
+			<span id="new_cate" style="float:left; margin-left:5px; margin-top:2px">
+			<a href="javascript:;" onClick="cateOptions.createCateName()">+新建分类</a>
+			</span>
+        </div>
+    </div>    
     <div class="row note-text">
         <ul class="control-panel">
             <li class="image-btn">
