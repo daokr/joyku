@@ -131,7 +131,6 @@ DROP TABLE IF EXISTS `ik_note`;
 CREATE TABLE `ik_note` (
   `noteid` int(11) NOT NULL AUTO_INCREMENT COMMENT '日志ID',
   `userid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
-  `cateid` int(11) NOT NULL DEFAULT '0' COMMENT '分类ID',
   `title` char(64) NOT NULL DEFAULT '' COMMENT '标题',
   `content` text NOT NULL COMMENT '内容',
   `count_comment` int(11) NOT NULL DEFAULT '0' COMMENT '回复统计',
@@ -143,30 +142,6 @@ CREATE TABLE `ik_note` (
   PRIMARY KEY (`noteid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
---
--- 转存表中的数据 `ik_note`
---
-
--- --------------------------------------------------------
-
---
--- 表的结构 `ik_note_cate`
---
-DROP TABLE IF EXISTS `ik_note_cate`;
-CREATE TABLE  `ik_note_cate` (
-  `cateid` int(11) NOT NULL AUTO_INCREMENT COMMENT '分类ID',
-  `userid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
-  `catename` char(16) NOT NULL DEFAULT '' COMMENT '分类名称',
-  `orderid` int(11) NOT NULL DEFAULT '0' COMMENT '排序ID',
-  PRIMARY KEY (`cateid`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
-
---
--- 转存表中的数据 `ik_note_cate`
---
-
-INSERT INTO `ik_note_cate` (`cateid`, `catename`, `orderid`) VALUES
-(1, '默认分类', 0);
 
 -- --------------------------------------------------------
 

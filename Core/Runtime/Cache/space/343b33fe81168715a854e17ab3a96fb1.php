@@ -138,123 +138,29 @@ __EXTENDS_JS__
 
 <div class="midder">
 <div class="mc">
-    <div class="cleft">
-        <div class="art-body">
-            <h1 class="title"><?php echo ($strArticle[title]); ?></h1>
-            <div class="art-info">
-            作者：<a href="<?php echo U('space/index/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[newsauthor]); ?></a>&nbsp;&nbsp;<?php echo date('Y-m-d H:i',$strArticle[addtime]) ?>&nbsp;&nbsp;<a href="#comment"><?php echo ($strArticle[count_comment]); ?>条回复</a>&nbsp;&nbsp;浏览<?php echo ($strArticle[count_view]); ?>次&nbsp;&nbsp;<a href="#formMini">我要回复</a> 
-            </div>
-        
-            <div class="art-text">
-                <?php echo ($strArticle[content]); ?>
-            </div>
-            <div class="control-btns">
-            <?php if($visitor[userid] == $strArticle[userid]): ?><a href="<?php echo U('article/index/edit',array('id'=>$strArticle['aid']));?>">编辑</a>&nbsp; &gt;&nbsp; <a href="<?php echo U('article/index/delete',array('id'=>$strArticle['aid']));?>" onclick="return confirm('确定删除?')">删除</a><?php endif; ?>
-            <br/>
-            本文由<a href="<?php echo U('space/index/index',array('id'=>$strArticle[user][doname]));?>"><?php echo ($strArticle[user][username]); ?></a>授权（爱客网）发表，文章著作权为原作者所有
-            </div>
-            
-      	  <div class="clear"></div>
-          <div class="art-titles"> 
-             <span class="fl"><?php if(!empty($upArticle)): ?>上一篇：<a href="<?php echo U('article/index/show',array('id'=>$upArticle['aid']));?>"><?php echo ($upArticle['title']); ?></a><?php endif; ?></span>
-             <span class="fr"><?php if(!empty($downArticle)): ?>下一篇：<a href="<?php echo U('article/index/show',array('id'=>$downArticle['aid']));?>"><?php echo ($downArticle['title']); ?></a><?php endif; ?></span>
-          </div>
-      </div>
+	<div class="cleft">
+    	<div class="note-header">
+        	<h1><?php echo ($strNote[title]); ?></h1>
+        	<div><span class="pl"><?php echo (date("Y-m-d H:i:s",$strNote["addtime"])); ?></span></div>
+    	</div>
     
-<div class="mod">
-	       <div class="orderbar"> 
-        <?php if(($page == 1) && ($strArticle[count_comment] > 3)): ?><a href="<?php echo U('article/index/show',array('id'=>$strArticle[aid],'sc'=>$sc,'isauthor'=>$author[isauthor]));?>"><?php echo ($author[text]); ?></a>&nbsp;&nbsp;
-        <?php if($sc == 'asc'): ?><a href="<?php echo U('article/index/show',array('id'=>$strArticle[aid],'sc'=>'desc','isauthor'=>$isauthor));?>">倒序阅读</a> 
-        <?php else: ?>
-        	<a href="<?php echo U('article/index/show',array('id'=>$strArticle[aid],'sc'=>'asc','isauthor'=>$isauthor));?>">正序阅读</a><?php endif; endif; ?>
-      </div>
-      <!--comment评论-->
-      <ul class="comment" id="comment">
-       <?php if(!empty($commentList)): if(is_array($commentList)): foreach($commentList as $key=>$item): ?><li class="clearfix">
-                  <div class="user-face"> 
-                  <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img title="<?php echo ($item[user][username]); ?>" alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a> 
-                  </div>
-                  <div class="reply-doc">
-                    <h4>
-                        <span class="fr"></span>
-                        <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> 
-                        <?php echo date('Y-m-d H:i:s',$item[addtime]) ?>
-                    </h4>
-                    
-                    <?php if($item[referid] != 0): ?><div class="recomment"><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><img src="<?php echo ($item[recomment][user][face]); ?>" width="24" align="absmiddle"></a> <strong><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><?php echo ($item[recomment][user][username]); ?></a></strong>：<?php echo ($item[recomment][content]); ?></div><?php endif; ?>
-                    
-                    <p><?php echo ($item[content]); ?></p>
-                    
-                    <div class="group_banned"> 
-                      <?php if($visitor[userid] != 0): ?><span><a href="javascript:void(0)"  onclick="commentOpen(<?php echo ($item[cid]); ?>,<?php echo ($item[aid]); ?>)">回复</a></span><?php endif; ?>
-                      <?php if(($strApp[userid] == $visitor[userid]) OR ($visitor[userid] == $item[userid])): ?><span><a class="j a_confirm_link" href="<?php echo U('article/index/delcomment',array('commentid'=>$item[cid]));?>" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span><?php endif; ?>
-                    </div>
-                    <div id="rcomment_<?php echo ($item[cid]); ?>" style="display:none; clear:both; padding:0px 10px">
-                      <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_<?php echo ($item[cid]); ?>" type="text" onkeydown="keyRecomment(<?php echo ($item[cid]); ?>,<?php echo ($item[aid]); ?>,event)" class="txt"></textarea>
-                      <p style=" padding:5px 0px">
-                        <button onclick="recomment(this,<?php echo ($item[cid]); ?>,<?php echo ($item[aid]); ?>)" id="recomm_btn_<?php echo ($item[cid]); ?>" class="subab" data-url="<?php echo U('article/index/recomment');?>">提交</button>
-                        &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_<?php echo ($item[cid]); ?>').slideToggle('fast');">取消</a>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="clear"></div>
-                </li><?php endforeach; endif; endif; ?>
-      </ul>
-      
-      <div class="page"><?php echo ($pageUrl); ?></div>
-      <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
-      <div> 
-            <?php if(!$visitor['userid']): ?><div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="<?php echo U('public/user/login');?>">登录</a> | <a href="<?php echo U('public/user/register');?>">注册</a></div>
-            <?php else: ?>
-            <form method="POST" action="<?php echo U('article/index/addcomment');?>" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
-              <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
-              <input type="hidden" name="aid" value="<?php echo ($strArticle[aid]); ?>" />
-              <input type="hidden" name="p" value="<?php echo ($page); ?>" />
-              <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
-            </form><?php endif; ?>
-      </div>
-</div>
+    	<div id="link-report" class="note"><?php echo ($strNote[content]); ?></div>
     
-    
-    </div>
-
-
+    	
+    </div><!--//cleft-->
     <div class="cright">
-    
-        <div class="mod" id="g-user-profile">
-
-    <div class="usercard">
-      <div class="pic">
-            <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
-      </div>
-      <div class="info">
-           <div class="name">
-               <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
-           </div>
-                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
-                <br>
-       </div>
-    </div>
-               
-  
-             
-</div> 
-         
-<div class="mod">
-    <?php if($visitor): ?><div class="create-group">
-    <a href="<?php echo U('article/index/add');?>"><i>+</i>去投稿</a>
-    </div><?php endif; ?>
-</div>
+		<div class="mod">
+	        <h2>
+	        <?php if($visitor[userid]): ?>我的日记<?php else: echo ($strNote[user][username]); ?>的日记<?php endif; ?>
+	            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+	            <span class="pl">&nbsp;(<a  href="<?php echo U('space/notes/index',array('id'=>$strNote['userid']));?>">全部</a>) </span>
+	    	</h2>
+			<ul class="note-list">
+            	  <?php if(is_array($arrNotes)): foreach($arrNotes as $key=>$item): ?><li><a href="<?php echo U('space/notes/show',array('id'=>$item[noteid]));?>" title="$item[title]"><?php echo ($item[title]); ?></a></li><?php endforeach; endif; ?>
+            </ul>       
+		</div>
         
-        <div class="mod">
-			<h2>浏览人数最多文章&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="<?php echo U('article/index/index');?>">全部</a>) </span></h2>
-			<div class="line23">
-			<?php if(is_array($arrNewArticle)): foreach($arrNewArticle as $key=>$item): ?><a href="<?php echo U('article/index/show',array('id'=>$item[itemid]));?>"><?php echo ($item[title]); ?></a><br><?php endforeach; endif; ?>
-			</div>        
-        </div>
-        
-    </div>
-
+    </div><!--//right-->
 </div>
 </div>
 

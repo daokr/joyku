@@ -8,6 +8,7 @@ return array (
     '/^space\/(\w+)$/' => 'space/index/index?id=:1',
   	'/^space\/photos\/(\d+)$/' => 'space/photos/index?id=:1',
   	'/^space\/notes\/(\d+)$/' => 'space/notes/index?id=:1',
+  	'/^space\/notes\/(\d+)\/p\/(\d+)$/' => 'space/notes/index?id=:1&p=:2',
   	'/^space\/neighborhood\/(\d+)$/' => 'space/neighborhood/index?id=:1',
   		  		
     '/^people\/(\w+)$/' => 'space/index/index?id=:1',

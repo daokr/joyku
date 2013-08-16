@@ -141,27 +141,12 @@ __EXTENDS_JS__
 	<h1><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
 
-	<form id="form_note" method="post">
+	<form id="form_note" method="post" onsubmit="return checkNoteForm(this);">
     <input id="note_id" name="noteid" value="<?php echo ($strNote[noteid]); ?>" type="hidden">
     <div class="row note-title">
         <label class="field" for="note_title">题目:</label>
         <div>
             <input tabindex="1" id="note_title" name="title" value="" autofocus="" type="text">
-        </div>
-    </div>
-    <div class="row note-title">
-        <label class="field" for="note_title">分类:</label>
-        <div>
-			<select name="cateid" class="txt" id="cate_select" style="float:left;">
-			<?php if(is_array($arrCate)): foreach($arrCate as $key=>$item): ?><option  {if $item[cateid] == $cateid } selected="select"  {/if}  value="<?php echo ($item[cateid]); ?>" ><?php echo ($item[catename]); ?></option><?php endforeach; endif; ?>
-			</select> <span id="cate_input" style="display:none; float:left; margin-left:5px; margin-top:2px">
-			<input type="text" class="txt" style="width:100px;float:left; display:inline-block" name="catename" maxlength="10"/>
-			<input class="subab" type="button" value="新增" onClick="cateOptions.addPost();"  style="float:left; display:inline-block; margin-left:5px; margin-top:2px" /> 
-			<a href="javascript:;" onClick="cateOptions.cancel();" style="float:left; display:inline-block; margin-left:5px; margin-top:2px" >取消</a>
-			</span>
-			<span id="new_cate" style="float:left; margin-left:5px; margin-top:2px">
-			<a href="javascript:;" onClick="cateOptions.createCateName()">+新建分类</a>
-			</span>
         </div>
     </div>    
     <div class="row note-text">
@@ -197,9 +182,9 @@ __EXTENDS_JS__
         </label>
     </div>
     <div class="row footer">
-        <input tabindex="8" id="publish_note" value="发表" class="btn" name="note_submit" type="submit">
+        <input tabindex="7" id="publish_note" value="发表" class="btn" name="note_submit" type="submit">
         <span class="bn-flat cancel-note">
-            <input tabindex="9" id="cancel_note" value="取消" class="bn-flat" name="cancel_note" type="button" onClick="history.go(-1)">
+            <input tabindex="8" id="cancel_note" value="取消" class="bn-flat" name="cancel_note" type="button" onClick="history.go(-1)">
         </span>
     </div>
 </form>

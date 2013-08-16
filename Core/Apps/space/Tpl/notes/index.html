@@ -12,12 +12,35 @@
 	<h1>{$seo.title}</h1>
 	<div class="cleft">
     	
-    	
+		<div class="note_list">
+		
+         <if condition="$arrNote">
+		     <foreach name="arrNote" item="item">
+		    <dl>
+		        <dt><a href="{:U('space/notes/show',array('id'=>$item[noteid]))}" title="{$item[title]}">{$item[title]}</a><span class="open"><a href="javascript:;">开关</a></span></dt>
+		        <dd class="addtime">{$item.addtime|date="Y-m-d H:i:s",###}</dd>
+		        <dd class="note_des"><php> echo getsubstrutf8(t($item[content]),0,150);</php>...</dd>
+		        
+		        <dd class="action">
+		         {$item[count_view]} 人浏览  &nbsp;&nbsp;<a href="{:U('space/notes/show',array('id'=>$item[noteid]))}#comments" title="回应">{$item[count_comment]} 条回应</a>
+		         <if condition="$item[userid] eq $visitor[userid]">
+		        &gt; <a href="#" title="">修改</a> &gt; <a href="#" title="">删除</a>
+		         </if>
+		        </dd>
+		    </dl>
+		    </foreach>
+		  <else/>
+		  <p class="pl f14">你可以在这里记录您日记了，马上就 <a href="{:U('space/notes/create')}">开始写吧</a> 。</p>
+		  </if>
+		</div>
+		<div class="page">{$pageUrl}</div>         
+		    	
     </div><!--//cleft-->
     <div class="cright">
         <if condition="$visitor[userid]">
             <p class="pl2">&gt; <a href="{:U('space/notes/create')}" class="create-new-album" >开始写日记</a></p>
         </if>
+        
     </div><!--//right-->
 </div>
 </div>

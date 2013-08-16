@@ -12,12 +12,13 @@ class noteModel extends Model
 
 	//获取一条日记
 	public function getOneNote($map){
-		$res = $this->where($map)->find();
-		return $res;
+		$result = $this->where($map)->find();
+		return $result;
 	}
-	//获取个人分类
-	public function getCateByuserid($userid){
-		$res = $this->where(array('userid'=>$userid))->find();
-		return $res;
+	//获取指定条数的日记
+	public function getNotes($map,$limit = 10,$field='',$order='addtime desc'){
+		$result = $this->field($field)->where($map)->order($order)->limit($limit)->select();
+		return $result;
 	}
+
 }
