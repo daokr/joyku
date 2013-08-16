@@ -87,5 +87,25 @@ class articleModel extends Model {
 			return false;
 		}
 	}
+	//获取频道内的文章
+	public function getArticleByChannel($nameid,$limit = 5){
+		// 获取分类
+		$arrCate = D ('article_cate')->where(array('nameid'=>$nameid))->order('orderid asc')->select (); 
+		if(is_array($arrCate)){
+			foreach($arrCate as $item){
+				$arrCates[] = $item['cateid'];
+			}
+		}
+		$strCates = implode(',',$arrCates);
+		//查询条件 是否审核
+		$map['cateid'] = array('exp',' IN ('.$strCates.') ');
+		$map['isaudit'] = 0;
+		$map['isphoto'] = 1;
+		$arrItemid =  M ( 'article_item' )->field('itemid')->where($map)->order('orderid desc')->limit($limit)->select();
+		foreach($arrItemid as $key=>$item){
+			$arrArticle [] = $this->getOneArticle($item['itemid']); 
+		}
+		return $arrArticle;		
+	}
 
 }

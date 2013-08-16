@@ -28,6 +28,31 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
+<script>
+$(document).ready(function() {
+//选择一级区域
+$('#oneid').change(function(){
+	$("#stwoid").html('<img src="'+siteUrl+'Public/images/loading.gif" />');
+	var oneid = $(this).children('option:selected').val();  //弹出select的值
+	
+	if(oneid==0){
+		$("#stwoid").html('');
+	 }else{
+		$.ajax({
+			type: "POST",
+			url:  "<?php echo U('group/index/ajax_getcate');?>",
+			data: {oneid:oneid},
+			success: function(msg){
+				$("#stwoid").html(msg);				
+			}
+		});
+	
+	}
+	
+});
+
+});
+</script>
 </head>
 
 <body>
@@ -135,111 +160,97 @@ __EXTENDS_JS__
 	</div>
         
 </div>
+<!--main-->
 <div class="midder">
-
-
+    <h1>申请创建小组</h1>
     <div class="mc">
-    
-        <div id="group-info">
-            <h1 class="group_tit"><?php echo ($seo["title"]); ?></h1>
-            <div class="group-misc">
-                    <a href="javascript:;" class="button-join" rel="nofollow" onClick="$('#select-bar').show()">
-                        <span>+我要发言</span>
-                    </a>
-                    <div id="select-bar" style="display:none" onmouseleave="$('#select-bar').hide()">
-                    	<h3>选择小组：</h3>
-                        <ul>
-                        	<?php if($myGroups): if(is_array($myGroups)): foreach($myGroups as $key=>$item): ?><li><a href="<?php echo U('group/index/add',array('id'=>$item[groupid]));?>"><?php echo ($item[groupname]); ?></a></li><?php endforeach; endif; ?>
-                             <?php else: ?>
-                            <li>你还没有加入任何小组， <a href="<?php echo U('group/index/create');?>">+申请创建小组</a>&nbsp;&nbsp;&nbsp;<a href="<?php echo U('group/index/explore');?>">发现小组&gt;&gt;</a></li><?php endif; ?>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-            
-        <div class="cleft w700">
 
-
-            <div class="group_topics">
-                <table class="olt">
-                    <tbody>
-            <?php if(!empty($arrTopic)): if(is_array($arrTopic)): foreach($arrTopic as $key=>$item): ?><tr class="pl">
-               <td class="td-subject"><a title="<?php echo ($item[title]); ?>" href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>"><?php echo getsubstrutf8(t($item['title']),0,25); ?></a>
-                <?php if($item[isvideo] == 1): ?><img src="__PUBLIC__/images/lc_cinema.png" align="absmiddle" title="[视频]" alt="[视频]" /><?php endif; ?>                
-                <?php if($item[istop] == 1): ?><img src="__PUBLIC__/images/headtopic_1.gif" title="[置顶]" alt="[置顶]" /><?php endif; ?>
-                <?php if($item[addtime] > (strtotime(date('Y-m-d 00:00:00')))): ?><img src="__PUBLIC__/images/topic_new.gif" align="absmiddle"  title="[新帖]" alt="[新帖]" /><?php endif; ?> 
-                <?php if($item[isphoto] == 1): ?><img src="__PUBLIC__/images/image_s.gif" title="[图片]" alt="[图片]" align="absmiddle" /><?php endif; ?> 
-                <?php if($item[isattach] == 1): ?><img src="__PUBLIC__/images/attach.gif" title="[附件]" alt="[附件]" /><?php endif; ?> 
-                <?php if($item[isdigest] == 1): ?><img src="__PUBLIC__/images/posts.gif" title="[精华]" alt="[精华]" /><?php endif; ?>
+        <div class="cleft">
+        <form method="POST" action="<?php echo U('group/index/create');?>"  enctype="multipart/form-data" onsubmit="return createGroup(this);">
+        <table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+            <tr>
+                <th>小组名称：</th>
+                <td><input type="text" value="" maxlength="63" size="31" name="groupname" tabindex="1" class="txt"    placeholder="请填写小组名称"></td>
+            </tr>
+            <tr>
+                <th>小组分类：</th>
+                <td>
+<select id="oneid" name="oneid" class="txt">
+<option value="0">请选择</option>
+<?php if(is_array($arrOne)): $i = 0; $__LIST__ = $arrOne;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><option value="<?php echo ($vo[cateid]); ?>"><?php echo ($vo[catename]); ?></option><?php endforeach; endif; else: echo "" ;endif; ?>
+</select>&nbsp;
+<span id="stwoid"></span>
+	</td>
+            </tr>            
+            <tr>
+                <th>小组介绍：</th>
+                <td><textarea style="width:500px;height:200px;" name="groupdesc" tabindex="2" id="editor_mini" class="txt"   placeholder="请填写小组介绍"></textarea></td>
+            </tr>
+            <tr>
+                <th>小组标签：</th>
+                <td>
+                	<input style="width:300px;" onKeyDown="checkTag(this)" onKeyUp="checkTag(this)"  onBlur="checkTag(this)" type="text" value=""  name="tag" id="tag" tabindex="3" class="txt" placeholder="请填写小组标签"> <span class="tip">最多 5 个标签</span>
                 </td>
-                <td class="td-reply" nowrap="nowrap"><?php if($item[count_comment] > 0): echo ($item[count_comment]); ?> 回应<?php endif; ?></td>
-                <td class="td-time" nowrap="nowrap"><?php echo getTime($item[uptime],time()); ?></td>
-                <td align="right"><a href="<?php echo U('group/index/show',array('id'=>$item[groupid]));?>"><?php echo getsubstrutf8(t($item[group][groupname]),0,10); ?></a></td>
-                </tr><?php endforeach; endif; endif; ?>         
-                </tbody>
-              </table>
-            </div>
-            
-             
-            
-            <div class="clear"></div>
-    
-    
-    	</div>
-    
-        <div class="cright w250" id="cright">   
-              
-			<div class="mod" id="g-user-profile">
-
-    <div class="usercard">
-      <div class="pic">
-            <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
-      </div>
-      <div class="info">
-           <div class="name">
-               <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
-           </div>
-                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
-                 <br>
-       </div>
-    </div>
-               
-    <div class="group-nav">
-     <ul>
-		<?php if($action_name == 'my_group_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_group_topics');?>">我的小组话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/my_group_topics');?>">我的小组话题</a></li><?php endif; ?>
-        
-		<?php if($action_name == 'my_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_topics');?>">我发起的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/my_topics');?>">我发起的话题</a></li><?php endif; ?>
-        		
-		<?php if($action_name == 'my_replied_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_replied_topics');?>">我回应的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/my_replied_topics');?>">我回应的话题</a></li><?php endif; ?>
-		
-		<?php if($action_name == 'my_collect_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_collect_topics');?>">我喜欢的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/my_collect_topics');?>">我喜欢的话题</a></li><?php endif; ?>
-		
-		<?php if($action_name == 'mine'): ?><li class="on"><a href="<?php echo U('group/index/mine');?>">我管理/加入的小组</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/mine');?>">我管理/加入的小组</a></li><?php endif; ?>
-     </ul>
-    </div>
-             
-</div> 
-         
-<div class="mod">
-<?php if($visitor): ?><div class="create-group">
-<a href="<?php echo U('group/index/create');?>"><i>+</i>申请创建小组</a>
-</div><?php endif; ?>
-</div>                 
-        
+            </tr> 
+			<tr>
+        	<th>&nbsp;</th>
+            <td><div class="site-tags">
+            	<dl class="tag-items" id="tag-items">
+                    <dd onClick="tags(this)">生活</dd>
+                    <dd onClick="tags(this)">同城</dd>
+                    <dd onClick="tags(this)">影视</dd>
+                    <dd onClick="tags(this)">工作室</dd>
+                    <dd onClick="tags(this)">艺术</dd>
+                    <dd onClick="tags(this)">音乐</dd>
+                    <dd onClick="tags(this)">品牌</dd>
+                    <dd onClick="tags(this)">手工</dd>
+                    <dd onClick="tags(this)">闲聊</dd>
+                    <dd onClick="tags(this)">设计</dd>
+                    <dd onClick="tags(this)">服饰</dd>
+                    <dd onClick="tags(this)">摄影</dd>
+                    <dd onClick="tags(this)">媒体</dd>
+                    <dd onClick="tags(this)">美食</dd>
+                    <dd onClick="tags(this)">读书</dd>
+                    <dd onClick="tags(this)">公益</dd>
+                    <dd onClick="tags(this)">互联网</dd>
+                    <dd onClick="tags(this)">动漫</dd>
+                    <dd onClick="tags(this)">旅行</dd>
+                    <dd onClick="tags(this)">绘画</dd>
+                    <dd onClick="tags(this)">美容</dd>
+                    <dd onClick="tags(this)">购物</dd>
+                    <dd onClick="tags(this)">电影</dd>
+                    <dd onClick="tags(this)">教育公益</dd>
+                    <dd onClick="tags(this)">游戏</dd>
+                </dl>
+            </div></td>
+        	</tr> 
+            <tr>
+                <th>&nbsp;</th>
+                <td style="padding-top:0px ">
+                	<p class="tips">标签作为关键词可以被用户搜索到，多个标签之间用空格分隔开。</p>
+                </td>
+            </tr>                                               
+            <tr>
+                <th>小组图标：</th>
+                <td><input type="file" name="picfile" class="txt" tabindex="4"><span class="tip">(仅支持jpg，gif，png格式图片)</span></td>
+            </tr>           
+            <tr>
+                <th>&nbsp;</th>
+                <td>
+                <label><input type="checkbox" checked  name="grp_agreement" id="grp_agreement" value="1" tabindex="5">&nbsp;我已认真阅读并同意《社区指导原则》和《免责声明》</label>
+                </td>
+            </tr>
+            <tr>
+                <th>&nbsp;</th>
+                <td><input class="submit" type="submit" value="创建小组" tabindex="6"/></td>
+            </tr>
+        </table>
+        </form>
         </div>
     
-    </div><!--//mc-->
+        <div class="cright"></div>
 
+	</div>
 
 </div>                
 <!--引入后前台的模版文件 -->

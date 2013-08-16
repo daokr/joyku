@@ -553,7 +553,7 @@ a.lnk-reg:link,a.lnk-reg:visited,a.lnk-reg:hover,a.lnk-reg:active {
 #anony-article .artlist h3{ font-size:13px}
 #anony-article .first{  height: 100px;}
 #anony-article .artlist .pic{ float:left}
-#anony-article .artlist li{ margin-bottom:8px}
+#anony-article .artlist li{ margin-bottom:8px;}
 #anony-article .artlist .cont{ padding-left:10px; overflow:hidden}
 #anony-article .artlist .cont p{ color:#999}
 #anony-article a:link, #anony-article a:visited {color:#643}

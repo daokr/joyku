@@ -36,7 +36,7 @@ class eventModel extends Model {
 			}
 		}
 		//类型
-		$cate = D('event_cate')->getOneCate($result['cateid']);
+		$cate = D('location/event_cate')->getOneCate($result['cateid']);
 		if($result['subcateid']>0){
 			$subcate = D('event_cate')->getOneCate($result['subcateid']);
 			$result['subcate'] = $subcate;

@@ -28,6 +28,43 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
+
+<script src="__PUBLIC__/js/uploadify/jquery.uploadify.v2.1.4.js" type="text/javascript"></script>
+
+<script src="__PUBLIC__/js/uploadify/swfobject.js" type="text/javascript"></script>
+
+<link type="text/css" rel="stylesheet" href="__PUBLIC__/js/uploadify/uploadify2.css" />
+
+<script type="text/javascript">
+	var vuserid = '<?php echo ($visitor[userid]); ?>', albumid = '<?php echo ($strAlbum[albumid]); ?>';
+    var loadurl = "<?php echo U('space/photos/album',array('d'=>'ajaxupload'));?>";
+	var objdata = {'userid': vuserid,'albumid': albumid};
+	var jumpurl = "<?php echo U('space/photos/album',array('d'=>'info','id'=>$strAlbum[albumid],'t'=>$smalltime));?>";
+$(document).ready(function()
+{		
+	$("#uploadify").uploadify({
+		'uploader': siteUrl + 'Public/js/uploadify/uploadify.swf',
+		'expressInstall': siteUrl + 'Public/js/uploadify/expressInstall.swf',
+		'script': 'index.php?app=space&m=photos&a=album&d=ajaxupload',
+		'scriptData':objdata,
+		'method':'POST', 
+		'cancelImg': siteUrl+'Public/js/uploadify/cancel2.png',
+		'folder': 'UploadFile',
+		'queueID': 'fileQueue',
+		'auto': false,
+		'multi': true,
+		'buttonText': '',
+		'buttonImg': siteUrl+'Public/images/upload-btns.png',		
+		'fileDesc':'jpg,gif,png图片格式',
+		'fileExt':'*.jpg;*.gif;*.png',
+		'onAllComplete' : function(event,data) {
+			window.location = jumpurl;
+		}
+
+	});
+
+})
+</script>
 </head>
 
 <body>
@@ -135,113 +172,48 @@ __EXTENDS_JS__
 	</div>
         
 </div>
+
 <div class="midder">
-
-
-    <div class="mc">
+<div class="mc">
+	<h1><?php echo ($seo["title"]); ?></h1>
+	<div class="cleft">
     
-        <div id="group-info">
-            <h1 class="group_tit"><?php echo ($seo["title"]); ?></h1>
-            <div class="group-misc">
-                    <a href="javascript:;" class="button-join" rel="nofollow" onClick="$('#select-bar').show()">
-                        <span>+我要发言</span>
-                    </a>
-                    <div id="select-bar" style="display:none" onmouseleave="$('#select-bar').hide()">
-                    	<h3>选择小组：</h3>
-                        <ul>
-                        	<?php if($myGroups): if(is_array($myGroups)): foreach($myGroups as $key=>$item): ?><li><a href="<?php echo U('group/index/add',array('id'=>$item[groupid]));?>"><?php echo ($item[groupname]); ?></a></li><?php endforeach; endif; ?>
-                             <?php else: ?>
-                            <li>你还没有加入任何小组， <a href="<?php echo U('group/index/create');?>">+申请创建小组</a>&nbsp;&nbsp;&nbsp;<a href="<?php echo U('group/index/explore');?>">发现小组&gt;&gt;</a></li><?php endif; ?>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-            
-        <div class="cleft w700">
-
-
-            <div class="group_topics">
-                <table class="olt">
-                    <tbody>
-            <?php if(!empty($arrTopic)): if(is_array($arrTopic)): foreach($arrTopic as $key=>$item): ?><tr class="pl">
-               <td class="td-subject"><a title="<?php echo ($item[title]); ?>" href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>"><?php echo getsubstrutf8(t($item['title']),0,25); ?></a>
-                <?php if($item[isvideo] == 1): ?><img src="__PUBLIC__/images/lc_cinema.png" align="absmiddle" title="[视频]" alt="[视频]" /><?php endif; ?>                
-                <?php if($item[istop] == 1): ?><img src="__PUBLIC__/images/headtopic_1.gif" title="[置顶]" alt="[置顶]" /><?php endif; ?>
-                <?php if($item[addtime] > (strtotime(date('Y-m-d 00:00:00')))): ?><img src="__PUBLIC__/images/topic_new.gif" align="absmiddle"  title="[新帖]" alt="[新帖]" /><?php endif; ?> 
-                <?php if($item[isphoto] == 1): ?><img src="__PUBLIC__/images/image_s.gif" title="[图片]" alt="[图片]" align="absmiddle" /><?php endif; ?> 
-                <?php if($item[isattach] == 1): ?><img src="__PUBLIC__/images/attach.gif" title="[附件]" alt="[附件]" /><?php endif; ?> 
-                <?php if($item[isdigest] == 1): ?><img src="__PUBLIC__/images/posts.gif" title="[精华]" alt="[精华]" /><?php endif; ?>
-                </td>
-                <td class="td-reply" nowrap="nowrap"><?php if($item[count_comment] > 0): echo ($item[count_comment]); ?> 回应<?php endif; ?></td>
-                <td class="td-time" nowrap="nowrap"><?php echo getTime($item[uptime],time()); ?></td>
-                <td align="right"><a href="<?php echo U('group/index/show',array('id'=>$item[groupid]));?>"><?php echo getsubstrutf8(t($item[group][groupname]),0,10); ?></a></td>
-                </tr><?php endforeach; endif; endif; ?>         
-                </tbody>
-              </table>
-            </div>
-            
-             
-            
-            <div class="clear"></div>
-    
-    
-    	</div>
-    
-        <div class="cright w250" id="cright">   
-              
-			<div class="mod" id="g-user-profile">
-
-    <div class="usercard">
-      <div class="pic">
-            <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><img alt="<?php echo ($strUser[username]); ?>" src="<?php echo ($strUser[face]); ?>"></a>
-      </div>
-      <div class="info">
-           <div class="name">
-               <a href="<?php echo U('space/index/index',array('id'=>$strUser[doname]));?>"><?php echo ($strUser[username]); ?></a>
-           </div>
-                <?php if($strUser[area] != ''): echo ($strUser[area][areaname]); else: ?>火星<?php endif; ?>                        
-                 <br>
-       </div>
-    </div>
-               
-    <div class="group-nav">
-     <ul>
-		<?php if($action_name == 'my_group_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_group_topics');?>">我的小组话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/my_group_topics');?>">我的小组话题</a></li><?php endif; ?>
+    	<?php if($type != 'n'): ?><div class="uploadtype">
+                <div id="fileQueue"></div><br>
+                <input type="file" id="uploadify" />
+                <p style="padding:10px 0;">上传文件只支持：jpg，gif，png格式；上传最大支持1M的图片<br>
+                    提示：每次最多可以批量上传二十张照片，按着 "ctrl" 键可以一次选择多张照片
+                </p>
+                <p style="padding:10px 0;">
+                <a href="javascript:$('#uploadify').uploadifyUpload()" class="submit">开始上传</a>&nbsp;&nbsp;|&nbsp;&nbsp; 
+                <a href="javascript:$('#uploadify').uploadifyClearQueue()" >取消上传</a>
+                </p>
+                <p><br>无法上传？<a href="<?php echo U('space/photos/album',array('d'=>'upload','type'=>'n','id'=>$strAlbum[albumid]));?>">使用普通方式上传照片&gt;</a></p>
+       		</div>
+        <?php else: ?> 
+            <div class="uploadtype">
+                <p class="pl">你可以上传JPG，JPEG， GIF，PNG，每个文件大小可以到1M。</p><br>
+                <form enctype="multipart/form-data" action="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid],'t'=>$smalltime));?>" method="post" name="album_upload">
+                <span class="pl">选择图片 </span>
+                <input type="file" name="picfile"><br><br>
+                <span class="bn-flat"><input type="submit" value="开始上传" name="upload"></span>
+                </form>
+                <p><br><a href="<?php echo U('space/photos/album',array('d'=>'upload','id'=>$strAlbum[albumid]));?>">使用批量上传方式上传照片&gt;</a></p>      
+            </div><?php endif; ?>
         
-		<?php if($action_name == 'my_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_topics');?>">我发起的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/my_topics');?>">我发起的话题</a></li><?php endif; ?>
-        		
-		<?php if($action_name == 'my_replied_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_replied_topics');?>">我回应的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/my_replied_topics');?>">我回应的话题</a></li><?php endif; ?>
-		
-		<?php if($action_name == 'my_collect_topics'): ?><li class="on"><a href="<?php echo U('group/index/my_collect_topics');?>">我喜欢的话题</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/my_collect_topics');?>">我喜欢的话题</a></li><?php endif; ?>
-		
-		<?php if($action_name == 'mine'): ?><li class="on"><a href="<?php echo U('group/index/mine');?>">我管理/加入的小组</a></li>
-		<?php else: ?>
-		<li class=""><a href="<?php echo U('group/index/mine');?>">我管理/加入的小组</a></li><?php endif; ?>
-     </ul>
-    </div>
-             
-</div> 
-         
-<div class="mod">
-<?php if($visitor): ?><div class="create-group">
-<a href="<?php echo U('group/index/create');?>"><i>+</i>申请创建小组</a>
-</div><?php endif; ?>
-</div>                 
-        
+    </div><!--//cleft-->
+    <div class="cright">
+        <div class="mod">
+        所有相册空间的总容量为 5G。
+        <br><br>
+        <p class="pl2">&gt; <a href="<?php echo U('space/photos/album',array('id'=>$strAlbum[albumid]));?>">回相册"<?php echo ($strAlbum[albumname]); ?>"</a></p>
         </div>
-    
-    </div><!--//mc-->
 
+        
+    </div><!--//right-->
+</div>
+</div>
 
-</div>                
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>

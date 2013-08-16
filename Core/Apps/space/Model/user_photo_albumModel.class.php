@@ -47,4 +47,24 @@ class user_photo_albumModel extends Model
 			return false;
 		}		
 	}
+	//获取推荐相册
+	public function getRecommendAlbum($limit){
+	    $res = $this->where(array('isrecommend'=>1))->order('addtime desc')->limit($limit)->select();
+		if($res){
+			foreach($res as $key=>$item){
+				$result[] = $item;
+				if($item['path']){
+					$ext =  explode ( '.', $item['albumface']);
+					//图片大小
+					$result[$key]['simg'] =  attach($item['path'].$ext[0].'_'.C('ik_simg.width').'_'.C('ik_simg.height').'.jpg');
+					$result[$key]['mimg'] =  attach($item['path'].$ext[0].'_'.C('ik_mimg.width').'_'.C('ik_mimg.height').'.jpg');
+				}else{
+					$result[$key]['simg'] = $result[$key]['mimg'] = __ROOT__ . "/Public/images/photo_album.png";
+				}
+			}
+			return $result;
+		}else{
+			return false;
+		}
+	}
 }

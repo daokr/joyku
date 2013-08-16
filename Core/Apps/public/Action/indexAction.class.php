@@ -9,11 +9,68 @@ class indexAction extends frontendAction {
 		$this->group_mod = D ( 'group/group' );
 		$this->user_mod = D ( 'user' );
 		$this->group_topic_mod = D ( 'group/group_topics' );
+		
 		$this->article_mod = D('article/article');
-		$this->dev_mod = D('develop/develop');
-		$this->photo_mod = D('space/user_photo');
+		$this->article_channel_mod = D('article/article_channel');
+		$this->note_mod = D('space/note');
+		$this->photo_album_mod = D('space/user_photo_album');
+		
+		$this->event_mod = D( 'location/event' );
+		$this->event_cate_mod = D( 'location/event_cate' );
 	}
-	public function index() {
+	public function index(){
+		
+		//统计用户数
+		$count_user = $this->user_mod->count('*'); 
+		$this->assign ( 'count_user', $count_user );
+		
+		//获取推荐照片
+		$arrPhoto = $this->photo_album_mod->getRecommendAlbum(4);
+		$this->assign ( 'arrPhoto', $arrPhoto );
+		
+		//获取推荐日记
+		$arrNote = $this->note_mod->getRecommendNote(10);
+		$this->assign ( 'arrNote', $arrNote );
+
+		//文章模块
+		$articleChannel = $this->article_channel_mod->getAllChannel();
+		$this->assign ( 'articleChannel', $articleChannel );
+		//文章列表
+		foreach($articleChannel as $key=>$item){
+			$arrArticle[$key][cname] = $item['name'];
+			$arrArticle[$key]['alist'] = $this->article_mod->getArticleByChannel($item['nameid'],5);
+		}
+		$this->assign ( 'arrArticle', $arrArticle );
+
+		//推荐小组10个
+		$arrRecommendGroups = $this->group_mod->getRecommendGroup ( 14 );
+		foreach ( $arrRecommendGroups as $key => $item ) {
+			$arrRecommendGroup [] = $item;
+			$arrRecommendGroup [$key] ['groupdesc'] = getsubstrutf8 ( t ( $item ['groupdesc'] ), 0, 35 );
+		}
+		$this->assign ( 'arrRecommendGroup', $arrRecommendGroup );		
+		
+		//热门同城活动
+		$hotEvent = $this->event_mod->getHotEvent(6);
+		$this->assign('hotEvent',$hotEvent);
+		
+		//获取同城活动大分类
+		$arrEventCates = $this->event_cate_mod->getAllCate();
+		foreach ($arrEventCates as $key=>$item){
+			$arrEventCateList[$key]['parentCate'] = $item; 
+			$arrEventCateList[$key]['childCate'] = $this->event_cate_mod->getAllsubCate($item['cateid']);
+		}
+		$this->assign('arrEventCateList',$arrEventCateList);		
+		
+		
+		//活跃会员
+		$arrHotUser = $this->user_mod->getHotUser(7);
+		$this->assign ( 'arrHotUser', $arrHotUser );
+		
+		$this->_config_seo ();
+		$this->display ();
+	}
+	/*public function index() {
 		// 来路
 		$ret_url = __APP__;
  		//最新10个小组
@@ -50,7 +107,7 @@ class indexAction extends frontendAction {
 		
 		//统计用户数
 		$count_user = $this->user_mod->count('*'); 
-		
+
 		$this->assign ( 'ret_url', $ret_url );
 		$this->assign ( 'count_user', $count_user );
 		$this->assign ( 'arrpopApp', $arrpopApp );
@@ -61,7 +118,7 @@ class indexAction extends frontendAction {
 		$this->assign ( 'arrHotTopic', $arrHotTopic ); 
 		$this->_config_seo ();
 		$this->display ();
-	}
+	}*/
 	public function style(){
 
 		$ikTheme = cookie('ikTheme');

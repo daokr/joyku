@@ -20,5 +20,19 @@ class noteModel extends Model
 		$result = $this->field($field)->where($map)->order($order)->limit($limit)->select();
 		return $result;
 	}
+	//获取推荐日记
+	public function getRecommendNote($limit){
+		$res = $this->where(array('isrecommend'=>1))->order('addtime desc')->limit($limit)->select();
+		if($res){
+			foreach($res as $key=>$item){
+				$result[] = $item;
+				$result[$key]['user'] = D('user')->getOneUser($item['userid']);
+				$result[$key]['content'] = ikhtml_text('note', $item['noteid'], $item['content']);
+			}
+			return $result;
+		}else{
+			return false;
+		}
+	}
 
 }

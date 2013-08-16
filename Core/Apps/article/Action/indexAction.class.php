@@ -80,7 +80,7 @@ class indexAction extends frontendAction {
 		$arrCate = ''; // 初始化下拉列表
 		$arrCatename = array ();
 		foreach ( $arrChannel as $key => $item ) {
-			$arrCatename = $this->cate_mod->getCateByNameid ( $item ['nameid'] );
+			$arrCatename = $this->cate_mod->getCateByNameid ( $item ['nameid'] );  
 			$arrCate .= '<optgroup label="' . $item ['name'] . '">';
 			foreach ( $arrCatename as $key1 => $item1 ) {
 				$arrCate .= '<option  value="' . $item1 ['cateid'] . '" >' . $item1 ['catename'] . '</option>';
@@ -88,6 +88,8 @@ class indexAction extends frontendAction {
 			$arrCate .= '</optgroup>';
 		}
 
+		$this->assign ( 'arrCate', $arrCate );
+		
 		$this->_config_seo ( array (
 				'title' => '发表新文章',
 				'subtitle'=>'阅读_'.C('ik_site_title'),

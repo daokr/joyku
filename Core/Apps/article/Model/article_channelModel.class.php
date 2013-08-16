@@ -16,5 +16,6 @@ class article_channelModel extends Model {
 		$result = $this->where($where)->find ();
 		return $result;
 	}	
-
+	
+	
 }

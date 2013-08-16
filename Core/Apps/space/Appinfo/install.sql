@@ -138,6 +138,7 @@ CREATE TABLE `ik_note` (
   `privacy` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否可见 1:所有人可见 2仅好友 3仅自己可见',
   `isaudit` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否审核 1是 0否',
   `isreply` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否可以回应 1是 0否',
+  `isrecommend` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否推荐',
   `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '时间',
   PRIMARY KEY (`noteid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
