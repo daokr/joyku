@@ -8,39 +8,38 @@ function selectTheme(obj,theme){
 }
 
 $(function(){
-	var MyTime=null; 
-	var currtNum = 1;
-	var ctro = $('.head-ctrls'), focusbar = $('.head-slides');
-	var item = focusbar.find('.item'),iteml = item.length;itemw = item.eq(0).width();
-	//自动
-	var autoShow = function(){
-		//设定时间
-		MyTime = setInterval(function(){
-			showFocusImg(currtNum);
-			currtNum++;
-			if(currtNum==iteml){currtNum=0;}
-		} , 3000);	
-	};	
-	//初始
-	focusbar.width(iteml*itemw);focusbar.find('.item').show();
-	ctro.find('li').bind('click',function(){
-		currtNum = $('.head-ctrls li').index(this);
-		ctro.find('li').eq(currtNum).addClass('on').siblings().removeClass('on');
-		focusbar.animate({"margin-Left":-(itemw*currtNum)},'slow');
-		clearInterval(MyTime);
-	});
-	$('.head-ctrls , .head-slides').hover(
-		 function(){
-			if(MyTime){clearInterval(MyTime);}
-		 },
-		 function(){
-			 autoShow();
-		 }
-	);
-	var showFocusImg = function(i){
-		$('.head-ctrls').find('li').eq(i).addClass('on').siblings().removeClass('on');		 
-		$('.head-slides').animate({"margin-Left":-(itemw*i)},'slow');		
+	var sWidth = $("#head-slide-box").width(); //获取焦点图的宽度（显示面积）
+	var len = $("#head-slide-box li.item").length; //获取焦点图个数
+	var index = 0;
+	var picTimer;
+
+	//为小按钮添加鼠标滑入事件，以显示相应的内容
+	$(".head-ctrls li").mouseenter(function() {
+		index = $(".head-ctrls li").index(this);
+		showPics(index);
+	}).eq(0).trigger("mouseenter");
+	
+	//本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+	$(".head-slides").css("width",sWidth * (len));
+	$(".head-slides").find('.item').show();
+
+	//鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+	$("#head-slide-box").hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			showPics(index);
+			index++;
+			if(index == len) {index = 0;}
+		},6000); //此4000代表自动播放的间隔，单位：毫秒
+	}).trigger("mouseleave");
+		
+	//显示图片函数，根据接收的index值显示相应的内容
+	function showPics(index) { //普通切换
+		var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
+		$(".head-slides").stop(true,false).animate({"margin-Left":nowLeft},800); //通过animate()调整ul元素滚动到计算出的position
+		$(".head-ctrls li").eq(index).addClass('on').siblings().removeClass('on');	
 	}	
-	autoShow();
+	
 });
 

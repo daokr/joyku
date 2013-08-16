@@ -1,11 +1,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<empty name="visitor">
-<script>
-    var POPUP_REG = true; 
-</script>
-</empty>
 <include file="public:head" />
 </head>
 
@@ -46,275 +41,642 @@
 </if>
     
 
-<div id="anony-article" class="section">
-  <div class="wrapper">
-        <div id="head-slide-box" class="head-slide-box">
-        	<ul class="head-slides">
-				<li class="item" style="display:block">
-                	<div class="mod2-left">
-                        <a  href="{:U('space/photos/show',array('id'=>$arrPhoto[0][photoid]))}"><img width="400" height="300" alt="" src="{$arrPhoto[0][mimg]}">
-                        
-                        </a>                    
-                    </div>
-                    <div class="mod2-mid">
-
-                        <div>
-                            <a href="{:U('space/photos/show',array('id'=>$arrPhoto[1][photoid]))}"><img src="{$arrPhoto[1][mimg]}" alt="" height="150" width="250">
-                            
-                            </a>
-                        </div>
-                        <div class="pt1h">
-                        <a href="{:U('space/photos/show',array('id'=>$arrPhoto[2][photoid]))}"><img src="{$arrPhoto[2][mimg]}" alt="" height="149" width="250">
-                       
-                        </a>
-                        </div>
-                        
-                    </div>
-                    <div class="mod2-right">
-                        <a  href="{:U('space/photos/show',array('id'=>$arrPhoto[3][photoid]))}"><img width="400" height="300" alt="" src="{$arrPhoto[3][mimg]}">
-                       
-                        </a>  	
-                    </div>
-                </li>            
-            	<li class="item">
-                    <div class="mod1-left">
-                    	<div class="dlitem">
-                    	<dl>
-                        	<dt><a href="{:U('article/index/show',array('id'=>$arrdigArticle[0][aid]))}"><img width="490" height="300" alt="{$arrdigArticle[0][title]}" src="{$arrdigArticle[0][photo][mimg]}"></a>
-                        	<dd class="filter"><a class="cFFF" href="{:U('article/index/show',array('id'=>$arrdigArticle[0][aid]))}">{$arrdigArticle[0][title]}</a></dd>
-                        </dl>
-                        </div>
-                        <!--
-                        <ul class="dotitem">
-							<li class="on"></li>
-                            <li></li>
-                             <li></li>
-                        </ul>-->
-                    </div> 
-                    <div class="mod1-right">
-                    	<div class="padingbox">
-                            <h2 class="tit"><a href="{:U('article/index/show',array('id'=>$arrdigArticle[1][aid]))}">{$arrdigArticle[1][title]}</a></h2>
-                            <div class="hot-box1 clearfix">
-                              <ul>
-                                <li><a class="c555" href="{:U('article/index/show',array('id'=>$arrdigArticle[2][aid]))}">{$arrdigArticle[2][title]}</a></li>
-                                <li><a class="c555" href="{:U('article/index/show',array('id'=>$arrdigArticle[3][aid]))}">{$arrdigArticle[3][title]}</a></li>
-                              </ul>
-                              <ul class="r">
-                                <li><a class="c555" href="{:U('article/index/show',array('id'=>$arrdigArticle[4][aid]))}">{$arrdigArticle[4][title]}</a></li>
-                                <li><a class="c555" href="{:U('article/index/show',array('id'=>$arrdigArticle[5][aid]))}">{$arrdigArticle[5][title]}</a></li>
-                              </ul>
-                            </div>
-                            <div class="hot-box2 clearfix">
-                                <div class="hL">
-                                	<h2><a href="{:U('article/index/show',array('id'=>$arrdigArticle[6][aid]))}">{$arrdigArticle[6][title]}</a></h2>
-                                	<p><php> echo getsubstrutf8(t($arrdigArticle[6][content]),0,45);</php></p>
-                                </div>
-                                <div class="hR">            
-                                    <h2><a href="{:U('article/index/show',array('id'=>$arrdigArticle[7][aid]))}">{$arrdigArticle[7][title]}</a></h2>
-                                    <p><php> echo getsubstrutf8(t($arrdigArticle[7][content]),0,55);</php></p>
-                                </div>
-                            </div>
-                       </div>                         
-                    </div>               
-                </li>
-                <li class="item">
-                	<div class="mod2-left">
-                        <a  href="{:U('article/index/show',array('id'=>$arrfunArticle[0][aid]))}"><img width="400" height="300" alt="{$arrfunArticle[0][title]}" src="{$arrfunArticle[0][photo][mimg]}">
-                        <span class="filter">{$arrfunArticle[0][title]}</span>
-                        </a>                    
-                    </div>
-                    <div class="mod2-mid">
-
-                        <div>
-                            <a href="{:U('article/index/show',array('id'=>$arrfunArticle[1][aid]))}"><img src="{$arrfunArticle[1][photo][mimg]}" alt="{$arrfunArticle[1][title]}" height="150" width="250">
-                            <span class="filter">{$arrfunArticle[1][title]}</span>
-                            </a>
-                        </div>
-                        <div class="pt1h">
-                        <a href="{:U('article/index/show',array('id'=>$arrfunArticle[2][aid]))}"><img src="{$arrfunArticle[2][photo][mimg]}" alt="{$arrfunArticle[2][title]}" height="149" width="250">
-                        <span  class="filter">{$arrfunArticle[2][title]}</span>
-                        </a>
-                        </div>
-                        
-                    </div>
-                    <div class="mod2-right">
-                        <a  href="{:U('article/index/show',array('id'=>$arrfunArticle[3][aid]))}"><img width="400" height="300" alt="{$arrfunArticle[3][title]}" src="{$arrfunArticle[3][photo][mimg]}">
-                        <span class="filter">{$arrfunArticle[3][title]}</span>
-                        </a>  	
-                    </div>
-                </li>
-                <li class="item" >
-                 	<div class="mod3-left">
-                        <a  href="{:U('article/index/show',array('id'=>$arrHotArticle[0][aid]))}">
-                        <img width="250" height="300" alt="{$arrHotArticle[0][title]}" src="{$arrHotArticle[0][photo][mimg]}">
-                        <span class="filter">{$arrHotArticle[0][title]}</span>
-                        </a>                    
-                    </div> 
-                    <div class="mod3-mid">
-                    
-                        <div class="midbox">
-                            <div class="mhd">
-                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[1][aid]))}">{$arrHotArticle[1][title]}</a></h2>
-                                <p><php> echo getsubstrutf8(t($arrHotArticle[1][content]),0,30);</php></p>
-                            </div>
-                            <div class="mbd">
-                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[2][aid]))}">{$arrHotArticle[2][title]}</a></h2>
-                                <p><php> echo getsubstrutf8(t($arrHotArticle[2][content]),0,30);</php></p>
-                            </div>
-                        </div>
-                                        
-                    </div> 
-                    <div class="mod3-mid">
-                    
-                        <div class="midbox">
-                            <div class="mhd">
-                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[3][aid]))}">{$arrHotArticle[3][title]}</a></h2>
-                                <p><php> echo getsubstrutf8(t($arrHotArticle[3][content]),0,30);</php></p>
-                            </div>
-                            <div class="mbd">
-                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[4][aid]))}">{$arrHotArticle[4][title]}</a></h2>
-                                <p><php> echo getsubstrutf8(t($arrHotArticle[4][content]),0,30);</php></p>
-                            </div>
-                        </div>
-                                        
-                    </div> 
-                    <div class="mod3-right">
-                            <div class="picbox">
-                            <a href="{:U('article/index/show',array('id'=>$arrHotArticle[5][aid]))}"><img src="{$arrHotArticle[5][photo][mimg]}" alt="{$arrHotArticle[5][title]}" height="150" width="247"></a>
-                            </div>
-                            <div class="picinfo"> 
-                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[5][aid]))}">{$arrHotArticle[5][title]}</a></h2>
-                                <p><php> echo getsubstrutf8(t($arrHotArticle[5][content]),0,30);</php></p>
-                            </div>
-                    </div>                                 
-                </li>
-            </ul>
-            <ul class="head-ctrls">
-               <li class="on">推荐</li><li>头条</li><li>视觉</li><li class="last">热门</li>
-            </ul>
-        </div>
-        
-  </div><!--//end wrapper-->
-</div><!--//end anony-sns-->
-
-<div class="midder">
-    <div class="mc">
-    
-        <div class="cleft">
-        
-            <h2>推荐小组<span class="pl">&nbsp;(<a href="{:U('group/index/explore')}">全部</a>) </span></h2>
-        
-            <div style="overflow:hidden;">
-            <foreach name="arrRecommendGroup" item="item">
-            <div class="sub-item">
-            <div class="pic">
-            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">
-            <img src="{$item[icon_48]}" alt="{$item[groupname]}" width="48" height="48">
-            </a>
-            </div>
-            <div class="info">
-            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a> ({$item[count_user]}/<font color="orange">{$item[count_topic]}</font>)             
-            <p>{$item[groupdesc]}</p>
-            </div>
-            </div>
-            </foreach>
-            </div>
-            <div class="clear"></div>
-  
-       
-            <h2>最热话题<span class="pl">&nbsp;(<a href="{:U('group/index/explore_topic')}">更多</a>) </span></h2>
-            <div class="topic-list">
-                <foreach name="arrHotTopic" item="item">
-                <dl>
-                    <dt><a href="{:U('space/index/index',array('id'=>$item[user][doname]))}"><img src="{$item[user][face]}"/></a></dt>
-                    <dd>
-                        <header class="title"><a href="{:U('group/index/topic',array('id'=>$item[topicid]))}" title="{$time[title]}">{$item[title]}</a></header>
-                         <a href="{:U('space/index/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <summary><php>echo getTime($item[addtime],time())</php> 阅读 {$item[count_view]} 评论 {$item[count_comment]}</summary>
-                        <p>
-                        <if condition="$item[video]">
-                        <a href="{:U('group/index/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[video][imgurl]}" class="fr"></a>
-                        <elseif condition="$item[img]"/>
-                        <a href="{:U('group/index/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[img][simg]}" class="fr"></a>
-                        </if>
-                        {$item[content]}
-                        </p>
-                    </dd>
-                </dl>
-                </foreach>
-            </div>
-        
-        </div><!--//left-->
-    
-        <div class="cright">
-            <h2>活跃用户</h2>
-            <div class="indent">
-            
-           <foreach name="arrHotUser" item="item">
-            <dl class="obu">
-                <dt>
-                    <a href="{:U('space/index/index',array('id'=>$item[doname]))}">
-                    <img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}" width="48" />
-                    </a>
-                    <if condition="$item[isonline] eq 1">
-                    	<div class="border-arrow" title="在线用户"></div>
-                    </if>
-                </dt>
-                <dd>
-                    <a href="{:U('space/index/index',array('id'=>$item[doname]))}">{$item[username]}</a>
-                </dd>
-            </dl>
-            </foreach>
-            <br clear="all"/>
-            </div>
-
-        	<div class="mod">
-                <h2>
-                        最近流行的应用
-                            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
-                </h2>
-                <div class="th-app-pop">
-                     <ul>
-                     	<foreach name="arrpopApp" item="item">
-                         <li class="common-item">
-                         <div class="pic">
-                             <a href="{:U('develop/index/show',array('id'=>$item[appid]))}"><img width="48" src="{$item[icon_100]}"></a>
-                         </div>
-                         <div class="info">
-                             <div class="title">
-                               <a href="{:U('develop/index/show',array('id'=>$item[appid]))}">{$item[title]}</a>
-                             </div>
-                             <div class="favs">{$item[count_down]}人用过 / {$item[cate][catename]}</div>
-                         </div>
-                         </li>
-                         </foreach>
-                     </ul>
-                </div> 
-            </div><!--//mod-->  
-            
-            <h2>最新创建小组&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('group/index/explore')}">全部</a>) </span></h2>
-            <div class="line23">
-            <foreach name="arrNewGroup" item="item">
-            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a> ({$item[count_user]}<if condition="$item[uptime] gt strtotime(date('Y-m-d 00:00:00'))">/<font color="orange">{$item[count_topic_today]}</font></if>)<br>
-            </foreach>
-            </div>
-
-			<h2>最新文章&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('article/index/index')}">全部</a>) </span></h2>
-			<div class="line23">
-			<foreach name="arrNewArticle" item="item">
-			<a href="{:U('article/index/show',array('id'=>$item[itemid]))}">{$item[title]}</a><br>
- 			</foreach>
+<div id="anony-sns" class="section">
+	<div class="wrapper">
+    	<div class="side">
+        	<h2>
+        	活跃用户
+            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+            <!--<span class="pl">&nbsp;(
+                    <a href="#">更多</a>
+                ) </span>-->
+    		</h2>
+			<div class="online">
+				<foreach name="arrHotUser" item="item">
+	            <dl class="obu">
+	                <dt>
+	                    <a href="{:U('space/index/index',array('id'=>$item[doname]))}">
+	                    <img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}" width="48" />
+	                    </a>
+	                    <if condition="$item[isonline] eq 1">
+	                    	<div class="border-arrow" title="在线用户"></div>
+	                    </if>
+	                </dt>
+	                <dd>
+	                    <a href="{:U('space/index/index',array('id'=>$item[doname]))}">{$item[username]}</a><br/>
+                        <span class="follow">150 人关注</span>
+	                </dd>
+	            </dl>
+	            </foreach>
 			</div>
             
-          
-            
-
-        
-        
-            <div class="clear"></div>
-        </div><!--//right-->
-    
-    </div><!--//mc-->
+        </div>
+        <div class="main">
+        	<div class="mod">
+				<h2>
+			        热点内容
+			            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+			    </h2>
+				<div class="albums">
+				    <ul>
+				      <li>
+				      <div class="pic">
+				          <a href="#"><img alt="" data-origin="#" src="http://127.0.0.1/joyku/data/upload/topic/2013/0705/16/201307051606233P0T_500_500.jpg?v=1375951761"></a>
+				      </div>
+				      <div class="tit"><a href="#">前些日子我谈了一个男朋友</a></div>
+				      <span class="num">17张照片</span>
+				      </li>
+				      <li>
+				      <div class="pic">
+				          <a href="#"><img alt="" data-origin="#" src="http://127.0.0.1/joyku/data/upload/topic/2013/0705/16/201307051606233P0T_500_500.jpg?v=1375951761"></a>
+				      </div>
+				       <div class="tit"><a href="#">前些日子我谈了一个男朋友</a></div>
+				      <span class="num">17张照片</span>
+				      </li>
+				      <li>
+				      <div class="pic">
+				          <a href="#"><img alt="" data-origin="#" src="http://127.0.0.1/joyku/data/upload/topic/2013/0705/16/201307051606233P0T_500_500.jpg?v=1375951761"></a>
+				      </div>
+				       <div class="tit"><a href="#">前些日子我谈了一个男朋友</a></div>
+				      <span class="num">17张照片</span>
+				      </li>
+				      <li>
+				      <div class="pic">
+				          <a href="#"><img alt="" data-origin="#" src="http://127.0.0.1/joyku/data/upload/topic/2013/0705/16/201307051606233P0T_500_500.jpg?v=1375951761"></a>
+				      </div>
+				      <div class="tit"><a href="#">前些日子我谈了一个男朋友</a></div>
+				      <span class="num">17张照片</span>
+				      </li>                                                                  
+				    </ul>
+				</div>
+  				<div class="notes">
+					<ul>
+					<li>
+					<div class="title">
+						<span class="author">
+						小麦的日记
+						</span><a href="http://www.douban.com/note/292661215/">比文化差异更大的比文化差异更大的比文化差异更大的</a>
+					</div>
+					<p>是呀，前些日子我谈了一个男朋友，前几天终于僵到不分手不行，于是删了他的...</p>
+					</li>
+					<li>
+						<div class="title">
+							<span class="author">
+							小麦的日记
+							</span><a href="http://www.douban.com/note/292661215/">踏实的求个安全感，比安全套来的实在</a>
+						</div>                    
+                    	<p>是呀，前些日子我谈了一个男朋友，前几天终于僵到不分手不行，于是删了他的...</p>
+                    </li>
+					<li><a href="http://www.douban.com/note/292117138/">《环太平洋》字幕校正</a></li>
+					<li><a href="http://www.douban.com/note/292028066/">踏实的求个安全感，比安全套来的实在</a></li>
+					<li><a href="http://www.douban.com/note/291817586/">在空旷的星河下想你</a></li>
+					<li><a href="http://www.douban.com/note/291971759/">说说健身(更新ing)</a></li>
+					<li><a href="http://www.douban.com/note/290939157/">读书真的重要吗？</a></li>
+					<li><a href="http://www.douban.com/note/288959253/">下意识的语言模式（下）</a></li>
+					<li><a href="http://www.douban.com/note/289514899/">由绘画看人的包容和坚守</a></li>
+					<li><a href="http://www.douban.com/note/290531372/">NYT：大羊驼，令人欲罢不能的宠物</a></li>
+					</ul>
+				</div>
+  
+                  
+        	</div>
+        </div>
+    </div>
 </div>
+
+<!--文章-->
+<div id="anony-article" class="section">
+	<div class="wrapper">
+    	<div class="sidenav">
+			  <h2 class="section-title"><a href="http://www.douban.com/group/">阅读</a></h2>
+			  <div class="side-links nav-anon">
+			      <ul>
+					<li><a href="/group/explore">科技</a></li>
+					<li><a href="/group/explore_topic">生活</a></li>    
+                    <li><a href="/group/explore_topic">趣味</a></li>    
+                    <li><a href="/group/explore_topic">文化</a></li>      
+			      </ul>
+			  </div>
+		</div> 
+        <div class="side">
+		<div class="mod">
+		
+		    <h2>
+		        热门标签
+		            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+		    </h2>
+		
+            <div class="article-cate-mod">
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[文学]</li>
+              <li><a href="http://book.douban.com/tag/小说">小说</a></li>
+              <li><a href="http://book.douban.com/tag/随笔">随笔</a></li>
+              <li><a href="http://book.douban.com/tag/散文">散文</a></li>
+              <li><a href="http://book.douban.com/tag/日本文学">日本文学</a></li>
+              <li><a href="http://book.douban.com/tag/童话">童话</a></li>
+              <li><a href="http://book.douban.com/tag/诗歌">诗歌</a></li>
+              <li><a href="http://book.douban.com/tag/名著">名著</a></li>
+              <li><a href="http://book.douban.com/tag/港台">港台</a></li>
+              <li><a href="http://book.douban.com/tag/?view=type#文学">更多</a></li>
+              </ul>
+            </div>
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[趣味]</li>
+              <li><a href="http://book.douban.com/tag/漫画">漫画</a></li>
+              <li><a href="http://book.douban.com/tag/绘本">绘本</a></li>
+              <li><a href="http://book.douban.com/tag/推理">推理</a></li>
+              <li><a href="http://book.douban.com/tag/青春">青春</a></li>
+              <li><a href="http://book.douban.com/tag/言情">言情</a></li>
+              <li><a href="http://book.douban.com/tag/科幻">科幻</a></li>
+              <li><a href="http://book.douban.com/tag/武侠">武侠</a></li>
+              <li><a href="http://book.douban.com/tag/奇幻">奇幻</a></li>
+              <li><a href="http://book.douban.com/tag/?view=type#流行">更多</a></li>
+              </ul>
+            </div>
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[文化]</li>
+              <li><a href="http://book.douban.com/tag/历史">历史</a></li>
+              <li><a href="http://book.douban.com/tag/哲学">哲学</a></li>
+              <li><a href="http://book.douban.com/tag/传记">传记</a></li>
+              <li><a href="http://book.douban.com/tag/设计">设计</a></li>
+              <li><a href="http://book.douban.com/tag/建筑">建筑</a></li>
+              <li><a href="http://book.douban.com/tag/电影">电影</a></li>
+              <li><a href="http://book.douban.com/tag/回忆录">回忆录</a></li>
+              <li><a href="http://book.douban.com/tag/音乐">音乐</a></li>
+              <li><a href="http://book.douban.com/tag/?view=type#文化">更多</a></li>
+              </ul>
+            </div>
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[生活]</li>
+              <li><a href="http://book.douban.com/tag/旅行">旅行</a></li>
+              <li><a href="http://book.douban.com/tag/励志">励志</a></li>
+              <li><a href="http://book.douban.com/tag/职场">职场</a></li>
+              <li><a href="http://book.douban.com/tag/美食">美食</a></li>
+              <li><a href="http://book.douban.com/tag/教育">教育</a></li>
+              <li><a href="http://book.douban.com/tag/灵修">灵修</a></li>
+              <li><a href="http://book.douban.com/tag/健康">健康</a></li>
+              <li><a href="http://book.douban.com/tag/家居">家居</a></li>
+              <li><a href="http://book.douban.com/tag/?view=type#生活">更多</a></li>
+              </ul>
+            </div>
+
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[科技]</li>
+              <li><a href="http://book.douban.com/tag/科普">科普</a></li>
+              <li><a href="http://book.douban.com/tag/互联网">互联网</a></li>
+              <li><a href="http://book.douban.com/tag/编程">编程</a></li>
+              <li><a href="http://book.douban.com/tag/交互设计">交互设计</a></li>
+              <li><a href="http://book.douban.com/tag/算法">算法</a></li>
+              <li><a href="http://book.douban.com/tag/通信">通信</a></li>
+              <li><a href="http://book.douban.com/tag/神经网络">神经网络</a></li>
+              <li><a href="http://book.douban.com/tag/?view=type#科技">更多</a></li>
+              </ul>
+            </div>
+            </div>		   
+           
+		</div>
+		</div>
+        <div class="main">
+        	<div class="mod">
+            	<div class="artitem">
+	            	<h2 class="content-title">科学·技术</h2>
+					<ul class="artlist">
+					    <li class="first">
+	                    	<div class="pic">
+					        <a href="#">
+					            <img width="135" height="90" alt="" src="http://www.lomoslife.com/shangchuan/allimg/130614/346-130614113221-lp.jpg">
+					        </a>
+	                        </div>
+					        <div class="cont">
+					            <h3><a title=""  href="#">在果壳有哪些与电脑有关的精彩问答？</a></h3>
+					            <p>在电子科技高速发展的今天，不了解点电脑知识不了解点电脑，... <a href="#">详细</a></p>
+					        </div>
+					    </li>
+					    <li><a title="#" href="#">气温达到多少能让汗在滴到地面前就蒸发了？</a></li>
+	                    <li><a title="#" href="#">如何向古人介绍现代的科学技术？</a></li>
+	                    <li><a title="#" href="#">气温达到多少能让汗在发了？</a></li>
+	                    <li><a title="#" href="#">为什么对小游戏的积分排名人们会很在意？</a></li>
+					</ul>
+                </div>
+                                                                             
+                <div class="artitem">
+	            	<h2 class="content-title">科学·技术</h2>
+					<ul class="artlist">
+					    <li class="first">
+	                    	<div class="pic">
+					        <a href="#">
+					            <img width="135" height="90" alt="" src="http://www.lomoslife.com/shangchuan/allimg/130808/345-130PQ04208-50-lp.jpg">
+					        </a>
+	                        </div>
+					        <div class="cont">
+					            <h3><a title=""  href="#">在果壳有哪些与电脑有关的精彩问答？</a></h3>
+					            <p>在电子科技高速发展的今天，不了解点电脑知识不了解点电脑，... <a href="#">详细</a></p>
+					        </div>
+					    </li>
+					    <li><a title="#" href="#">气温达到多少能让汗在滴到地面前就蒸发了？</a></li>
+	                    <li><a title="#" href="#">如何向古人介绍现代的科学技术？</a></li>
+	                    <li><a title="#" href="#">气温达到多少能让汗在发了？</a></li>
+	                    <li><a title="#" href="#">为什么对小游戏的积分排名人们会很在意？</a></li>
+					</ul>
+                </div>
+                
+                <div class="artitem">
+	            	<h2 class="content-title">科学·技术</h2>
+					<ul class="artlist">
+					    <li class="first">
+	                    	<div class="pic">
+					        <a href="#">
+					            <img width="135" height="90" alt="" src="http://www.lomoslife.com/shangchuan/allimg/130809/345-130P9112910-lp.jpg">
+					        </a>
+	                        </div>
+					        <div class="cont">
+					            <h3><a title=""  href="#">在果壳有哪些与电脑有关的精彩问答？</a></h3>
+					            <p>在电子科技高速发展的今天，不了解点电脑知识不了解点电脑，... <a href="#">详细</a></p>
+					        </div>
+					    </li>
+					    <li><a title="#" href="#">气温达到多少能让汗在滴到地面前就蒸发了？</a></li>
+	                    <li><a title="#" href="#">如何向古人介绍现代的科学技术？</a></li>
+	                    <li><a title="#" href="#">气温达到多少能让汗在发了？</a></li>
+	                    <li><a title="#" href="#">为什么对小游戏的积分排名人们会很在意？</a></li>
+					</ul>
+                </div>
+                
+                <div class="artitem">
+	            	<h2 class="content-title">科学·技术</h2>
+					<ul class="artlist">
+					    <li class="first">
+	                    	<div class="pic">
+					        <a href="#">
+					            <img width="135" height="90" alt="" src="http://www.ikphp.com/data/upload/photo/2/2/20130703012450kRRQ_500_500.jpg?v=1376025063">
+					        </a>
+	                        </div>
+					        <div class="cont">
+					            <h3><a title=""  href="#">在果壳有哪些与电脑有关的精彩问答？</a></h3>
+					            <p>在电子科技高速发展的今天，不了解点电脑知识不了解点电脑，... <a href="#">详细</a></p>
+					        </div>
+					    </li>
+					    <li><a title="#" href="#">气温达到多少能让汗在滴到地面前就蒸发了？</a></li>
+	                    <li><a title="#" href="#">如何向古人介绍现代的科学技术？</a></li>
+	                    <li><a title="#" href="#">气温达到多少能让汗在发了？</a></li>
+	                    <li><a title="#" href="#">为什么对小游戏的积分排名人们会很在意？</a></li>
+					</ul>
+                </div>
+            </div>
+        </div>   	
+    </div>
+</div>
+<!--小组-->
+<div id="anony-group" class="section">
+	<div class="wrapper">
+    	<div class="sidenav">
+			  <h2 class="section-title"><a href="http://www.douban.com/group/">小组</a></h2>
+			  <div class="side-links nav-anon">
+			      <ul>
+					<li><a href="/group/explore">发现小组</a></li>
+					<li><a href="/group/explore_topic">发现话题</a></li>      
+			      </ul>
+			  </div>
+		</div>
+		<div class="side">
+		<div class="mod">
+		
+		    <h2>
+		        小组分类
+		            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+		    </h2>
+		
+		   <div class="cate group-cate">
+		       <ul>
+		       <li class="cate-label"><a href="http://www.douban.com/group/explore?tag=兴趣">兴趣» </a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=旅行">旅行</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=摄影">摄影</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=影视">影视</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=音乐">音乐</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=文学">文学</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=游戏">游戏</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=动漫">动漫</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=运动">运动</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=戏曲">戏曲</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=桌游">桌游</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=怪癖">怪癖</a></li>
+		       </ul>
+		    </div>
+		   <div class="cate group-cate">
+		       <ul>
+		       <li class="cate-label"><a href="http://www.douban.com/group/explore?tag=生活">生活» </a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=健康">健康</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=美食">美食</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=宠物">宠物</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=美容">美容</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=化妆">化妆</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=护肤">护肤</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=服饰">服饰</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=公益">公益</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=家庭">家庭</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=育儿">育儿</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=汽车">汽车</a></li>
+		       </ul>
+		    </div>
+		   <div class="cate group-cate">
+		       <ul>
+		       <li class="cate-label"><a href="http://www.douban.com/group/explore?tag=购物">购物» </a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=淘宝">淘宝</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=二手">二手</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=团购">团购</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=数码">数码</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=品牌">品牌</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=文具">文具</a></li>
+		       </ul>
+		    </div>
+		   <div class="cate group-cate">
+		       <ul>
+		       <li class="cate-label"><a href="http://www.douban.com/group/explore?tag=社会">社会» </a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=求职">求职</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=租房">租房</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=励志">励志</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=留学">留学</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=出国">出国</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=理财">理财</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=传媒">传媒</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=创业">创业</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=考试">考试</a></li>
+		       </ul>
+		    </div>
+		   <div class="cate group-cate">
+		       <ul>
+		       <li class="cate-label"><a href="http://www.douban.com/group/explore?tag=艺术">艺术» </a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=设计">设计</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=手工">手工</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=展览">展览</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=曲艺">曲艺</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=舞蹈">舞蹈</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=雕塑">雕塑</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=纹身">纹身</a></li>
+		       </ul>
+		    </div>
+		   <div class="cate group-cate">
+		       <ul>
+		       <li class="cate-label"><a href="http://www.douban.com/group/explore?tag=学术">学术» </a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=人文">人文</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=社科">社科</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=自然">自然</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=建筑">建筑</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=国学">国学</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=语言">语言</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=宗教">宗教</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=哲学">哲学</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=软件">软件</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=硬件">硬件</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=互联网">互联网</a></li>
+		       </ul>
+		    </div>
+		   <div class="cate group-cate">
+		       <ul>
+		       <li class="cate-label"><a href="http://www.douban.com/group/explore?tag=情感">情感» </a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=恋爱">恋爱</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=心情">心情</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=心理学">心理学</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=星座">星座</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=塔罗">塔罗</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=LES">LES</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=GAY">GAY</a></li>
+		       </ul>
+		    </div>
+		   <div class="cate group-cate">
+		       <ul>
+		       <li class="cate-label"><a href="http://www.douban.com/group/explore?tag=闲聊">闲聊» </a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=吐槽">吐槽</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=笑话">笑话</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=直播">直播</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=八卦">八卦</a></li>
+		       <li><a href="http://www.douban.com/group/explore?tag=发泄">发泄</a></li>
+		       </ul>
+		    </div>
+		</div>
+		</div>        
+		<div class="main">
+				<h2>
+				热门小组
+				······
+				<span class="pl">&nbsp;(
+				        <a href="http://www.douban.com/group/explore">更多</a>
+				    ) </span>
+				</h2>
+    			<div class="mod">
+	            <foreach name="arrRecommendGroup" item="item">
+	            <div class="sub-item">
+	            <div class="pic">
+	            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">
+	            <img src="{$item[icon_48]}" alt="{$item[groupname]}" width="48" height="48">
+	            </a>
+	            </div>
+	            <div class="info">
+	            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a> ({$item[count_user]}/<font color="orange">{$item[count_topic]}</font>)             
+	            <p>{$item[groupdesc]}</p>
+	            </div>
+	            </div>
+	            </foreach>                
+                </div>                                                                                                                                                                              
+        </div>
+
+    </div>
+</div>
+<!--同城-->
+<div id="anony-events" class="section">
+	<div class="wrapper">
+			<div class="sidenav">
+			  <h2 class="section-title"><a href="http://www.douban.com/location/">同城</a></h2>
+			  <div class="side-links nav-anon">
+			      <ul>
+				    <li>
+				        <a href="http://beijing.douban.com/events">同城活动</a>
+				    </li>
+				    
+				    <li>
+				        <a href="http://beijing.douban.com/hosts">主办方</a>
+				    </li>
+				    
+				    <li>
+				        <a href="http://www.douban.com/location/drama/">舞台剧</a>
+				    </li>
+			      </ul>
+			  </div>
+			</div>
+            <div class="side">
+
+				<div class="mod">
+				
+				    <h2>
+				        活动标签
+				            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+				    </h2>
+				
+				<div class="cate events-cate">
+				  <ul>
+				  <li class="cate-label"><a href="http://www.douban.com/location/beijing/events/week-music">音乐»</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1001">小型现场</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1002">音乐会</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1003">演唱会</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1004">音乐节</a></li>
+				  </ul>
+				</div>
+				<div class="cate events-cate">
+				  <ul>
+				  <li class="cate-label"><a href="http://www.douban.com/location/beijing/events/week-drama">戏剧»</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1101">话剧</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1102">音乐剧</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1103">舞剧</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1104">歌剧</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1105">戏曲</a></li>
+				  </ul>
+				</div>
+				<div class="cate events-cate">
+				  <ul>
+				  <li class="cate-label"><a href="http://www.douban.com/location/beijing/events/week-party">聚会»</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1401">生活</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1403">摄影</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1404">外语</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1405">桌游</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1407">交友</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1406">夜店</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1402">集市</a></li>
+				  </ul>
+				</div>
+				<div class="cate events-cate">
+				  <ul>
+				  <li class="cate-label"><a href="http://www.douban.com/location/beijing/events/week-film">电影»</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1801">主题放映</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1802">影展</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-1803">影院活动</a></li>
+				  </ul>
+				</div>
+				<div class="cate events-cate">
+				  <ul>
+				  <li class="cate-label"><a href="http://www.douban.com/location/beijing/events/week-all">其他»</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-salon">讲座</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-exhibition">展览</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-sports">运动</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-travel">旅行</a></li>
+				    <li><a href="http://www.douban.com/location/beijing/events/week-commonweal">公益</a></li>
+				  </ul>
+				</div>
+				</div>
+			</div>
+            
+            <div class="main">
+            	<h2>
+			        北京 · 本周热门活动
+			            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+			            <span class="pl">&nbsp;(
+			                    <a href="http://www.douban.com/location/">更多</a>
+			                ) </span>
+    			</h2>
+                <div class="events-list list">
+                	<ul>
+                    	<li>
+					      <div class="pic">
+					        <a href="http://www.douban.com/event/19460429/">
+					            <img width="70" src="http://127.0.0.1/joyku/data/upload/event/poster/2013/0809/12/c81e728d9d4c2f636f067f89cc14862c_200_300.jpg?v=1376023816" data-origin="http://img5.douban.com/pview/event_poster/small/public/089a683ff5c8fd9.jpg">
+					        </a>
+					      </div>
+					      <div class="info">
+					        <div class="title">
+					          <a title="【单向街·沙龙】第538期 李长声 止庵 蒋方舟 ：读日•识日•聊日" href="http://www.douban.com/event/19460429/">
+					            【单向街·沙龙】第538期 李长声 止庵 蒋方舟 ：读日...
+					          </a>
+					        </div>
+					        <div class="datetime">
+					            8月11日 周日 15:00 - 17:00
+					        </div>
+					        <address title="朝阳北路101号楼朝阳大悦城4F-54 ">
+					          朝阳北路101号楼朝阳大悦城...
+					        </address>
+					        <div class="follow">
+					          509人关注
+					        </div>
+					      </div>
+					    </li>
+                    	<li>
+					      <div class="pic">
+					        <a href="http://www.douban.com/event/19460429/">
+					            <img width="70" src="http://127.0.0.1/joyku/data/upload/event/poster/2013/0809/12/c81e728d9d4c2f636f067f89cc14862c_200_300.jpg?v=1376023816" data-origin="http://img5.douban.com/pview/event_poster/small/public/089a683ff5c8fd9.jpg">
+					        </a>
+					      </div>
+					      <div class="info">
+					        <div class="title">
+					          <a title="【单向街·沙龙】第538期 李长声 止庵 蒋方舟 ：读日•识日•聊日" href="http://www.douban.com/event/19460429/">
+					            【单向街·沙龙】第538期 李长声 止庵 蒋方舟 ：读日...
+					          </a>
+					        </div>
+					        <div class="datetime">
+					            8月11日 周日 15:00 - 17:00
+					        </div>
+					        <address title="朝阳北路101号楼朝阳大悦城4F-54 ">
+					          朝阳北路101号楼朝阳大悦城...
+					        </address>
+					        <div class="follow">
+					          509人关注
+					        </div>
+					      </div>
+					    </li>
+                    	<li>
+					      <div class="pic">
+					        <a href="http://www.douban.com/event/19460429/">
+					            <img width="70" src="http://127.0.0.1/joyku/data/upload/event/poster/2013/0809/12/c81e728d9d4c2f636f067f89cc14862c_200_300.jpg?v=1376023816" data-origin="http://img5.douban.com/pview/event_poster/small/public/089a683ff5c8fd9.jpg">
+					        </a>
+					      </div>
+					      <div class="info">
+					        <div class="title">
+					          <a title="【单向街·沙龙】第538期 李长声 止庵 蒋方舟 ：读日•识日•聊日" href="http://www.douban.com/event/19460429/">
+					            【单向街·沙龙】第538期 李长声 止庵 蒋方舟 ：读日...
+					          </a>
+					        </div>
+					        <div class="datetime">
+					            8月11日 周日 15:00 - 17:00
+					        </div>
+					        <address title="朝阳北路101号楼朝阳大悦城4F-54 ">
+					          朝阳北路101号楼朝阳大悦城...
+					        </address>
+					        <div class="follow">
+					          509人关注
+					        </div>
+					      </div>
+					    </li>
+                    	<li>
+					      <div class="pic">
+					        <a href="http://www.douban.com/event/19460429/">
+					            <img width="70" src="http://127.0.0.1/joyku/data/upload/event/poster/2013/0809/12/c81e728d9d4c2f636f067f89cc14862c_200_300.jpg?v=1376023816" data-origin="http://img5.douban.com/pview/event_poster/small/public/089a683ff5c8fd9.jpg">
+					        </a>
+					      </div>
+					      <div class="info">
+					        <div class="title">
+					          <a title="【单向街·沙龙】第538期 李长声 止庵 蒋方舟 ：读日•识日•聊日" href="http://www.douban.com/event/19460429/">
+					            【单向街·沙龙】第538期 李长声 止庵 蒋方舟 ：读日...
+					          </a>
+					        </div>
+					        <div class="datetime">
+					            8月11日 周日 15:00 - 17:00
+					        </div>
+					        <address title="朝阳北路101号楼朝阳大悦城4F-54 ">
+					          朝阳北路101号楼朝阳大悦城...
+					        </address>
+					        <div class="follow">
+					          509人关注
+					        </div>
+					      </div>
+					    </li>                                                                        
+                    </ul>
+                </div>
+            </div>
+            
+    </div>
+</div>
+
 <include file="public:footer" />
 </body>
 </html>

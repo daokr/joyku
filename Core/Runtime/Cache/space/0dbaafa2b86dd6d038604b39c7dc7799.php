@@ -8,6 +8,7 @@
 <?php if(!empty($seo["description"])): ?><meta name="description" content="<?php echo ($seo["description"]); ?>" /><?php endif; ?>
 <meta property="qc:admins" content="12472730776130006375" />
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
+<link rel="icon" href="__PUBLIC__/images/fav.gif" type="image/gif" />
 __SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
@@ -194,8 +195,8 @@ __EXTENDS_JS__
 
 <!--内容-->
 <div class="stream-items">
-	<?php if(is_array($arrFeed)): foreach($arrFeed as $key=>$item): ?><div data-object-id="536893167" data-object-kind="1018" data-target-type="sns" data-action="1" data-sid="1188476174" style="" class="status-item">
-    <div data-status-id="1188476174" class="mod">
+	<?php if(is_array($arrFeed)): foreach($arrFeed as $key=>$item): ?><div data-object-id="<?php echo ($item[feedid]); ?>" class="status-item">
+    <div  class="mod">
       
       <div class="hd">
         <a title="<?php echo ($item[user][username]); ?>" href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a>
@@ -205,9 +206,11 @@ __EXTENDS_JS__
        	<?php echo ($item[content]); ?>
         <div class="actions">
           <span title="<?php echo (date('Y-m-d h:m:s',$item["addtime"])); ?>" class="created_at"><a href="#"><?php echo getTime($item[addtime],time()); ?></a></span>
-          &nbsp;&nbsp;
-          <a data-action-type="showComments" class="btn btn-action-reply" href="#">回应</a>
-          &nbsp;&nbsp;<a data-action-type="deleteStatus" class="btn btn-action-reply-delete" href="#">删除</a>
+          &nbsp;&nbsp;<a data-action-type="showComments" class="btn btn-action-reply" href="javascript:;">回应</a>
+          <?php if($visitor[userid] != $item[userid]): ?>&nbsp;&nbsp;<a data-action-type="like" class="btn btn-like" href="javascript:;" data-object-url="<?php echo U('space/update/like');?>">赞</a>
+          &nbsp;&nbsp;<a data-action-type="reshare" class="btn btn-key-reshare btn-reshare" href="javascript:;" data-object-url="<?php echo U('space/update/reshare');?>">转播</a>
+          <?php else: ?>
+          &nbsp;&nbsp;<a data-action-type="deleteStatus" class="btn btn-action-reply-delete" href="javascript:;" data-object-url="<?php echo U('space/update/delete');?>">删除</a><?php endif; ?>
         </div>
 
         <div class="others">

@@ -32,5 +32,27 @@ class feedModel extends Model
 			return false;
 		}
 	}
+	public function getOneFeed($feedid,$userid){
+		$result = $this->where(array('feedid'=>$feedid,'userid'=>$userid))->find();
+		return $result;
+	}
+	//删除deleteFeed
+	public function deleteFeed($feeid){
+		$where['feedid'] = array('exp',' IN ('.$feeid.') ');
+		$arr = $this->field('feedid,topicid')->where($where)->select();
+		if($arr){
+			//删除关联数据
+			M('feed_data')->where($where)->delete();//话题内容
+			M('feed_images')->where($where)->delete();//附件图片
+			foreach ($arr as $item){
+				$map['topicid'] = array('exp',' IN ('.$item['topicid'].') ');
+				D('feed_topic')->where($map)->setDec('count_topic');
+			}
+			$this->where($where)->delete();
+			return true;
+		}else{
+			return false;
+		}
+	}
 	
 }

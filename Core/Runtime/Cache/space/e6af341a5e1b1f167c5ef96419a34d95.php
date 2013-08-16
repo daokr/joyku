@@ -8,6 +8,7 @@
 <?php if(!empty($seo["description"])): ?><meta name="description" content="<?php echo ($seo["description"]); ?>" /><?php endif; ?>
 <meta property="qc:admins" content="12472730776130006375" />
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
+<link rel="icon" href="__PUBLIC__/images/fav.gif" type="image/gif" />
 __SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />
@@ -140,10 +141,27 @@ __EXTENDS_JS__
 	<h1><?php echo ($seo["title"]); ?></h1>
 	<div class="cleft">
     	
-    	
+		<div class="note_list">
+		
+         <?php if($arrNote): if(is_array($arrNote)): foreach($arrNote as $key=>$item): ?><dl>
+		        <dt><a href="<?php echo U('space/notes/show',array('id'=>$item[noteid]));?>" title="<?php echo ($item[title]); ?>"><?php echo ($item[title]); ?></a><span class="open"><a href="javascript:;">开关</a></span></dt>
+		        <dd class="addtime"><?php echo (date("Y-m-d H:i:s",$item["addtime"])); ?></dd>
+		        <dd class="note_des"><?php echo getsubstrutf8(t($item[content]),0,150); ?>...</dd>
+		        
+		        <dd class="action">
+		         <?php echo ($item[count_view]); ?> 人浏览  &nbsp;&nbsp;<a href="<?php echo U('space/notes/show',array('id'=>$item[noteid]));?>#comments" title="回应"><?php echo ($item[count_comment]); ?> 条回应</a>
+		         <?php if($item[userid] == $visitor[userid]): ?>&gt; <a href="#" title="">修改</a> &gt; <a href="#" title="">删除</a><?php endif; ?>
+		        </dd>
+		    </dl><?php endforeach; endif; ?>
+		  <?php else: ?>
+		  <p class="pl f14">你可以在这里记录您日记了，马上就 <a href="<?php echo U('space/notes/create');?>">开始写吧</a> 。</p><?php endif; ?>
+		</div>
+		<div class="page"><?php echo ($pageUrl); ?></div>         
+		    	
     </div><!--//cleft-->
     <div class="cright">
         <?php if($visitor[userid]): ?><p class="pl2">&gt; <a href="<?php echo U('space/notes/create');?>" class="create-new-album" >开始写日记</a></p><?php endif; ?>
+        
     </div><!--//right-->
 </div>
 </div>

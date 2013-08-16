@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<if condition="empty($visitor[userid])">
+    
+    <div id="anony-reg">
+      <div class="wrapper">
+            <div class="login">
+                <form action="{:U('public/user/login')}" method="post" name="lzform" id="lzform">
+                    <fieldset>
+                        <legend>登录</legend>
+                        <div class="item item-account">
+                            <input type="email" tabindex="1" placeholder="邮箱" class="inp" value="" id="form_email" name="email">
+                            <div class="opt"><label for="form_remember"><input type="checkbox" tabindex="4" id="form_remember" name="remember"> 记住我</label> <a href="{:U('public/user/forgetpwd')}">忘记密码</a></div>
+                        </div>
+                        <div class="item item-passwd">
+                            <input type="password" tabindex="2" class="inp" id="form_password" placeholder="密码" name="password">
+                            <div class="opt"><a style="margin-left:10px; margin-right:10px" target="_blank" href="{:U('public/oauth/index', array('mod'=>'qq'))}"><img align="absmiddle" src="__PUBLIC__/images/connect_qq.png" title="QQ登录"> 登录</a> | <a style="margin-left:10px" target="_blank" href="{:U('public/oauth/index', array('mod'=>'sina'))}"><img align="absmiddle" src="__PUBLIC__/images/connect_sina_weibo.png" title="新浪微博"> 登录</a></div>
+                        </div>
+                        <div class="item-submit">
+                            <input type="submit" tabindex="4" class="bn-submit" value="登录">
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+      
+            <div class="reg">
+            	<a class="lnk-reg" href="{:U('public/user/register')}">加入我们 <i>注册</i></a>
+            	<div class="nb-info">
+            <b>爱客网开源社区程序，内容互动性强，交流更方便</b><br><em>简单</em><em>快捷</em><em>方便</em><em>建设本地化，垂直型社区；目前已有<cite>{$count_user}</cite>位用户加入！</em>
+            	</div>
+            </div>
+      </div>
+    </div>
+</if>
+    
+
+<div id="anony-article" class="section">
+  <div class="wrapper">
+        <div id="head-slide-box" class="head-slide-box">
+        	<ul class="head-slides">
+				<li class="item" style="display:block">
+                	<div class="mod2-left">
+                        <a  href="{:U('space/photos/show',array('id'=>$arrPhoto[0][photoid]))}"><img width="400" height="300" alt="" src="{$arrPhoto[0][mimg]}">
+                        
+                        </a>                    
+                    </div>
+                    <div class="mod2-mid">
+
+                        <div>
+                            <a href="{:U('space/photos/show',array('id'=>$arrPhoto[1][photoid]))}"><img src="{$arrPhoto[1][mimg]}" alt="" height="150" width="250">
+                            
+                            </a>
+                        </div>
+                        <div class="pt1h">
+                        <a href="{:U('space/photos/show',array('id'=>$arrPhoto[2][photoid]))}"><img src="{$arrPhoto[2][mimg]}" alt="" height="149" width="250">
+                       
+                        </a>
+                        </div>
+                        
+                    </div>
+                    <div class="mod2-right">
+                        <a  href="{:U('space/photos/show',array('id'=>$arrPhoto[3][photoid]))}"><img width="400" height="300" alt="" src="{$arrPhoto[3][mimg]}">
+                       
+                        </a>  	
+                    </div>
+                </li>            
+            	<li class="item">
+                    <div class="mod1-left">
+                    	<div class="dlitem">
+                    	<dl>
+                        	<dt><a href="{:U('article/index/show',array('id'=>$arrdigArticle[0][aid]))}"><img width="490" height="300" alt="{$arrdigArticle[0][title]}" src="{$arrdigArticle[0][photo][mimg]}"></a>
+                        	<dd class="filter"><a class="cFFF" href="{:U('article/index/show',array('id'=>$arrdigArticle[0][aid]))}">{$arrdigArticle[0][title]}</a></dd>
+                        </dl>
+                        </div>
+                        <!--
+                        <ul class="dotitem">
+							<li class="on"></li>
+                            <li></li>
+                             <li></li>
+                        </ul>-->
+                    </div> 
+                    <div class="mod1-right">
+                    	<div class="padingbox">
+                            <h2 class="tit"><a href="{:U('article/index/show',array('id'=>$arrdigArticle[1][aid]))}">{$arrdigArticle[1][title]}</a></h2>
+                            <div class="hot-box1 clearfix">
+                              <ul>
+                                <li><a class="c555" href="{:U('article/index/show',array('id'=>$arrdigArticle[2][aid]))}">{$arrdigArticle[2][title]}</a></li>
+                                <li><a class="c555" href="{:U('article/index/show',array('id'=>$arrdigArticle[3][aid]))}">{$arrdigArticle[3][title]}</a></li>
+                              </ul>
+                              <ul class="r">
+                                <li><a class="c555" href="{:U('article/index/show',array('id'=>$arrdigArticle[4][aid]))}">{$arrdigArticle[4][title]}</a></li>
+                                <li><a class="c555" href="{:U('article/index/show',array('id'=>$arrdigArticle[5][aid]))}">{$arrdigArticle[5][title]}</a></li>
+                              </ul>
+                            </div>
+                            <div class="hot-box2 clearfix">
+                                <div class="hL">
+                                	<h2><a href="{:U('article/index/show',array('id'=>$arrdigArticle[6][aid]))}">{$arrdigArticle[6][title]}</a></h2>
+                                	<p><php> echo getsubstrutf8(t($arrdigArticle[6][content]),0,45);</php></p>
+                                </div>
+                                <div class="hR">            
+                                    <h2><a href="{:U('article/index/show',array('id'=>$arrdigArticle[7][aid]))}">{$arrdigArticle[7][title]}</a></h2>
+                                    <p><php> echo getsubstrutf8(t($arrdigArticle[7][content]),0,55);</php></p>
+                                </div>
+                            </div>
+                       </div>                         
+                    </div>               
+                </li>
+                <li class="item">
+                	<div class="mod2-left">
+                        <a  href="{:U('article/index/show',array('id'=>$arrfunArticle[0][aid]))}"><img width="400" height="300" alt="{$arrfunArticle[0][title]}" src="{$arrfunArticle[0][photo][mimg]}">
+                        <span class="filter">{$arrfunArticle[0][title]}</span>
+                        </a>                    
+                    </div>
+                    <div class="mod2-mid">
+
+                        <div>
+                            <a href="{:U('article/index/show',array('id'=>$arrfunArticle[1][aid]))}"><img src="{$arrfunArticle[1][photo][mimg]}" alt="{$arrfunArticle[1][title]}" height="150" width="250">
+                            <span class="filter">{$arrfunArticle[1][title]}</span>
+                            </a>
+                        </div>
+                        <div class="pt1h">
+                        <a href="{:U('article/index/show',array('id'=>$arrfunArticle[2][aid]))}"><img src="{$arrfunArticle[2][photo][mimg]}" alt="{$arrfunArticle[2][title]}" height="149" width="250">
+                        <span  class="filter">{$arrfunArticle[2][title]}</span>
+                        </a>
+                        </div>
+                        
+                    </div>
+                    <div class="mod2-right">
+                        <a  href="{:U('article/index/show',array('id'=>$arrfunArticle[3][aid]))}"><img width="400" height="300" alt="{$arrfunArticle[3][title]}" src="{$arrfunArticle[3][photo][mimg]}">
+                        <span class="filter">{$arrfunArticle[3][title]}</span>
+                        </a>  	
+                    </div>
+                </li>
+                <li class="item" >
+                 	<div class="mod3-left">
+                        <a  href="{:U('article/index/show',array('id'=>$arrHotArticle[0][aid]))}">
+                        <img width="250" height="300" alt="{$arrHotArticle[0][title]}" src="{$arrHotArticle[0][photo][mimg]}">
+                        <span class="filter">{$arrHotArticle[0][title]}</span>
+                        </a>                    
+                    </div> 
+                    <div class="mod3-mid">
+                    
+                        <div class="midbox">
+                            <div class="mhd">
+                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[1][aid]))}">{$arrHotArticle[1][title]}</a></h2>
+                                <p><php> echo getsubstrutf8(t($arrHotArticle[1][content]),0,30);</php></p>
+                            </div>
+                            <div class="mbd">
+                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[2][aid]))}">{$arrHotArticle[2][title]}</a></h2>
+                                <p><php> echo getsubstrutf8(t($arrHotArticle[2][content]),0,30);</php></p>
+                            </div>
+                        </div>
+                                        
+                    </div> 
+                    <div class="mod3-mid">
+                    
+                        <div class="midbox">
+                            <div class="mhd">
+                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[3][aid]))}">{$arrHotArticle[3][title]}</a></h2>
+                                <p><php> echo getsubstrutf8(t($arrHotArticle[3][content]),0,30);</php></p>
+                            </div>
+                            <div class="mbd">
+                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[4][aid]))}">{$arrHotArticle[4][title]}</a></h2>
+                                <p><php> echo getsubstrutf8(t($arrHotArticle[4][content]),0,30);</php></p>
+                            </div>
+                        </div>
+                                        
+                    </div> 
+                    <div class="mod3-right">
+                            <div class="picbox">
+                            <a href="{:U('article/index/show',array('id'=>$arrHotArticle[5][aid]))}"><img src="{$arrHotArticle[5][photo][mimg]}" alt="{$arrHotArticle[5][title]}" height="150" width="247"></a>
+                            </div>
+                            <div class="picinfo"> 
+                                <h2><a href="{:U('article/index/show',array('id'=>$arrHotArticle[5][aid]))}">{$arrHotArticle[5][title]}</a></h2>
+                                <p><php> echo getsubstrutf8(t($arrHotArticle[5][content]),0,30);</php></p>
+                            </div>
+                    </div>                                 
+                </li>
+            </ul>
+            <ul class="head-ctrls">
+               <li class="on">推荐</li><li>头条</li><li>视觉</li><li class="last">热门</li>
+            </ul>
+        </div>
+        
+  </div><!--//end wrapper-->
+</div><!--//end anony-sns-->
+
+<div class="midder">
+    <div class="mc">
+    
+        <div class="cleft">
+        
+            <h2>推荐小组<span class="pl">&nbsp;(<a href="{:U('group/index/explore')}">全部</a>) </span></h2>
+        
+            <div style="overflow:hidden;">
+            <foreach name="arrRecommendGroup" item="item">
+            <div class="sub-item">
+            <div class="pic">
+            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">
+            <img src="{$item[icon_48]}" alt="{$item[groupname]}" width="48" height="48">
+            </a>
+            </div>
+            <div class="info">
+            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a> ({$item[count_user]}/<font color="orange">{$item[count_topic]}</font>)             
+            <p>{$item[groupdesc]}</p>
+            </div>
+            </div>
+            </foreach>
+            </div>
+            <div class="clear"></div>
+  
+       
+            <h2>最热话题<span class="pl">&nbsp;(<a href="{:U('group/index/explore_topic')}">更多</a>) </span></h2>
+            <div class="topic-list">
+                <foreach name="arrHotTopic" item="item">
+                <dl>
+                    <dt><a href="{:U('space/index/index',array('id'=>$item[user][doname]))}"><img src="{$item[user][face]}"/></a></dt>
+                    <dd>
+                        <header class="title"><a href="{:U('group/index/topic',array('id'=>$item[topicid]))}" title="{$time[title]}">{$item[title]}</a></header>
+                         <a href="{:U('space/index/index',array('id'=>$item[user][doname]))}">{$item[user][username]}</a> <summary><php>echo getTime($item[addtime],time())</php> 阅读 {$item[count_view]} 评论 {$item[count_comment]}</summary>
+                        <p>
+                        <if condition="$item[video]">
+                        <a href="{:U('group/index/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[video][imgurl]}" class="fr"></a>
+                        <elseif condition="$item[img]"/>
+                        <a href="{:U('group/index/topic',array('id'=>$item[topicid]))}" title="{$time[title]}"><img src="{$item[img][simg]}" class="fr"></a>
+                        </if>
+                        {$item[content]}
+                        </p>
+                    </dd>
+                </dl>
+                </foreach>
+            </div>
+        
+        </div><!--//left-->
+    
+        <div class="cright">
+            <h2>活跃用户</h2>
+            <div class="indent">
+            
+           <foreach name="arrHotUser" item="item">
+            <dl class="obu">
+                <dt>
+                    <a href="{:U('space/index/index',array('id'=>$item[doname]))}">
+                    <img alt="{$item[username]}" class="m_sub_img" src="{$item[face]}" width="48" />
+                    </a>
+                    <if condition="$item[isonline] eq 1">
+                    	<div class="border-arrow" title="在线用户"></div>
+                    </if>
+                </dt>
+                <dd>
+                    <a href="{:U('space/index/index',array('id'=>$item[doname]))}">{$item[username]}</a>
+                </dd>
+            </dl>
+            </foreach>
+            <br clear="all"/>
+            </div>
+
+        	<div class="mod">
+                <h2>
+                        最近流行的应用
+                            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                </h2>
+                <div class="th-app-pop">
+                     <ul>
+                     	<foreach name="arrpopApp" item="item">
+                         <li class="common-item">
+                         <div class="pic">
+                             <a href="{:U('develop/index/show',array('id'=>$item[appid]))}"><img width="48" src="{$item[icon_100]}"></a>
+                         </div>
+                         <div class="info">
+                             <div class="title">
+                               <a href="{:U('develop/index/show',array('id'=>$item[appid]))}">{$item[title]}</a>
+                             </div>
+                             <div class="favs">{$item[count_down]}人用过 / {$item[cate][catename]}</div>
+                         </div>
+                         </li>
+                         </foreach>
+                     </ul>
+                </div> 
+            </div><!--//mod-->  
+            
+            <h2>最新创建小组&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('group/index/explore')}">全部</a>) </span></h2>
+            <div class="line23">
+            <foreach name="arrNewGroup" item="item">
+            <a href="{:U('group/index/show',array('id'=>$item[groupid]))}">{$item[groupname]}</a> ({$item[count_user]}<if condition="$item[uptime] gt strtotime(date('Y-m-d 00:00:00'))">/<font color="orange">{$item[count_topic_today]}</font></if>)<br>
+            </foreach>
+            </div>
+
+			<h2>最新文章&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·<span class="pl">&nbsp;(<a href="{:U('article/index/index')}">全部</a>) </span></h2>
+			<div class="line23">
+			<foreach name="arrNewArticle" item="item">
+			<a href="{:U('article/index/show',array('id'=>$item[itemid]))}">{$item[title]}</a><br>
+ 			</foreach>
+			</div>
+            
+          
+            
+
+        
+        
+            <div class="clear"></div>
+        </div><!--//right-->
+    
+    </div><!--//mc-->
+</div>
+<include file="public:footer" />
+</body>
+</html>

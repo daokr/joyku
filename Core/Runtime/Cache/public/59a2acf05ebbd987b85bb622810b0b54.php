@@ -7,6 +7,7 @@
 <?php if(!empty($seo["description"])): ?><meta name="description" content="<?php echo ($seo["description"]); ?>" /><?php endif; ?>
 <meta property="qc:admins" content="12472730776130006375" />
 <link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
+<link rel="icon" href="__PUBLIC__/images/fav.gif" type="image/gif" />
 __SITE_THEME_CSS__
 <!--[if gte IE 7]><!-->
     <link href="__PUBLIC__/js/dialog/skins5/idialog.css" rel="stylesheet" />

@@ -56,7 +56,7 @@
 .qi_c_cright{float: right;width: 310px;}
 .qi_c_cright .indent{ margin-bottom: 25px;line-height: 20px;}
 
-/*豆瓣切换*/
+/*切换*/
 .zbar {
     background: url("../images/zbar.gif") no-repeat scroll 0 0 transparent;
     margin-bottom: 21px;

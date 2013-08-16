@@ -12,17 +12,14 @@
 	<h1>{$seo.title}</h1>
 	<div class="cleft">
 
-
-	  
-
-	<form id="form_note" method="post">
-    <input id="note_id" name="noteid" value="282939518" type="hidden">
+	<form id="form_note" method="post" onsubmit="return checkNoteForm(this);">
+    <input id="note_id" name="noteid" value="{$strNote[noteid]}" type="hidden">
     <div class="row note-title">
         <label class="field" for="note_title">题目:</label>
         <div>
             <input tabindex="1" id="note_title" name="title" value="" autofocus="" type="text">
         </div>
-    </div>
+    </div>    
     <div class="row note-text">
         <ul class="control-panel">
             <li class="image-btn">
@@ -56,13 +53,9 @@
         </label>
     </div>
     <div class="row footer">
-        <div class="error-msg board">
-        </div>
-
-        &nbsp;
-        <input tabindex="8" id="publish_note" value="发表" class="btn" name="note_submit" type="submit">
+        <input tabindex="7" id="publish_note" value="发表" class="btn" name="note_submit" type="submit">
         <span class="bn-flat cancel-note">
-            <input tabindex="9" id="cancel_note" value="取消" class="bn-flat" name="cancel_note" type="button" onClick="history.go(-1)">
+            <input tabindex="8" id="cancel_note" value="取消" class="bn-flat" name="cancel_note" type="button" onClick="history.go(-1)">
         </span>
     </div>
 </form>

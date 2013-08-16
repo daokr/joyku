@@ -81,6 +81,7 @@ CREATE TABLE `ik_feed` (
   `type` char(50) DEFAULT NULL COMMENT 'feed类型',
   `share_link` varchar(250) DEFAULT NULL COMMENT '分享链接地址',
   `share_name` varchar(250) DEFAULT NULL COMMENT '分享链接标题',  
+  `topicid` char(50) DEFAULT NULL COMMENT '关联的话题id',
   `addtime` int(11) NOT NULL COMMENT '产生时间戳',
   `is_del` int(2) NOT NULL DEFAULT '0' COMMENT '是否删除 默认为0',
   `count_comment` int(10) DEFAULT '0' COMMENT '评论数',
@@ -120,3 +121,40 @@ CREATE TABLE `ik_feed_data` (
   `template` text COMMENT '模版内容',
   PRIMARY KEY (`feedid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ik_note`
+--
+DROP TABLE IF EXISTS `ik_note`;
+CREATE TABLE `ik_note` (
+  `noteid` int(11) NOT NULL AUTO_INCREMENT COMMENT '日志ID',
+  `userid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `title` char(64) NOT NULL DEFAULT '' COMMENT '标题',
+  `content` text NOT NULL COMMENT '内容',
+  `count_comment` int(11) NOT NULL DEFAULT '0' COMMENT '回复统计',
+  `count_view` int(11) NOT NULL DEFAULT '0' COMMENT '展示数',
+  `privacy` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否可见 1:所有人可见 2仅好友 3仅自己可见',
+  `isaudit` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否审核 1是 0否',
+  `isreply` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否可以回应 1是 0否',
+  `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '时间',
+  PRIMARY KEY (`noteid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ik_note_comment`
+--
+DROP TABLE IF EXISTS `ik_note_comment`;
+CREATE TABLE  `ik_note_comment` (
+  `commentid` int(11) NOT NULL AUTO_INCREMENT,
+  `noteid` int(11) NOT NULL DEFAULT '0' COMMENT '日志ID',
+  `referid` int(11) NOT NULL DEFAULT '0',
+  `userid` int(11) NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `content` text NOT NULL COMMENT '评论内容',
+  `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '时间',
+  PRIMARY KEY (`commentid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='日志评论' AUTO_INCREMENT=1 ;

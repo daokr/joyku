@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<include file="public:head" />
+</head>
+
+<body>
+<include file="public:header" />
+
+<div class="midder">
+<div class="mc">
+	<div class="cleft">
+    	<div class="note-header">
+        	<h1>{$strNote[title]}</h1>
+        	<div><span class="pl">{$strNote.addtime|date="Y-m-d H:i:s",###}</span></div>
+    	</div>
+    
+    	<div id="link-report" class="note">{$strNote[content]}</div>
+    
+    	
+    </div><!--//cleft-->
+    <div class="cright">
+		<div class="mod">
+	        <h2>
+	        <if condition="$visitor[userid]">我的日记<else/>{$strNote[user][username]}的日记</if>
+	            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+	            <span class="pl">&nbsp;(<a  href="{:U('space/notes/index',array('id'=>$strNote['userid']))}">全部</a>) </span>
+	    	</h2>
+			<ul class="note-list">
+            	  <foreach name="arrNotes" item="item"> 
+			      	<li><a href="{:U('space/notes/show',array('id'=>$item[noteid]))}" title="$item[title]">{$item[title]}</a></li>
+                  </foreach>
+            </ul>       
+		</div>
+        
+    </div><!--//right-->
+</div>
+</div>
+
+<include file="public:footer" />
+</body>
+</html>
