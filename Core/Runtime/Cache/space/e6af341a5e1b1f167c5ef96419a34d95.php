@@ -146,11 +146,11 @@ __EXTENDS_JS__
          <?php if($arrNote): if(is_array($arrNote)): foreach($arrNote as $key=>$item): ?><dl>
 		        <dt><a href="<?php echo U('space/notes/show',array('id'=>$item[noteid]));?>" title="<?php echo ($item[title]); ?>"><?php echo ($item[title]); ?></a><span class="open"><a href="javascript:;">开关</a></span></dt>
 		        <dd class="addtime"><?php echo (date("Y-m-d H:i:s",$item["addtime"])); ?></dd>
-		        <dd class="note_des"><?php echo getsubstrutf8(t($item[content]),0,150); ?>...</dd>
+		        <dd class="note_des"><?php echo getsubstrutf8(t($item[content]),0,150); ?>...&nbsp;<a href="<?php echo U('space/notes/show',array('id'=>$item[noteid]));?>#comments">(<?php echo ($item[count_comment]); ?>回应)</a></dd>
 		        
 		        <dd class="action">
 		         <?php echo ($item[count_view]); ?> 人浏览  &nbsp;&nbsp;<a href="<?php echo U('space/notes/show',array('id'=>$item[noteid]));?>#comments" title="回应"><?php echo ($item[count_comment]); ?> 条回应</a>
-		         <?php if($item[userid] == $visitor[userid]): ?>&gt; <a href="<?php echo U('space/notes/edit',array('id'=>$item[noteid]));?>" title="">修改</a> &gt; <a href="<?php echo U('space/notes/delete',array('id'=>$item[noteid]));?>" title="">删除</a><?php endif; ?>
+		         <?php if($item[userid] == $visitor[userid]): ?>&gt; <a href="<?php echo U('space/notes/edit',array('id'=>$item[noteid]));?>" title="">修改</a> &gt; <a href="<?php echo U('space/notes/delete',array('id'=>$item[noteid]));?>" title="" onClick="return confirm('删除这篇日记吗?')">删除</a><?php endif; ?>
 		        </dd>
 		    </dl><?php endforeach; endif; ?>
 		  <?php else: ?>

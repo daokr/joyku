@@ -19,12 +19,12 @@
 		    <dl>
 		        <dt><a href="{:U('space/notes/show',array('id'=>$item[noteid]))}" title="{$item[title]}">{$item[title]}</a><span class="open"><a href="javascript:;">开关</a></span></dt>
 		        <dd class="addtime">{$item.addtime|date="Y-m-d H:i:s",###}</dd>
-		        <dd class="note_des"><php> echo getsubstrutf8(t($item[content]),0,150);</php>...</dd>
+		        <dd class="note_des"><php> echo getsubstrutf8(t($item[content]),0,150);</php>...&nbsp;<a href="{:U('space/notes/show',array('id'=>$item[noteid]))}#comments">({$item[count_comment]}回应)</a></dd>
 		        
 		        <dd class="action">
 		         {$item[count_view]} 人浏览  &nbsp;&nbsp;<a href="{:U('space/notes/show',array('id'=>$item[noteid]))}#comments" title="回应">{$item[count_comment]} 条回应</a>
 		         <if condition="$item[userid] eq $visitor[userid]">
-		        &gt; <a href="{:U('space/notes/edit',array('id'=>$item[noteid]))}" title="">修改</a> &gt; <a href="{:U('space/notes/delete',array('id'=>$item[noteid]))}" title="">删除</a>
+		        &gt; <a href="{:U('space/notes/edit',array('id'=>$item[noteid]))}" title="">修改</a> &gt; <a href="{:U('space/notes/delete',array('id'=>$item[noteid]))}" title="" onClick="return confirm('删除这篇日记吗?')">删除</a>
 		         </if>
 		        </dd>
 		    </dl>

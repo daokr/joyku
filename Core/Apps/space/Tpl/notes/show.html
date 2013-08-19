@@ -16,7 +16,21 @@
     	</div>
     
     	<div id="link-report" class="note">{$strNote[content]}</div>
-    
+    	<br>
+		<div class="note-ft">
+        	<if condition="$strNote[userid] eq $visitor[userid]">
+            <div class="note_upper_footer">
+                    <span class="pl gtleft">&nbsp;{$strNote[count_view]} 人浏览</span>
+                    <span class="gtleft">&gt; <a href="{:U('space/notes/edit',array('id'=>$strNote[noteid]))}">修改</a>&nbsp; &nbsp; </span>
+                    <span class="gtleft">&gt; <a   title="删除这篇日记吗?"  href="{:U('space/notes/delete',array('id'=>$strNote[noteid]))}" onClick="return confirm('删除这篇日记吗?')">删除</a></span>
+            </div>
+            </if>
+        </div>        
+
+    <div class="mod">
+        <include file="IKAPP:public:public:comment" />
+    </div>
+
     	
     </div><!--//cleft-->
     <div class="cright">

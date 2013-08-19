@@ -145,7 +145,70 @@ __EXTENDS_JS__
     	</div>
     
     	<div id="link-report" class="note"><?php echo ($strNote[content]); ?></div>
-    
+    	<br>
+		<div class="note-ft">
+        	<?php if($strNote[userid] == $visitor[userid]): ?><div class="note_upper_footer">
+                    <span class="pl gtleft">&nbsp;<?php echo ($strNote[count_view]); ?> 人浏览</span>
+                    <span class="gtleft">&gt; <a href="<?php echo U('space/notes/edit',array('id'=>$strNote[noteid]));?>">修改</a>&nbsp; &nbsp; </span>
+                    <span class="gtleft">&gt; <a   title="删除这篇日记吗?"  href="<?php echo U('space/notes/delete',array('id'=>$strNote[noteid]));?>" onClick="return confirm('删除这篇日记吗?')">删除</a></span>
+            </div><?php endif; ?>
+        </div>        
+
+    <div class="mod">
+               <div class="orderbar"> 
+        <?php if(($page == 1) && ($strObj[count_comment] > 3)): ?><a href="<?php echo U($strObj[showurl],array('id'=>$strObj[id],'sc'=>$sc,'isauthor'=>$author[isauthor]));?>"><?php echo ($author[text]); ?></a>&nbsp;&nbsp;
+            <?php if($sc == 'asc'): ?><a href="<?php echo U($strObj[showurl],array('id'=>$strObj[id],'sc'=>'desc','isauthor'=>$isauthor));?>">倒序阅读</a> 
+            <?php else: ?>
+                <a href="<?php echo U($strObj[showurl],array('id'=>$strObj[id],'sc'=>'asc','isauthor'=>$isauthor));?>">正序阅读</a><?php endif; endif; ?>
+      </div>
+      
+      <!--comment评论-->
+      <ul class="comment" id="comment">
+       <?php if(!empty($commentList)): if(is_array($commentList)): foreach($commentList as $key=>$item): ?><li class="clearfix">
+          <div class="user-face"> <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img title="<?php echo ($item[user][username]); ?>" alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a> </div>
+          <div class="reply-doc">
+            <h4><span class="fr"></span><a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <?php echo date('Y-m-d H:i:s',$item[addtime]) ?></h4>
+            
+            <?php if($item[referid] != 0): ?><div class="recomment"><span id="re_sub_<?php echo ($item[commentid]); ?>"><?php echo getsubstrutf8(t($item[recomment][content]),0,60,0); ?>&nbsp;
+            <?php if(mb_strlen(t($item[recomment][content]),'utf8')>60){ ?>
+            <a href="javascript:;" onClick="$('#re_all_<?php echo ($item[commentid]); ?>').show();$('#re_sub_<?php echo ($item[commentid]); ?>').hide();">... </a>
+            </span><span style="display:none" id="re_all_<?php echo ($item[commentid]); ?>"><?php echo t($item[recomment][content]); ?></span>
+            <?php } ?>
+            <strong><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><?php echo ($item[recomment][user][username]); ?></a></strong></div><?php endif; ?>
+            
+            <p> <?php echo ($item[content]); ?> </p>
+            
+            <!--签名--> 
+            <?php if(!empty($item[user][signed])): ?><div class="signed"><?php echo ($item[user][signed]); ?></div><?php endif; ?>
+            
+            <div class="group_banned"> 
+              <?php if($visitor[userid] != 0): ?><span><a href="javascript:void(0)"  onclick="commentOpen(<?php echo ($item[commentid]); ?>,<?php echo ($item[topicid]); ?>)">回复</a></span><?php endif; ?>
+              <?php if(($strTopic[userid] == $visitor[userid]) OR ($strGroup[userid] == $visitor[userid]) OR ($visitor[userid] == $item[userid]) OR ($strGroupUser[isadmin] == 1) OR ($visitor[userid] == 1)): ?><span><a class="j a_confirm_link" href="<?php echo ($action[deleteurl]); ?>" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span><?php endif; ?>
+            </div>
+            <div id="rcomment_<?php echo ($item[commentid]); ?>" style="display:none; clear:both; padding:0px 10px">
+              <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_<?php echo ($item[commentid]); ?>" type="text" onkeydown="keyRecomment(<?php echo ($item[commentid]); ?>,<?php echo ($item[topicid]); ?>,event)" class="txt"></textarea>
+              <p style=" padding:5px 0px">
+                 <button onclick="recomment(this,<?php echo ($item[cid]); ?>,<?php echo ($item[aid]); ?>)" id="recomm_btn_<?php echo ($item[cid]); ?>" class="subab" data-url="<?php echo ($action[recomment]); ?>">提交</button>
+                &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_<?php echo ($item[commentid]); ?>').slideToggle('fast');">取消</a> </p>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </li><?php endforeach; endif; endif; ?>
+      </ul>
+      <div class="page"><?php echo ($pageUrl); ?></div>
+      <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
+      <div> 
+        <?php if(!$visitor['userid']): ?><div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="<?php echo U('public/user/login');?>" class="i a_show_login">登录</a> | <a href="<?php echo U('public/user/register');?>" class="i a_show_register">注册</a></div>
+        <?php else: ?>
+        <form method="POST" action="<?php echo ($action[addcomment]); ?>" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
+          <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
+          <input type="hidden" name="id" value="<?php echo ($strObj[id]); ?>" />
+          <input type="hidden" name="p" value="<?php echo ($page); ?>" />
+          <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
+        </form><?php endif; ?>
+      </div>
+    </div>
+
     	
     </div><!--//cleft-->
     <div class="cright">

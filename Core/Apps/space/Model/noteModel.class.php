@@ -34,8 +34,20 @@ class noteModel extends Model
 			return false;
 		}
 	}
-	public function delete(){
-		
+	public function deleteOneNote($noteid){
+		$where['noteid'] = $noteid;
+		$strNote = $this->where($where)->find();
+		if(!empty($strNote)){
+			// 删除信息表
+			$this->where($where)->delete();
+			// 删除照片
+			D('images')->delAllImage('note',$noteid);
+			// 删除评论
+			D('note_comment')->where($where)->delete();
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

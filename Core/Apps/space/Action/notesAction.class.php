@@ -18,6 +18,7 @@ class notesAction extends spacebaseAction {
 		//应用所需 mod
 		$this->user_mod = D('user');
 		$this->note_mod = D('note');
+		$this->comment_mod = D('note_comment');
 	}
 	//日记首页
 	public function index(){
@@ -138,7 +139,13 @@ class notesAction extends spacebaseAction {
 		$this->display();
 	}
 	public function delete(){
+		$userid = $this->userid;
+		$noteid = $this->_get('id','intval','trim');
+		$strNote = $this->note_mod->getOneNote(array('noteid'=>$noteid,'userid'=>$userid));
+		if(!$strNote){$this->error('呃...你没有权限删除该日记');}
 		
+		$this->note_mod->deleteOneNote($noteid);
+		$this->redirect('space/notes/index',array('id'=>$userid));
 	}
 	//日记显示页
 	public function show(){
@@ -157,6 +164,17 @@ class notesAction extends spacebaseAction {
 		if($this->userid != $strNote['userid']){
 			$this->note_mod->where(array('noteid'=>$id))->setInc('count_view');
 		}
+		
+
+		// 调用公用评论模板
+		$action_url = array(
+						'deleteurl' => U('space/notes/delcomment'),
+						'recomment' => U('space/notes/recomment'),
+						'addcomment' => U('space/notes/addcomment'),
+						'showurl' => 'space/notes/show',
+					);
+		R('public/comment/view',array($this->comment_mod,$strNote,'noteid',$action_url));
+		
 		$this->assign('strNote',$strNote);
 		$this->assign('arrNotes',$arrNotes);
 		$this->_config_seo ( array (
@@ -167,6 +185,65 @@ class notesAction extends spacebaseAction {
 		) );
 		$this->display();
 	} 
+	// 添加评论
+	public function addcomment(){
+		$id	= $this->_post('id','intval');
+		$content	= $this->_post('content','trim');
+		$page	= $this->_post('p','intval','1');
+		if(empty($content)){
+				
+			$this->error('没有任何内容是不允许你通过滴^_^');
+	
+		}elseif(mb_strlen($content,'utf8')>10000){
+	
+			$this->error('发这么多内容干啥,最多只能写10000千个字^_^,回去重写哇！');
+	
+		}else{
+			//执行添加
+			$data = array(
+					'noteid'	=> $id,
+					'userid'	=> $this->userid,
+					'content'	=> ikwords($content),
+					'addtime'	=> time(),
+			);
+			if (false !== $this->comment_mod->create ( $data )) {
+				$commentid = $this->comment_mod->add ();
+				if($commentid>0){
+					$this->note_mod->where(array('noteid'=>$id))->setInc('count_comment');
+					$this->redirect ( 'space/notes/show', array (
+							'id' => $id,
+							'p'  => $page,
+					) );
+				}
+
+			}
+		}
+	
+	}
+	// 回复评论
+	public function recomment(){
+		$objid = $this->_post('objid');
+		$referid = $this->_post('referid');
+		$content = $this->_post('content');
+		//安全性检查
+		if( mb_strlen($content, 'utf8') > 10000)
+		{
+			echo 1;
+			exit ();
+		}
+		//执行添加
+		$data = array(
+				'noteid'	=> $objid,
+				'userid'	=> $this->userid,
+				'referid'	=> $referid,
+				'content'	=> ikwords($content), // ajax 提交过来数据的转一下
+				'addtime'	=> time(),
+		);
+		if (false !== $this->comment_mod->create ( $data )) {
+			$commentid = $this->comment_mod->add ();
+			echo 0;
+		}
+	}	
 	
 	
 }
