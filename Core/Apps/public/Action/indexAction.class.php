@@ -29,7 +29,7 @@ class indexAction extends frontendAction {
 		$this->assign ( 'arrPhoto', $arrPhoto );
 		
 		//获取推荐日记
-		$arrNote = $this->note_mod->getRecommendNote(10);
+		$arrNote = $this->note_mod->getRecommendNote(14);
 		$this->assign ( 'arrNote', $arrNote );
 
 		//文章模块

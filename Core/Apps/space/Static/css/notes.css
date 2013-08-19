@@ -5,23 +5,23 @@
 .row.note-title label.field, .row.note-text label.field {
 	font-size:14px
 }
-#note_title, #note_text {
+#note_title, #editor_full {
 	width:630px;
 	margin-top:5px;
 	padding:3px;
 	border:1px solid #ccc;
 	line-height:1.62
 }
-#note_text {
+#editor_full {
 	resize:vertical
 }
-#note_title:focus, #note_text:focus {
+#note_title:focus, #editor_full:focus {
 	border-color:gray
 }
 #note_title {
 	font-size:14px
 }
-#note_text {
+#editor_full {
 	height:400px;
 	resize:vertial;
 	font-size:13px
@@ -448,7 +448,7 @@ filter:alpha(opacity:.6)
 	line-height:1.62;
 	font-family:Arial, Helvetica, sans-serif;
 	word-wrap:break-word;
-	white-space:pre-wrap;
+	white-space:normal;
 	width:100%;
 	overflow:hidden;
 	margin-top:10px

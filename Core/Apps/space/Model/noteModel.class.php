@@ -34,5 +34,8 @@ class noteModel extends Model
 			return false;
 		}
 	}
+	public function delete(){
+		
+	}
 
 }

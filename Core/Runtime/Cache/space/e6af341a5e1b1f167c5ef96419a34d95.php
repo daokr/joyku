@@ -150,17 +150,19 @@ __EXTENDS_JS__
 		        
 		        <dd class="action">
 		         <?php echo ($item[count_view]); ?> 人浏览  &nbsp;&nbsp;<a href="<?php echo U('space/notes/show',array('id'=>$item[noteid]));?>#comments" title="回应"><?php echo ($item[count_comment]); ?> 条回应</a>
-		         <?php if($item[userid] == $visitor[userid]): ?>&gt; <a href="#" title="">修改</a> &gt; <a href="#" title="">删除</a><?php endif; ?>
+		         <?php if($item[userid] == $visitor[userid]): ?>&gt; <a href="<?php echo U('space/notes/edit',array('id'=>$item[noteid]));?>" title="">修改</a> &gt; <a href="<?php echo U('space/notes/delete',array('id'=>$item[noteid]));?>" title="">删除</a><?php endif; ?>
 		        </dd>
 		    </dl><?php endforeach; endif; ?>
 		  <?php else: ?>
-		  <p class="pl f14">你可以在这里记录您日记了，马上就 <a href="<?php echo U('space/notes/create');?>">开始写吧</a> 。</p><?php endif; ?>
+		      <?php if($visitor[userid] == $arrNote[0][userid]): ?><p class="pl f14">你可以在这里记录您日记了，马上就 <a href="<?php echo U('space/notes/create');?>">开始写吧</a> 。</p>
+              <?php else: ?>
+              <p class="pl f14">这家伙太懒了还没有写过任何日记 。</p><?php endif; endif; ?>
 		</div>
 		<div class="page"><?php echo ($pageUrl); ?></div>         
 		    	
     </div><!--//cleft-->
     <div class="cright">
-        <?php if($visitor[userid]): ?><p class="pl2">&gt; <a href="<?php echo U('space/notes/create');?>" class="create-new-album" >开始写日记</a></p><?php endif; ?>
+        <?php if($visitor[userid] == $arrNote[0][userid]): ?><p class="pl2">&gt; <a href="<?php echo U('space/notes/create');?>" class="create-new-album" >开始写日记</a></p><?php endif; ?>
         
     </div><!--//right-->
 </div>
