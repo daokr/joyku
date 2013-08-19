@@ -205,126 +205,7 @@ __EXTENDS_JS__
     </div>
 </div>
 
-<!--文章-->
-<div id="anony-article" class="section">
-	<div class="wrapper">
-    	<div class="sidenav">
-			  <h2 class="section-title"><a href="<?php echo U('article/index/index');?>">阅读</a></h2>
-			  <div class="side-links nav-anon">
-			      <ul>
-					<?php if(is_array($articleChannel)): foreach($articleChannel as $key=>$item): ?><li><a href="<?php echo U('article/index/channel',array('nameid'=>$item[nameid]));?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>  
-			      </ul>
-			  </div>
-		</div> 
-        <div class="side">
-		<div class="mod">
-		
-		    <h2>
-		        热门标签
-		            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
-		    </h2>
-		
-            <div class="article-cate-mod">
-            <div class="cate article-cate">
-              <ul>
-              <li class="cate-label">[文学]</li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'小说'));?>">小说</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'随笔'));?>">随笔</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'散文'));?>">散文</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'日本文学'));?>">日本文学</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'童话'));?>">童话</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'诗歌'));?>">诗歌</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'名著'));?>">名著</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'港台'));?>">港台</a></li>
-              </ul>
-            </div>
-            <div class="cate article-cate">
-              <ul>
-              <li class="cate-label">[趣味]</li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'漫画'));?>">漫画</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'绘本'));?>">绘本</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'推理'));?>">推理</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'青春'));?>">青春</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'言情'));?>">言情</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'科幻'));?>">科幻</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'武侠'));?>">武侠</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'奇幻'));?>">奇幻</a></li>
-              </ul>
-            </div>
-            <div class="cate article-cate">
-              <ul>
-              <li class="cate-label">[文化]</li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'历史'));?>">历史</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'哲学'));?>">哲学</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'传记'));?>">传记</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'设计'));?>">设计</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'建筑'));?>">建筑</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'电影'));?>">电影</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'回忆录'));?>">回忆录</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'音乐'));?>">音乐</a></li>
-              </ul>
-            </div>
-            <div class="cate article-cate">
-              <ul>
-              <li class="cate-label">[生活]</li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'旅行'));?>">旅行</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'励志'));?>">励志</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'职场'));?>">职场</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'美食'));?>">美食</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'教育'));?>">教育</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'灵修'));?>">灵修</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'健康'));?>">健康</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'家居'));?>">家居</a></li>
-              </ul>
-            </div>
 
-            <div class="cate article-cate">
-              <ul>
-              <li class="cate-label">[科技]</li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'科普'));?>">科普</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'互联网'));?>">互联网</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'编程'));?>">编程</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'交互设计'));?>">交互设计</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'算法'));?>">算法</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'通信'));?>">通信</a></li>
-              <li><a href="<?php echo U('article/index/explore',array('tag'=>'神经网络'));?>">神经网络</a></li>
-              </ul>
-            </div>
-            </div>		   
-           
-		</div>
-		</div>
-        <div class="main">
-        	<div class="mod">
-            
-            	<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><div class="artitem">
-	            	<h2 class="content-title"><?php echo ($item[cname]); ?></h2>
-					<ul class="artlist">
-                   		<?php if(is_array($item["alist"])): foreach($item["alist"] as $key=>$aitem): if($key == 0): ?><li class="first">
-	                    	<div class="pic">
-					        <a href="<?php echo U('article/index/show',array('id'=>$aitem[aid]));?>">
-					            <img width="135" height="90" alt="" src="<?php echo ($aitem[photo][simg]); ?>">
-					        </a>
-	                        </div>
-					        <div class="cont">
-					            <h3><a title=""  href="<?php echo U('article/index/show',array('id'=>$aitem[aid]));?>">
-                                <?php echo getsubstrutf8(t($aitem[title]),0,20); ?>
-                                </a>
-                                </h3>
-					            <p><?php echo getsubstrutf8(t($aitem[content]),0,20); ?> <a href="<?php echo U('article/index/show',array('id'=>$aitem[aid]));?>">详细</a></p>
-					        </div>
-					    </li>
-                        <?php else: ?>
-					    <li><a title="#" href="<?php echo U('article/index/show',array('id'=>$aitem[aid]));?>">
-                        <?php echo getsubstrutf8(t($aitem[title]),0,20); ?></a></li><?php endif; endforeach; endif; ?>
-					</ul>
-                    
-                </div><?php endforeach; endif; ?>
-
-            </div>
-        </div>   	
-    </div>
-</div>
 <!--小组-->
 <div id="anony-group" class="section">
 	<div class="wrapper">
@@ -480,6 +361,132 @@ __EXTENDS_JS__
 
     </div>
 </div>
+
+<!--文章-->
+<div id="anony-article" class="section">
+	<div class="wrapper">
+    	<div class="sidenav">
+			  <h2 class="section-title"><a href="<?php echo U('article/index/index');?>">阅读</a></h2>
+			  <div class="side-links nav-anon">
+			      <ul>
+					<?php if(is_array($articleChannel)): foreach($articleChannel as $key=>$item): ?><li><a href="<?php echo U('article/index/channel',array('nameid'=>$item[nameid]));?>"><?php echo ($item[name]); ?></a></li><?php endforeach; endif; ?>  
+			      </ul>
+			  </div>
+		</div> 
+        <div class="side">
+		<div class="mod">
+		
+		    <h2>
+		        热门标签
+		            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+		    </h2>
+		
+            <div class="article-cate-mod">
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[文学]</li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'小说'));?>">小说</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'随笔'));?>">随笔</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'散文'));?>">散文</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'日本文学'));?>">日本文学</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'童话'));?>">童话</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'诗歌'));?>">诗歌</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'名著'));?>">名著</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'港台'));?>">港台</a></li>
+              </ul>
+            </div>
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[趣味]</li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'漫画'));?>">漫画</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'绘本'));?>">绘本</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'推理'));?>">推理</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'青春'));?>">青春</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'言情'));?>">言情</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'科幻'));?>">科幻</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'武侠'));?>">武侠</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'奇幻'));?>">奇幻</a></li>
+              </ul>
+            </div>
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[文化]</li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'历史'));?>">历史</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'哲学'));?>">哲学</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'传记'));?>">传记</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'设计'));?>">设计</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'建筑'));?>">建筑</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'电影'));?>">电影</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'回忆录'));?>">回忆录</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'音乐'));?>">音乐</a></li>
+              </ul>
+            </div>
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[生活]</li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'旅行'));?>">旅行</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'励志'));?>">励志</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'职场'));?>">职场</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'美食'));?>">美食</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'教育'));?>">教育</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'灵修'));?>">灵修</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'健康'));?>">健康</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'家居'));?>">家居</a></li>
+              </ul>
+            </div>
+
+            <div class="cate article-cate">
+              <ul>
+              <li class="cate-label">[科技]</li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'科普'));?>">科普</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'互联网'));?>">互联网</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'编程'));?>">编程</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'交互设计'));?>">交互设计</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'算法'));?>">算法</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'通信'));?>">通信</a></li>
+              <li><a href="<?php echo U('article/index/explore',array('tag'=>'神经网络'));?>">神经网络</a></li>
+              </ul>
+            </div>
+            </div>		   
+           
+		</div>
+		</div>
+        <div class="main">
+        	<div class="mod">
+            
+            	<?php if(is_array($arrArticle)): foreach($arrArticle as $key=>$item): ?><div class="artitem">
+	            	<h2 class="content-title"><?php echo ($item[cname]); ?></h2>
+					<ul class="artlist">
+                   		<?php if(is_array($item["alist"])): foreach($item["alist"] as $key=>$aitem): if($key == 0): ?><li class="first">
+                        	
+	                    	<div class="pic">
+                               
+                                <a href="<?php echo U('article/index/show',array('id'=>$aitem[aid]));?>">
+                                    <img width="135" height="90" alt="" src="<?php echo ($aitem[photo][simg]); ?>">
+                                </a>
+	                        </div>
+                            
+					        <div class="cont">
+					            <h3><a title=""  href="<?php echo U('article/index/show',array('id'=>$aitem[aid]));?>">
+                                <?php echo getsubstrutf8(t($aitem[title]),0,20); ?>
+                                </a>
+                                </h3>
+					            <p><?php echo getsubstrutf8(t($aitem[content]),0,20); ?> <a href="<?php echo U('article/index/show',array('id'=>$aitem[aid]));?>">详细</a></p>
+					        </div>
+					    </li>
+                        <?php else: ?>
+					    <li><a title="#" href="<?php echo U('article/index/show',array('id'=>$aitem[aid]));?>">
+                        <?php echo getsubstrutf8(t($aitem[title]),0,20); ?></a></li><?php endif; endforeach; endif; ?>
+					</ul>
+                    
+                </div><?php endforeach; endif; ?>
+
+            </div>
+        </div>   	
+    </div>
+</div>
+
+
 <!--同城-->
 <div id="anony-events" class="section">
 	<div class="wrapper">
