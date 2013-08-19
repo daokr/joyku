@@ -146,7 +146,7 @@ __EXTENDS_JS__
     <div class="row note-title">
         <label class="field" for="note_title">题目:</label>
         <div>
-            <input tabindex="1" id="note_title" name="title" value="" autofocus="" type="text">
+            <input tabindex="1" id="note_title" name="title" value="<?php echo ($strNote[title]); ?>" autofocus="" type="text">
         </div>
     </div>    
     <div class="row note-text">
@@ -159,26 +159,26 @@ __EXTENDS_JS__
             </li>
         </ul>
         <label class="field" for="note_text">正文:</label>
-        <textarea tabindex="2"  name="content" id="editor_full" maxlength="10000"></textarea>
+        <textarea tabindex="2"  name="content" id="editor_full" maxlength="10000"><?php echo ($strNote[content]); ?></textarea>
     </div>
     <div class="images">
     </div>
     <div class="row note-privacy">
         <label class="field">设置可见: </label>
         <label>
-            <input tabindex="3" name="privacy" value="1" checked type="radio"><span>所有人可见</span>
+            <input tabindex="3" name="privacy" value="1" <?php if(($strNote["privacy"]) == "1"): ?>checked<?php endif; ?> type="radio"><span>所有人可见</span>
         </label>
         <label>
-            <input tabindex="4" name="privacy" value="2" type="radio"><span>仅朋友可见</span>
+            <input tabindex="4" name="privacy" value="2" <?php if(($strNote["privacy"]) == "2"): ?>checked<?php endif; ?> type="radio"><span>仅朋友可见</span>
         </label>
         <label>
-            <input tabindex="5" name="privacy" value="3" type="radio"><span>仅自己可见</span>
+            <input tabindex="5" name="privacy" value="3" <?php if(($strNote["privacy"]) == "3"): ?>checked<?php endif; ?> type="radio"><span>仅自己可见</span>
         </label>
     </div>
     <div class="row note-reply">
         <label class="field" for="cannot_reply">权限设置: </label>
         <label>
-            <input tabindex="6" id="cannot_reply" name="isreply" value="0" type="checkbox"><span>不允许回应</span>
+            <input tabindex="6" id="cannot_reply" name="isreply" value="0"  <?php if(($strNote["isreply"]) == "0"): ?>checked<?php endif; ?> type="checkbox" ><span>不允许回应</span>
         </label>
     </div>
     <div class="row footer">
