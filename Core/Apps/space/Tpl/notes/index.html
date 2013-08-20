@@ -19,7 +19,7 @@
 		    <dl>
 		        <dt><a href="{:U('space/notes/show',array('id'=>$item[noteid]))}" title="{$item[title]}">{$item[title]}</a><span class="open"><a href="javascript:;">开关</a></span></dt>
 		        <dd class="addtime">{$item.addtime|date="Y-m-d H:i:s",###}</dd>
-		        <dd class="note_des"><php> echo getsubstrutf8(t($item[content]),0,150);</php>...&nbsp;<a href="{:U('space/notes/show',array('id'=>$item[noteid]))}#comments">({$item[count_comment]}回应)</a></dd>
+		        <dd class="note_des"><php> echo getsubstrutf8(t($item[content]),0,150);</php>...&nbsp;<a href="{:U('space/notes/show',array('id'=>$item[noteid]))}#comment">({$item[count_comment]}回应)</a></dd>
 		        
 		        <dd class="action">
 		         {$item[count_view]} 人浏览  &nbsp;&nbsp;<a href="{:U('space/notes/show',array('id'=>$item[noteid]))}#comments" title="回应">{$item[count_comment]} 条回应</a>
@@ -44,6 +44,19 @@
         <if condition="$visitor[userid] eq $arrNote[0][userid]">
             <p class="pl2">&gt; <a href="{:U('space/notes/create')}" class="create-new-album" >开始写日记</a></p>
         </if>
+        
+		<div class="mod">
+	        <h2>
+	          	阅读排行
+	            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+	           
+	    	</h2>
+			<ul class="note-list">
+            	  <foreach name="hotNotes" item="item"> 
+			      	<li><a href="{:U('space/notes/show',array('id'=>$item[noteid]))}" title="$item[title]">{$item[title]}</a></li>
+                  </foreach>
+            </ul>       
+		</div>        
         
     </div><!--//right-->
 </div>

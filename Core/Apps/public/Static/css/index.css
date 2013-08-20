@@ -291,6 +291,11 @@ a.lnk-reg:link,a.lnk-reg:visited,a.lnk-reg:hover,a.lnk-reg:active {
     margin: 0 0 0px;
 	display:block;
 	height:60px;
+	width:50%; 
+	float:left;
+}
+#anony-sns .obu .uname{
+	height:22px; line-height:22px; width:50%; overflow:hidden
 }
 #anony-sns .obu dt {
     height: 50px;

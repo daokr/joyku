@@ -26,7 +26,7 @@ class commentAction extends frontendAction {
 		}
 		
 		//显示列表
-		$pagesize = 30;
+		$pagesize = 20;
 		$count = $comment_mod->where($map)->order('addtime '.$sc)->count();
 		$pager = $this->_pager($count, $pagesize);
 		$arrComment =  $comment_mod->where($map)->order('addtime '.$sc)->limit($pager->firstRow.','.$pager->listRows)->select();
@@ -35,6 +35,7 @@ class commentAction extends frontendAction {
 			$commentList[] = $item;
 			$commentList[$key]['user'] = D('user')->getOneUser($item['userid']);
 			$commentList[$key]['content'] = h($item['content']);
+			$commentList[$key]['id'] = $item[$idName];
 			if($item['referid']>0){
 				$recomment = $comment_mod->recomment($item['referid']);
 				$commentList[$key]['recomment'] = $recomment;

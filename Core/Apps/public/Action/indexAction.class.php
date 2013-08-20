@@ -64,7 +64,7 @@ class indexAction extends frontendAction {
 		
 		
 		//活跃会员
-		$arrHotUser = $this->user_mod->getHotUser(7);
+		$arrHotUser = $this->user_mod->getHotUser(14);
 		$this->assign ( 'arrHotUser', $arrHotUser );
 		
 		$this->_config_seo ();

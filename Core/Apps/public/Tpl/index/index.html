@@ -63,11 +63,12 @@
 	                    </if>
 	                </dt>
 	                <dd>
-	                    <a href="{:U('space/index/index',array('id'=>$item[doname]))}">{$item[username]}</a><br/>
+	                    <div class="uname"><a href="{:U('space/index/index',array('id'=>$item[doname]))}">{$item[username]}</a></div>
                         <span class="follow">{$item[count_follow]} 人关注</span>
 	                </dd>
 	            </dl>
 	            </foreach>
+                <br clear="all">
 			</div>
             
         </div>

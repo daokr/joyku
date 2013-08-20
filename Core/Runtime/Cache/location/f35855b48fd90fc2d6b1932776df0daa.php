@@ -1,4 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit(); if($module_name == 'admin' ): ?><!--引入后台管理的头部模版文件 -->
+<!DOCTYPE HTML>
 <html>
 <head>
 <!--引入后前台公共public的模版文件 -->
@@ -28,6 +29,48 @@ __SITE_THEME_CSS__
 __EXTENDS_JS__
 <!--<script src="http://l.tbcdn.cn/apps/top/x/sdk.js?appkey=21509482"></script>-->
 
+</head>
+
+<body>
+<div style="margin:150px auto; width:350px;">
+  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
+  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
+    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
+    <li style="color:#666;line-height: 10px;">&nbsp;</li>
+
+    <li style="color:#666;"> 
+        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
+        <script type="text/javascript">
+            (function(){
+                var secs=3,si=setInterval(function(){
+                    if(--secs){
+                        document.getElementById('f3s').innerHTML = secs;
+                    }
+                    else{
+                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
+                    }
+            }, 1000)})();
+        </script>
+ 	</li>
+
+  </ul>
+</div>
+</body>
+</html>
+<?php else: ?>
+<!--引入后前台的头部模版文件 -->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title><?php echo C('ik_site_title');?> - <?php echo C('ik_site_subtitle');?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="<?php echo C('ik_site_keywords');?>" /> 
+<meta name="description" content="<?php echo C('ik_site_desc');?>" /> 
+<link rel="shortcut icon" href="__PUBLIC__/images/fav.ico" type="image/x-icon">
+<meta name="robots" content="all" />
+<meta name="author" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
+<meta name="Copyright" content="Powered by <?php echo (IKPHP_SITENAME); ?>" />
+__SITE_THEME_CSS__
 </head>
 
 <body>
@@ -135,116 +178,29 @@ __EXTENDS_JS__
 	</div>
         
 </div>
+<div style="margin:150px auto; width:500px;">
+  <img src="__PUBLIC__/images/ik_error.gif" style="float:left;">
+  <ul style="margin-left:10px; list-style-type:none; list-style-image: none; list-style-position:outside;">
+    <li style="font-size:14px; line-height: 32px; padding-left:30px"><?php echo ($error); ?></li>
+    <li style="color:#666;line-height: 10px;">&nbsp;</li>
 
-<div class="midder">
-<div class="mc">
-	<div class="cleft">
-    	<div class="note-header">
-        	<h1><?php echo ($strNote[title]); ?></h1>
-        	<div><span class="pl"><?php echo (date("Y-m-d H:i:s",$strNote["addtime"])); ?></span></div>
-    	</div>
-    
-    	<div id="link-report" class="note"><?php echo ($strNote[content]); ?></div>
-    	<br>
-		<div class="note-ft">
-        	<?php if($strNote[userid] == $visitor[userid]): ?><div class="note_upper_footer">
-                    <span class="pl gtleft">&nbsp;<?php echo ($strNote[count_view]); ?> 人浏览</span>
-                    <span class="gtleft">&gt; <a href="<?php echo U('space/notes/edit',array('id'=>$strNote[noteid]));?>">修改</a>&nbsp; &nbsp; </span>
-                    <span class="gtleft">&gt; <a   title="删除这篇日记吗?"  href="<?php echo U('space/notes/delete',array('id'=>$strNote[noteid]));?>" onClick="return confirm('删除这篇日记吗?')">删除</a></span>
-            </div><?php endif; ?>
-        </div>        
+    <li style="color:#666;"> 
+        &gt; <span id="f3s">3</span>秒后 <a href="<?php echo ($jumpUrl); ?>">点击返回</a>
+        <script type="text/javascript">
+            (function(){
+                var secs=3,si=setInterval(function(){
+                    if(--secs){
+                        document.getElementById('f3s').innerHTML = secs;
+                    }
+                    else{
+                        location.href="<?php echo ($jumpUrl); ?>";clearInterval(si);
+                    }
+            }, 1000)})();
+        </script>
+ 	</li>
 
-    <div class="mod">
-               <div class="orderbar"> 
-        <?php if(($page == 1) && ($strObj[count_comment] > 3)): ?><a href="<?php echo U($strObj[showurl],array('id'=>$strObj[id],'sc'=>$sc,'isauthor'=>$author[isauthor]));?>"><?php echo ($author[text]); ?></a>&nbsp;&nbsp;
-            <?php if($sc == 'asc'): ?><a href="<?php echo U($strObj[showurl],array('id'=>$strObj[id],'sc'=>'desc','isauthor'=>$isauthor));?>">倒序阅读</a> 
-            <?php else: ?>
-                <a href="<?php echo U($strObj[showurl],array('id'=>$strObj[id],'sc'=>'asc','isauthor'=>$isauthor));?>">正序阅读</a><?php endif; endif; ?>
-      </div>
-      
-      <!--comment评论-->
-      <ul class="comment" id="comment">
-       <?php if(!empty($commentList)): if(is_array($commentList)): foreach($commentList as $key=>$item): ?><li class="clearfix">
-          <div class="user-face"> <a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><img title="<?php echo ($item[user][username]); ?>" alt="<?php echo ($item[user][username]); ?>" src="<?php echo ($item[user][face]); ?>"></a> </div>
-          <div class="reply-doc">
-            <h4><span class="fr"></span><a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a> <?php echo date('Y-m-d H:i:s',$item[addtime]) ?></h4>
-            
-            <?php if($item[referid] != 0): ?><div class="recomment"><span id="re_sub_<?php echo ($item[commentid]); ?>"><?php echo getsubstrutf8(t($item[recomment][content]),0,60,0); ?>&nbsp;
-            <?php if(mb_strlen(t($item[recomment][content]),'utf8')>60){ ?>
-            <a href="javascript:;" onClick="$('#re_all_<?php echo ($item[commentid]); ?>').show();$('#re_sub_<?php echo ($item[commentid]); ?>').hide();">... </a>
-            </span><span style="display:none" id="re_all_<?php echo ($item[commentid]); ?>"><?php echo t($item[recomment][content]); ?></span>
-            <?php } ?>
-            <strong><a href="<?php echo U('space/index/index',array('id'=>$item[recomment][user][doname]));?>"><?php echo ($item[recomment][user][username]); ?></a></strong></div><?php endif; ?>
-            
-            <p> <?php echo ($item[content]); ?> </p>
-            
-            <!--签名--> 
-            <?php if(!empty($item[user][signed])): ?><div class="signed"><?php echo ($item[user][signed]); ?></div><?php endif; ?>
-            
-            <div class="group_banned"> 
-              <?php if($visitor[userid] != 0): ?><span><a href="javascript:void(0)"  onclick="commentOpen(<?php echo ($item[commentid]); ?>,<?php echo ($item[id]); ?>)">回复</a></span><?php endif; ?>
-              <?php if(($strObj[userid] == $visitor[userid]) OR ($visitor[userid] == $item[userid]) ): ?><span><a class="j a_confirm_link" href="<?php echo U($action[deleteurl],array('commentid'=>$item[commentid]));?>" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span><?php endif; ?>
-            </div>
-            <div id="rcomment_<?php echo ($item[commentid]); ?>" style="display:none; clear:both; padding:0px 10px">
-              <textarea style="width:550px;height:50px;font-size:12px; margin:0px auto;" id="recontent_<?php echo ($item[commentid]); ?>" type="text" onkeydown="keyRecomment(<?php echo ($item[commentid]); ?>,<?php echo ($item[id]); ?>,event)" class="txt"></textarea>
-              <p style=" padding:5px 0px">
-                 <button onclick="recomment(this,<?php echo ($item[commentid]); ?>,<?php echo ($item[id]); ?>)" id="recomm_btn_<?php echo ($item[commentid]); ?>" class="subab" data-url="<?php echo ($action[recomment]); ?>">提交</button>
-                &nbsp;&nbsp;<a href="javascript:;" onclick="$('#rcomment_<?php echo ($item[commentid]); ?>').slideToggle('fast');">取消</a> </p>
-            </div>
-          </div>
-          <div class="clear"></div>
-        </li><?php endforeach; endif; endif; ?>
-      </ul>
-      <div class="page"><?php echo ($pageUrl); ?></div>
-      <h2>你的回应&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·</h2>
-      <div> 
-        <?php if(!$visitor['userid']): ?><div style="border:solid 1px #DDDDDD; text-align:center;padding:20px 0"><a href="<?php echo U('public/user/login');?>" class="i a_show_login">登录</a> | <a href="<?php echo U('public/user/register');?>" class="i a_show_register">注册</a></div>
-        <?php else: ?>
-        <form method="POST" action="<?php echo ($action[addcomment]); ?>" onSubmit="return checkComment('#formMini');" id="formMini" enctype="multipart/form-data">
-          <textarea  style="width:100%;height:100px;" id="editor_mini" name="content" class="txt" onkeydown="keyComment('#formMini',event)"></textarea>
-          <input type="hidden" name="id" value="<?php echo ($strObj[id]); ?>" />
-          <input type="hidden" name="p" value="<?php echo ($page); ?>" />
-          <input class="submit" type="submit" value="加上去(Crtl+Enter)" style="margin:10px 0px">
-        </form><?php endif; ?>
-      </div>
-<style>
-/*comment评论列表*/
-.comment{width: 100%;overflow:hidden;}
-.comment li {margin: 0 0 0px 0px;overflow:hidden; display:block;}
-.comment li .user-face {float: left;height: 48px;overflow: hidden;width: 48px; margin-top:0px;}
-.comment li .reply-doc {float: right;width: 580px;overflow: hidden;}
-.comment li .reply-doc p img{max-width:450px;}
-.comment li .reply-doc h4 {font-weight:normal;font-size:12px;height: 22px;line-height: 22px;margin: 0 0 5px 0px;color: #666666;display: block;overflow: hidden; background-color:#F0F6F3; padding:0px 10px}
-.comment li .reply-doc p {margin: 0 0 25px;overflow: hidden;word-wrap: break-word;}
-.comment li .reply-doc .recomment {margin: 20px 0;font-size: 12px; padding-left:7px;border-left: 1px solid; width:80%}
-.comment li .reply-doc .recomment strong{margin-left: 10px;white-space: nowrap;}
-.comment li .group_banned {text-align: right; padding-bottom:5px}
-.comment li .group_banned span{ margin-left:10px}
-.comment li .group_banned span a{ color:#aaa}
-.comment li .group_banned span a:hover{ color:#fff}
-/**orderbar**/
-.orderbar{ text-align:right; padding-bottom:5px}
-</style>      
-    </div>
-
-    	
-    </div><!--//cleft-->
-    <div class="cright">
-		<div class="mod">
-	        <h2>
-	        <?php if($visitor[userid]): ?>我的日记<?php else: echo ($strNote[user][username]); ?>的日记<?php endif; ?>
-	            &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
-	            <span class="pl">&nbsp;(<a  href="<?php echo U('space/notes/index',array('id'=>$strNote['userid']));?>">全部</a>) </span>
-	    	</h2>
-			<ul class="note-list">
-            	  <?php if(is_array($arrNotes)): foreach($arrNotes as $key=>$item): ?><li><a href="<?php echo U('space/notes/show',array('id'=>$item[noteid]));?>" title="$item[title]"><?php echo ($item[title]); ?></a></li><?php endforeach; endif; ?>
-            </ul>       
-		</div>
-        
-    </div><!--//right-->
+  </ul>
 </div>
-</div>
-
 <!--引入后前台的模版文件 -->
 <!--footer-->
 <?php if(empty($$visitor)): ?><div id="g-popup-reg" class="popup-reg" style="display:none;"><div class="bd"><iframe src="about:blank" frameborder="0" scrolling="no"></iframe><a href="javascript:;" class="lnk-close">&times;</a></div></div><?php endif; ?>
@@ -283,4 +239,4 @@ __EXTENDS_JS__
 <!-- Baidu Button END -->
 
 </body>
-</html>
+</html><?php endif; ?></if>

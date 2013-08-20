@@ -10,6 +10,9 @@ class notesAction extends spacebaseAction {
 				'create',
 				'edit',
 				'delete',
+				'recomment',
+				'addcomment',
+				'delcomment',
 		) )) {
 			$this->redirect ( 'public/user/login' );
 		} else {
@@ -49,6 +52,11 @@ class notesAction extends spacebaseAction {
 		
 		$this->assign('arrNote',$arrNote);
 		$this->assign('pageUrl', $pager->fshow());
+		
+		//最多阅读
+		$hotNotes = $this->note_mod->getHotNotes($userid,8);
+		$this->assign('hotNotes', $hotNotes);
+		
 		$this->_config_seo ( array (
 				'title' => $title,
 				'subtitle'=> '_日记_'.C('ik_site_title'),
@@ -168,7 +176,7 @@ class notesAction extends spacebaseAction {
 
 		// 调用公用评论模板
 		$action_url = array(
-						'deleteurl' => U('space/notes/delcomment'),
+						'deleteurl' => 'space/notes/delcomment',
 						'recomment' => U('space/notes/recomment'),
 						'addcomment' => U('space/notes/addcomment'),
 						'showurl' => 'space/notes/show',
@@ -243,6 +251,23 @@ class notesAction extends spacebaseAction {
 			$commentid = $this->comment_mod->add ();
 			echo 0;
 		}
+	}
+	// 删除某条评论
+	public function delcomment(){
+		$commentid = $this->_get('commentid','intval');
+		$userid = $this->userid;
+		$strComment = $this->comment_mod->where(array('commentid'=>$commentid))->find();
+		$strNote = $this->note_mod->getOneNote(array('noteid'=>$strComment['noteid']));
+	
+		// 只有应用发布人 可以删除 其他权限不允许删除
+		if($strNote['userid']==$userid || $strComment['userid']==$userid){
+			$this->comment_mod->delComment($commentid);
+			$this->note_mod->where(array('noteid'=>$strComment['noteid']))->setDec('count_comment'); //评论减1
+			$this->redirect ( 'space/notes/show#comment', array (
+					'id' => $strComment['noteid'],
+			) );
+		}
+	
 	}	
 	
 	

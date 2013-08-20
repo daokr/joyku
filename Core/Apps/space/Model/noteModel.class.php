@@ -49,5 +49,20 @@ class noteModel extends Model
 			return false;
 		}
 	}
+	//最多浏览最多的
+	public function getHotNotes($userid='',$limit=10){
+		$where['isaudit'] = 1;
+		$where['privacy'] = 1;
+		!empty($userid) && $where['userid'] = $userid;
+		$res = $this->where($where)->order('count_view desc')->limit($limit)->select();
+		if($res){
+			foreach($res as $key=>$item){
+				$result[] = $item;
+			}
+			return $result;
+		}else{
+			return false;
+		}
+	}
 
 }

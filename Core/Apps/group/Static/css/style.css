@@ -270,7 +270,22 @@ h2 span {
 .topic-content .topic-doc .topic-view{font-size:14px;line-height:30px;padding: 10px 0;}
 
 
-
+/*comment评论列表*/
+.comment{width: 100%;overflow:hidden;}
+.comment li {margin: 0 0 0px 0px;overflow:hidden; display:block;}
+.comment li .user-face {float: left;height: 48px;overflow: hidden;width: 48px; margin-top:0px;}
+.comment li .reply-doc {float: right;width: 580px;overflow: hidden;}
+.comment li .reply-doc p img{max-width:450px;}
+.comment li .reply-doc h4 {font-weight:normal;font-size:12px;height: 22px;line-height: 22px;margin: 0 0 5px 0px;color: #666666;display: block;overflow: hidden; background-color:#F0F6F3; padding:0px 10px}
+.comment li .reply-doc p {margin: 0 0 25px;overflow: hidden;word-wrap: break-word;}
+.comment li .reply-doc .recomment {margin: 20px 0;font-size: 12px; padding-left:7px;border-left: 1px solid; width:80%}
+.comment li .reply-doc .recomment strong{margin-left: 10px;white-space: nowrap;}
+.comment li .group_banned {text-align: right; padding-bottom:5px}
+.comment li .group_banned span{ margin-left:10px}
+.comment li .group_banned span a{ color:#aaa}
+.comment li .group_banned span a:hover{ color:#fff}
+/**orderbar**/
+.orderbar{ text-align:right; padding-bottom:5px}
 
 .mp3player
 {

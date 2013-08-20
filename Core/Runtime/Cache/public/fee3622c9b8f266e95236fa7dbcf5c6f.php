@@ -160,10 +160,11 @@ __EXTENDS_JS__
 	                    <?php if($item[isonline] == 1): ?><div class="border-arrow" title="在线用户"></div><?php endif; ?>
 	                </dt>
 	                <dd>
-	                    <a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><?php echo ($item[username]); ?></a><br/>
+	                    <div class="uname"><a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><?php echo ($item[username]); ?></a></div>
                         <span class="follow"><?php echo ($item[count_follow]); ?> 人关注</span>
 	                </dd>
 	            </dl><?php endforeach; endif; ?>
+                <br clear="all">
 			</div>
             
         </div>
