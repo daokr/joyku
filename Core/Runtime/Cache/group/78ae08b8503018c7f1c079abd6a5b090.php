@@ -227,8 +227,25 @@ __EXTENDS_JS__
 		<li class=""><a href="<?php echo U('group/index/mine');?>">我管理/加入的小组</a></li><?php endif; ?>
      </ul>
     </div>
+    
              
 </div> 
+
+
+<div class="mod" id="g-reguler-groups">
+    <h2>
+        常去的小组   
+    </h2>
+
+  <div class="content">
+      <ul>
+      	  <?php if(is_array($arrMyGroup)): foreach($arrMyGroup as $key=>$item): ?><li>
+          <a title="<?php echo ($item[groupname]); ?>" href="<?php echo U('group/index/show',array('id'=>$item[groupid]));?>"><img src="<?php echo ($item[icon_48]); ?>" alt="<?php echo ($item[groupname]); ?>"></a>
+          </li><?php endforeach; endif; ?>                                      
+      </ul>
+  </div>
+</div>
+
          
 <div class="mod">
 <?php if($visitor): ?><div class="create-group">

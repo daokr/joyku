@@ -127,6 +127,15 @@ class indexAction extends frontendAction {
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrTopic', $arrTopic );
 	
+		//我常去的小组 加入的小组
+		$myJoinGroup = $this->_mod->getUserJoinGroup( $userid );
+		if(is_array($myJoinGroup)){
+			foreach($myJoinGroup as $key=>$item){
+				$arrMyGroup[] = $this->_mod->getOneGroup($item['groupid']);
+			}
+			$this->assign('arrMyGroup',$arrMyGroup);//我加入和管理的小组
+		}
+		
 		$this->_config_seo ( array (
 				'title' => '我喜欢的话题',
 				'subtitle'=>'小组_'.C('ik_site_title'),
@@ -150,6 +159,15 @@ class indexAction extends frontendAction {
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrTopic', $arrTopic );
 
+		//我常去的小组 加入的小组
+		$myJoinGroup = $this->_mod->getUserJoinGroup( $userid );
+		if(is_array($myJoinGroup)){
+			foreach($myJoinGroup as $key=>$item){
+				$arrMyGroup[] = $this->_mod->getOneGroup($item['groupid']);
+			}
+			$this->assign('arrMyGroup',$arrMyGroup);//我加入和管理的小组
+		}
+		
 		$this->_config_seo ( array (
 				'title' => '我发起的话题',
 				'subtitle'=>'小组_'.C('ik_site_title'),
@@ -184,6 +202,16 @@ class indexAction extends frontendAction {
 			}
 		}
 		
+		//我常去的小组 加入的小组
+		$myJoinGroup = $this->_mod->getUserJoinGroup( $userid );
+		if(is_array($myJoinGroup)){
+			foreach($myJoinGroup as $key=>$item){
+				$arrMyGroup[] = $this->_mod->getOneGroup($item['groupid']);
+			}
+			$this->assign('arrMyGroup',$arrMyGroup);//我加入和管理的小组
+		}
+		
+		
 		$this->assign('myGroups',$myGroups);//我加入和管理的小组
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrTopic', $arrTopic );
@@ -211,6 +239,15 @@ class indexAction extends frontendAction {
 		$this->assign ( 'strUser', $strUser );
 		$this->assign ( 'arrTopic', $arrTopic );
 
+		//我常去的小组 加入的小组
+		$myJoinGroup = $this->_mod->getUserJoinGroup( $userid );
+		if(is_array($myJoinGroup)){
+			foreach($myJoinGroup as $key=>$item){
+				$arrMyGroup[] = $this->_mod->getOneGroup($item['groupid']);
+			}
+			$this->assign('arrMyGroup',$arrMyGroup);//我加入和管理的小组
+		}
+		
 		$this->_config_seo ( array (
 				'title' => '我回应的话题',
 				'subtitle'=>'小组_'.C('ik_site_title'),
@@ -777,12 +814,24 @@ class indexAction extends frontendAction {
 				$exploreGroup[$key]['isGroupUser'] = $this->_mod->isGroupUser ( $this->userid, $item['groupid'] );
 			}
 		}
-			
+
+		//小组分类
+		$this->groupcate();
+		
 		$this->assign('pageUrl', $pager->fshow());
 		$this->assign('list', $exploreGroup);
 		
 		$this->display ();
 
+	}
+	//小组分类
+	public function groupcate(){
+		$arrParentCate = $this->cate_mod->getParentCate();
+		foreach($arrParentCate as $key=>$v){
+			$arrGroupCate[$key]['pcate'] = $v; 
+			$arrGroupCate[$key]['childCate'] = $this->cate_mod->getReferCate($v['cateid']);
+		}
+		$this->assign('arrGroupCate', $arrGroupCate);
 	}
 	// 发现话题
 	public function explore_topic(){
@@ -834,7 +883,10 @@ class indexAction extends frontendAction {
 			$list[$key]['content'] = ikhtml_text('topicd', $item['topicid'], $item['content']);
 			$list[$key]['group'] = $this->_mod->getOneGroup($item['groupid']);
 		}
-			
+
+		//小组分类
+		$this->groupcate();
+		
 		$this->assign('pageUrl', $pager->fshow());
 		$this->assign('list', $list);
 		$this->display ();		

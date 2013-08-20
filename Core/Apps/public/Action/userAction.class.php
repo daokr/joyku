@@ -642,4 +642,42 @@ class userAction extends userbaseAction {
 		$this->display('reg_form');
 		
 	}
+	//找回密码服务
+	public function forgetpwd(){
+		if(IS_POST){
+			$email	= $this->_post('email','trim');
+			$emailNum = $this->user_mod->where(array('email'=>$email))->find();
+
+			if($email==''){
+				$this->error('Email输入不能为空^_^');
+			}elseif(empty($emailNum)){
+				$this->error('Email不存在，你可能还没有注册^_^');
+			}else{
+			
+				//随机MD5加密
+				$resetpwd = md5(rand());
+			
+/* 				$db->query("update ".dbprefix."user set resetpwd='$resetpwd' where email='$email'");
+				$this->user_mod->where(array('email'=>$email))->setField('')
+					
+				//发送邮件
+				$subject = $IK_SITE['base']['site_title'].'会员密码找回';
+					
+				$content = '您的登陆信息：<br />Email：'.$email.'<br />重设密码链接：<br /><a href="'.$IK_SITE['base']['site_url'].'index.php?app=user&a=resetpwd&mail='.$email.'&set='.$resetpwd.'">'.$IK_SITE['base']['site_url'].'index.php?app=user&a=resetpwd&mail='.$email.'&set='.$resetpwd.'</a>';
+					
+				$result = aac('mail')->postMail($email,$subject,$content);
+					
+				if($result == '0'){
+					ikNotice("找回密码所需信息不完整^_^");
+				}elseif($result == '1'){
+					ikNotice("系统已经向你的邮箱发送了邮件，请尽快查收^_^");
+				} */
+					
+			}
+		}
+		$this->_config_seo ( array (
+				'title' => '找回密码'
+		) );
+		$this->display();
+	}
 }

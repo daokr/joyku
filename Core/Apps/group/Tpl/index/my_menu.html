@@ -46,8 +46,27 @@
 		</if>
      </ul>
     </div>
+    
              
 </div> 
+
+
+<div class="mod" id="g-reguler-groups">
+    <h2>
+        常去的小组   
+    </h2>
+
+  <div class="content">
+      <ul>
+      	  <foreach name="arrMyGroup" item="item">
+          <li>
+          <a title="{$item[groupname]}" href="{:U('group/index/show',array('id'=>$item[groupid]))}"><img src="{$item[icon_48]}" alt="{$item[groupname]}"></a>
+          </li> 
+          </foreach>                                      
+      </ul>
+  </div>
+</div>
+
          
 <div class="mod">
 <if condition="$visitor">

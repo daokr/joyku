@@ -1,9 +1,6 @@
 <?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
 <html>
 <head>
-<?php if(empty($visitor)): ?><script>
-    //var POPUP_REG = true; 
-</script><?php endif; ?>
 <!--引入后前台公共public的模版文件 -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title><?php echo ($seo["title"]); ?>_<?php echo ($seo["subtitle"]); ?></title>
@@ -138,123 +135,139 @@ __EXTENDS_JS__
 	</div>
         
 </div>
-<!--main-->
+
 <div class="midder">
-
 <div class="mc">
-<div id="group-info">
-	<img align="left" alt="<?php echo ($strGroup[groupname]); ?>" src="<?php echo ($strGroup[icon_48]); ?>" class="pil mr10 groupicon"/>
-    <h1 class="group_tit"><?php echo ($strGroup[groupname]); if($strGroup[isaudit] == 1): ?><font class="red">[审核中]</font><?php endif; ?></h1>
+<h1 class="group_tit">
+<?php echo ($seo["title"]); ?>
+</h1>
 
-    <div class="group-misc">
-    <?php if($isGroupUser && ($strGroup[userid]!=$visitor[userid])): ?><span class="fleft mr5 color-gray">我是这个小组的<?php echo ($strGroup['role_user']); ?> <a class="j a_confirm_link" href="<?php echo U('group/index/quit',array('id'=>$strGroup['groupid']));?>" style="margin-left: 6px;">&gt;退出小组</a></span>
-    
-    <?php elseif($isGroupUser && ($strGroup[userid]==$visitor[userid])): ?>
-    
-    <span class="fleft mr5 color-gray">我是这个小组的<?php echo ($strGroup['role_leader']); ?></span><?php endif; ?>
-    <?php if($strGroup[joinway] == 0 && !$isGroupUser): ?><a rel="nofollow" class="button-join" href="<?php echo U('group/index/join',array('id'=>$strGroup['groupid']));?>">
-                    <span>加入小组</span>
-                </a><?php endif; ?>
-	<?php if($strGroup[joinway] != 0): ?><span>本小组禁止加入</span><?php endif; ?>
-	</div>
-    
+<form method="POST" action="<?php echo ($action); ?>" onsubmit="return newTopicFrom(this)"  enctype="multipart/form-data" id="form_tipic">
+<table width="100%" cellpadding="0" cellspacing="0" class="table_1">
+
+	<tr>
+    	<th>标题：</th>
+		<td><input style="width:400px;" type="text" value="<?php echo ($strTopic[title]); ?>" maxlength="100" size="50" name="title" gtbfieldid="2" class="txt"   placeholder="请填写标题"></td>
+    </tr>	
+    <tr><th>&nbsp;</th>
+        <td align="left" style="padding:0px 10px">
+        <a href="javascript:;" id="addImg">添加图片</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addVideo">添加视频</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="javascript:;" id="addLink">添加链接</a>
+        </td>
+    </tr>
+    <tr>
+        <th>内容：</th><td><textarea style="width:99.5%;height:300px;" id="editor_full" cols="55" rows="20" name="content" class="txt"   placeholder="请填写内容"><?php echo ($strTopic[content]); ?></textarea></td>
+    </tr>
+    <tr>
+        <th>评论：</th>
+        <td><input type="radio" checked="select" name="iscomment" value="0" />允许 <input type="radio" name="iscomment" value="1" />不允许</td>
+    </tr>	
+    <tr>
+    	<th>&nbsp;</th><td>
+        <input type="hidden" name="groupid" value="<?php echo ($strGroup[groupid]); ?>" />
+        <input type="hidden" name="topic_id" value="<?php echo ($topic_id); ?>" id="topic_id" />
+        <input class="submit" type="submit" value="好啦，发布"> <a href="<?php echo U('group/index/show',array('id'=>$strGroup[groupid]));?>">返回</a>
+        </td>
+    </tr>
+</table>
+<style>
+.item-thumb-list{ padding-left:110px}
+.thumblst { width:580px;min-width:580px;}
+.thumblst .details textarea { width:90%; }
+.thumblst { min-height: 140px; min-width: 600px; border: 1px solid #d3d3d3; background:#f0f0f0; padding: 10px 12px; margin: 3px 0 7px }
+.thumblst .thumb { float: left; width: 160px; overflow:hidden;}
+.thumblst .thumb img { max-width: 130px; _width: 130px }
+.thumblst .thumb .pl { padding:0px; margin-bottom:5px; }
+.thumblst .details { float: right; width: 419px;}
+.thumblst .details .rr {float: right;}
+.thumblst .details p{ margin-bottom:5px;}
+.thumblst .details textarea{ width: 410px; height:66px;border:1px solid #ccc;}
+.alignleft{background:url(__PUBLIC__/images/align_left.png) no-repeat;padding:0 6px 0 25px}
+.aligncenter{background:url(__PUBLIC__/images/align_center.png) no-repeat;padding:0 6px 0 25px}
+.alignright{background:url(__PUBLIC__/images/align_right.png) no-repeat;padding:0 6px 0 25px}
+</style>
+<div id="thumblst" class="item item-thumb-list">
+    <?php if(is_array($arrPhotos)): foreach($arrPhotos as $key=>$item): ?><div class="thumblst">
+      <div class="details">
+        <p>图片描述（30字以内）</p>
+        <textarea name="photodesc[]" maxlength="30"><?php echo ($item[title]); ?></textarea>
+        <input type="hidden" name="seqid[]" value="<?php echo ($item[seqid]); ?>" >
+        <br>
+        <br>
+        图片位置<br>
+        <a onclick="javascript:removePhoto(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_<?php echo ($item[seqid]); ?>" ajaxurl="<?php echo U('public/images/delete');?>" imgid="<?php echo ($item[id]); ?>">删除</a>
+        <label>
+         <?php if($item[align] == 'L'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>"  checked  value="L" >
+         <?php else: ?>
+         <input type="radio" name="layout_<?php echo ($item[seqid]); ?>"   value="L" ><?php endif; ?>
+          <span class="alignleft">居左</span></label>
+        <label>
+          <?php if($item[align] == 'C'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="C" >
+          <?php else: ?>
+          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="C" ><?php endif; ?>
+          <span class="aligncenter">居中</span></label>
+        <label>
+          <?php if($item[align] == 'R'): ?><input type="radio" name="layout_<?php echo ($item[seqid]); ?>" checked value="R" >
+          <?php else: ?>
+          <input type="radio" name="layout_<?php echo ($item[seqid]); ?>" value="R" ><?php endif; ?>
+          <span class="alignright">居右</span></label>
+      </div>
+      <div class="thumb">
+        <div class="pl">[图片<?php echo ($item[seqid]); ?>]</div>
+        <img src="<?php echo ($item[simg]); ?>">
+      </div>
+      	<div class="clear"></div>
+    </div><?php endforeach; endif; ?>
+
 </div>
-
-<div class="cleft">
-<div class="infobox">
-
-<div class="bd">
-    <p>创建于<?php echo date('Y-m-d',$strGroup[addtime]) ?>&nbsp; &nbsp; <?php echo ($strGroup[role_leader]); ?>：<a href="<?php echo U('space/index/index',array('id'=>$strLeader[doname]));?>"><?php echo ($strLeader[username]); ?></a></p>
-    <?php echo nl2br($strGroup[groupdesc]); ?>
-</div>
-
-</div>
-
-<div class="box">
-
-<div class="box_content">
-
-    <h2 style="margin-top:10px">
-                <a class="rr bn-post" href="<?php echo U('group/index/add',array('id'=>$strGroup[groupid]));?>"><span>+发言</span></a>
-        最近小组话题  · · · · · ·
-    </h2>
-
-<div class="clear"></div>
-
-            <div class="indent">
-                <table class="olt">
-                    <tbody>
-                        <tr>
-                            <td>话题</td>
-                            <td nowrap="nowrap">作者</td>
-                            <td nowrap="nowrap">回应</td>
-                            <td align="right" nowrap="nowrap">最后回应</td>
-                        </tr>
-            <?php if(!empty($arrTopic)): if(is_array($arrTopic)): foreach($arrTopic as $key=>$item): ?><tr class="pl">
-                                <td class="td-title">
-                                <a title="<?php echo ($item[title]); ?>" href="<?php echo U('group/index/topic',array('id'=>$item[topicid]));?>">
-                                <?php echo getsubstrutf8(t($item['title']),0,25); ?>
-                                </a>
-                                <?php if($item[isvideo] == 1): ?><img src="__PUBLIC__/images/lc_cinema.png" align="absmiddle" title="[视频]" alt="[视频]" /><?php endif; ?>                
-                                <?php if($item[istop] == 1): ?><img src="__PUBLIC__/images/headtopic_1.gif" title="[置顶]" alt="[置顶]" /><?php endif; ?>
-                                <?php if($item[addtime] > (strtotime(date('Y-m-d 00:00:00')))): ?><img src="__PUBLIC__/images/topic_new.gif" align="absmiddle"  title="[新帖]" alt="[新帖]" /><?php endif; ?> 
-                                <?php if($item[isphoto] == 1): ?><img src="__PUBLIC__/images/image_s.gif" title="[图片]" alt="[图片]" align="absmiddle" /><?php endif; ?> 
-                                <?php if($item[isattach] == 1): ?><img src="__PUBLIC__/images/attach.gif" title="[附件]" alt="[附件]" /><?php endif; ?> 
-                                <?php if($item[isdigest] == 1): ?><img src="__PUBLIC__/images/posts.gif" title="[精华]" alt="[精华]" /><?php endif; ?>
-            					</td>
-                                <td nowrap="nowrap"><a href="<?php echo U('space/index/index',array('id'=>$item[user][doname]));?>"><?php echo ($item[user][username]); ?></a></td>
-                                <td nowrap="nowrap" ><?php if($item[count_comment]): echo ($item[count_comment]); endif; ?></td>
-                                <td nowrap="nowrap" class="time" align="right"><?php echo getTime($item[uptime],time()) ?></td>
-                            </tr><?php endforeach; endif; endif; ?>         
-                </tbody>
-              </table>
-            </div>
-
-	<div class="clear"></div>
-	<div class="page"><?php echo ($pageUrl); ?></div>
-
-</div>
-</div>
-
-</div>
-
-
-<div class="cright">
-    <div>
-        <h2>最新加入成员</h2>
-        <?php if(is_array($arrGroupUser)): foreach($arrGroupUser as $key=>$item): ?><dl class="obu">
-            <dt>
-            <a href="<?php echo U('space/index/index',array('id'=>$item[doname]));?>"><img alt="<?php echo ($item[username]); ?>" class="m_sub_img" src="<?php echo ($item[face]); ?>" /></a>
-            </dt>
-            <dd><?php echo ($item[username]); ?><br>
-                <span class="pl">(<a href="<?php echo U('location/area',array(areaid=>$item[area][areaid]));?>"><?php echo ($item[area][areaname]); ?></a>)</span>
-            </dd>
-     	 </dl><?php endforeach; endif; ?>
-    
-        <br clear="all">
-    
-        <?php if($visitor[userid] == $strGroup[userid]): ?><p class="pl2">&gt; <a href="<?php echo U('group/index/group_user',array(groupid=>$strGroup[groupid]));?>">成员管理 (<?php echo ($strGroup[count_user]); ?>)</a></p>
-            
-            <p class="pl2">&gt; <a href="<?php echo U('group/index/edit',array(d=>base,groupid=>$strGroup[groupid]));?>">修改小组设置 </a></p>
-            
-            <?php else: ?>
-            
-            <p class="pl2">&gt; <a href="<?php echo U('group/index/group_user',array(groupid=>$strGroup[groupid]));?>">浏览所有成员 (<?php echo ($strGroup[count_user]); ?>)</a></p><?php endif; ?>
-        
-       <div class="clear"></div>
-
-        
+<div id="videosbar"  class="item item-thumb-list">
+   <?php if(is_array($arrVideos)): foreach($arrVideos as $key=>$item): ?><div class="thumblst">
+    <div class="details">
+    <p>视频标题（30字以内）</p>
+    <textarea name="video_<?php echo ($item[seqid]); ?>_title" maxlength="30"><?php echo ($item[title]); ?></textarea>
+    <input type="hidden" value="<?php echo ($item[seqid]); ?>" name="videoseqid[]">
+    <br>
+    <br>
+    视频网址：<br>
+    <a onclick="javascript:removeVideo(this, '<?php echo ($item[seqid]); ?>');return false;" class="minisubmit rr j a_remove_pic" name="rm_p_1" ajaxurl="<?php echo U('public/imagesvideos/delete');?>" videoid="<?php echo ($item[videoid]); ?>">删除</a>
+    <p><?php echo ($item[url]); ?></p>
     </div>
-    
-	<p class="pl">本页永久链接: <a href="http://www.ikphp.com<?php echo U('group/index/show',array(id=>$strGroup[groupid]));?>">http://www.ikphp.com<?php echo U('group/index/show',array(id=>$strGroup[groupid]));?></a></p>
-    
-    <p class="pl"><span class="feed"><a href="<?php echo U('group/index/rss',array(id=>$strGroup[groupid]));?>">feed: rss 2.0</a></span></p>
-    
+    <div class="thumb">
+    <div class="pl">[视频<?php echo ($item[seqid]); ?>]</div>
+    <img src="<?php echo ($item[imgurl]); ?>"> </div>
     <div class="clear"></div>
-    
+    </div><?php endforeach; endif; ?>
+</div>
+<!--加载编辑器-->
+<script type="text/javascript" src="__PUBLIC__/js/lib/ajaxfileupload.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/lib/IKEditor.js"></script>
+
+<script language="javascript">
+$(function(){
+	$('#addImg').bind('click',function(){
+		var ajaxurl = "<?php echo U('public/images/add');?>";
+		var typeid = '<?php echo ($topic_id); ?>';
+		var data = "{'type':'topic','typeid':'"+typeid+"'}";		
+		addPhoto(ajaxurl, data);
+	});
+	$('#addLink').bind('click',function(){	
+		addLink();
+	})
+	$('#addVideo').bind('click',function(){
+		var ajaxurl = "<?php echo U('public/videos/add',array('type'=>'topic','typeid'=>$topic_id));?>";
+		addVideo(ajaxurl);
+	})
+});
+</script>
+</form>
+
+
+
 </div>
 </div>
-</div>
+
+
 
 <!--引入后前台的模版文件 -->
 <!--footer-->

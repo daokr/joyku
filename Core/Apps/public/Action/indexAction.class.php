@@ -19,7 +19,7 @@ class indexAction extends frontendAction {
 		$this->event_cate_mod = D( 'location/event_cate' );
 	}
 	public function index(){
-		
+
 		//统计用户数
 		$count_user = $this->user_mod->count('*'); 
 		$this->assign ( 'count_user', $count_user );

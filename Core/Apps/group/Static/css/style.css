@@ -1287,3 +1287,8 @@ word-spacing:-0.43em; }
 }
 .site-tags dd:hover{ background-color:#f2f2f2; border-radius:2px;}
 .site-tags dd.selected, .site-tags dd.selected:hover{ background-color: #F5F5F5;color: #999999;}
+
+#g-reguler-groups { padding-bottom:5px; }
+#g-reguler-groups ul { letter-spacing:-0.31em;*letter-spacing:normal;word-spacing:-0.43em;font-size:0; }
+#g-reguler-groups li { display:inline-block;*display:inline;zoom:1;width:20%;margin-bottom:10px; }
+#g-reguler-groups li img { width:32px;height:32px; }
