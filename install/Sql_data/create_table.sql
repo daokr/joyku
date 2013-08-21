@@ -83,6 +83,7 @@ CREATE TABLE `ik_user` (
   `isenable` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否启用：0启用1禁用',
   `isverify` tinyint(1) NOT NULL DEFAULT '0' COMMENT '0未验证1验证',
   `verifycode` char(11) NOT NULL DEFAULT '' COMMENT '验证码',
+  `resetpwd` char(32) NOT NULL DEFAULT '' COMMENT '重设密码',  
   `addtime` int(11) NOT NULL DEFAULT '0' COMMENT '创建时间',
   `uptime` int(11) DEFAULT '0' COMMENT '登陆时间',
   PRIMARY KEY (`userid`),
@@ -139,7 +140,11 @@ INSERT INTO `ik_setting` (`name`, `data`) VALUES
 ('attach_path', 'data/upload/'),
 ('simg', 'a:2:{s:5:"width";s:3:"120";s:6:"height";s:3:"120";}'),
 ('mimg', 'a:2:{s:5:"width";s:3:"500";s:6:"height";s:3:"500";}'),
-('bimg', 'a:2:{s:5:"width";s:4:"1000";s:6:"height";s:4:"1000";}');
+('bimg', 'a:2:{s:5:"width";s:4:"1000";s:6:"height";s:4:"1000";}'),
+('mailhost', 'smtp.qq.com'),
+('mailport', '25'),
+('mailuser', 'test'),
+('mailpwd', 'test');
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------

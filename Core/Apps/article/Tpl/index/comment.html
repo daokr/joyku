@@ -34,7 +34,7 @@
                       <span><a href="javascript:void(0)"  onclick="commentOpen({$item[cid]},{$item[aid]})">回复</a></span> 
                       </if>
                       <if condition="($strApp[userid] eq $visitor[userid]) OR ($visitor[userid] eq $item[userid])">
-                      <span><a class="j a_confirm_link" href="{:U('article/index/delcomment',array('commentid'=>$item[cid]))}" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span> 
+                      <span><a class="j a_confirm_link" href="{:U('article/index/delcomment',array('commentid'=>$item[cid]))}" rel="nofollow" onclick="return confirm('确定删除?')">删除</a></span> 
                       </if>
                     </div>
                     <div id="rcomment_{$item[cid]}" style="display:none; clear:both; padding:0px 10px">

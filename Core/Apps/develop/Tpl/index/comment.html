@@ -13,9 +13,15 @@
                         <php> echo date('Y-m-d H:i:s',$item[addtime])</php>
                     </h4>
                     
-                    <if condition="$item[referid] neq 0">
-                    <div class="recomment"><a href="{:U('space/index/index',array('id'=>$item[recomment][user][doname]))}"><img src="{$item[recomment][user][face]}" width="24" align="absmiddle"></a> <strong><a href="{:U('space/index/index',array('id'=>$item[recomment][user][doname]))}">{$item[recomment][user][username]}</a></strong>：{$item[recomment][content]}</div>
-                    </if>
+                    
+		            <if condition="$item[referid] neq 0">
+		            <div class="recomment"><span id="re_sub_{$item[commentid]}"><php>echo getsubstrutf8(t($item[recomment][content]),0,60,0);</php>&nbsp;
+		            <php>if(mb_strlen(t($item[recomment][content]),'utf8')>60){</php>
+		            <a href="javascript:;" onClick="$('#re_all_{$item[commentid]}').show();$('#re_sub_{$item[commentid]}').hide();">... </a>
+		            </span><span style="display:none" id="re_all_{$item[commentid]}"><php>echo t($item[recomment][content]);</php></span>
+		            <php>}</php>
+		            <strong><a href="{:U('space/index/index',array('id'=>$item[recomment][user][doname]))}">{$item[recomment][user][username]}</a></strong></div>
+		            </if>
                     
                     <p>{$item[content]}</p>
                     
@@ -24,7 +30,7 @@
                       <span><a href="javascript:void(0)"  onclick="commentOpen({$item[commentid]},{$item[appid]})">回复</a></span> 
                       </if>
                       <if condition="($strApp[userid] eq $visitor[userid]) OR ($visitor[userid] eq $item[userid])">
-                      <span><a class="j a_confirm_link" href="{:U('develop/index/delcomment',array('commentid'=>$item[commentid]))}" rel="nofollow" onclick="return confirm('确定删除?')">删除</a> </span> 
+                      <span><a class="j a_confirm_link" href="{:U('develop/index/delcomment',array('commentid'=>$item[commentid]))}" rel="nofollow" onclick="return confirm('确定删除?')">删除</a></span> 
                       </if>
                     </div>
                     <div id="rcomment_{$item[commentid]}" style="display:none; clear:both; padding:0px 10px">

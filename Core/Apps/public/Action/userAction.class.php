@@ -657,21 +657,21 @@ class userAction extends userbaseAction {
 				//随机MD5加密
 				$resetpwd = md5(rand());
 			
-/* 				$db->query("update ".dbprefix."user set resetpwd='$resetpwd' where email='$email'");
-				$this->user_mod->where(array('email'=>$email))->setField('')
-					
-				//发送邮件
-				$subject = $IK_SITE['base']['site_title'].'会员密码找回';
-					
-				$content = '您的登陆信息：<br />Email：'.$email.'<br />重设密码链接：<br /><a href="'.$IK_SITE['base']['site_url'].'index.php?app=user&a=resetpwd&mail='.$email.'&set='.$resetpwd.'">'.$IK_SITE['base']['site_url'].'index.php?app=user&a=resetpwd&mail='.$email.'&set='.$resetpwd.'</a>';
-					
-				$result = aac('mail')->postMail($email,$subject,$content);
-					
+				$this->user_mod->where(array('email'=>$email))->setField('resetpwd', $resetpwd);
+				
+				$subject = C('ik_site_title').'会员密码找回';
+				
+				$reseturl = C('ik_site_url').'index.php?app=public&m=user&a=resetpwd&mail='.$email.'&set='.$resetpwd;
+				$content = '您的登录信息：<br />Email：'.$email.'<br />重设密码链接：<br /><a href="'.$reseturl.'">'.$reseturl.'</a>';
+				
+				$mailObject = new mail(F('setting'));
+				
+				$result = $mailObject->postMail($email, $subject, $content);
 				if($result == '0'){
-					ikNotice("找回密码所需信息不完整^_^");
+					$this->error("找回密码所需信息不完整^_^");
 				}elseif($result == '1'){
-					ikNotice("系统已经向你的邮箱发送了邮件，请尽快查收^_^");
-				} */
+					$this->error("系统已经向你的邮箱发送了邮件，请尽快查收^_^");
+				}
 					
 			}
 		}
@@ -679,5 +679,52 @@ class userAction extends userbaseAction {
 				'title' => '找回密码'
 		) );
 		$this->display();
+	}
+	public function resetpwd(){
+
+		if(IS_POST){
+			$email 	= trim($_POST['email']);
+			$pwd 	= trim($_POST['pwd']);
+			$repwd	= trim($_POST['repwd']);
+			$resetpwd = trim($_POST['resetpwd']);
+			
+			if($email=='' || $pwd=='' || $repwd=='' || $resetpwd==''){
+				$this->error("你应该去火星生活啦！");
+			}elseif($pwd != $repwd){
+				$this->error("2次密码输入不一致！");
+			}elseif(strlen($pwd)<6){
+				$this->error("密码至少要6位！");
+			}
+				
+			$userNum = $this->user_mod->where(array('email'=>$email,'resetpwd'=>$resetpwd))->find();
+			if(empty($userNum)){
+				$this->error("你应该去火星生活啦！");
+			}else{
+				$this->user_mod->where(array('email'=>$email))->setField('password', md5($pwd));
+				$this->success('密码重新设置成功了；请登录！',C('ik_site_url'));
+				
+			}
+		}else{
+			$email = trim($_GET['mail']);
+			$resetpwd = trim($_GET['set']);
+			
+			$userNum = $this->user_mod->where(array('email'=>$email,'resetpwd'=>$resetpwd))->find();
+			
+			if($email=='' || $resetpwd==''){
+				$this->error("你应该去火星生活啦！");
+			}elseif(empty($userNum)){
+				$this->error("你应该去火星生活啦！");
+			}
+			
+			$this->assign('email',$email);
+			$this->assign('resetpwd',$resetpwd);
+			
+			$this->_config_seo ( array (
+					'title' => '重设密码'
+			) );
+			$this->display();
+		}
+		
+
 	}
 }
