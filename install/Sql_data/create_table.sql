@@ -92,6 +92,73 @@ CREATE TABLE `ik_user` (
   KEY `qq_openid` (`qq_openid`),
   KEY `fuserid` (`fuserid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户';
+--
+-- 转存表中的数据 `ik_user_role` 2013年8月22日 新增等级表
+--
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ts_user_role`
+--
+DROP TABLE IF EXISTS `ik_user_role`;
+CREATE TABLE `ik_user_role` (
+  `roleid` int(11) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
+  `rolename` char(32) NOT NULL DEFAULT '' COMMENT '角色名称',
+  `score_start` int(11) NOT NULL DEFAULT '0' COMMENT '积分开始',
+  `score_end` int(11) NOT NULL DEFAULT '0' COMMENT '积分结束',
+  PRIMARY KEY (`roleid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='角色' AUTO_INCREMENT=18 ;
+
+--
+-- 转存表中的数据 `ts_user_role`
+--
+
+INSERT INTO `ik_user_role` (`roleid`, `rolename`, `score_start`, `score_end`) VALUES
+(1, '列兵', 0, 5000),
+(2, '下士', 5000, 20000),
+(3, '中士', 20000, 40000),
+(4, '上士', 40000, 80000),
+(5, '三级准尉', 80000, 160000),
+(6, '二级准尉', 160000, 320000),
+(7, '一级准尉', 320000, 640000),
+(8, '少尉', 640000, 1280000),
+(9, '中尉', 1280000, 2560000),
+(10, '上尉', 2560000, 5120000),
+(11, '少校', 5120000, 10240000),
+(12, '中校', 10240000, 20480000),
+(13, '上校', 20480000, 40960000),
+(14, '准将', 40960000, 81920000),
+(15, '少将', 81920000, 123840000),
+(16, '中将', 123840000, 327680000),
+(17, '上将', 327680000, 0);
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ik_user_stat` 2013年8月22日 新加用户动作行为表
+--
+DROP TABLE IF EXISTS `ik_user_stat`;
+CREATE TABLE `ik_user_stat` (
+  `uid` int(10) unsigned NOT NULL,
+  `action` varchar(20) NOT NULL,
+  `num` int(10) unsigned NOT NULL,
+  `last_time` int(10) unsigned NOT NULL,
+  UNIQUE KEY `uid_type` (`uid`,`action`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ik_user_stat` 2013年8月22日 新加积分日志表
+--
+DROP TABLE IF EXISTS `ik_user_score_log`;
+CREATE TABLE `ik_user_score_log` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `uid` int(10) NOT NULL,
+  `uname` varchar(50) NOT NULL,
+  `action` varchar(50) NOT NULL,
+  `score` int(10) NOT NULL,
+  `add_time` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 -- --------------------------------------------------------
 
 --

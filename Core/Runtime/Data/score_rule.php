@@ -1,0 +1,1 @@
+<?php	return array ( 'ik_srule_register' => '20', 'ik_srule_login' => '10', 'ik_srule_login_nums' => '1', 'ik_srule_pubtopic' => '10', 'ik_srule_pubtopic_nums' => '5', 'ik_srule_deltopic' => '10', 'ik_srule_deltopic_nums' => '10', 'ik_srule_pubcmt' => '5', 'ik_srule_pubcmt_nums' => '20', 'ik_srule_delcmt' => '10', 'ik_srule_delcmt_nums' => '10', );?>

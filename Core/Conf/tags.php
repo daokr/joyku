@@ -10,6 +10,22 @@ return array(
     'view_filter' => array(
         'content_replace', //路径替换
     ),
-
+	/**
+	 +------------------------------------------------------------------------------
+	 * 用户行为标签
+	 +------------------------------------------------------------------------------
+	 */
+	//登陆
+	'login_begin' => array(
+	),
+	'login_end' => array(
+			'alter_score', // 积分
+	),
+	//注册
+	'register_begin' => array(
+	),
+	'register_end' => array(
+			'alter_score', // 积分
+	),
 
 );

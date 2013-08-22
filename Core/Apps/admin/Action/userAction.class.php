@@ -7,6 +7,7 @@ class userAction extends backendAction {
 	public function _initialize() {
 		parent::_initialize ();
 		$this->mod = D ( 'user' );
+		$this->role_mod = M ( 'user_role' );
 	}
 	//会员管理
 	public function manage(){
@@ -78,5 +79,74 @@ class userAction extends backendAction {
 	
 		}
 	}
-	
+	//会员积分管理
+	public function score(){
+		$ik = $this->_get ( 'ik', 'trim','role'); //默认角色管理
+		$menu = array(
+				'role' => array('text'=>'角色管理', 'url'=>U('user/score',array('ik'=>'role'))),
+				'setscore' => array('text'=>'积分设置', 'url'=>U('user/score',array('ik'=>'setscore'))),
+		);
+		$this->assign('ik', $ik);
+		$this->assign('menu', $menu);
+		$this->title ( '角色管理' );
+		switch ($ik) {
+			case "role" :
+				$this->role();
+				break;
+			case "setscore" :
+				$this->setscore();
+				break;				
+		}
+	}
+	//角色管理
+	public function role(){
+		if(IS_POST){
+			$arrRoleName 	= $this->_post('rolename');
+			$arrScoreStart  = $this->_post('score_start');
+			$arrScoreEnd 	= $this->_post('score_end');
+			
+			$this->role_mod->query('TRUNCATE TABLE '.C('DB_PREFIX').'user_role'); //先清空表
+			//后添加
+			foreach($arrRoleName as $key=>$item){
+				$rolename = trim($item);
+				$score_start = trim($arrScoreStart[$key]);
+				$score_end = trim($arrScoreEnd[$key]);
+					
+				if($rolename){
+					$data['rolename'] = $rolename;
+					$data['score_start'] = $score_start;
+					$data['score_end'] = $score_end;
+					$this->role_mod->add($data);
+				}
+			}
+			//快速生成静态缓存
+			$arrRole = $this->role_mod->field('rolename,score_start,score_end')->select();
+			foreach ($arrRole as $key=>$val) {
+				$setting['ik_'.$key] = $val;
+			}
+			F('user_role',$setting);
+			$this->success('更新成功！');
+			
+		}else{
+			$list = $this->role_mod->select();
+			$this->assign('list',$list);
+			$this->title ( '角色管理' );
+			$this->display('role');
+		}
+	}	
+	//积分设置
+	public function setscore(){
+		if(IS_POST){
+			$score_rule = $this->_post('score_rule', ',');
+			foreach ($score_rule as $key=>$val) {
+				$setting['ik_srule_'.$key] = $val;
+			}
+			F('score_rule',$setting);
+			$this->success('配置成功！');
+		}else{
+			C(F('score_rule')); //读取配置
+			$this->title ( '积分设置' );
+			$this->display('setscore');
+		}
+	}
 }

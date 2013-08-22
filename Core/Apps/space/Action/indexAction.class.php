@@ -61,11 +61,7 @@ class indexAction extends spacebaseAction {
 			}
 		}
 		//我的相册
-		if($this->userid != $userid && !$strUser['isfollow']) {	
-			$map['privacy'] = 1; //公开
-		}elseif ($strUser['isfollow']){
-			$map['privacy'] = 2; //只能好友可见
-		}
+		$map['privacy'] = 1; //公开
 		$map['userid'] = $userid;
 		$arrAlbum = $this->album_mod->getAlbums($map,'uptime desc',4);
 		
