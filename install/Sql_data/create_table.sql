@@ -92,6 +92,19 @@ CREATE TABLE `ik_user` (
   KEY `qq_openid` (`qq_openid`),
   KEY `fuserid` (`fuserid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户';
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `ts_user_role` 2013年8月23日 新增积分表
+--
+DROP TABLE IF EXISTS `ik_user_score`;
+CREATE TABLE `ik_user_score` (
+  `scoreid` int(11) NOT NULL AUTO_INCREMENT COMMENT '积分ID',
+  `actionname` char(64) NOT NULL DEFAULT '' COMMENT '积分名称',
+  `score` int(11) NOT NULL DEFAULT '0' COMMENT '积分数',
+  `maxnum` int(11) NOT NULL DEFAULT '0' COMMENT '积分数',
+  PRIMARY KEY (`scoreid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户积分设置表' AUTO_INCREMENT=1 
 --
 -- 转存表中的数据 `ik_user_role` 2013年8月22日 新增等级表
 --
@@ -155,6 +168,7 @@ CREATE TABLE `ik_user_score_log` (
   `uid` int(10) NOT NULL,
   `uname` varchar(50) NOT NULL,
   `action` varchar(50) NOT NULL,
+  `actionname` varchar(50) NOT NULL,
   `score` int(10) NOT NULL,
   `add_time` int(10) NOT NULL,
   PRIMARY KEY (`id`)

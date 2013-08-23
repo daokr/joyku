@@ -27,5 +27,21 @@ return array(
 	'register_end' => array(
 			'alter_score', // 积分
 	),
+	//发布帖子
+	'pubtopic_end' => array(
+			'alter_score', // 积分
+	),
+	//删除帖子
+	'deltopic_end' => array(
+			'alter_score', // 积分
+	),		
+	//发布评论
+	'pubcmt_end' => array(
+			'alter_score', // 积分
+	),
+	//删除评论
+	'delcmt_end' => array(
+			'alter_score', // 积分
+	),
 
 );

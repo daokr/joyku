@@ -175,4 +175,13 @@ class userModel extends Model
 		}
 		return $result;
 	}
+	//根据用户积分获取用户角色
+	public function getRole($score){
+		$arrRole = F('user_role');
+		foreach($arrRole as $key=>$item){
+			if($score > $item['score_start'] && $score <= $item['score_end'] || $score > $item['score_start'] && $item['score_end']==0 || $score >=0 && $score <= $item['score_end']){
+				return $item['rolename'];
+			}
+		}
+	}
 }

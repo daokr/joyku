@@ -30,6 +30,8 @@ class indexAction extends spacebaseAction {
 		
 		$strUser = $this->user_mod->getOneUser ( $userid );
 		$strUser['isfollow'] = $this->user_mod->isFollow($this->userid, $userid);
+		//他的角色
+		$strUser['rolename'] = $this->user_mod->getRole($strUser['count_score']);
 		//他关注的用户
 		$strUser['followUser'] = $this->user_mod->getfollow_user($userid, 8);
 		// 发布的帖子

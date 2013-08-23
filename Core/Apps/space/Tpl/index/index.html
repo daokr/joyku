@@ -158,8 +158,8 @@
 常居：&nbsp;{$strUser[area][areaname]}
 <br />
 <div class="pl">UID：{$strUser[userid]} <br><php>echo date('Y-m-d',$strUser[addtime]);</php> 加入</div>
-<div class="pl">级别：{$strUser['rolename']}</div>
-<div class="pl">积分：{$strUser['count_score']}</div>
+<div class="pl">角色：<a href="{:U('public/user/role')}">{$strUser['rolename']}</a></div>
+<div class="pl">积分：<a href="{:U('public/user/score',array('id'=>$strUser[userid]))}">{$strUser['count_score']}</a></div>
 
 <if condition="$strUser[userid] neq $visitor[userid]">
 <div class="user-opt">

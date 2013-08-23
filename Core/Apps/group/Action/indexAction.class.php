@@ -540,6 +540,14 @@ class indexAction extends frontendAction {
 			// 更新帖子数
 			$this->_mod->updateTodayTopic ( $groupid, $count_topic, $count_topic_today );
 			// 积分记录
+			$tag_arg = array (
+					'uid' => $this->visitor->info['userid'],
+					'uname' => $this->visitor->info['username'],
+					'action' => 'pubtopic',
+					'actionname' => '发布帖子'
+			);
+			tag ( 'pubtopic_end', $tag_arg );
+			
 			$this->redirect ( 'group/index/topic', array (
 					'id' => $topic_id 
 			) );
@@ -927,7 +935,14 @@ class indexAction extends frontendAction {
 						'count_comment'	=> $count_comment,
 				);
 				$this->group_topics_mod->where(array('topicid'=>$topicid))->save($data);
-				//积分记录
+				// 积分记录
+				$tag_arg = array (
+						'uid' => $this->visitor->info['userid'],
+						'uname' => $this->visitor->info['username'],
+						'action' => 'pubcmt',
+						'actionname' => '发布评论'
+				);
+				tag ( 'pubcmt_end', $tag_arg );
 				//发送系统消息(通知楼主有人回复他的帖子啦) 钩子
 				$strTopic = $this->group_topics_mod->getOneTopic($topicid);
 				if($strTopic['userid'] != $this->userid){	
@@ -1050,6 +1065,15 @@ class indexAction extends frontendAction {
 		// 发帖人 小组组长 管理员 可以删除 其他权限不允许删除
 		if($strTopic['userid']==$userid || $strGroup['userid']==$userid ){
 			$this->group_topics_mod->delComment($commentid);
+			// 积分记录
+			$tag_arg = array (
+					'uid' => $this->visitor->info['userid'],
+					'uname' => $this->visitor->info['username'],
+					'action' => 'delcmt',
+					'actionname' => '删除评论'
+			);
+			tag ( 'delcmt_end', $tag_arg );
+			
 			$this->redirect ( 'group/index/topic#comment', array (
 					'id' => $strComment['topicid'],
 			) );			
@@ -1068,6 +1092,15 @@ class indexAction extends frontendAction {
 		// 发帖人 小组组长 管理员 可以删除 其他权限不允许删除
 		if($strTopic['userid']== $user['userid'] || $strGroup['userid']== $user['userid'] || $user['isadmin'] == 1){
 			$this->group_topics_mod->delTopic($topicid);
+			// 积分记录
+			$tag_arg = array (
+					'uid' => $this->visitor->info['userid'],
+					'uname' => $this->visitor->info['username'],
+					'action' => 'deltopic',
+					'actionname' => '删除帖子'
+			);
+			tag ( 'deltopic_end', $tag_arg );
+			
 			$this->redirect ( 'group/index/show', array (
 					'id' => $strGroup['groupid'],
 			) );

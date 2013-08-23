@@ -285,8 +285,8 @@ __EXTENDS_JS__
 常居：&nbsp;<?php echo ($strUser[area][areaname]); ?>
 <br />
 <div class="pl">UID：<?php echo ($strUser[userid]); ?> <br><?php echo date('Y-m-d',$strUser[addtime]); ?> 加入</div>
-<div class="pl">级别：<?php echo ($strUser['rolename']); ?></div>
-<div class="pl">积分：<?php echo ($strUser['count_score']); ?></div>
+<div class="pl">角色：<a href="<?php echo U('public/user/role');?>"><?php echo ($strUser['rolename']); ?></a></div>
+<div class="pl">积分：<a href="<?php echo U('public/user/score',array('id'=>$strUser[userid]));?>"><?php echo ($strUser['count_score']); ?></a></div>
 
 <?php if($strUser[userid] != $visitor[userid]): ?><div class="user-opt">
 

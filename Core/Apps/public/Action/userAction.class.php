@@ -7,6 +7,7 @@ class userAction extends userbaseAction {
 	public function _initialize() {
 		parent::_initialize ();
 		$this->user_mod = D ( 'user' );
+		$this->role_mod = M ( 'user_role' );
 			// 访问者控制
 		if (! $this->visitor->is_login && in_array ( ACTION_NAME, array (
 				'setbase',
@@ -285,8 +286,9 @@ class userAction extends userbaseAction {
 			// 登陆完成钩子
 			$tag_arg = array (
 					'uid' => $uid,
-					'email' => $email,
-					'action' => 'login' 
+					'uname' => $this->visitor->info['username'],
+					'action' => 'login',
+					'actionname' => '登录'
 			);
 			tag ( 'login_end', $tag_arg );
 			// 同步登陆
@@ -346,8 +348,9 @@ class userAction extends userbaseAction {
 			// 注册完成钩子 改变积分
 			$tag_arg = array (
 					'uid' => $uid,
-					'email' => $email,
-					'action' => 'register' 
+					'uname' => $username,
+					'action' => 'register',
+					'actionname' => '注册'
 			);
 			tag ( 'register_end', $tag_arg );
 			// 登陆
@@ -355,8 +358,9 @@ class userAction extends userbaseAction {
 			// 登陆完成钩子
 			$tag_arg = array (
 					'uid' => $uid,
-					'email' => $email,
-					'action' => 'login' 
+					'uname' => $username,
+					'action' => 'login',
+					'actionname' => '登录'
 			);
 			tag ( 'login_end', $tag_arg );
 			// 同步登陆
@@ -726,5 +730,33 @@ class userAction extends userbaseAction {
 		}
 		
 
+	}
+	// 用户等级
+	public function role(){
+		$arrRole = $this->role_mod->select();
+		$this->assign('arrRole',$arrRole);
+
+		$this->_config_seo ( array (
+				'title' => '会员等级'
+		) );
+		$this->display();		
+	}
+	// 用户积分
+	public function score(){
+		$id = $this->_get('id','intval');
+		$strUser = $this->user_mod->getOneUser($id);
+
+		$score_log_mod = M('user_score_log');
+		$map['uid'] = $id;
+		$count = $score_log_mod->where($map)->count();
+		$pager = $this->_pager($count, 20);
+		$list = $score_log_mod->where($map)->order('id DESC')->limit($pager->firstRow.','.$pager->listRows)->select();
+		$this->assign('list',$list);
+		$this->assign('pageUrl', $pager->fshow());
+	
+		$this->_config_seo ( array (
+				'title' => $strUser['username'].'的积分'
+		) );
+		$this->display();
 	}
 }

@@ -1,0 +1,9 @@
+<?php if (!defined('THINK_PATH')) exit();?><!-- 应用后台左侧导航 每个APP必须有的文件 不能删除 否则后台找不到管理菜单 -->
+<li class="treemenu_on">
+    <a style="outline:none;" hidefocus="true" href="javascript:void(0)" class="actuator">小组管理</a>
+    <ul class="submenu" style="display: block;">
+    <li><a style="outline:none;" hidefocus="true" class="submenuB" href="<?php echo U('group/admin/setting');?>" target="MainIframe">小组配置</a></li>
+    <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('group/admin/manage');?>" target="MainIframe">批量管理</a></li>
+    <li><a style="outline:none;" hidefocus="true" class="submenuA" href="<?php echo U('group/admin/catelist');?>" target="MainIframe">分类管理</a></li>
+    </ul>
+</li>
