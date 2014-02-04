@@ -501,6 +501,8 @@ class indexAction extends frontendAction {
 			$this->redirect ( 'article/index/show#comment', array (
 					'id' => $strComment['aid'],
 			) );
+		} else {
+			$this->error('别人的评论不能删除哦。'); // 
 		}
 	
 	}	
